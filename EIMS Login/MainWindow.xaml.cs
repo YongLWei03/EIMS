@@ -24,7 +24,7 @@ namespace EIMS_Login
         {
             InitializeComponent();
         }
-
+        //函数功能：鼠标左键按住窗口拖动
         private void DragWindow(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
