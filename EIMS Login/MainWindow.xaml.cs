@@ -60,7 +60,9 @@ namespace EIMS_Login
 
         private void Login(object sender, RoutedEventArgs e)
         {
-            ;
+            this.Hide();
+            EimsWindow win1 = new EimsWindow();
+            win1.Show();
         }
     }
 }

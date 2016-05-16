@@ -23,5 +23,15 @@ namespace EIMS_Login
         {
             InitializeComponent();
         }
+
+        private void DragWindow(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

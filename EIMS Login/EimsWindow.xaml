@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EIMS_Login"
         mc:Ignorable="d"
-        Title="EimsWindow" Height="300" Width="300">
+        Title="EimsWindow" Height="660" Width="1250" WindowStyle="None" MouseLeftButtonDown="DragWindow" ResizeMode="NoResize" MaxHeight="660" MaxWidth="1250" MinHeight="660" MinWidth="1250">
     <Grid>
-        
+        <Window.RenderSize>
+            <!-- 为按钮指定样式触发器 -->
+            <>
+        </Window.RenderSize>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100">
+            </RowDefinition>
+            <RowDefinition Height="Auto">
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition Width="120"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="28"></ColumnDefinition>
+            <ColumnDefinition Width="28"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="Close" Content="×" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Close_Click"/>
+        <Button x:Name="Min" Content="－" Grid.Row="0" Grid.Column="9" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28"/>
     </Grid>
 </Window>
