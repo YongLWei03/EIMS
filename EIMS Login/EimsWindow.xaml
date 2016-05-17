@@ -6,11 +6,21 @@
         xmlns:local="clr-namespace:EIMS_Login"
         mc:Ignorable="d"
         Title="EimsWindow" Height="660" Width="1250" WindowStyle="None" MouseLeftButtonDown="DragWindow" ResizeMode="NoResize" MaxHeight="660" MaxWidth="1250" MinHeight="660" MinWidth="1250">
+    <Window.Resources>
+        <!-- 为按钮指定样式触发器 -->
+        <Style x:Key="shadow">
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="true">
+                    <Setter Property="Control.BitmapEffect">
+                        <Setter.Value>
+                            <DropShadowBitmapEffect Color="Black" Direction="320" ShadowDepth="25" Softness="0.2" Opacity="0.5"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Window.RenderSize>
-            <!-- 为按钮指定样式触发器 -->
-            <>
-        </Window.RenderSize>
         <Grid.RowDefinitions>
             <RowDefinition Height="100">
             </RowDefinition>
@@ -30,7 +40,8 @@
             <ColumnDefinition Width="28"></ColumnDefinition>
             <ColumnDefinition Width="28"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button x:Name="Close" Content="×" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Close_Click"/>
+        <Button x:Name="Close" Style="{StaticResource shadow}" Content="×" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Close_Click"/>
         <Button x:Name="Min" Content="－" Grid.Row="0" Grid.Column="9" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28"/>
+        <Button x:Name="Adduser" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Width="100" Height="100" VerticalAlignment="Top"/>
     </Grid>
 </Window>
