@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EIMS_Login"
         mc:Ignorable="d"
-        Title="EimsWindow" Height="660" Width="1250" WindowStyle="None" MouseLeftButtonDown="DragWindow" ResizeMode="NoResize" MaxHeight="660" MaxWidth="1250" MinHeight="660" MinWidth="1250">
+        Title="EimsWindow" Height="660" Width="1250" WindowStyle="None" MouseLeftButtonDown="DragWindow" ResizeMode="NoResize" MaxHeight="660" MaxWidth="1250" MinHeight="660" MinWidth="1250" Loaded="Window_Loaded">
     <Window.Resources>
         <!-- 为按钮指定样式触发器 -->
         <Style x:Key="shadow">
@@ -20,7 +20,7 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid Name="application">
         <Grid.RowDefinitions>
             <RowDefinition Height="100">
             </RowDefinition>
@@ -42,6 +42,5 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="Close" Style="{StaticResource shadow}" Content="×" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Close_Click"/>
         <Button x:Name="Min" Content="－" Grid.Row="0" Grid.Column="9" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28"/>
-        <Button x:Name="Adduser" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Width="100" Height="100" VerticalAlignment="Top"/>
     </Grid>
 </Window>

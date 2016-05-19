@@ -20,6 +20,8 @@ namespace EIMS_Login
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static int userIdentity = 0;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -60,6 +62,7 @@ namespace EIMS_Login
 
         private void Login(object sender, RoutedEventArgs e)
         {
+            userIdentity = Identity.SelectedIndex;
             this.Hide();
             EimsWindow win1 = new EimsWindow();
             win1.Show();
