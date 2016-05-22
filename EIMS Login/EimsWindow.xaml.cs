@@ -41,9 +41,9 @@ namespace EIMS_Login
         private void MenuLoad()
         {
             int column = 0;
-            switch (MainWindow.userIdentity)
+            switch (MainWindow.user)
             {
-                case 0:
+                case MainWindow.userIdentity.Ordinary_users://普通用户
                     Button Databorrow = new Button();
                     Button EquipmentApplication = new Button();
                     Button MaintenanceApplication = new Button();
@@ -51,14 +51,19 @@ namespace EIMS_Login
                     Button EquipmentInventory = new Button();
                     Databorrow.Width = 100;
                     Databorrow.Height = 100;
+                    Databorrow.Style = Resources["MyButton"] as Style;
                     EquipmentApplication.Width = 100;
                     EquipmentApplication.Height = 100;
+                    EquipmentApplication.Style = Resources["MyButton"] as Style;
                     MaintenanceApplication.Width = 100;
                     MaintenanceApplication.Height = 100;
+                    MaintenanceApplication.Style = Resources["MyButton"] as Style;
                     DataSearch.Width = 100;
                     DataSearch.Height = 100;
+                    DataSearch.Style = Resources["MyButton"] as Style;
                     EquipmentInventory.Width = 100;
                     EquipmentInventory.Height = 100;
+                    EquipmentInventory.Style = Resources["MyButton"] as Style;
                     application.Children.Add(Databorrow);
                     application.Children.Add(EquipmentApplication);
                     application.Children.Add(MaintenanceApplication);
@@ -76,7 +81,7 @@ namespace EIMS_Login
                     EquipmentInventory.SetValue(Grid.RowProperty, 0);
                     column = 5;
                     break;
-                case 1:
+                case MainWindow.userIdentity.Warehouse_manager://仓库管理员
                     Button TransferApplication = new Button();
                     Button AllocationStatus = new Button();
                     Button OutOfStorage = new Button();
@@ -84,14 +89,19 @@ namespace EIMS_Login
                     Button warehouse = new Button();
                     TransferApplication.Width = 100;
                     TransferApplication.Height = 100;
+                    TransferApplication.Style = Resources["MyButton"] as Style;
                     AllocationStatus.Width = 100;
                     AllocationStatus.Height = 100;
+                    AllocationStatus.Style = Resources["MyButton"] as Style;
                     OutOfStorage.Width = 100;
                     OutOfStorage.Height = 100;
+                    OutOfStorage.Style = Resources["MyButton"] as Style;
                     Inventory.Width = 100;
                     Inventory.Height = 100;
+                    Inventory.Style = Resources["MyButton"] as Style;
                     warehouse.Width = 100;
                     warehouse.Height = 100;
+                    warehouse.Style = Resources["MyButton"] as Style;
                     application.Children.Add(TransferApplication);
                     application.Children.Add(AllocationStatus);
                     application.Children.Add(OutOfStorage);
@@ -109,7 +119,7 @@ namespace EIMS_Login
                     warehouse.SetValue(Grid.RowProperty, 0);
                     column = 5;
                     break;
-                case 2:
+                case MainWindow.userIdentity.System_administrator://系统管理员
                     Button AddUser = new Button();
                     Button NetUser = new Button();
                     Button Logging = new Button();
@@ -117,14 +127,19 @@ namespace EIMS_Login
                     Button AllInformationView = new Button();
                     AddUser.Width = 100;
                     AddUser.Height = 100;
+                    AddUser.Style = Resources["MyButton"] as Style;
                     NetUser.Width = 100;
                     NetUser.Height = 100;
+                    NetUser.Style = Resources["MyButton"] as Style;
                     Logging.Width = 100;
                     Logging.Height = 100;
+                    Logging.Style = Resources["MyButton"] as Style;
                     EquipmentInformationAdded.Width = 100;
                     EquipmentInformationAdded.Height = 100;
+                    EquipmentInformationAdded.Style = Resources["MyButton"] as Style;
                     AllInformationView.Width = 100;
                     AllInformationView.Height = 100;
+                    AllInformationView.Style = Resources["MyButton"] as Style;
                     application.Children.Add(AddUser);
                     application.Children.Add(NetUser);
                     application.Children.Add(Logging);
@@ -142,19 +157,23 @@ namespace EIMS_Login
                     AllInformationView.SetValue(Grid.RowProperty, 0);
                     column = 5;
                     break;
-                case 3:
+                case MainWindow.userIdentity.Confidential_clerk://保密员
                     Button LoanApplication = new Button();
                     Button Borrowinfo = new Button();
                     Button NewEquipmentInformationAdded = new Button();
                     Button EquipmentFiling = new Button();
                     LoanApplication.Width = 100;
                     LoanApplication.Height = 100;
+                    LoanApplication.Style = Resources["MyButton"] as Style;
                     Borrowinfo.Width = 100;
                     Borrowinfo.Height = 100;
+                    Borrowinfo.Style = Resources["MyButton"] as Style;
                     NewEquipmentInformationAdded.Width = 100;
                     NewEquipmentInformationAdded.Height = 100;
+                    NewEquipmentInformationAdded.Style = Resources["MyButton"] as Style;
                     EquipmentFiling.Width = 100;
                     EquipmentFiling.Height = 100;
+                    EquipmentFiling.Style = Resources["MyButton"] as Style;
                     application.Children.Add(LoanApplication);
                     application.Children.Add(Borrowinfo);
                     application.Children.Add(NewEquipmentInformationAdded);
@@ -169,13 +188,15 @@ namespace EIMS_Login
                     EquipmentFiling.SetValue(Grid.RowProperty, 0);
                     column = 4;
                     break;
-                case 4:
+                case MainWindow.userIdentity.Maintenance_man://维修员
                     Button ViewMaintenanceApplication = new Button();
                     Button MaintenanceStatus = new Button();
                     ViewMaintenanceApplication.Width = 100;
                     ViewMaintenanceApplication.Height = 100;
+                    ViewMaintenanceApplication.Style = Resources["MyButton"] as Style;
                     MaintenanceStatus.Width = 100;
                     MaintenanceStatus.Height = 100;
+                    MaintenanceStatus.Style = Resources["MyButton"] as Style;
                     application.Children.Add(ViewMaintenanceApplication);
                     application.Children.Add(MaintenanceStatus);
                     ViewMaintenanceApplication.SetValue(Grid.ColumnProperty, 0);
@@ -184,13 +205,15 @@ namespace EIMS_Login
                     MaintenanceStatus.SetValue(Grid.RowProperty, 0);
                     column = 2;
                     break;
-                case 5:
+                case MainWindow.userIdentity.Finance_department://财务员
                     Button BookingAndHistory = new Button();
                     Button FinancialUse = new Button();
                     BookingAndHistory.Width = 100;
                     BookingAndHistory.Height = 100;
+                    BookingAndHistory.Style = Resources["MyButton"] as Style;
                     FinancialUse.Width = 100;
                     FinancialUse.Height = 100;
+                    FinancialUse.Style = Resources["MyButton"] as Style;
                     application.Children.Add(BookingAndHistory);
                     application.Children.Add(FinancialUse);
                     BookingAndHistory.SetValue(Grid.ColumnProperty, 0);
@@ -205,10 +228,13 @@ namespace EIMS_Login
             Button Cancel = new Button();
             PersonalInformation.Width = 100;
             PersonalInformation.Height = 100;
+            PersonalInformation.Style = Resources["MyButton"] as Style;
             Renovate.Width = 100;
             Renovate.Height = 100;
+            Renovate.Style = Resources["MyButton"] as Style;
             Cancel.Width = 100;
             Cancel.Height = 100;
+            Cancel.Style = Resources["MyButton"] as Style;
             application.Children.Add(PersonalInformation);
             application.Children.Add(Renovate);
             application.Children.Add(Cancel);
