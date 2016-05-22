@@ -10,6 +10,7 @@
         <!-- 为按钮指定样式触发器 -->
         <Style TargetType="{x:Type Button}" x:Key="MyButton">
             <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
             <Setter Property="Control.Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -44,8 +45,8 @@
             <ColumnDefinition Width="120"></ColumnDefinition>
             <ColumnDefinition Width="120"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="28"></ColumnDefinition>
-            <ColumnDefinition Width="28"></ColumnDefinition>
+            <ColumnDefinition Width="30"></ColumnDefinition>
+            <ColumnDefinition Width="30"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Button x:Name="Close" Style="{StaticResource MyButton}"  Content="×" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Close_Click"/>
         <Button x:Name="Min" Style="{StaticResource MyButton}" Content="－" Grid.Row="0" Grid.Column="9" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28"/>
