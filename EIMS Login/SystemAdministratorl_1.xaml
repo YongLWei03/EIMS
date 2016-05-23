@@ -7,11 +7,36 @@
              d:DesignHeight="535" d:DesignWidth="1250">
     
     <Grid Margin="0,0,0,0">
-        <Border BorderBrush="Black" BorderThickness="0" Grid.Row="0">
-            <Grid Height="326" HorizontalAlignment="Left" Margin="12,12,0,0" Name="grid1" VerticalAlignment="Top" Width="1226" Background="#FFF2F2F2" />
+        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0">
+            <Grid Height="326" HorizontalAlignment="Left" Margin="12,12,0,0" Name="grid_top" VerticalAlignment="Top" Width="1226" Background="#FFF2F2F2">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="725"></ColumnDefinition>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="401"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <!--<GridSplitter Grid.Row="0" Grid.Column="0" Width="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></GridSplitter>-->
+                <Rectangle Grid.Row="0" Grid.Column="0" Fill="Gray" Width="3"></Rectangle>
+                <!--<Separator Grid.Row="0" Grid.Column="0" Background="Gray" Width="3"></Separator>-->
+                <TextBlock  Name="adduser" Text="添加新用户:"  FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="100" Margin="10,20"></TextBlock>
+                <TextBlock Name="left"  FontSize="15" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="250" Width="100" Margin="10">
+                    <LineBreak/>
+                        <Run>注册账号：</Run>
+                    <LineBreak/>
+                        <Run>注册密码: </Run>
+                    <LineBreak/>
+                        <Run>重复输入： </Run>
+                    <LineBreak/>
+                        <Run>账号所属人姓名： </Run>
+                    <LineBreak/>
+                        <Run>身份证号： </Run>
+                </TextBlock>
+            </Grid>
         </Border>
-        <Border BorderBrush="Black" BorderThickness="0" Grid.Row="1">
-            
+        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="1">
+            <Grid Height="161" HorizontalAlignment="Left" Margin="12,12,0,0" Name="grid_bottom" VerticalAlignment="Top" Width="1226" Background="#FFF2F2F2">
+                
+            </Grid>  
         </Border>
         
         <Grid.Resources>
@@ -27,7 +52,7 @@
         </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height = "350"></RowDefinition>
-            <RowDefinition Height = "161"></RowDefinition>
+            <RowDefinition Height = "185"></RowDefinition>
         </Grid.RowDefinitions>
     </Grid>
 </UserControl>
