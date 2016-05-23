@@ -56,10 +56,120 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="SystemAdministratorl_1.xaml.cs">
-      <DependentUpon>SystemAdministratorl_1.xaml</DependentUpon>
+    <Compile Include="ConfidentialMembers_1.xaml.cs">
+      <DependentUpon>ConfidentialMembers_1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConfidentialMembers_2.xaml.cs">
+      <DependentUpon>ConfidentialMembers_2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfidentialMembers_3.xaml.cs">
+      <DependentUpon>ConfidentialMembers_3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfidentialMembers_4.xaml.cs">
+      <DependentUpon>ConfidentialMembers_4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfidentialMembers_5.xaml.cs">
+      <DependentUpon>ConfidentialMembers_5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialAdministrator_1.xaml.cs">
+      <DependentUpon>FinancialAdministrator_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialAdministrator_2.xaml.cs">
+      <DependentUpon>FinancialAdministrator_2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialAdministrator_3.xaml.cs">
+      <DependentUpon>FinancialAdministrator_3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenanceAdministrator_1.xaml.cs">
+      <DependentUpon>MaintenanceAdministrator_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenanceAdministrator_2.xaml.cs">
+      <DependentUpon>MaintenanceAdministrator_2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenanceAdministrator_3.xaml.cs">
+      <DependentUpon>MaintenanceAdministrator_3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAdministrator_1.xaml.cs">
+      <DependentUpon>SystemAdministrator_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAdministrator_2.xaml.cs">
+      <DependentUpon>SystemAdministrator_2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAdministrator_3.xaml.cs">
+      <DependentUpon>SystemAdministrator_3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAdministrator_4.xaml.cs">
+      <DependentUpon>SystemAdministrator_4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAdministrator_5.xaml.cs">
+      <DependentUpon>SystemAdministrator_5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseManager_1.xaml.cs">
+      <DependentUpon>WarehouseManager_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseManager_2.xaml.cs">
+      <DependentUpon>WarehouseManager_2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseManager_3.xaml.cs">
+      <DependentUpon>WarehouseManager_3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseManager_4.xaml.cs">
+      <DependentUpon>WarehouseManager_4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseManager_5.xaml.cs">
+      <DependentUpon>WarehouseManager_5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseManager_6.xaml.cs">
+      <DependentUpon>WarehouseManager_6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseManager_7.xaml.cs">
+      <DependentUpon>WarehouseManager_7.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ConfidentialMembers_1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfidentialMembers_2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfidentialMembers_3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfidentialMembers_4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfidentialMembers_5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EimsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FinancialAdministrator_1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FinancialAdministrator_2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FinancialAdministrator_3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MaintenanceAdministrator_1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MaintenanceAdministrator_2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MaintenanceAdministrator_3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -78,7 +188,51 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SystemAdministratorl_1.xaml">
+    <Page Include="SystemAdministrator_1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemAdministrator_2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemAdministrator_3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemAdministrator_4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemAdministrator_5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarehouseManager_1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarehouseManager_2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarehouseManager_3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarehouseManager_4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarehouseManager_5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarehouseManager_6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarehouseManager_7.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

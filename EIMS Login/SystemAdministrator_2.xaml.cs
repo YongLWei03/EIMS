@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace EIMS_Login
 {
     /// <summary>
-    /// SystemAdministratorl_1.xaml 的交互逻辑
+    /// SystemAdministrator_2.xaml 的交互逻辑
     /// </summary>
-    public partial class SystemAdministratorl_1 : UserControl
+    public partial class SystemAdministrator_2 : UserControl
     {
-        public SystemAdministratorl_1()
+        public SystemAdministrator_2()
         {
             InitializeComponent();
         }

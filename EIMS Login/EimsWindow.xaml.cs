@@ -118,6 +118,37 @@ namespace EIMS_Login
                     warehouse.SetValue(Grid.ColumnProperty, 4);
                     warehouse.SetValue(Grid.RowProperty, 0);
                     column = 5;
+                    WarehouseManager_1 WarehouseManager_1 = new WarehouseManager_1();
+                    WarehouseManager_2 WarehouseManager_2 = new WarehouseManager_2();
+                    WarehouseManager_3 WarehouseManager_3 = new WarehouseManager_3();
+                    WarehouseManager_4 WarehouseManager_4 = new WarehouseManager_4();
+                    WarehouseManager_5 WarehouseManager_5 = new WarehouseManager_5();
+                    WarehouseManager_6 WarehouseManager_6 = new WarehouseManager_6();
+                    WarehouseManager_7 WarehouseManager_7 = new WarehouseManager_7();
+
+                    application.Children.Add(WarehouseManager_1);
+                    application.Children.Add(WarehouseManager_2);
+                    application.Children.Add(WarehouseManager_3);
+                    application.Children.Add(WarehouseManager_4);
+                    application.Children.Add(WarehouseManager_5);
+                    application.Children.Add(WarehouseManager_6);
+                    application.Children.Add(WarehouseManager_7);
+
+                    WarehouseManager_1.SetValue(Grid.RowProperty, 1);
+                    WarehouseManager_1.SetValue(Grid.ColumnSpanProperty, 11);
+                    WarehouseManager_2.SetValue(Grid.RowProperty, 1);
+                    WarehouseManager_2.SetValue(Grid.ColumnSpanProperty, 11);
+                    WarehouseManager_3.SetValue(Grid.RowProperty, 1);
+                    WarehouseManager_3.SetValue(Grid.ColumnSpanProperty, 11);
+                    WarehouseManager_4.SetValue(Grid.RowProperty, 1);
+                    WarehouseManager_4.SetValue(Grid.ColumnSpanProperty, 11);
+                    WarehouseManager_5.SetValue(Grid.RowProperty, 1);
+                    WarehouseManager_5.SetValue(Grid.ColumnSpanProperty, 11);
+                    WarehouseManager_6.SetValue(Grid.RowProperty, 1);
+                    WarehouseManager_6.SetValue(Grid.ColumnSpanProperty, 11);
+                    WarehouseManager_7.SetValue(Grid.RowProperty, 1);
+                    WarehouseManager_7.SetValue(Grid.ColumnSpanProperty, 11);
+
                     break;
                 case MainWindow.userIdentity.System_administrator://系统管理员
                     Button AddUser = new Button();
@@ -156,10 +187,27 @@ namespace EIMS_Login
                     AllInformationView.SetValue(Grid.ColumnProperty, 4);
                     AllInformationView.SetValue(Grid.RowProperty, 0);
                     column = 5;
-                    SystemAdministratorl_1 SystemAdministratorl_1 = new SystemAdministratorl_1();
-                    application.Children.Add(SystemAdministratorl_1);
-                    SystemAdministratorl_1.SetValue(Grid.RowProperty, 1);
-                    SystemAdministratorl_1.SetValue(Grid.ColumnSpanProperty, 11);
+                    SystemAdministrator_1 SystemAdministrator_1 = new SystemAdministrator_1();
+                    SystemAdministrator_2 SystemAdministrator_2 = new SystemAdministrator_2();
+                    SystemAdministrator_3 SystemAdministrator_3 = new SystemAdministrator_3();
+                    SystemAdministrator_4 SystemAdministrator_4 = new SystemAdministrator_4();
+                    SystemAdministrator_5 SystemAdministrator_5 = new SystemAdministrator_5();
+                   
+                    application.Children.Add(SystemAdministrator_1);
+                    application.Children.Add(SystemAdministrator_2);
+                    application.Children.Add(SystemAdministrator_3);
+                    application.Children.Add(SystemAdministrator_4);
+                    application.Children.Add(SystemAdministrator_5);
+                    SystemAdministrator_1.SetValue(Grid.RowProperty, 1);
+                    SystemAdministrator_1.SetValue(Grid.ColumnSpanProperty, 11);
+                    SystemAdministrator_2.SetValue(Grid.RowProperty, 1);
+                    SystemAdministrator_2.SetValue(Grid.ColumnSpanProperty, 11);
+                    SystemAdministrator_3.SetValue(Grid.RowProperty, 1);
+                    SystemAdministrator_3.SetValue(Grid.ColumnSpanProperty, 11);
+                    SystemAdministrator_4.SetValue(Grid.RowProperty, 1);
+                    SystemAdministrator_4.SetValue(Grid.ColumnSpanProperty, 11);
+                    SystemAdministrator_5.SetValue(Grid.RowProperty, 1);
+                    SystemAdministrator_5.SetValue(Grid.ColumnSpanProperty, 11);
                    
                     break;
                 case MainWindow.userIdentity.Confidential_clerk://保密员
@@ -209,6 +257,21 @@ namespace EIMS_Login
                     MaintenanceStatus.SetValue(Grid.ColumnProperty, 1);
                     MaintenanceStatus.SetValue(Grid.RowProperty, 0);
                     column = 2;
+                    MaintenanceAdministrator_1 MaintenanceAdministrator_1 = new MaintenanceAdministrator_1();
+                    MaintenanceAdministrator_2 MaintenanceAdministrator_2 = new MaintenanceAdministrator_2();
+                    MaintenanceAdministrator_3 MaintenanceAdministrator_3 = new MaintenanceAdministrator_3();
+
+                    application.Children.Add(MaintenanceAdministrator_1);
+                    application.Children.Add(MaintenanceAdministrator_2);
+                    application.Children.Add(MaintenanceAdministrator_3);
+                    MaintenanceAdministrator_1.SetValue(Grid.RowProperty, 1);
+                    MaintenanceAdministrator_1.SetValue(Grid.ColumnSpanProperty, 11);
+                    MaintenanceAdministrator_2.SetValue(Grid.RowProperty, 1);
+                    MaintenanceAdministrator_2.SetValue(Grid.ColumnSpanProperty, 11);
+                    MaintenanceAdministrator_3.SetValue(Grid.RowProperty, 1);
+                    MaintenanceAdministrator_3.SetValue(Grid.ColumnSpanProperty, 11);
+
+                   
                     break;
                 case MainWindow.userIdentity.Finance_department://财务员
                     Button BookingAndHistory = new Button();
