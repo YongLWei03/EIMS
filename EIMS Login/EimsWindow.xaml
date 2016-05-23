@@ -50,5 +50,6 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="Close" Style="{StaticResource MyButton}"  Content="×" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Close_Click"/>
         <Button x:Name="Min" Style="{StaticResource MyButton}" Content="－" Grid.Row="0" Grid.Column="9" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28"/>
+       
     </Grid>
 </Window>

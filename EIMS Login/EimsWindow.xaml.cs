@@ -156,6 +156,11 @@ namespace EIMS_Login
                     AllInformationView.SetValue(Grid.ColumnProperty, 4);
                     AllInformationView.SetValue(Grid.RowProperty, 0);
                     column = 5;
+                    SystemAdministratorl_1 SystemAdministratorl_1 = new SystemAdministratorl_1();
+                    application.Children.Add(SystemAdministratorl_1);
+                    SystemAdministratorl_1.SetValue(Grid.RowProperty, 1);
+                    SystemAdministratorl_1.SetValue(Grid.ColumnSpanProperty, 11);
+                   
                     break;
                 case MainWindow.userIdentity.Confidential_clerk://保密员
                     Button LoanApplication = new Button();
