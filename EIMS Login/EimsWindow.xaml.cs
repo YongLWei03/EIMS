@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EIMS_Login.Ordinary_users;
+using EIMS_Login.Ordinaryusers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -80,6 +82,12 @@ namespace EIMS_Login
                     EquipmentInventory.SetValue(Grid.ColumnProperty, 4);
                     EquipmentInventory.SetValue(Grid.RowProperty, 0);
                     column = 5;
+
+                    Databorrow.Click += new RoutedEventHandler(DataborrowClick);
+                    EquipmentApplication.Click += new RoutedEventHandler(EquipmentApplicationClick);
+                    MaintenanceApplication.Click += new RoutedEventHandler(MaintenanceApplicationClick);
+                    DataSearch.Click += new RoutedEventHandler(DataSearchClick);
+                    EquipmentInventory.Click += new RoutedEventHandler(EquipmentInventoryClick);
                     break;
                 case MainWindow.userIdentity.Warehouse_manager://仓库管理员
                     Button TransferApplication = new Button();
@@ -226,21 +234,7 @@ namespace EIMS_Login
 
                     ViewMaintenanceApplication.Click += new RoutedEventHandler(ViewMaintenanceApplicationClick);
                     MaintenanceStatus.Click += new RoutedEventHandler(MaintenanceStatusClick);
-                    //MaintenanceAdministrator_ViewMaintenanceApplication MaintenanceAdministrator_1 = new MaintenanceAdministrator_ViewMaintenanceApplication();
-                    //MaintenanceAdministrator_MaintenanceStatus MaintenanceAdministrator_2 = new MaintenanceAdministrator_MaintenanceStatus();
-                    //MaintenanceAdministrator_3 MaintenanceAdministrator_3 = new MaintenanceAdministrator_3();
 
-                    //application.Children.Add(MaintenanceAdministrator_1);
-                    //application.Children.Add(MaintenanceAdministrator_2);
-                    //application.Children.Add(MaintenanceAdministrator_3);
-                    //MaintenanceAdministrator_1.SetValue(Grid.RowProperty, 1);
-                    //MaintenanceAdministrator_1.SetValue(Grid.ColumnSpanProperty, 11);
-                    //MaintenanceAdministrator_2.SetValue(Grid.RowProperty, 1);
-                    //MaintenanceAdministrator_2.SetValue(Grid.ColumnSpanProperty, 11);
-                    //MaintenanceAdministrator_3.SetValue(Grid.RowProperty, 1);
-                    //MaintenanceAdministrator_3.SetValue(Grid.ColumnSpanProperty, 11);
-
-                   
                     break;
                 case MainWindow.userIdentity.Finance_department://财务员
                     Button BookingAndHistory = new Button();
@@ -430,6 +424,46 @@ namespace EIMS_Login
             application_children.Children.Add(FinancialAdministrator_FinancialUse);
             FinancialAdministrator_FinancialUse.SetValue(Grid.RowProperty, 1);
             FinancialAdministrator_FinancialUse.SetValue(Grid.ColumnSpanProperty, 12);
+        }
+        private void DataborrowClick(object sender,RoutedEventArgs e)
+        {
+            application_children.Children.Clear();
+            OrdinaryUsers_Databorrow OrdinaryUsers_Databorrow = new OrdinaryUsers_Databorrow();
+            application_children.Children.Add(OrdinaryUsers_Databorrow);
+            OrdinaryUsers_Databorrow.SetValue(Grid.RowProperty, 1);
+            OrdinaryUsers_Databorrow.SetValue(Grid.ColumnSpanProperty, 12);
+        }
+        private void EquipmentApplicationClick(object sender, RoutedEventArgs e)
+        {
+            application_children.Children.Clear();
+            OrdinaryUsers_EquipmentApplication OrdinaryUsers_EquipmentApplication = new OrdinaryUsers_EquipmentApplication();
+            application_children.Children.Add(OrdinaryUsers_EquipmentApplication);
+            OrdinaryUsers_EquipmentApplication.SetValue(Grid.RowProperty, 1);
+            OrdinaryUsers_EquipmentApplication.SetValue(Grid.ColumnSpanProperty, 12);
+        }
+        private void MaintenanceApplicationClick(object sender,RoutedEventArgs e)
+        {
+            application_children.Children.Clear();
+            OrdinaryUsers_MaintenanceApplication OrdinaryUsers_MaintenanceApplication = new OrdinaryUsers_MaintenanceApplication();
+            application_children.Children.Add(OrdinaryUsers_MaintenanceApplication);
+            OrdinaryUsers_MaintenanceApplication.SetValue(Grid.RowProperty, 1);
+            OrdinaryUsers_MaintenanceApplication.SetValue(Grid.ColumnSpanProperty, 12);
+        }
+        private void EquipmentInventoryClick(object sender,RoutedEventArgs e)
+        {
+            application_children.Children.Clear();
+            OrdinaryUsers_EquipmentInventory OrdinaryUsers_EquipmentInventory = new OrdinaryUsers_EquipmentInventory();
+            application_children.Children.Add(OrdinaryUsers_EquipmentInventory);
+            OrdinaryUsers_EquipmentInventory.SetValue(Grid.RowProperty, 1);
+            OrdinaryUsers_EquipmentInventory.SetValue(Grid.ColumnSpanProperty, 12);
+        }
+        private void DataSearchClick(object sender,RoutedEventArgs e)
+        {
+            application_children.Children.Clear();
+            OrdinaryUsers_DataSearch OrdinaryUsers_DataSearch = new OrdinaryUsers_DataSearch();
+            application_children.Children.Add(OrdinaryUsers_DataSearch);
+            OrdinaryUsers_DataSearch.SetValue(Grid.RowProperty, 1);
+            OrdinaryUsers_DataSearch.SetValue(Grid.ColumnSpanProperty, 12);
         }
     }
 }
