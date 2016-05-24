@@ -84,8 +84,20 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Ordinary users\OrdinaryUsers_Databorrow.xaml.cs">
+    <Compile Include="Ordinaryusers\OrdinaryUsers_Databorrow.xaml.cs">
       <DependentUpon>OrdinaryUsers_Databorrow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ordinaryusers\OrdinaryUsers_DataSearch.xaml.cs">
+      <DependentUpon>OrdinaryUsers_DataSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ordinaryusers\OrdinaryUsers_EquipmentApplication.xaml.cs">
+      <DependentUpon>OrdinaryUsers_EquipmentApplication.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ordinaryusers\OrdinaryUsers_EquipmentInventory.xaml.cs">
+      <DependentUpon>OrdinaryUsers_EquipmentInventory.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ordinaryusers\OrdinaryUsers_MaintenanceApplication.xaml.cs">
+      <DependentUpon>OrdinaryUsers_MaintenanceApplication.xaml</DependentUpon>
     </Compile>
     <Compile Include="SystemAdministrator\SystemAdministrator_AddUser.xaml.cs">
       <DependentUpon>SystemAdministrator_AddUser.xaml</DependentUpon>
@@ -164,7 +176,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ordinary users\OrdinaryUsers_Databorrow.xaml">
+    <Page Include="Ordinaryusers\OrdinaryUsers_Databorrow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ordinaryusers\OrdinaryUsers_DataSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ordinaryusers\OrdinaryUsers_EquipmentApplication.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ordinaryusers\OrdinaryUsers_EquipmentInventory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ordinaryusers\OrdinaryUsers_MaintenanceApplication.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
