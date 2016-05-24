@@ -1,13 +1,13 @@
-﻿<Window x:Class="EIMS_Login.MainWindow"
+﻿<Window x:Class="EIMS_Login.MainWindow" Name="login"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EIMS_Login"
         mc:Ignorable="d"
-        Title="装备信息管理系统" Height="530" Width="660" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="DragWindow" MaxHeight="530" MaxWidth="660" MinHeight="530" MinWidth="660" ResizeMode="NoResize" FontFamily="Microsoft YaHei">
+        Title="装备信息管理系统" Height="530" Width="660" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="DragWindow" FontFamily="Microsoft YaHei" ResizeMode="NoResize">
     <Window.Background>
-        <ImageBrush ImageSource="Images/login/BGI.png"/>
+        <ImageBrush ImageSource="Images/login/BGI.png" Stretch="UniformToFill"/>
     </Window.Background>
     <Grid>
         <Button x:Name="CLOSE" Width="28" Height="28" BorderThickness="0" Margin="610,32,22,470" RenderTransformOrigin="0.804,-6.393" Click="CloseWindows">

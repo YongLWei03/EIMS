@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace EIMS_Login
 {
@@ -35,6 +36,14 @@ namespace EIMS_Login
         public MainWindow()
         {
             InitializeComponent();
+            DoubleAnimationUsingKeyFrames dak = new DoubleAnimationUsingKeyFrames();
+            dak.KeyFrames.Add(new LinearDoubleKeyFrame(0, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0))));
+            dak.KeyFrames.Add(new LinearDoubleKeyFrame(660, KeyTime.FromTimeSpan(TimeSpan.FromSeconds(1))));
+            dak.BeginTime = TimeSpan.FromSeconds(0);//从第0秒开始动画
+            dak.RepeatBehavior = new RepeatBehavior(1);//动画1次
+            //开始动画
+            this.login.BeginAnimation(Border.WidthProperty, dak);
+
         }
         //函数功能：鼠标左键按住窗口拖动
         private void DragWindow(object sender, MouseButtonEventArgs e)
