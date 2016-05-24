@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EIMS_Login
+namespace EIMS_Login.Ordinary_users
 {
     /// <summary>
-    /// ConfidentialMembers_5.xaml 的交互逻辑
+    /// OrdinaryUsers_Databorrow.xaml 的交互逻辑
     /// </summary>
-    public partial class ConfidentialMembers_5 : UserControl
+    public partial class OrdinaryUsers_Databorrow : UserControl
     {
-        public ConfidentialMembers_5()
+        public OrdinaryUsers_Databorrow()
         {
             InitializeComponent();
         }
