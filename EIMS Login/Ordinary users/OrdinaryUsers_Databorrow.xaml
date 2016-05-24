@@ -7,6 +7,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="559" d:DesignWidth="1250">
     <Grid>
-            
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="559" Margin="420,0,0,0" VerticalAlignment="Top" Width="2"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="2" Margin="420,274,-1.4,0" VerticalAlignment="Top" Width="830"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="380" Margin="30,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="380"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="160" Margin="30,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="380"/>
+        <Label x:Name="label" Content="资料借阅申请：" HorizontalAlignment="Left" Margin="54,53,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="申请资料编号：" HorizontalAlignment="Left" Margin="54,110,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="label1_Copy" Content="申请资料数量：" HorizontalAlignment="Left" Margin="54,145,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="label1_Copy1" Content="申请原因：" HorizontalAlignment="Left" Margin="72,180,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" VerticalAlignment="Center" Height="25" Margin="171,114,0,420.2" TextWrapping="Wrap" Text="TextBox" Width="209" FontSize="16"/>
+
     </Grid>
 </UserControl>
