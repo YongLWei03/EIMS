@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="535" d:DesignWidth="1250">
     
-    <Grid Margin="0,0,0,0">
+    <Grid>
         <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0">
             <Grid Height="326" HorizontalAlignment="Left" Margin="12,12,0,0" Name="grid_top" VerticalAlignment="Top" Width="1226" Background="#FFF2F2F2">
                 <Grid.ColumnDefinitions >

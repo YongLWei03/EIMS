@@ -291,7 +291,7 @@ namespace EIMS_Login
             SystemAdministrator_AddUser SystemAdministrator_1 = new SystemAdministrator_AddUser();
             application_children.Children.Add(SystemAdministrator_1);
             SystemAdministrator_1.SetValue(Grid.RowProperty, 1);
-            SystemAdministrator_1.SetValue(Grid.ColumnSpanProperty, 11);
+            SystemAdministrator_1.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void NetUserClick(object sender, RoutedEventArgs e)
         {
@@ -299,7 +299,7 @@ namespace EIMS_Login
             SystemAdministrator_NetUser SystemAdministrator_NetUser = new SystemAdministrator_NetUser();
             application_children.Children.Add(SystemAdministrator_NetUser);
             SystemAdministrator_NetUser.SetValue(Grid.RowProperty, 1);
-            SystemAdministrator_NetUser.SetValue(Grid.ColumnSpanProperty, 11);
+            SystemAdministrator_NetUser.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void LoggingClick(object sender, RoutedEventArgs e)
         {
@@ -307,7 +307,7 @@ namespace EIMS_Login
             SystemAdministrator_Logging SystemAdministrator_Logging = new SystemAdministrator_Logging();
             application_children.Children.Add(SystemAdministrator_Logging);
             SystemAdministrator_Logging.SetValue(Grid.RowProperty, 1);
-            SystemAdministrator_Logging.SetValue(Grid.ColumnSpanProperty, 11);
+            SystemAdministrator_Logging.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void EquipmentInformationAddedClick(object sender, RoutedEventArgs e)
         {
@@ -315,7 +315,7 @@ namespace EIMS_Login
             SystemAdministrator_EquipmentInformationAdded SystemAdministrator_EquipmentInformationAdded = new SystemAdministrator_EquipmentInformationAdded();
             application_children.Children.Add(SystemAdministrator_EquipmentInformationAdded);
             SystemAdministrator_EquipmentInformationAdded.SetValue(Grid.RowProperty, 1);
-            SystemAdministrator_EquipmentInformationAdded.SetValue(Grid.ColumnSpanProperty, 11);
+            SystemAdministrator_EquipmentInformationAdded.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void AllInformationViewClick(object sender,RoutedEventArgs e)
         {
@@ -323,7 +323,7 @@ namespace EIMS_Login
             SystemAdministrator_AllInformationView SystemAdministrator_AllInformationView = new SystemAdministrator_AllInformationView();
             application_children.Children.Add(SystemAdministrator_AllInformationView);
             SystemAdministrator_AllInformationView.SetValue(Grid.RowProperty, 1);
-            SystemAdministrator_AllInformationView.SetValue(Grid.ColumnSpanProperty, 11);
+            SystemAdministrator_AllInformationView.SetValue(Grid.ColumnSpanProperty, 12);
         }
 
         private void TransferApplicationClick(object sender,RoutedEventArgs e)
@@ -332,7 +332,7 @@ namespace EIMS_Login
             WarehouseManager_TransferApplication WarehouseManager_TransferApplication = new WarehouseManager_TransferApplication();
             application_children.Children.Add(WarehouseManager_TransferApplication);
             WarehouseManager_TransferApplication.SetValue(Grid.RowProperty, 1);
-            WarehouseManager_TransferApplication.SetValue(Grid.ColumnSpanProperty, 11);
+            WarehouseManager_TransferApplication.SetValue(Grid.ColumnSpanProperty, 12);
         }
 
         private void AllocationStatusClick(object sender,RoutedEventArgs e)
@@ -341,7 +341,7 @@ namespace EIMS_Login
             WarehouseManager_AllocationStatus WarehouseManager_AllocationStatus = new WarehouseManager_AllocationStatus();
             application_children.Children.Add(WarehouseManager_AllocationStatus);
             WarehouseManager_AllocationStatus.SetValue(Grid.RowProperty, 1);
-            WarehouseManager_AllocationStatus.SetValue(Grid.ColumnSpanProperty, 11);
+            WarehouseManager_AllocationStatus.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void OutOfStorageClick(object sender,RoutedEventArgs e)
         {
@@ -349,7 +349,7 @@ namespace EIMS_Login
             WarehouseManager_OutOfStorage WarehouseManager_OutOfStorage = new WarehouseManager_OutOfStorage();
             application_children.Children.Add(WarehouseManager_OutOfStorage);
             WarehouseManager_OutOfStorage.SetValue(Grid.RowProperty, 1);
-            WarehouseManager_OutOfStorage.SetValue(Grid.ColumnSpanProperty, 11);
+            WarehouseManager_OutOfStorage.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void InventoryClick(object sender,RoutedEventArgs e)
         {
@@ -357,7 +357,7 @@ namespace EIMS_Login
             WarehouseManager_Inventory WarehouseManager_Inventory = new WarehouseManager_Inventory();
             application_children.Children.Add(WarehouseManager_Inventory);
             WarehouseManager_Inventory.SetValue(Grid.RowProperty, 1);
-            WarehouseManager_Inventory.SetValue(Grid.ColumnSpanProperty, 11);
+            WarehouseManager_Inventory.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void AddwarehouseClick(object sender,RoutedEventArgs e)
         {
@@ -365,7 +365,7 @@ namespace EIMS_Login
             WarehouseManager_Addwarehouse WarehouseManager_Addwarehouse = new WarehouseManager_Addwarehouse();
             application_children.Children.Add(WarehouseManager_Addwarehouse);
             WarehouseManager_Addwarehouse.SetValue(Grid.RowProperty, 1);
-            WarehouseManager_Addwarehouse.SetValue(Grid.ColumnSpanProperty, 11);
+            WarehouseManager_Addwarehouse.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void LoanApplicationClick(object sender,RoutedEventArgs e)
         {
@@ -373,7 +373,7 @@ namespace EIMS_Login
             ConfidentialMembers_LoanApplication ConfidentialMembers_LoanApplication = new ConfidentialMembers_LoanApplication();
             application_children.Children.Add(ConfidentialMembers_LoanApplication);
             ConfidentialMembers_LoanApplication.SetValue(Grid.RowProperty, 1);
-            ConfidentialMembers_LoanApplication.SetValue(Grid.ColumnSpanProperty, 11);
+            ConfidentialMembers_LoanApplication.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void BorrowinfoClick(object sender,RoutedEventArgs e)
         {
@@ -381,7 +381,7 @@ namespace EIMS_Login
             ConfidentialMembers_Borrowinfo ConfidentialMembers_Borrowinfo = new ConfidentialMembers_Borrowinfo();
             application_children.Children.Add(ConfidentialMembers_Borrowinfo);
             ConfidentialMembers_Borrowinfo.SetValue(Grid.RowProperty, 1);
-            ConfidentialMembers_Borrowinfo.SetValue(Grid.ColumnSpanProperty, 11);
+            ConfidentialMembers_Borrowinfo.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void NewEquipmentInformationAddedClick(object sender,RoutedEventArgs e)
         {
@@ -389,7 +389,7 @@ namespace EIMS_Login
             ConfidentialMembers_NewEquipmentInformationAdded ConfidentialMembers_NewEquipmentInformationAdded = new ConfidentialMembers_NewEquipmentInformationAdded();
             application_children.Children.Add(ConfidentialMembers_NewEquipmentInformationAdded);
             ConfidentialMembers_NewEquipmentInformationAdded.SetValue(Grid.RowProperty, 1);
-            ConfidentialMembers_NewEquipmentInformationAdded.SetValue(Grid.ColumnSpanProperty, 11);
+            ConfidentialMembers_NewEquipmentInformationAdded.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void EquipmentFilingClick(object sender,RoutedEventArgs e)
         {
@@ -397,7 +397,7 @@ namespace EIMS_Login
             ConfidentialMembers_EquipmentFiling ConfidentialMembers_EquipmentFiling = new ConfidentialMembers_EquipmentFiling();
             application_children.Children.Add(ConfidentialMembers_EquipmentFiling);
             ConfidentialMembers_EquipmentFiling.SetValue(Grid.RowProperty, 1);
-            ConfidentialMembers_EquipmentFiling.SetValue(Grid.ColumnSpanProperty, 11);
+            ConfidentialMembers_EquipmentFiling.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void ViewMaintenanceApplicationClick(object sender,RoutedEventArgs e)
         {
@@ -405,7 +405,7 @@ namespace EIMS_Login
             MaintenanceAdministrator_ViewMaintenanceApplication MaintenanceAdministrator_ViewMaintenanceApplication = new MaintenanceAdministrator_ViewMaintenanceApplication();
             application_children.Children.Add(MaintenanceAdministrator_ViewMaintenanceApplication);
             MaintenanceAdministrator_ViewMaintenanceApplication.SetValue(Grid.RowProperty, 1);
-            MaintenanceAdministrator_ViewMaintenanceApplication.SetValue(Grid.ColumnSpanProperty, 11);
+            MaintenanceAdministrator_ViewMaintenanceApplication.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void MaintenanceStatusClick(object sender, RoutedEventArgs e)
         {
@@ -413,7 +413,7 @@ namespace EIMS_Login
             MaintenanceAdministrator_MaintenanceStatus MaintenanceAdministrator_MaintenanceStatusClick = new MaintenanceAdministrator_MaintenanceStatus();
             application_children.Children.Add(MaintenanceAdministrator_MaintenanceStatusClick);
             MaintenanceAdministrator_MaintenanceStatusClick.SetValue(Grid.RowProperty, 1);
-            MaintenanceAdministrator_MaintenanceStatusClick.SetValue(Grid.ColumnSpanProperty, 11);
+            MaintenanceAdministrator_MaintenanceStatusClick.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void BookingAndHistoryClick(object sender,RoutedEventArgs e)
         {
@@ -421,7 +421,7 @@ namespace EIMS_Login
             FinancialAdministrator_BookingAndHistory FinancialAdministrator_BookingAndHistory = new FinancialAdministrator_BookingAndHistory();
             application_children.Children.Add(FinancialAdministrator_BookingAndHistory);
             FinancialAdministrator_BookingAndHistory.SetValue(Grid.RowProperty, 1);
-            FinancialAdministrator_BookingAndHistory.SetValue(Grid.ColumnSpanProperty, 11);
+            FinancialAdministrator_BookingAndHistory.SetValue(Grid.ColumnSpanProperty, 12);
         }
         private void FinancialUseClick(object sender,RoutedEventArgs e)
         {
@@ -429,7 +429,7 @@ namespace EIMS_Login
             FinancialAdministrator_FinancialUse FinancialAdministrator_FinancialUse = new FinancialAdministrator_FinancialUse();
             application_children.Children.Add(FinancialAdministrator_FinancialUse);
             FinancialAdministrator_FinancialUse.SetValue(Grid.RowProperty, 1);
-            FinancialAdministrator_FinancialUse.SetValue(Grid.ColumnSpanProperty, 11);
+            FinancialAdministrator_FinancialUse.SetValue(Grid.ColumnSpanProperty, 12);
         }
     }
 }

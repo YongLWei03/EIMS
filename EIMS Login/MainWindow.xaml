@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EIMS_Login"
         mc:Ignorable="d"
-        Title="装备信息管理系统" Height="530" Width="660" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="DragWindow" FontFamily="Microsoft YaHei" MaxHeight="530" MaxWidth="660" MinHeight="530" MinWidth="660" ResizeMode="NoResize">
+        Title="装备信息管理系统" Height="530" Width="660" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="DragWindow" MaxHeight="530" MaxWidth="660" MinHeight="530" MinWidth="660" ResizeMode="NoResize" FontFamily="Microsoft YaHei">
     <Window.Background>
         <ImageBrush ImageSource="Images/login/BGI.png"/>
     </Window.Background>

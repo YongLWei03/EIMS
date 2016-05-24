@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EIMS_Login"
         mc:Ignorable="d"
-        Title="EimsWindow" Height="660" Width="1250" WindowStyle="None" MouseLeftButtonDown="DragWindow" ResizeMode="NoResize" MaxHeight="660" MaxWidth="1250" MinHeight="660" MinWidth="1250" Loaded="Window_Loaded">
+        Title="EimsWindow" Height="660" Width="1250" BorderThickness="1" BorderBrush="Gray" WindowStyle="None" MouseLeftButtonDown="DragWindow" ResizeMode="NoResize" MaxHeight="660" MaxWidth="1250" MinHeight="660" MinWidth="1250" Loaded="Window_Loaded" FontFamily="Microsoft YaHei">
     <Window.Resources>
         <!-- 为按钮指定样式触发器 -->
         <Style TargetType="{x:Type Button}" x:Key="MyButton">
@@ -14,7 +14,7 @@
             <Setter Property="Control.Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="Chrome" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                        <Border x:Name="Chrome" BorderBrush="Red" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                     </ControlTemplate>
@@ -45,12 +45,18 @@
             <ColumnDefinition Width="120"></ColumnDefinition>
             <ColumnDefinition Width="120"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="70"></ColumnDefinition>
             <ColumnDefinition Width="30"></ColumnDefinition>
             <ColumnDefinition Width="30"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button x:Name="Close" Style="{StaticResource MyButton}"  Content="×" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Close_Click"/>
-        <Button x:Name="Min" Style="{StaticResource MyButton}" Content="－" Grid.Row="0" Grid.Column="9" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28"/>
-        <Grid Grid.Row="1" Grid.ColumnSpan="11" Name="application_children">
+        <Button x:Name="Close" Style="{StaticResource MyButton}"  Content="×" Grid.Row="0" Grid.Column="11" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Close_Click"/>
+        <Button x:Name="Min" Style="{StaticResource MyButton}" Content="－" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28"/>
+        <ComboBox Width="70" Height="28" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top"  Grid.Row="0" Grid.Column="9" Background="White" SelectedIndex="0">
+            <ComboBoxItem Content="蓝天" />
+            <ComboBoxItem Content="魔幻" />
+            <ComboBoxItem Content="未来" />
+        </ComboBox>
+        <Grid Grid.Row="1" Grid.ColumnSpan="12" Name="application_children">
         </Grid>
     </Grid>
 </Window>
