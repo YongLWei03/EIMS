@@ -18,8 +18,8 @@
                 <!--<GridSplitter Grid.Row="0" Grid.Column="0" Width="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ></GridSplitter>-->
                 <Rectangle Grid.Row="0" Grid.Column="0" Fill="Gray" Width="3"></Rectangle>
                 <!--<Separator Grid.Row="0" Grid.Column="0" Background="Gray" Width="3"></Separator>-->
-                <TextBlock  Name="adduser" Text="添加新用户:"  FontSize="20" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="100" Margin="10,20"></TextBlock>
-                <TextBlock  Name="adduser_registerLabel"  FontSize="15" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="250" Width="135" Margin="10" Padding="5,5" LineHeight="35" TextWrapping="Wrap">
+                <TextBlock  Name="adduser" Text="添加新用户:"  FontSize="32" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200" Margin="10,20"></TextBlock>
+                <TextBlock  Name="adduser_registerLabel"  FontSize="16" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="auto" Width="135" Margin="10,36" Padding="5,5" LineHeight="36" TextWrapping="Wrap">
                     <LineBreak/>
                         <Run>注册账号：</Run>
                     <LineBreak/>
@@ -31,20 +31,20 @@
                     <LineBreak/>
                         <Run>身份证号： </Run>
                 </TextBlock>
-                <TextBlock Name="adduser_registerText" Grid.Row="0" Grid.Column="1" HorizontalAlignment="left" VerticalAlignment="Bottom" Height="220" Width="200" Margin="100,10" Padding="5,12" LineHeight="35" TextWrapping="Wrap"> 
-                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="15" Width="180"></TextBox>
-                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="15" Width="180"></TextBox>
-                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="15" Width="180"></TextBox>
-                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="15" Width="180"></TextBox>
-                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="15" Width="180"></TextBox>
+                <TextBlock Name="adduser_registerText" Grid.Row="0" Grid.Column="1" HorizontalAlignment="left" VerticalAlignment="Bottom" Height="auto" Width="200" Margin="100,36" Padding="5,12" LineHeight="35" TextWrapping="Wrap"> 
+                    <TextBox x:Name="register_account" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                    <TextBox x:Name="register_pwd" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                    <TextBox x:Name="register_repwd" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                    <TextBox x:Name="register_AffiliationPeople" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                    <TextBox x:Name="register_IdNumber" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
                 </TextBlock>
-                <TextBlock Name="adduser_registerTip" Grid.Row="0" Grid.Column="1" HorizontalAlignment="left" VerticalAlignment="Bottom" Height="250" Width="100" Margin="300,10" Padding="5,5" LineHeight="35">
+                <TextBlock Name="adduser_registerTip" Grid.Row="0" Grid.Column="1" HorizontalAlignment="left" VerticalAlignment="Bottom" Height="230" Width="100" Margin="300,36" Padding="5,5" LineHeight="40">
                      <LineBreak/>
                         <Run>6~15位账号</Run>
                     <LineBreak/>
                         <Run>6~10位密码 </Run>
                 </TextBlock>
-                <TextBlock Name="addgroup_registerLabel" FontSize="15" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="250" Width="150" Margin="150,10" Padding="5,5" LineHeight="35">
+                <TextBlock Name="addgroup_registerLabel" FontSize="16" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="150" Margin="150,36" Padding="5,5" LineHeight="35">
                     <LineBreak/>
                         <Run>所属用户组：</Run>
                     <LineBreak/>
@@ -56,46 +56,54 @@
                     <LineBreak/>
                         <Run></Run>
                 </TextBlock>
-                <TextBlock Name="addgroup_registerText" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="220" Width="150" Padding="5,12" Margin="25,10" TextWrapping="Wrap" LineHeight="35" >
-                    <ComboBox  Text="普通用户" HorizontalAlignment="Stretch" VerticalAlignment="Top"  SelectedIndex="0" Height="20" Width="100">
-                        <ComboBoxItem Content="普通用户" Height="20"></ComboBoxItem>
-                        <ComboBoxItem Content="系统管理员" Height="20"></ComboBoxItem>
-                        <ComboBoxItem Content="维修管理员" Height="20"></ComboBoxItem>
-                        <ComboBoxItem Content="仓库管理员" Height="20"></ComboBoxItem>
-                        <ComboBoxItem Content="财务部管理员" Height="20"></ComboBoxItem>
+                <TextBlock Name="addgroup_registerText" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="150" Padding="5,12" Margin="25,36" TextWrapping="Wrap" LineHeight="35" >
+                    <ComboBox x:Name="addgroup_registerText_cb" Text="普通用户" HorizontalAlignment="Stretch" VerticalAlignment="Top"  SelectedIndex="0" Height="25" Width="125" FontSize="16" VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="普通用户" Height="25"></ComboBoxItem>
+                        <ComboBoxItem Content="系统管理员" Height="25"></ComboBoxItem>
+                        <ComboBoxItem Content="维修管理员" Height="25"></ComboBoxItem>
+                        <ComboBoxItem Content="仓库管理员" Height="25"></ComboBoxItem>
+                        <ComboBoxItem Content="财务部管理员" Height="25"></ComboBoxItem>
                     </ComboBox>
-                    <TextBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="15" Width="125"></TextBox>
-                    <ComboBox  Text="男" HorizontalAlignment="Stretch" VerticalAlignment="Top"  SelectedIndex="0" Height="20" Width="100" >
-                        <ComboBoxItem Content="男" Height="20"></ComboBoxItem>
-                        <ComboBoxItem Content="女" Height="20"></ComboBoxItem>
+                    <TextBox x:Name="addgroup_registerText_rennum" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="125" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                    <ComboBox x:Name="addgroup_registerText_sex" Text="男" HorizontalAlignment="Stretch" VerticalAlignment="Top"  SelectedIndex="0" Height="25" Width="125" FontSize="16" VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="男" Height="25"></ComboBoxItem>
+                        <ComboBoxItem Content="女" Height="25"></ComboBoxItem>
                     </ComboBox>
-                    <TextBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="15" Width="125"></TextBox>
-                    <Button x:Name="submit" Content="提交" FontSize="13"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="45,0,0,0"></Button>
+                    <TextBox x:Name="addgroup_registerText_departnum" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="125" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                    <Button x:Name="submit_left" Content="提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="45,0,0,0"></Button>
                 </TextBlock>
                 <Rectangle Grid.Row="0" Grid.Column="2" Fill="Gray" Width="3"></Rectangle>
-                <TextBlock Name="AddDepartment" Text="添加新部门：" FontSize="20" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="100" Margin="10,20"></TextBlock>
-                <TextBlock  Name="AddDepartment_registorLabel"  FontSize="15" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="250" Width="135" Margin="10" Padding="5,5" LineHeight="35" TextWrapping="Wrap">
+                <TextBlock Name="AddDepartment" Text="添加新部门：" FontSize="32" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200" Margin="10,20"></TextBlock>
+                <TextBlock  Name="AddDepartment_registorLabel"  FontSize="16" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="250" Width="135" Margin="10,35" Padding="5,5" LineHeight="36" TextWrapping="Wrap">
                     <LineBreak/>
                         <Run>新部门编号：</Run>
                     <LineBreak/>
                         <Run>新部门名称： </Run>
                     <LineBreak/>
                         <Run>部门描述： </Run>
-                    <LineBreak/>
-                        <Run>上级部门编号： </Run>
-                    
                 </TextBlock>
-                <TextBlock Name="AddDepartment_registorText" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="220" Width="240" Padding="5,12" Margin="120,10" TextWrapping="Wrap" LineHeight="35">
-                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="15" Width="150"></TextBox>
-                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="15" Width="150"></TextBox>
-                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="15" Width="150"></TextBox>
-                    
+                <Label Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="35" Width="110" Margin="15,85" FontSize="16" Padding="0,5">上级部门编号:</Label>
+                <TextBlock Name="AddDepartment_registorText" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="220" Width="260" Padding="5,12" Margin="20,35" TextWrapping="Wrap" LineHeight="35">
+                    <TextBox x:Name="AddDepartment_registorText_newdepartnum" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="200" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                    <TextBox x:Name="AddDepartment_registorText_newdepartid" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="200" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                    <TextBox x:Name="AddDepartment_registorText_newdepartdesc" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="45" Width="200" FontSize="16" VerticalContentAlignment="Center" TextWrapping="Wrap"></TextBox>
+                    <ComboBox x:Name="AddDepartment_registorText_parentdepartnum" Text="2100154" HorizontalAlignment="Stretch" SelectedIndex="0" Height="25" Width="200" FontSize="16" VerticalContentAlignment="Center" Margin="0,10">
+                        <ComboBoxItem Content="2100154" Height="25"></ComboBoxItem>
+                        <ComboBoxItem Content="2100155" Height="25"></ComboBoxItem>
+                        <ComboBoxItem Content="2100156" Height="25"></ComboBoxItem>
+                    </ComboBox>
+                    <Button x:Name="submit_right" Content="提交" FontSize="16" HorizontalAlignment="Left" Height="25" Width="80" Margin="120,0"></Button>
                 </TextBlock>
             </Grid>
         </Border>
         <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="1">
             <Grid Height="161" HorizontalAlignment="Left" Margin="12,12,0,0" Name="grid_bottom" VerticalAlignment="Top" Width="1226" Background="#FFF2F2F2">
-                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Name="passwordreset" Text="普通用户密码复位:"  FontSize="32" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="270" Margin="10,10"></TextBlock>
             </Grid>  
         </Border>
         
