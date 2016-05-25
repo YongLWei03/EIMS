@@ -4,8 +4,72 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="535" d:DesignWidth="1250">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="250"></RowDefinition>
+            <RowDefinition Height="240"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="1" Grid.Column="5"></Border>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="240"></ColumnDefinition>
+                <ColumnDefinition Width="350"></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ComboBox x:Name="AddEquipment" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="200" FontSize="16" VerticalContentAlignment="Center" Margin="15,5" SelectedIndex="0">
+                <ComboBoxItem Content="增加新的装备信息" Height="25"></ComboBoxItem>
+                <ComboBoxItem Content="可修改搜索" Height="25"></ComboBoxItem>
+                <ComboBoxItem Content="不可修改搜索" Height="25"></ComboBoxItem>
+            </ComboBox>
+            <TextBox x:Name="SearchText" Grid.Row="0" Grid.Column="1" Width="320"  Height="25"  Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="Gray"></TextBox>
+            <Button  x:Name="Search_button" Grid.Row="0" Grid.Column="2"  Content="搜索" FontSize="16" Width="100" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center"></Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="380"></ColumnDefinition>
+                <ColumnDefinition Width="460"></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition Width="280"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock  FontSize="16" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="250" Width="100" Margin="10,0,0,0" Padding="5,0" LineHeight="36" TextWrapping="Wrap">
+                <LineBreak/>
+                <Run>装备编号：</Run>      
+                <LineBreak/>
+                <Run>装备名称：</Run>        
+                <LineBreak/>
+                <Run>规格型号：</Run>
+                <LineBreak/>
+                <Run>装备类别：</Run>
+                <LineBreak/>
+                <Run>计量单位：</Run>
+            </TextBlock>
+            <TextBlock FontSize="16" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="350" Margin="0,35" Padding="5,0" LineHeight="36" TextWrapping="Wrap">
+                <TextBox x:Name="EquipmentNumText" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="340" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                <TextBox x:Name="EquipmentIdText" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="340" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                <TextBox x:Name="SpecificationsModelText" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="340" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                <TextBox x:Name="Equipment_categoryText" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="340" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                <TextBox x:Name="MeasurementUnitText" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="340" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+            </TextBlock>
+            <Label Grid.Row="0" Grid.Column="2" FontSize="16" Width="90" Height="30" Margin="10,30" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0">参考图片：</Label>
+            <Button x:Name="Select_image" Grid.Column="2" Content="选择本地图片" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Top" Height="25" Width="129" Margin="26,35"></Button>
+            <Button x:Name="Submit_image" Grid.Column="2" Content="提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="45,45"></Button>
+            <Rectangle Grid.Column="3" HorizontalAlignment="Center" Fill="Gray" Height="250" Width="3"></Rectangle>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="950"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="已有装备信息表:"  FontSize="32" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="250" Margin="10,10"></TextBlock>
+            <Button x:Name="EquipmentExport_button" Grid.Row="0" Grid.Column="1" Content="导出为Excel表格" FontSize="16" Width="140" Height="25"  Margin="20,10" HorizontalAlignment="Right" VerticalAlignment="Bottom"></Button>
+        </Grid>
+
     </Grid>
 </UserControl>
