@@ -4,8 +4,37 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="559" d:DesignWidth="1250" BorderBrush="Black" BorderThickness="1">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="373*"/>
+            <RowDefinition Height="184*"/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="65" Stroke="Black" VerticalAlignment="Top" Width="360" Margin="-1,-1,0,0"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="450" Margin="-1,63,0,0" Stroke="Black" VerticalAlignment="Top" Width="360" Grid.RowSpan="2"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="559" Margin="358,-1,-1,-1.2" Stroke="Black" VerticalAlignment="Top" Width="891" Grid.RowSpan="2"/>
+        <Label x:Name="label1_Copy7" Content="装备编号：" HorizontalAlignment="Left" Margin="1,25,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Button x:Name="SearchButton" Content="搜索" HorizontalAlignment="Left" Margin="298,29,0,0" VerticalAlignment="Top" Width="55" FontSize="16"/>
+        <Label x:Name="label1_Copy8" Content="装备编号：" HorizontalAlignment="Left" Margin="1,90,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="EquipmentID" HorizontalAlignment="Left" Height="25" Margin="84,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16" AllowDrop="True" IsEnabled="False"/>
+        <Label x:Name="label1_Copy9" Content="装备名称：" HorizontalAlignment="Left" Margin="1,126,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="EquipmentName" HorizontalAlignment="Left" Height="25" Margin="84,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16" AllowDrop="True" IsEnabled="False"/>
+        <Label x:Name="label1_Copy10" Content="规格型号：" HorizontalAlignment="Left" Margin="1,162,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="StandardType" HorizontalAlignment="Left" Height="25" Margin="84,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16" AllowDrop="True" IsEnabled="False"/>
+        <Label x:Name="label1_Copy11" Content="装备类别：" HorizontalAlignment="Left" Margin="1,199,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="EquipmentType" HorizontalAlignment="Left" Height="25" Margin="84,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16" AllowDrop="True" IsEnabled="False"/>
+        <Label x:Name="label1_Copy12" Content="价格：" HorizontalAlignment="Left" Margin="15,235,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="EquipmentPrice" HorizontalAlignment="Left" Height="25" Margin="84,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16" AllowDrop="True" IsEnabled="False"/>
+        <Label x:Name="label1_Copy13" Content="生产日期：" HorizontalAlignment="Left" Margin="1,272,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="ProductionDate" HorizontalAlignment="Left" Height="25" Margin="84,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16" AllowDrop="True" IsEnabled="False"/>
+        <Label x:Name="label1_Copy14" Content="备注：" HorizontalAlignment="Left" Margin="15,344,0,0" VerticalAlignment="Top" FontSize="16" Grid.RowSpan="2"/>
+        <TextBox x:Name="EquipmentRemark" HorizontalAlignment="Left" Height="140" Margin="83,348,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16" AllowDrop="True" IsEnabled="False" Grid.RowSpan="2"/>
+        <Label x:Name="label_Copy" Content="库存装备信息列表：" HorizontalAlignment="Left" Margin="380,16,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
+        <Label x:Name="label2_Copy" Content="库存装备总计：" HorizontalAlignment="Left" Margin="1068,27,0,0" VerticalAlignment="Top" FontSize="16" Height="30"/>
+        <Label x:Name="EquipmentTotal" Content="5" HorizontalAlignment="Left" Height="28" Margin="1180,28,0,0" VerticalAlignment="Top" Width="51" FontSize="16"/>
+        <Label x:Name="label1_Copy15" Content="库存数量：" HorizontalAlignment="Left" Margin="1,309,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="InventoryCount" HorizontalAlignment="Left" Height="25" Margin="84,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16" AllowDrop="True" IsEnabled="False"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="25" Margin="84,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" FontSize="16"/>
+
     </Grid>
 </UserControl>

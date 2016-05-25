@@ -4,8 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="559" d:DesignWidth="1250" BorderBrush="Black" BorderThickness="1">
     <Grid>
-            
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="559" Margin="420,0,0,0" VerticalAlignment="Top" Width="2"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="380" Margin="30,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="380"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="160" Margin="30,388,0,0" Stroke="Black" VerticalAlignment="Top" Width="380"/>
+        <Label x:Name="label" Content="维修申请：" HorizontalAlignment="Left" Margin="54,53,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="申请装备编号：" HorizontalAlignment="Left" Margin="54,110,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="label1_Copy" Content="申请维修数量：" HorizontalAlignment="Left" Margin="54,145,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="label1_Copy1" Content="申请原因：" HorizontalAlignment="Left" Margin="72,180,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox x:Name="ApplicationEquipmentNumber" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Height="25" Margin="171,114,0,420.2"  Width="209" FontSize="16"/>
+        <TextBox x:Name="ApplicationMaintenanceCount" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Center" Height="25" Margin="171,148,0,386.2" Width="209" FontSize="16"/>
+        <TextBox x:Name="ApplicationReasons" HorizontalAlignment="Left" Height="140" Margin="171,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209" FontSize="16" />
+        <Button x:Name="ApplicationSubmit" Content="提交" HorizontalAlignment="Left" Height="25" Margin="321,340,0,0" VerticalAlignment="Top" Width="60" FontSize="16"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="274" Margin="433,-1,0,0" Stroke="Black" VerticalAlignment="Top" Width="816"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="287" Margin="433,271,0,0" Stroke="Black" VerticalAlignment="Top" Width="816"/>
+        <Label x:Name="label_Copy" Content="申请历史：" HorizontalAlignment="Left" Margin="440,10,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
+        <Label x:Name="label1_Copy2" Content="申请历史总计：" HorizontalAlignment="Left" Margin="899,20,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="ApplicationHistoryCount" Content="2" HorizontalAlignment="Left" Margin="1012,21,0,0" VerticalAlignment="Top" FontSize="16" Width="43"/>
+        <Button x:Name="ExportTable_AH" Content="导出为excel表格" HorizontalAlignment="Left" Height="25" Margin="1069,23,0,0" VerticalAlignment="Top" Width="159" FontSize="16" RenderTransformOrigin="5.15,-3.768"/>
+        <Label x:Name="label_Copy1" Content="维修历史：" HorizontalAlignment="Left" Margin="440,285,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
+        <Label x:Name="label1_Copy3" Content="借阅历史总计：" HorizontalAlignment="Left" Margin="899,295,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="MaintenanceHistoryCount" Content="2" HorizontalAlignment="Left" Margin="1012,296,0,0" VerticalAlignment="Top" FontSize="16" Width="43"/>
+        <Button x:Name="ExportTable_MH" Content="导出为excel表格" HorizontalAlignment="Left" Height="25" Margin="1069,298,0,0" VerticalAlignment="Top" Width="159" FontSize="16" RenderTransformOrigin="5.15,-3.768"/>
+
     </Grid>
 </UserControl>
