@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EIMS_Login.Ordinary_users"
-             xmlns:EIMS_Login="clr-namespace:EIMS_Login" x:Class="EIMS_Login.Ordinary_users.OrdinaryUsers_Databorrow"
+             xmlns:EIMS_Login="clr-namespace:EIMS_Login" xmlns:UserDefinedDataGrid="clr-namespace:EIMS_Login.UserDefinedDataGrid" x:Class="EIMS_Login.Ordinary_users.OrdinaryUsers_Databorrow"
              mc:Ignorable="d" 
              d:DesignHeight="559" d:DesignWidth="1250" BorderBrush="Black" BorderThickness="1">
     <Grid>
@@ -29,6 +29,24 @@
         <Label x:Name="label1_Copy3" Content="借阅历史总计：" HorizontalAlignment="Left" Margin="899,295,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label x:Name="BorrowHistoryCount" Content="2" HorizontalAlignment="Left" Margin="1012,296,0,0" VerticalAlignment="Top" FontSize="16" Width="43"/>
         <Button x:Name="ExportTable_BH" Content="导出为excel表格" HorizontalAlignment="Left" Height="25" Margin="1069,298,0,0" VerticalAlignment="Top" Width="159" FontSize="16" RenderTransformOrigin="5.15,-3.768"/>
-
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="205" Margin="462,61,0,0" VerticalAlignment="Top" Width="766" AutoGenerateColumns="False" LoadingRow="dataGrid_LoadingRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="名字" Width="80" Binding="{Binding iName}" />
+                <DataGridTextColumn Header="ID" Width="80" Binding="{Binding ID}"/>
+                <DataGridTextColumn Header="性别" Width="80"  Binding="{Binding Sex}" />
+                <DataGridTextColumn Header="班级" Width="80" Binding="{Binding ClassID}"/>
+            </DataGrid.Columns>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Pink"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+        </DataGrid>
+        <UserDefinedDataGrid:UserDefinedDataGrid x:Name="TableToApp_" HorizontalAlignment="Left" Margin="567,228,0,0" VerticalAlignment="Top">
+        </UserDefinedDataGrid:UserDefinedDataGrid>
     </Grid>
 </UserControl>
