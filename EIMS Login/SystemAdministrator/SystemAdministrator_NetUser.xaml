@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="535" d:DesignWidth="1250">
-    <Grid Margin="0,0,0,0">
+    <Grid Margin="0,0,0,0" Background="#FFF2F2F2">
         <Grid.RowDefinitions>
             <RowDefinition Height="71"></RowDefinition>
             <RowDefinition Height="330"></RowDefinition>
@@ -19,36 +19,115 @@
                     <ColumnDefinition Width="120"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Row="0" Grid.Column="0" Text="用户搜索：" FontSize="16" Width="100" Height="19" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0"></TextBox>
+                <Label Grid.Row="0" Grid.Column="0" FontSize="16" Width="100" Height="30" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Center" BorderThickness="0">用户搜索：</Label>
                 <TextBox Grid.Row="0" Grid.Column="1" Width="280"  Height="25" HorizontalAlignment="Center" VerticalAlignment="Center"  BorderThickness="1" BorderBrush="Gray"></TextBox>
                 <Button  Grid.Row="0" Grid.Column="2" x:Name="Search_button" Content="搜索" FontSize="16" Width="100" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center"></Button>
-                <Button  Grid.Row="0" Grid.Column="3" x:Name="Eccel_button" Content="导出为Excel文档" FontSize="16" Width="140" Height="25"  Margin="20" HorizontalAlignment="Right" VerticalAlignment="Center"></Button>
+                <Button  Grid.Row="0" Grid.Column="3" x:Name="Excel_button" Content="导出为Excel文档" FontSize="16" Width="140" Height="25"  Margin="20" HorizontalAlignment="Right" VerticalAlignment="Center"></Button>
             </Grid>
         </Border>
         <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="1"></Border>
         <Rectangle Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="10,0,0,0" Fill="Gray" Width="3"></Rectangle>
-        <Grid Grid.Row ="1" Height="130" Width="840" VerticalAlignment="Top" HorizontalAlignment="Left">
+        <Grid Grid.Row ="1" Height="130" Width="1020" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="280"></ColumnDefinition>
-                <ColumnDefinition Width="280"></ColumnDefinition>
-                <ColumnDefinition Width="280"></ColumnDefinition>
+                <ColumnDefinition Width="340"></ColumnDefinition>
+                <ColumnDefinition Width="340"></ColumnDefinition>
+                <ColumnDefinition Width="340"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBlock  FontSize="16" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="100" Width="135" Margin="10,0,0,0" Padding="5,5" LineHeight="36" TextWrapping="Wrap">
+            <TextBlock  FontSize="16" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="auto" Width="auto" Margin="20,0,0,0" Padding="5,0" LineHeight="36" TextWrapping="Wrap">
                 <LineBreak/>
                 <Run>账号：</Run>      
                 <LineBreak/>
                 <Run>职务：</Run>        
                 <LineBreak/>
-                 <Run>生日：</Run>       
+                <Run>生日：</Run>
+            </TextBlock>
+            <TextBlock FontSize="16" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="110" Width="250" Margin="0,0" Padding="5,0" LineHeight="36" TextWrapping="Wrap">
+                <TextBox x:Name="account" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="240" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                <TextBox x:Name="post" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="240" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                <TextBox x:Name="birthday" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="240" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+            </TextBlock>
+            <TextBlock  FontSize="16" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="auto" Width="auto" Margin="20,0,0,0" Padding="5,0" LineHeight="36" TextWrapping="Wrap">
+                <LineBreak/>
+                <Run>姓名：</Run>      
+                <LineBreak/>
+                <Run>编号：</Run>        
+                <LineBreak/>
+                <Run>军衔：</Run>
+            </TextBlock>
+            <TextBlock FontSize="16" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="110" Width="250" Margin="0,0" Padding="5,0" LineHeight="36" TextWrapping="Wrap">
+                <TextBox x:Name="name" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="240" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                <TextBox x:Name="number" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="240" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                <TextBox x:Name="rank" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="240" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+            </TextBlock>
+            <TextBlock  FontSize="16" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="auto" Width="auto" Margin="20,0,0,0" Padding="5,0" LineHeight="36" TextWrapping="Wrap">
+                <LineBreak/>
+                <Run>性别：</Run>      
+                <LineBreak/>
+                <Run>民族：</Run>        
+                <LineBreak/>
+                <Run>婚姻状况：</Run>
+            </TextBlock>
+            <TextBlock FontSize="16" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="110" Width="200" Margin="20,0" Padding="5,0" LineHeight="36" TextWrapping="Wrap">
+                <ComboBox x:Name="sex" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="50" FontSize="16" VerticalContentAlignment="Center" SelectedIndex="0">
+                     <ComboBoxItem Content="男" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50"></ComboBoxItem>
+                     <ComboBoxItem Content="女" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50"></ComboBoxItem>
+                </ComboBox>
+                <TextBox x:Name="nation" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="140" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                <ComboBox x:Name="maritalstatus" Text="已婚" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="60" FontSize="16" SelectedIndex="0">
+                    <ComboBoxItem Content="已婚" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Width="60"></ComboBoxItem>
+                    <ComboBoxItem Content="未婚" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Width="60"></ComboBoxItem>
+                </ComboBox>
             </TextBlock>
         </Grid>
-        <Grid Grid.Row="1" Height="200" Width="840" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+        <Grid Grid.Row="1" Height="200" Width="1020" VerticalAlignment="Bottom" HorizontalAlignment="Left">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
+            <TextBlock  FontSize="16" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="auto" Width="auto" Margin="20,22" Padding="5,0" LineHeight="36" TextWrapping="Wrap">
+                <LineBreak/>
+                <Run>文化程度：</Run>      
+                <LineBreak/>
+                <Run>籍贯：</Run>        
+                <LineBreak/>
+                <Run>身份证号：</Run>
+                <LineBreak/>
+                <Run>工作岗位：</Run>
+            </TextBlock>
+            <TextBlock FontSize="16" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="150" Width="400" Margin="0,20" Padding="5,5" LineHeight="36" TextWrapping="Wrap">
+                <TextBox x:Name="Education_level" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="380" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                <TextBox x:Name="Birthplace" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="380" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                <TextBox x:Name="id" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="380" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                <TextBox x:Name="jobs" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="380" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+            </TextBlock>
+            <TextBlock  FontSize="16" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="auto" Width="auto" Margin="20,22" Padding="5,0" LineHeight="36" TextWrapping="Wrap">
+                <LineBreak/>
+                <Run>权限：</Run>      
+                <LineBreak/>
+                <Run>政治面貌：</Run>        
+                <LineBreak/>
+                <Run>所在部门编号：</Run>
+                <LineBreak/>
+                <Run>所属领导编号：</Run>
+            </TextBlock>
+            <TextBlock FontSize="16" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="150" Width="300" Margin="70,20" Padding="5,5" LineHeight="36" TextWrapping="Wrap">
+                <ComboBox x:Name="Competence" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="140" FontSize="16" VerticalContentAlignment="Center"  SelectedIndex="0">
+                     <ComboBoxItem Content="普通用户" Height="25"></ComboBoxItem>
+                     <ComboBoxItem Content="维修管理员" Height="25"></ComboBoxItem>
+                     <ComboBoxItem Content="仓库管理员" Height="25"></ComboBoxItem>
+                     <ComboBoxItem Content="财务部管理员" Height="25"></ComboBoxItem>
+                </ComboBox>
+                <TextBox x:Name="Politicalstatus" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="275" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                <ComboBox x:Name="DepartmentNum" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="275" FontSize="16" VerticalContentAlignment="Center"  SelectedIndex="0">
+                     <ComboBoxItem Content="2100154" Height="25"></ComboBoxItem>
+                     <ComboBoxItem Content="2100155" Height="25"></ComboBoxItem>
+                     <ComboBoxItem Content="2100156" Height="25"></ComboBoxItem>
+                </ComboBox>
+                <TextBox x:Name="LeadershipNum" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="275" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+            </TextBlock>
         </Grid>
-
-
+        <Button x:Name="Clear_photo" Grid.Row="1" Content="清除照片" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="100" Margin="0,0,96,62"></Button>
+        <Button x:Name="Submit" Grid.Row="1" Content="提交修改" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="86" Margin="0,0,146,22"></Button>
+        <Button x:Name="DeletAccout" Grid.Row="1" Content="删除该账号" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="100" Margin="0,0,26,22"></Button>
     </Grid>
 </UserControl>
