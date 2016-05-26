@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace EIMS_Login
 {
@@ -21,6 +23,7 @@ namespace EIMS_Login
     /// </summary>
     public partial class MainWindow : Window
     {
+        Connection Temp = new Connection();
         //    public static int userIdentity = 0;
         public static userIdentity user;
         public enum userIdentity
@@ -81,6 +84,11 @@ namespace EIMS_Login
 
         private void Login(object sender, RoutedEventArgs e)
         {
+            if (Temp.SqlConn()==1)
+            {
+                MessageBox.Show("服务器连接失败！");
+                return;
+            }
             user = (userIdentity)Identity.SelectedIndex;
             this.Hide();
             EimsWindow win1 = new EimsWindow();

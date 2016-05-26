@@ -6,15 +6,24 @@
              xmlns:local="clr-namespace:EIMS_Login.UserDefinedDataGrid"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="400">
+    <UserControl.Resources>
+        <Style x:Key="MyDataGrid" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="400">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="1" Width="80" Binding="{Binding 1}"/>
-                <DataGridTextColumn Header="2" Width="80" Binding="{Binding 2}"/>
-                <DataGridComboBoxColumn Width="80" Header="3" SelectedItemBinding="{Binding 3}" />
-                <DataGridCheckBoxColumn Header="4" Width="80" Binding="{Binding 4}"/>
-                <DataGridHyperlinkColumn Header="5" Width="80" Binding="{Binding 5}"/>
-            </DataGrid.Columns>
+        <DataGrid x:Name="dataGrid" Height="300" VerticalAlignment="Center" Width="400" LoadingRow="dataGrid_LoadingRow">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Pink"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
         </DataGrid>
 
     </Grid>
