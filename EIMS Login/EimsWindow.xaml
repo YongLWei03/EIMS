@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EIMS_Login"
         mc:Ignorable="d"
-        Title="EimsWindow" Height="660" Width="1250" BorderThickness="1" BorderBrush="Black" WindowStyle="None" MouseLeftButtonDown="DragWindow" ResizeMode="NoResize" MaxHeight="660" MaxWidth="1250" MinHeight="660" MinWidth="1250" Loaded="Window_Loaded" FontFamily="Microsoft YaHei">
+        Title="EimsWindow" Height="660" Width="1250" BorderThickness="1" BorderBrush="Black" WindowStyle="None" ResizeMode="NoResize" MaxHeight="660" MaxWidth="1250" MinHeight="660" MinWidth="1250" Loaded="Window_Loaded" FontFamily="Microsoft YaHei">
     <Window.Resources>
         <!-- 为按钮指定样式触发器 -->
         <Style TargetType="{x:Type Button}" x:Key="MyButton">
@@ -49,8 +49,9 @@
             <ColumnDefinition Width="30"></ColumnDefinition>
             <ColumnDefinition Width="30"></ColumnDefinition>
         </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="12" MouseLeftButtonDown="DragWindow"/>
         <Button x:Name="Close" Style="{StaticResource MyButton}"  Content="×" Grid.Row="0" Grid.Column="11" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Close_Click"/>
-        <Button x:Name="Min" Style="{StaticResource MyButton}" Content="－" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28"/>
+        <Button x:Name="Min" Style="{StaticResource MyButton}" Content="－" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Min_Click"/>
         <ComboBox Width="70" Height="28" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top"  Grid.Row="0" Grid.Column="9" SelectedIndex="0">
             <ComboBoxItem Content="蓝天" />
             <ComboBoxItem Content="魔幻" />
