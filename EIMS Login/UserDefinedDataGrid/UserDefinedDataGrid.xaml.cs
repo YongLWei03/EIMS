@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace EIMS_Login
+namespace EIMS_Login.UserDefinedDataGrid
 {
     /// <summary>
-    /// ConfidentialMembers_1.xaml 的交互逻辑
+    /// UserDefinedDataGrid.xaml 的交互逻辑
     /// </summary>
-    public partial class ConfidentialMembers_LoanApplication : UserControl
+    public partial class UserDefinedDataGrid : UserControl
     {
-        public ConfidentialMembers_LoanApplication()
+        public UserDefinedDataGrid()
         {
             InitializeComponent();
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

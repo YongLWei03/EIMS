@@ -38,6 +38,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -113,6 +115,9 @@
     </Compile>
     <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView.xaml.cs">
       <DependentUpon>SystemAdministrator_AllInformationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserDefinedDataGrid\UserDefinedDataGrid.xaml.cs">
+      <DependentUpon>UserDefinedDataGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="WarehouseManager\WarehouseManager_TransferApplication.xaml.cs">
       <DependentUpon>WarehouseManager_TransferApplication.xaml</DependentUpon>
@@ -213,6 +218,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SystemAdministrator\SystemAdministrator_AllInformationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserDefinedDataGrid\UserDefinedDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

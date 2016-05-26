@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="EIMS_Login.UserDefinedDataGrid.UserDefinedDataGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EIMS_Login.UserDefinedDataGrid"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="400">
+    <Grid>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="300" VerticalAlignment="Top" Width="400">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="1" Width="80" Binding="{Binding 1}"/>
+                <DataGridTextColumn Header="2" Width="80" Binding="{Binding 2}"/>
+                <DataGridComboBoxColumn Width="80" Header="3" SelectedItemBinding="{Binding 3}" />
+                <DataGridCheckBoxColumn Header="4" Width="80" Binding="{Binding 4}"/>
+                <DataGridHyperlinkColumn Header="5" Width="80" Binding="{Binding 5}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>
