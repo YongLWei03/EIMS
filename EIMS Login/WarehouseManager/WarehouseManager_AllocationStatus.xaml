@@ -4,8 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
+             d:DesignHeight="559" d:DesignWidth="1250" BorderBrush="Black" BorderThickness="0,1,0,0">
+    <Grid x:Name="allocationstatus">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="140" />
+            <ColumnDefinition />
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="120" />
+        </Grid.ColumnDefinitions>
+        <Label x:Name="viewstatus" Content="查看状态：" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16"/>
+        <ComboBox x:Name="statetype" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Height="25" Grid.Row="0" Grid.Column="1" SelectedIndex="0">
+            <ComboBoxItem Content="未完成"/>
+            <ComboBoxItem Content="已完成"/>
+        </ComboBox>
+        <Label x:Name="totalApplicationTag" Content="总计：" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="0" ></Label>
+        <Label x:Name="totalApplication" Content="0" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="4" Grid.Row="0"></Label>
+        <Button x:Name="Export" Grid.Row="0" FontSize="16" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="25">导出为excel表格</Button>
+        <Button x:Name="confirmSubmission" FontSize="16" Grid.Row="0" Grid.Column="6" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25">确定提交</Button>
     </Grid>
 </UserControl>

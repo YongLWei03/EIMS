@@ -14,16 +14,16 @@
             <Setter Property="Control.Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border x:Name="Chrome" BorderBrush="Red" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                        <Border x:Name="NewButton" CornerRadius="4" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
             <Style.Triggers>
-                <Trigger Property="Control.IsMouseOver" Value="true">
-                    <Setter Property="Control.BorderThickness" Value="1"/>
-                    <Setter Property="Control.BorderBrush" Value="Black"/>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Red"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -51,7 +51,7 @@
         </Grid.ColumnDefinitions>
         <Button x:Name="Close" Style="{StaticResource MyButton}"  Content="×" Grid.Row="0" Grid.Column="11" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Close_Click"/>
         <Button x:Name="Min" Style="{StaticResource MyButton}" Content="－" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28"/>
-        <ComboBox Width="70" Height="28" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top"  Grid.Row="0" Grid.Column="9" Background="White" SelectedIndex="0">
+        <ComboBox Width="70" Height="28" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top"  Grid.Row="0" Grid.Column="9" SelectedIndex="0">
             <ComboBoxItem Content="蓝天" />
             <ComboBoxItem Content="魔幻" />
             <ComboBoxItem Content="未来" />
