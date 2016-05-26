@@ -21,46 +21,60 @@ namespace EIMS_Login.Ordinary_users
     /// <summary>
     /// OrdinaryUsers_Databorrow.xaml 的交互逻辑
     /// </summary>
-    
+
     public partial class OrdinaryUsers_Databorrow : UserControl
     {
-        string ConnStr = "Data Source=橙;Initial Catalog=Temp;User ID=EIMS;Password=1";
+        Connection Temp = new Connection();
         public OrdinaryUsers_Databorrow()
         {
             InitializeComponent();
-            InitDataBaseConnection();
+            InitTabel();//表格初始化 
+            TableToApply.DataTableSelect("select * from ApplyData");
         }
-        public void InitDataBaseConnection()
+
+        private void InitTabel()
         {
-            SqlConnection lo_conn = new SqlConnection(ConnStr);
+            TableToApply.InitTableHeightWidth(210, 810);
+            TableToApply.AddColumns("Ryid", "编号", 80);
+            TableToApply.AddColumns("Ryname", "姓名", 80);
+        }
+
+
+        //申请提交按钮功能
+        private void ApplicationSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            string StrSQL = "insert into ApplyData values('1','卧槽','啥','6019','20140808','"+ ApplicationDataNumber .Text+ "',"
+                + ApplicationDataCount.Text + ",'"+ApplicationReasons.Text+"','未操作')";
             try
             {
-                lo_conn.Open();
+                SqlCommand cmd = new SqlCommand(StrSQL, Temp.GetConn());
+                cmd.ExecuteNonQuery();
             }
             catch
             {
-                MessageBox.Show("服务器未连接！");
+                MessageBox.Show("申请失败！");
                 return;
             }
-            if (ConnectionState.Open == lo_conn.State)
-            {
-                InitDataToAppHis();
-            }
-        }
-        public void InitDataToAppHis()
-        {
-            string StrSql_0 = "select * from Temp_1";
-            DataTable Tabel0 = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(StrSql_0, ConnStr);
-            DataSet ds = new DataSet();
-            ds.Clear();
-            sda.Fill(Tabel0);
-            dataGrid.ItemsSource = Tabel0.DefaultView;
+            TableToApply.DataTableSelect("select * from ApplyData");//申请成功更新：申请历史表格
         }
 
-        private void dataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
+        //申请数量TextBox设置为只能输入数字！
+        private void ApplicationDataCount_KeyDown(object sender, KeyEventArgs e)
         {
-            e.Row.Header = e.Row.GetIndex() + 1;
+            if ((e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) ||
+                (e.Key >= Key.D0 && e.Key <= Key.D9) ||
+                 e.Key == Key.Back ||
+                 e.Key == Key.Left || e.Key == Key.Right)
+            {
+                if (e.KeyboardDevice.Modifiers != ModifierKeys.None)
+                {
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

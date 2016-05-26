@@ -70,6 +70,7 @@
     <Compile Include="ConfidentialMembers\ConfidentialMembers_EquipmentFiling.xaml.cs">
       <DependentUpon>ConfidentialMembers_EquipmentFiling.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Connection.cs" />
     <Compile Include="FinancialAdministrator\FinancialAdministrator_BookingAndHistory.xaml.cs">
       <DependentUpon>FinancialAdministrator_BookingAndHistory.xaml</DependentUpon>
     </Compile>

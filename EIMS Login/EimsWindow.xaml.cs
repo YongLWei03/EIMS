@@ -465,6 +465,11 @@ namespace EIMS_Login
             OrdinaryUsers_DataSearch.SetValue(Grid.RowProperty, 1);
             OrdinaryUsers_DataSearch.SetValue(Grid.ColumnSpanProperty, 12);
         }
+
+        private void Min_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }
 
