@@ -104,6 +104,12 @@
     <Compile Include="SystemAdministrator\SystemAdministrator_AddUser.xaml.cs">
       <DependentUpon>SystemAdministrator_AddUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\DepartmentStaff.xaml.cs">
+      <DependentUpon>DepartmentStaff.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\Maintenance.xaml.cs">
+      <DependentUpon>Maintenance.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SystemAdministrator\SystemAdministrator_NetUser.xaml.cs">
       <DependentUpon>SystemAdministrator_NetUser.xaml</DependentUpon>
     </Compile>
@@ -205,6 +211,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\DepartmentStaff.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\Maintenance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SystemAdministrator\SystemAdministrator_NetUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -280,7 +294,67 @@
     <Resource Include="Images\login\min_1.png" />
     <Resource Include="Images\login\min_2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ConfidentialMembers\借阅信息.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ConfidentialMembers\申请管理.png" />
+    <Resource Include="Images\ConfidentialMembers\装备资料.png" />
+    <Resource Include="Images\ConfidentialMembers\资料归档.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FinancialAdministrator\入账添加.png" />
+    <Resource Include="Images\FinancialAdministrator\出账管理.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MaintenanceAdministrator\维修状态.png" />
+    <Resource Include="Images\MaintenanceAdministrator\维修申请管理.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Ordinaryusers\借阅申请.png" />
+    <Resource Include="Images\Ordinaryusers\维修申请.png" />
+    <Resource Include="Images\Ordinaryusers\装备信息.png" />
+    <Resource Include="Images\Ordinaryusers\装备申请.png" />
+    <Resource Include="Images\Ordinaryusers\资料信息.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Public\个人信息.png" />
+    <Resource Include="Images\Public\个人信息装饰_1.png" />
+    <Resource Include="Images\Public\关闭.png" />
+    <Resource Include="Images\Public\刷新.png" />
+    <Resource Include="Images\Public\最小化.png" />
+    <Resource Include="Images\Public\注销登录.png" />
+    <Resource Include="Images\Public\蓝天白云.png" />
+    <Resource Include="Images\Public\魔幻.png" />
+    <Resource Include="Images\Public\魔幻2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SystemAdministrator\所有信息.png" />
+    <Resource Include="Images\SystemAdministrator\日志管理.png" />
+    <Resource Include="Images\SystemAdministrator\用户信息.png" />
+    <Resource Include="Images\SystemAdministrator\用户添加.png" />
+    <Resource Include="Images\SystemAdministrator\装备信息管理.png" />
+  </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\SystemAdministrator\AllinfButtonicon\仓库与库存.png" />
+    <Resource Include="Images\SystemAdministrator\AllinfButtonicon\借阅.png" />
+    <Resource Include="Images\SystemAdministrator\AllinfButtonicon\入库.png" />
+    <Resource Include="Images\SystemAdministrator\AllinfButtonicon\出库.png" />
+    <Resource Include="Images\SystemAdministrator\AllinfButtonicon\帮助.png" />
+    <Resource Include="Images\SystemAdministrator\AllinfButtonicon\归档.png" />
+    <Resource Include="Images\SystemAdministrator\AllinfButtonicon\维修.png" />
+    <Resource Include="Images\SystemAdministrator\AllinfButtonicon\调拨.png" />
+    <Resource Include="Images\SystemAdministrator\AllinfButtonicon\资料.png" />
+    <Resource Include="Images\SystemAdministrator\AllinfButtonicon\部门与人员.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\WarehouseManager\出入库管理.png" />
+    <Resource Include="Images\WarehouseManager\增加仓库.png" />
+    <Resource Include="Images\WarehouseManager\库存信息.png" />
+    <Resource Include="Images\WarehouseManager\申请管理.png" />
+    <Resource Include="Images\WarehouseManager\调拨状态.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

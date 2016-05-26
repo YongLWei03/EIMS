@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_Children;
 
 namespace EIMS_Login
 {
@@ -24,5 +25,16 @@ namespace EIMS_Login
         {
             InitializeComponent();
         }
+
+        private void DepartmentStaffClick(object sender, MouseButtonEventArgs e)
+        {
+            List.Children.Clear();
+            DepartmentStaff DepartmentStaff = new DepartmentStaff();
+            List.Children.Add(DepartmentStaff);
+            DepartmentStaff.SetValue(Grid.RowProperty, 0);
+            DepartmentStaff.SetValue(Grid.ColumnProperty, 3);
+            DepartmentStaff.SetValue(Grid.ColumnSpanProperty, 12);
+        }
+
     }
 }

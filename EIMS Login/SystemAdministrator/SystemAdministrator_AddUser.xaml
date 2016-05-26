@@ -4,16 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="535" d:DesignWidth="1250">
+             d:DesignHeight="559" d:DesignWidth="1250">
 
     <Grid Margin="0,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height = "300"></RowDefinition>
-            <RowDefinition Height = "229"></RowDefinition>
+            <RowDefinition Height = "259"></RowDefinition>
         </Grid.RowDefinitions>
         <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0">
             <Grid Height="300" HorizontalAlignment="Left" Margin="12,0,0,0" Name="grid_top" VerticalAlignment="Top" Width="1226" Background="#FFF2F2F2">
-                <Grid.ColumnDefinitions >
+                <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50"></ColumnDefinition>
                     <ColumnDefinition Width="725"></ColumnDefinition>
                     <ColumnDefinition Width="50"></ColumnDefinition>
@@ -99,7 +99,7 @@
             </Grid>
         </Border>
         <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="1">
-            <Grid Height="229" HorizontalAlignment="Left" Margin="12,0,0,0" Name="grid_bottom" VerticalAlignment="Top" Width="1226" Background="#FFF2F2F2">
+            <Grid Height="258" HorizontalAlignment="Left" Margin="12,0,0,-1" Name="grid_bottom" VerticalAlignment="Top" Width="1226" Background="#FFF2F2F2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="400"></ColumnDefinition>
                     <ColumnDefinition Width="380"></ColumnDefinition>
@@ -116,7 +116,7 @@
                     <LineBreak/>
                         <Run>再次输入： </Run>
                 </TextBlock>
-                <TextBlock Name="Ordinaryuser_ResetText" Grid.Column="0" HorizontalAlignment="left" VerticalAlignment="Bottom" Height="147" Width="200" Margin="190,0,0,0" Padding="5,12" LineHeight="35" TextWrapping="Wrap"> 
+                <TextBlock Name="Ordinaryuser_ResetText" Grid.Column="0" HorizontalAlignment="left" VerticalAlignment="Bottom" Height="147" Width="200" Margin="190,30,0,28" Padding="5,12" LineHeight="35" TextWrapping="Wrap"> 
                     <TextBox x:Name="Ordinaryuser_id" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
                     <TextBox x:Name="Ordinaryuser_intputpwd" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
                     <TextBox x:Name="Ordinaryuser_reintputpwd" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
@@ -132,7 +132,7 @@
                     <LineBreak/>
                         <Run>再次输入： </Run>
                 </TextBlock>
-                <TextBlock Name="Specialuser_ResetText" Grid.Column="2" HorizontalAlignment="left" VerticalAlignment="Bottom" Height="147" Width="200" Margin="190,0,0,0" Padding="5,12" LineHeight="35" TextWrapping="Wrap"> 
+                <TextBlock Name="Specialuser_ResetText" Grid.Column="2" HorizontalAlignment="left" VerticalAlignment="Bottom" Height="147" Width="200" Margin="190,0,0,28" Padding="5,12" LineHeight="35" TextWrapping="Wrap"> 
                     <ComboBox x:Name="Specialuser_id" Text="仓库管理员" HorizontalAlignment="Stretch" SelectedIndex="0" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center">
                         <ComboBoxItem Content="维修管理员" Height="25"></ComboBoxItem>
                         <ComboBoxItem Content="仓库管理员" Height="25"></ComboBoxItem>

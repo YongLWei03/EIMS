@@ -4,8 +4,99 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="559" d:DesignWidth="1250">
+    <UserControl.Resources>
+        <Style  TargetType="{x:Type Button}" x:Key="LeftButtons">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="NewButton" CornerRadius="4" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Border BorderThickness="1" BorderBrush="Gray">
+        <Grid Background="#FFF2F2F2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="111.8"></RowDefinition>
+                <RowDefinition Height="111.8"></RowDefinition>
+                <RowDefinition Height="111.8"></RowDefinition>
+                <RowDefinition Height="111.8"></RowDefinition>
+                <RowDefinition Height="111.8"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="115"></ColumnDefinition>
+                <ColumnDefinition Width="115"></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition Width="1000"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="DepartmentStaff" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Height="100" Width="100" Style="{StaticResource LeftButtons}" >
+                <Button.Background>
+                    <ImageBrush ImageSource="/EIMS Login;component/Images/SystemAdministrator/AllinfButtonicon/部门与人员.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Maintenance" Grid.Row="0" Grid.Column="1" Height="100" Width="100" Style="{StaticResource LeftButtons}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/EIMS Login;component/Images/SystemAdministrator/AllinfButtonicon/维修.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="WarehouseStocks" Grid.Row="1" Grid.Column="0" Height="100" Width="100" Style="{StaticResource LeftButtons}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/EIMS Login;component/Images/SystemAdministrator/AllinfButtonicon/仓库与库存.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Allocation" Grid.Row="1" Grid.Column="1" Height="100" Width="100" Style="{StaticResource LeftButtons}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/EIMS Login;component/Images/SystemAdministrator/AllinfButtonicon/调拨.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="OutputLibrary" Grid.Row="2" Grid.Column="0" Height="100" Width="100" Style="{StaticResource LeftButtons}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/EIMS Login;component/Images/SystemAdministrator/AllinfButtonicon/出库.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="InputLibrary" Grid.Row="2" Grid.Column="1" Height="100" Width="100" Style="{StaticResource LeftButtons}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/EIMS Login;component/Images/SystemAdministrator/AllinfButtonicon/入库.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Data" Grid.Row="3" Grid.Column="0" Height="100" Width="100" Style="{StaticResource LeftButtons}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/EIMS Login;component/Images/SystemAdministrator/AllinfButtonicon/资料.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Borrow" Grid.Row="3" Grid.Column="1" Height="100" Width="100" Style="{StaticResource LeftButtons}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/EIMS Login;component/Images/SystemAdministrator/AllinfButtonicon/借阅.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="File" Grid.Row="4" Grid.Column="0" Height="100" Width="100" Style="{StaticResource LeftButtons}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/EIMS Login;component/Images/SystemAdministrator/AllinfButtonicon/归档.png"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Help" Grid.Row="4" Grid.Column="1" Height="100" Width="100" Style="{StaticResource LeftButtons}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/EIMS Login;component/Images/SystemAdministrator/AllinfButtonicon/帮助.png"/>
+                </Button.Background>
+            </Button>
+            <Rectangle Grid.Row="0" Grid.RowSpan="5" Grid.Column="2" Fill="Gray" Width="3"></Rectangle>
+            <Grid x:Name="List" Grid.Row="0" Grid.RowSpan="5" Grid.Column="3">
+                
+            </Grid>
+
+        </Grid>
+
+    </Border>
+    
 </UserControl>
