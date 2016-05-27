@@ -105,11 +105,35 @@
     <Compile Include="SystemAdministrator\SystemAdministrator_AddUser.xaml.cs">
       <DependentUpon>SystemAdministrator_AddUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\Allocation.xaml.cs">
+      <DependentUpon>Allocation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\Borrow.xaml.cs">
+      <DependentUpon>Borrow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\Data.xaml.cs">
+      <DependentUpon>Data.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\DepartmentStaff.xaml.cs">
       <DependentUpon>DepartmentStaff.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\File.xaml.cs">
+      <DependentUpon>File.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\Help.xaml.cs">
+      <DependentUpon>Help.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\InputLibrary.xaml.cs">
+      <DependentUpon>InputLibrary.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\Maintenance.xaml.cs">
       <DependentUpon>Maintenance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\OutputLibrary.xaml.cs">
+      <DependentUpon>OutputLibrary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\WarehouseStocks.xaml.cs">
+      <DependentUpon>WarehouseStocks.xaml</DependentUpon>
     </Compile>
     <Compile Include="SystemAdministrator\SystemAdministrator_NetUser.xaml.cs">
       <DependentUpon>SystemAdministrator_NetUser.xaml</DependentUpon>
@@ -212,11 +236,43 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\Allocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\Borrow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\Data.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\DepartmentStaff.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\File.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\Help.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\InputLibrary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\Maintenance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\OutputLibrary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemAdministrator\SystemAdministrator_AllInformationView_Children\WarehouseStocks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
