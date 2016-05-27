@@ -23,11 +23,13 @@ namespace EIMS_Login.UserDefinedDataGrid
     public partial class UserDefinedDataGrid : UserControl
     {
         Connection Temp = new Connection();
+        bool UpDate = true;
+        bool Save = false;
         public UserDefinedDataGrid()
         {
             InitializeComponent();
-            dataGrid.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-            dataGrid.VerticalAlignment = System.Windows.VerticalAlignment.Center;
+
+            
         }
         public void InitTableHeightWidth(int Height,int Width)
         {
@@ -36,6 +38,7 @@ namespace EIMS_Login.UserDefinedDataGrid
             dataGrid.FontSize = 16;
             
         }
+        //增加列
         public void AddColumns(string Binding,string Header,int Width)
         {
             dataGrid.AutoGenerateColumns = false;
@@ -48,19 +51,107 @@ namespace EIMS_Login.UserDefinedDataGrid
             Temp.ElementStyle = Resources["MyDataGrid"] as Style;
             dataGrid.Columns.Add(Temp);
         }
-        public void DataTableSelect(string SQL)
+        //数据库数据绑定
+        public DataSet DataTableSelect(string SQL, string SaveSlecte)
         {
-            DataTable Tabel0 = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(SQL, Temp.GetConnStr());
+            DataTable Table0 = new DataTable();
             DataSet ds = new DataSet();
-            ds.Clear();
-            sda.Fill(Tabel0);
-            dataGrid.ItemsSource = Tabel0.DefaultView;       
+            try
+            {
+                SqlDataAdapter sda = new SqlDataAdapter(SQL, Temp.GetConnStr());
+                
+                ds.Clear();
+                sda.Fill(Table0);
+                if (SaveSlecte == "更新")
+                    dataGrid.ItemsSource = Table0.DefaultView;
+                else if (SaveSlecte == "保存")
+                    ds.Tables.Add(Table0);
+                else
+                {
+                    MessageBox.Show("异常！");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("出现异常！");
+            }
+            return ds;
+            
         }
-
+        //增加行号及自动加1
         private void dataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             e.Row.Header = e.Row.GetIndex() + 1;
+        }
+
+        public string ExportExcel(string SQL,string []StrCloumns, string saveFileName)
+        {
+            try
+            {
+                DataSet ds = DataTableSelect(SQL,"保存");
+                ChangeColumnName(ds, StrCloumns);
+                if (ds == null)
+                    return "数据库为空";
+
+                bool fileSaved = false;
+                Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+                if (xlApp == null)
+                {
+                    return "无法创建Excel对象，可能您的机子未安装Excel";
+                }
+                Microsoft.Office.Interop.Excel.Workbooks workbooks = xlApp.Workbooks;
+                Microsoft.Office.Interop.Excel.Workbook workbook = workbooks.Add(Microsoft.Office.Interop.Excel.XlWBATemplate.xlWBATWorksheet);
+                Microsoft.Office.Interop.Excel.Worksheet worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets[1];//取得sheet1
+                                                                                                                                      //写入字段
+                for (int i = 0; i < ds.Tables[0].Columns.Count; i++)
+                {
+                    worksheet.Cells[1, i + 1] = ds.Tables[0].Columns[i].ColumnName;
+                }
+                //写入数值
+                for (int r = 0; r < ds.Tables[0].Rows.Count; r++)
+                {
+                    for (int i = 0; i < ds.Tables[0].Columns.Count; i++)
+                    {
+                        worksheet.Cells[r + 2, i + 1] = ds.Tables[0].Rows[r][i];
+                    }
+                    System.Windows.Forms.Application.DoEvents();
+                }
+                worksheet.Columns.EntireColumn.AutoFit();//列宽自适应。
+                if (saveFileName != "")
+                {
+                    try
+                    {
+                        workbook.Saved = true;
+                        workbook.SaveCopyAs(saveFileName);
+                        fileSaved = true;
+                    }
+                    catch (Exception ex)
+                    {
+                        fileSaved = false;
+                        MessageBox.Show("导出文件时出错,文件可能正被打开！\n" + ex.Message);
+                    }
+                }
+                else
+                {
+                    fileSaved = false;
+                }
+                xlApp.Quit();
+                GC.Collect();//强行销毁
+                if (fileSaved && System.IO.File.Exists(saveFileName)) System.Diagnostics.Process.Start(saveFileName); //打开EXCEL
+                return "成功保存到Excel";
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+        }
+        public void ChangeColumnName(DataSet ds,string []StrCloumns)
+        {
+            for (int i = 0; i < ds.Tables[0].Columns.Count; i++)
+            {
+                ds.Tables[0].Columns[i].ColumnName = StrCloumns[i];
+            }
+            
         }
     }
 }

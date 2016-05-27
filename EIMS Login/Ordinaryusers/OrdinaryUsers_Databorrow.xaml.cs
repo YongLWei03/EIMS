@@ -29,7 +29,7 @@ namespace EIMS_Login.Ordinary_users
         {
             InitializeComponent();
             InitTabel();//表格初始化 
-            TableToApply.DataTableSelect("select * from ApplyData");
+            TableToApply.DataTableSelect("select * from ApplyData","更新");
         }
 
         private void InitTabel()
@@ -55,7 +55,7 @@ namespace EIMS_Login.Ordinary_users
                 MessageBox.Show("申请失败！");
                 return;
             }
-            TableToApply.DataTableSelect("select * from ApplyData");//申请成功更新：申请历史表格
+            TableToApply.DataTableSelect("select * from ApplyData","更新");//申请成功更新：申请历史表格
         }
 
         //申请数量TextBox设置为只能输入数字！
@@ -75,6 +75,15 @@ namespace EIMS_Login.Ordinary_users
             {
                 e.Handled = true;
             }
+        }
+
+        
+
+        private void ExportTable_AH_Click(object sender, RoutedEventArgs e)
+        {
+            string[] Str = { "ID", "申请人编号", "申请人名字", "工作岗位", "申请编号", "申请日期", "申请资料编号",
+                "申请数量", "申请原因", "操作状态" };
+            TableToApply.ExportExcel("select * from ApplyData", Str, "申请历史表格.xlsx");
         }
     }
 }

@@ -12,9 +12,11 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="TextAlignment" Value="Center"/>
         </Style>
+        
     </UserControl.Resources>
     <Grid>
         <DataGrid x:Name="dataGrid" Height="300" VerticalAlignment="Center" Width="400" LoadingRow="dataGrid_LoadingRow">
+            <!--改变鼠标移入某行样式 -->
             <DataGrid.RowStyle>
                 <Style TargetType="DataGridRow">
                     <Style.Triggers>
@@ -24,6 +26,17 @@
                     </Style.Triggers>
                 </Style>
             </DataGrid.RowStyle>
+            <!--改变选中某行样式 -->
+            <DataGrid.CellStyle >
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers >
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#FFF1FAFF"/>
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
         </DataGrid>
 
     </Grid>
