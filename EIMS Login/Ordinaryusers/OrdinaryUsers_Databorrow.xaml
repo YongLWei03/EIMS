@@ -28,8 +28,10 @@
         <Label x:Name="label_Copy1" Content="借阅历史：" HorizontalAlignment="Left" Margin="440,285,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
         <Label x:Name="label1_Copy3" Content="借阅历史总计：" HorizontalAlignment="Left" Margin="899,295,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label x:Name="BorrowHistoryCount" Content="2" HorizontalAlignment="Left" Margin="1012,296,0,0" VerticalAlignment="Top" FontSize="16" Width="43"/>
-        <Button x:Name="ExportTable_BH" Content="导出为excel表格" HorizontalAlignment="Left" Height="25" Margin="1069,298,0,0" VerticalAlignment="Top" Width="159" FontSize="16" RenderTransformOrigin="5.15,-3.768"/>
+        <Button x:Name="ExportTable_BH" Content="导出为excel表格" HorizontalAlignment="Left" Height="25" Margin="1069,298,0,0" VerticalAlignment="Top" Width="159" FontSize="16" RenderTransformOrigin="5.15,-3.768" Click="ExportTable_BH_Click"/>
         <UserDefinedDataGrid:UserDefinedDataGrid x:Name="TableToApply" HorizontalAlignment="Left" Margin="435,62,0,0" VerticalAlignment="Top" Height="210" Width="810">
+        </UserDefinedDataGrid:UserDefinedDataGrid>
+        <UserDefinedDataGrid:UserDefinedDataGrid x:Name="TableToHistory" HorizontalAlignment="Left" Margin="436,341,0,-0.2" VerticalAlignment="Top" Width="810" Height="210">
         </UserDefinedDataGrid:UserDefinedDataGrid>
     </Grid>
 </UserControl>
