@@ -43,8 +43,8 @@ namespace EIMS_Login.Ordinary_users
         //申请提交按钮功能
         private void ApplicationSubmit_Click(object sender, RoutedEventArgs e)
         {
-            string StrSQL = "insert into ApplyData values('1','卧槽','啥','6019','20140808','"+ ApplicationDataNumber .Text+ "',"
-                + ApplicationDataCount.Text + ",'"+ApplicationReasons.Text+"','未操作')";
+            string StrSQL = "insert into ApplyData values('1','卧槽','啥','6019','20140808', '"+ ApplicationDataNumber .Text+ "' , "
+                + ApplicationDataCount.Text + " , '"+ApplicationReasons.Text+"' , '未操作')";
             try
             {
                 SqlCommand cmd = new SqlCommand(StrSQL, Temp.GetConn());
