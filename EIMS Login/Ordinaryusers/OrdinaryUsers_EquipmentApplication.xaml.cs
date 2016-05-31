@@ -25,8 +25,8 @@ namespace EIMS_Login.Ordinaryusers
     {
         Connection Temp = new Connection();
         OrdinaryUserInfo UITemp = new OrdinaryUserInfo();
-        string ApplyTableSql = "select * from ApplyEquip where Ryid='" + MainWindow.CurrentUser + "'";
-        string HistoryTableSql = "select * from ArmsAllo where RyId='" + MainWindow.CurrentUser + "'";
+        string ApplyTableSql;
+        string HistoryTableSql;
         string ApplyType = "zb_sq";
         string AType;
         ApplyEquipMoreInfoWindows aemiw;//详细信息窗口
@@ -37,6 +37,11 @@ namespace EIMS_Login.Ordinaryusers
         public OrdinaryUsers_EquipmentApplication()
         {
             InitializeComponent();
+            ApplyTableSql = "select * from ApplyEquip where Ryid='" + UITemp.UserInfoTemp.Ryid + "'";
+            HistoryTableSql = "select * from ArmsAllo where RyId='" + UITemp.UserInfoTemp.Ryid + "'";
+
+
+
             InitTabelToApply();//申请历史表格初始化 
             InitTableToHistory();//借阅历史表格初始化
             TableToApply.DataTableSelect(ApplyTableSql, "更新");
@@ -46,6 +51,7 @@ namespace EIMS_Login.Ordinaryusers
             Inittthlbm();
             PayoutHistoryCount.Content = TableToHistory.Rows;//借阅历史总计
             UpDateRLR(1);//更新左下侧操作历史
+            
         }
         //初始化申请历史表格
         private void InitTabelToApply()
@@ -92,32 +98,39 @@ namespace EIMS_Login.Ordinaryusers
 
         private void ApplicationSubmit_Click(object sender, RoutedEventArgs e)//待修改
         {
-            string Date = DateTime.Now.ToString("yyyy-MM-dd") + " " + DateTime.Now.ToLongTimeString().ToString(); ;//获取当前时间
-            
-            if (AllotType.SelectedIndex == 0)
-                AType = "价拨";
-            else
-                AType = "调拨";
-            string StrSQL = "insert into ApplyEquip values('" + UITemp.UserInfoTemp.Ryid + "','" + UITemp.UserInfoTemp.RyName + "','" + UITemp.UserInfoTemp.Position +  "','" + Date + "','" + ApplicationEquipmentNumber.Text + "',"
-                + ApplicationEquipmentCount.Text + ",'"+ AType + "','"+ TransferredUnit.Text + "','"+ ApplicationReasons .Text+ "','未操作')";
-            try
+            if (UITemp.GetRyidStatus)
             {
-                SqlCommand cmd = new SqlCommand(StrSQL, Temp.GetConn());
-                cmd.ExecuteNonQuery();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("申请失败！"+ex);
-                return;
-            }
-            MessageBox.Show("申请成功，请耐心等待批准结果。。。");
+                string Date = DateTime.Now.ToString("yyyy-MM-dd") + " " + DateTime.Now.ToLongTimeString().ToString(); ;//获取当前时间
 
-            TableToApply.DataTableSelect(ApplyTableSql, "更新");//申请成功更新：申请历史表格
-            UpDataLog();//更新操作日志
-            UpDateRLR(0);//更新左下部操作提示
-            ApplicationHistoryCount.Content = TableToApply.Rows;//更新申请总计
-            if (aemiw_OpenSign == 1)
-                aemiw.updata(TableToApply.Getdt(), TableToApply.Rows);//更新查看详细信息窗口的总行数
+                if (AllotType.SelectedIndex == 0)
+                    AType = "价拨";
+                else
+                    AType = "调拨";
+                string StrSQL = "insert into ApplyEquip values('" + UITemp.UserInfoTemp.Ryid + "','" + UITemp.UserInfoTemp.RyName + "','" + UITemp.UserInfoTemp.Position + "','" + Date + "','" + ApplicationEquipmentNumber.Text + "',"
+                    + ApplicationEquipmentCount.Text + ",'" + AType + "','" + TransferredUnit.Text + "','" + ApplicationReasons.Text + "','未操作')";
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(StrSQL, Temp.GetConn());
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("申请失败！" + ex);
+                    return;
+                }
+                MessageBox.Show("申请成功，请耐心等待批准结果。。。");
+
+                TableToApply.DataTableSelect(ApplyTableSql, "更新");//申请成功更新：申请历史表格
+                UpDataLog();//更新操作日志
+                UpDateRLR(0);//更新左下部操作提示
+                ApplicationHistoryCount.Content = TableToApply.Rows;//更新申请总计
+                if (aemiw_OpenSign == 1)
+                    aemiw.updata(TableToApply.Getdt(), TableToApply.Rows);//更新查看详细信息窗口的总行数
+            }
+            else
+            {
+                MessageBox.Show("个人信息拉取失败或个人信息未填写充分，无法提交申请!");
+            }
         }
 
         private void UpDataLog()
