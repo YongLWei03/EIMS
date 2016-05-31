@@ -24,14 +24,18 @@ namespace EIMS_Login.Ordinaryusers
     {
         Connection Temp = new Connection();
         OrdinaryUserInfo UITemp = new OrdinaryUserInfo();
-        string ApplyTableSql = "select * from ApplyMaintain where Ryid='" + MainWindow.CurrentUser + "'";
-        string HistoryTableSql = "select * from ArmsRepair where RyId='" + MainWindow.CurrentUser + "'";
+        string ApplyTableSql;
+        string HistoryTableSql;
         string ApplyType = "wx_sq";
         MaintainMoreInfoWindows mmiw;//详细信息窗口
         int mmiw_OpenSign = 0;//详细信息窗口标记，0为未打开过！
         public OrdinaryUsers_MaintenanceApplication()
         {
             InitializeComponent();
+            ApplyTableSql = "select * from ApplyMaintain where Ryid='" + UITemp.UserInfoTemp.Ryid + "'";
+            HistoryTableSql = "select * from ArmsRepair where RyId='" + UITemp.UserInfoTemp.Ryid + "'";
+
+
             InitTabelToApply();//申请历史表格初始化 
             InitTableToHistory();//借阅历史表格初始化
             TableToApply.DataTableSelect(ApplyTableSql, "更新");
@@ -41,6 +45,7 @@ namespace EIMS_Login.Ordinaryusers
             Inittthlbm();
             MaintenanceHistoryCount.Content = TableToHistory.Rows;//借阅历史总计
             UpDateRLR(1);//更新左下侧操作历史
+            
         }
         
 
@@ -108,31 +113,38 @@ namespace EIMS_Login.Ordinaryusers
         //申请提交按钮功能
         private void ApplicationSubmit_Click(object sender, RoutedEventArgs e)
         {
-
-            string Date = DateTime.Now.ToString("yyyy-MM-dd") + " " + DateTime.Now.ToLongTimeString().ToString(); ;//获取当前时间
-            string StrSQL = "insert into ApplyMaintain values('" + UITemp.UserInfoTemp.Ryid + "','" + UITemp.UserInfoTemp.RyName + "','" + UITemp.UserInfoTemp.Position + 
-                "','" + Date + "','" + ApplicationEquipmentNumber.Text + "',"
-                + ApplicationMaintenanceCount.Text + ",'" + ApplicationReasons.Text + "','未操作')";
-            try
+            if (UITemp.GetRyidStatus)
             {
-                SqlCommand cmd = new SqlCommand(StrSQL, Temp.GetConn());
-                cmd.ExecuteNonQuery();
+
+                string Date = DateTime.Now.ToString("yyyy-MM-dd") + " " + DateTime.Now.ToLongTimeString().ToString(); ;//获取当前时间
+                string StrSQL = "insert into ApplyMaintain values('" + UITemp.UserInfoTemp.Ryid + "','" + UITemp.UserInfoTemp.RyName + "','" + UITemp.UserInfoTemp.Position +
+                    "','" + Date + "','" + ApplicationEquipmentNumber.Text + "',"
+                    + ApplicationMaintenanceCount.Text + ",'" + ApplicationReasons.Text + "','未操作')";
+                try
+                {
+                    SqlCommand cmd = new SqlCommand(StrSQL, Temp.GetConn());
+                    cmd.ExecuteNonQuery();
+                }
+                catch
+                {
+                    MessageBox.Show("申请失败！");
+                    return;
+                }
+                MessageBox.Show("申请成功，请耐心等待批准结果。。。");
+
+                TableToApply.DataTableSelect(ApplyTableSql, "更新");//申请成功更新：申请历史表格
+                UpDataLog();//更新操作日志
+                UpDateRLR(0);//更新左下部操作提示
+                ApplicationHistoryCount.Content = TableToApply.Rows;//更新申请总计
+                if (mmiw_OpenSign == 1)
+                    mmiw.updata(TableToApply.Getdt(), TableToApply.Rows);//更新查看详细信息窗口的总行数
             }
-            catch
+            else
             {
-                MessageBox.Show("申请失败！");
-                return;
+                MessageBox.Show("个人信息拉取失败或个人信息未填写充分，无法提交申请!");
             }
-            MessageBox.Show("申请成功，请耐心等待批准结果。。。");
 
-            TableToApply.DataTableSelect(ApplyTableSql, "更新");//申请成功更新：申请历史表格
-            UpDataLog();//更新操作日志
-            UpDateRLR(0);//更新左下部操作提示
-            ApplicationHistoryCount.Content = TableToApply.Rows;//更新申请总计
-            if (mmiw_OpenSign == 1)
-                mmiw.updata(TableToApply.Getdt(), TableToApply.Rows);//更新查看详细信息窗口的总行数
-
-        }
+}
 
         //向数据库提交操作日志
         private void UpDataLog()
