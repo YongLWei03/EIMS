@@ -128,7 +128,7 @@ namespace EIMS_Login
                 }
             }
             else//当选择的不是普通用户，可以直接登陆
-            { 
+            {
                 this.Hide();
                 EimsWindow win1 = new EimsWindow();
                 win1.Show();

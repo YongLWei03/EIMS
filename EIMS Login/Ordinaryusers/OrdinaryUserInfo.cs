@@ -35,12 +35,7 @@ namespace EIMS_Login.Ordinaryusers
         static int Timer = 1;//数据读取控制器
         public OrdinaryUserInfo()
         {
-            if(Timer == 1)//只在第一次使用有更新用户信息
-            {
-                DataReader();
-                Timer = 0;
-            }
-           
+             DataReader(); 
         }
         private void DataReader()
         {

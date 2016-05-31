@@ -28,15 +28,21 @@ namespace EIMS_Login.Ordinary_users
         OrdinaryUserInfo UITemp = new OrdinaryUserInfo();
         string ApplyTableSql = "select * from ApplyData where Ryid='" + MainWindow.CurrentUser + "'";
         string HistoryTableSql = "select * from DataLend where RyId='" + MainWindow.CurrentUser + "'";
+        string ApplyType = "jy_sq";
+        ApplyDataMoreInfoWindows admiw;//借阅详细信息窗口
+        int admiw_OpenSign;//详细信息窗口标记，0为未打开过！
         public OrdinaryUsers_Databorrow()
         {
             InitializeComponent();
             InitTabelToApply();//申请历史表格初始化 
             InitTableToHistory();//借阅历史表格初始化
             TableToApply.DataTableSelect(ApplyTableSql,"更新");
+            Initttalbm();
             ApplicationHistoryCount.Content = TableToApply.Rows;//申请总计
             TableToHistory.DataTableSelect(HistoryTableSql, "更新");
+            Inittthlbm();
             BorrowHistoryCount.Content = TableToHistory.Rows;//借阅历史总计
+            UpDateRLR(1);//更新左下侧操作历史
         }
         //初始化申请历史表格
         private void InitTabelToApply()
@@ -49,8 +55,19 @@ namespace EIMS_Login.Ordinary_users
             TableToApply.AddColumns("ApplyID", "申请编号", 190);
             TableToApply.AddColumns("Status", "同意状态", 80);
             TableToApply.AddColumns("ApplyReason", "申请原因", 130);
-            string[] Str = {"查看更多"};
-            TableToApply.AddContextItem(Str);
+        }
+        public void Initttalbm()
+        {
+            MenuItem TempMenu = TableToApply.AddMenuItem("查看更多");
+            TempMenu.Click += LookMore;
+            TableToApply.dgMenu.Items.Add(TempMenu);
+        }
+        public void LookMore(object sender, RoutedEventArgs e)
+        {
+            admiw = new ApplyDataMoreInfoWindows();
+            admiw.SetValues(TableToApply.Getdt(), TableToApply.dataGrid.SelectedIndex, TableToApply.Rows);
+            admiw.Show();
+            admiw_OpenSign = 1;
         }
         //初始化借阅历史表格
         private void InitTableToHistory()
@@ -63,19 +80,19 @@ namespace EIMS_Login.Ordinary_users
             TableToHistory.AddColumns("LendCount", "借阅数量", 80);
             TableToHistory.AddColumns("Ryname", "借阅人名字", 110);
             TableToHistory.AddColumns("Flag", "状态", 80);
-            string[] Str = { "无操作" };
-            TableToHistory.AddContextItem(Str);
+        }
+        public void Inittthlbm()
+        {
+            string Str = "无操作";
+            TableToHistory.dgMenu.Items.Add(TableToHistory.AddMenuItem(Str));
         }
 
         //申请提交按钮功能
         private void ApplicationSubmit_Click(object sender, RoutedEventArgs e)
         {
-            string ApplyID = "A"+UITemp.UserInfoTemp.Ryid.Substring(3, 6) + DateTime.Now.ToString("yyyyMMdd").Substring(2)
-                + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
-           //ApplyID: 采用人员编号后六位加时间组合的方式
             string Date = DateTime.Now.ToString("yyyy-MM-dd")+" "+DateTime.Now.ToLongTimeString().ToString(); ;//获取当前时间
-            string StrSQL = "insert into ApplyData values('" + UITemp.UserInfoTemp.Ryid + "','" + UITemp.UserInfoTemp.RyName + "','" + UITemp.UserInfoTemp.Position + "','" +
-                ApplyID + "','" + Date + "','" + ApplicationDataNumber.Text + "',"
+            string StrSQL = "insert into ApplyData values('" + UITemp.UserInfoTemp.Ryid + "','" + UITemp.UserInfoTemp.RyName + "','" + UITemp.UserInfoTemp.Position + 
+                 "','" + Date + "','" + ApplicationDataNumber.Text + "',"
                 + ApplicationDataCount.Text + ",'" + ApplicationReasons.Text + "','未操作')";
             try
             {
@@ -89,9 +106,31 @@ namespace EIMS_Login.Ordinary_users
             }
             MessageBox.Show("申请成功，请耐心等待批准结果。。。");
             TableToApply.DataTableSelect( ApplyTableSql,"更新");//申请成功更新：申请历史表格
+            UpDataLog();//更新操作日志
+            UpDateRLR(0);//更新左下部操作提示
             ApplicationHistoryCount.Content = TableToApply.Rows;//更新申请总计
+            if (admiw_OpenSign == 1)
+                admiw.updata(TableToApply.Getdt(), TableToApply.Rows);//更新查看详细信息窗口的总行数
         }
 
+
+
+        private void UpDateRLR(int Sign)
+        {
+            if (Sign == 1)
+                ApplyRLR.SetValues(UITemp.UserInfoTemp.Ryid, ApplyType);
+            ApplyRLR.UpdateShowLables(TableToApply.Getdt());
+        }
+
+        private void UpDataLog()
+        {
+            UpDataSysLog TempLog = new UpDataSysLog();
+
+            TempLog.SetLogValues(ApplyType, UITemp.UserInfoTemp.RyName + "提交借阅申请",
+                UITemp.UserInfoTemp.RyName + "于" + DateTime.Now.ToString("yyyy年MM月dd日") + " " + DateTime.Now.ToLongTimeString().ToString()
+                + "提交借阅申请，申请借阅编号为：" + ApplicationDataNumber.Text +
+                "；申请借阅数量为：" + ApplicationDataCount.Text, UITemp.UserInfoTemp.Ryid);
+        }
         //申请数量TextBox设置为只能输入数字！
         private void ApplicationDataCount_KeyDown(object sender, KeyEventArgs e)
         {

@@ -25,12 +25,10 @@ namespace EIMS_Login.UserDefinedDataGrid
     {
         Connection Temp = new Connection();
         public int Rows=0;
-        DataTable dt = new DataTable();
+        DataTable dt = new DataTable();//数据表后台存储
         public UserDefinedDataGrid()
         {
-            InitializeComponent();
-
-            
+            InitializeComponent();            
         }
         public void InitTableHeightWidth(int Height,int Width)
         {
@@ -38,6 +36,10 @@ namespace EIMS_Login.UserDefinedDataGrid
             dataGrid.Width = Width;
             dataGrid.FontSize = 16;
             
+        }
+        public DataTable Getdt()
+        {
+            return dt;
         }
         //增加列
         public void AddColumns(string Binding,string Header,int Width)
@@ -52,29 +54,19 @@ namespace EIMS_Login.UserDefinedDataGrid
             Temp.ElementStyle = Resources["MyDataGrid"] as Style;
             dataGrid.Columns.Add(Temp);
         }
+
         //针对性的增加右键菜单，分别有：查看更多，
-        public void AddContextItem(string []Header)
+        public MenuItem AddMenuItem(string Header)
         {
-            for (int i=0;i< Header.Length;i++)
-            {
-                ContextMenu aMenu = new ContextMenu();
-                MenuItem TempMenu = new MenuItem();
-                TempMenu.Header = Header[i];
-                if(Header[i] == "查看更多")
-                    TempMenu.Click += MenuItem1_Click;
-                dgMenu.Items.Add(TempMenu);
-                
-            }
+            MenuItem TempMenu = new MenuItem();
+            TempMenu.Header = Header;
+            return TempMenu;
         }
-        //打开借阅申请更多信息窗口事件
-        private void MenuItem1_Click(object sender, RoutedEventArgs e)
-        {
-            ApplyDataMoreInfoWindows Temp = new ApplyDataMoreInfoWindows();
-            Temp.Show();
-            Temp.Update(dt, dataGrid.SelectedIndex, Rows);
-            
-        }
-        //数据库数据绑定
+        /*
+         * 功能：更新数据
+         * 参数：SQL  更新数据SQL语句
+         *       SelectStr  功能选择
+         */
         public DataSet DataTableSelect(string SQL ,string SelectStr)
         {
             DataTable Table0 = new DataTable();
@@ -97,9 +89,9 @@ namespace EIMS_Login.UserDefinedDataGrid
                     MessageBox.Show("出现异常，原因参数传递不正确！");
                 } 
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("出现异常！");
+                MessageBox.Show("出现异常！"+ex);
             }
             return ds;
         }
@@ -108,12 +100,18 @@ namespace EIMS_Login.UserDefinedDataGrid
         {
             e.Row.Header = e.Row.GetIndex() + 1;
         }
+        /*
+         * 导出一个Excel文档
+         * SQL 为数据库操作的SQL语句
+         * []StrCloumns 为保存的表格行表头名
+         * saveFileName 为保存文件的位置
+         */
         public string ExportExcel(string SQL,string []StrCloumns, string saveFileName)
         {
             try
             {
                 DataSet ds = DataTableSelect(SQL,"保存");
-                ChangeColumnName(ds, StrCloumns);
+                ChangeColumnName(ref ds, StrCloumns);
                 if (ds == null)
                     return "数据库为空";
 
@@ -171,7 +169,11 @@ namespace EIMS_Login.UserDefinedDataGrid
                 return ex.ToString();
             }
         }
-        public void ChangeColumnName(DataSet ds,string []StrCloumns)
+        /*对导出的Excel文档表头进行更改
+         *参数1：dataset ds；为要进行修改的数据表
+         *参数2：string []StrCloumns；修改的目标表头，顺序为从左到右
+         */
+        public void ChangeColumnName(ref DataSet ds,string []StrCloumns)
         {
             for (int i = 0; i < ds.Tables[0].Columns.Count; i++)
             {

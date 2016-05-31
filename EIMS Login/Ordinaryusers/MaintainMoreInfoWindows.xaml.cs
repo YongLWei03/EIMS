@@ -17,19 +17,16 @@ using System.Data.SqlClient;
 namespace EIMS_Login.Ordinaryusers
 {
     /// <summary>
-    /// ApplyDataMoreInfoWindows.xaml 的交互逻辑
+    /// MaintainMoreInfoWindows.xaml 的交互逻辑
     /// </summary>
-    public partial class ApplyDataMoreInfoWindows : Window
+    public partial class MaintainMoreInfoWindows : Window
     {
-        int AimRow, TotalRows;
-        DataTable Tempdt;
-        /*
-         * 窗口默认构造函数
-         */
-        public ApplyDataMoreInfoWindows()
+        public MaintainMoreInfoWindows()
         {
             InitializeComponent();
         }
+        int AimRow, TotalRows;
+        DataTable Tempdt;
         /*
          * 窗口构造函数
          * 参数：dt 数据源
@@ -62,9 +59,9 @@ namespace EIMS_Login.Ordinaryusers
             Position.Content = dt.Rows[Rows]["Position"].ToString();
             ApplyID.Content = dt.Rows[Rows]["ApplyID"].ToString();
             Applydate.Content = dt.Rows[Rows]["Applydate"].ToString();
-            ApplydataID.Content = dt.Rows[Rows]["ApplydataID"].ToString();
+            Zbid.Content = dt.Rows[Rows]["Zbid"].ToString();
             ApplyCount.Content = dt.Rows[Rows]["ApplyCount"].ToString();
-            ApplyReason.Text = dt.Rows[Rows]["ApplyReason"].ToString();
+            FaultReason.Text = dt.Rows[Rows]["FaultReason"].ToString();
             Status.Content = dt.Rows[Rows]["Status"].ToString();
         }
 
@@ -94,7 +91,7 @@ namespace EIMS_Login.Ordinaryusers
         private void Next_Click(object sender, RoutedEventArgs e)
         {
             AimRow++;
-            if (AimRow > TotalRows-1)
+            if (AimRow > TotalRows - 1)
             {
                 MessageBox.Show("已是最后一项，无法在查看下一项！");
                 AimRow = TotalRows - 1;
