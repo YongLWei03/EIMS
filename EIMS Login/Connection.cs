@@ -28,6 +28,7 @@ namespace EIMS_Login
             }
             catch
             {
+                lo_conn.Close();
                 return 1;
             }
             return 0;

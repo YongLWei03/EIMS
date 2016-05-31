@@ -90,7 +90,7 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="出库总计：" FontSize="16" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                     <Label x:Name="totaltibrary" FontSize="16" Content="0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0"/>
-                    <Button x:Name="Export" Grid.Row="0" FontSize="16" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="25">导出为excel表格</Button>
+                    <Button x:Name="Export" Grid.Row="0" FontSize="16" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="25">导出为excel表格</Button>
                 </Grid>
             </TabItem>
         </TabControl>

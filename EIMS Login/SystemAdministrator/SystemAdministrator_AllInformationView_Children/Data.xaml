@@ -4,8 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="559" d:DesignWidth="1000">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="资料类型:"  FontSize="32" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200" Margin="10,20"></TextBlock>
+        <Label x:Name="InfType_left"  Grid.Row="0" Grid.Column="0"  FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="80" Margin="10,10">22</Label>
+        <Label x:Name="InfTypeL_Text" Grid.Row="0" Grid.Column="0"  FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="100,10">类型共计:</Label>
+        <Button x:Name="EquipmentExport_left"  Grid.Row="1" Grid.Column="0" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0"></Button>
+
+        <TextBlock Text="资料信息:"  FontSize="32" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200" Margin="10,20"></TextBlock>
+        <Label x:Name="Inf_right"  Grid.Row="0" Grid.Column="1" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="80" Margin="10,10">22</Label>
+        <Label x:Name="InfR_Text" Grid.Row="0" Grid.Column="1"  FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="100,10">资料共计:</Label>
+        <Button x:Name="EquipmentExport_right"  Grid.Row="1" Grid.Column="1" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0"></Button>
             
     </Grid>
 </UserControl>
