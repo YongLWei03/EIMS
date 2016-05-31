@@ -87,6 +87,16 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Ordinaryusers\ApplyDataMoreInfoWindows.xaml.cs">
+      <DependentUpon>ApplyDataMoreInfoWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ordinaryusers\ApplyEquipMoreInfoWindows.xaml.cs">
+      <DependentUpon>ApplyEquipMoreInfoWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ordinaryusers\MaintainMoreInfoWindows.xaml.cs">
+      <DependentUpon>MaintainMoreInfoWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ordinaryusers\OrdinaryUserInfo.cs" />
     <Compile Include="Ordinaryusers\OrdinaryUsers_Databorrow.xaml.cs">
       <DependentUpon>OrdinaryUsers_Databorrow.xaml</DependentUpon>
     </Compile>
@@ -101,6 +111,9 @@
     </Compile>
     <Compile Include="Ordinaryusers\OrdinaryUsers_MaintenanceApplication.xaml.cs">
       <DependentUpon>OrdinaryUsers_MaintenanceApplication.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ordinaryusers\ReminderLableRegion.xaml.cs">
+      <DependentUpon>ReminderLableRegion.xaml</DependentUpon>
     </Compile>
     <Compile Include="SystemAdministrator\SystemAdministrator_AddUser.xaml.cs">
       <DependentUpon>SystemAdministrator_AddUser.xaml</DependentUpon>
@@ -147,6 +160,7 @@
     <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView.xaml.cs">
       <DependentUpon>SystemAdministrator_AllInformationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpDataSysLog.cs" />
     <Compile Include="UserDefinedDataGrid\UserDefinedDataGrid.xaml.cs">
       <DependentUpon>UserDefinedDataGrid.xaml</DependentUpon>
     </Compile>
@@ -212,6 +226,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Ordinaryusers\ApplyDataMoreInfoWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ordinaryusers\ApplyEquipMoreInfoWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ordinaryusers\MaintainMoreInfoWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ordinaryusers\OrdinaryUsers_Databorrow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -229,6 +255,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ordinaryusers\OrdinaryUsers_MaintenanceApplication.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ordinaryusers\ReminderLableRegion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -393,19 +423,28 @@
     <Resource Include="Images\SystemAdministrator\装备信息管理.png" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="Microsoft.Office.Core">
-      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>7</VersionMinor>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-    <COMReference Include="Microsoft.Office.Interop.Excel">
-      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>8</VersionMinor>
+    <COMReference Include="Office">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>99</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
@@ -439,6 +478,9 @@
     <Resource Include="Images\WarehouseManager\库存信息.png" />
     <Resource Include="Images\WarehouseManager\申请管理.png" />
     <Resource Include="Images\WarehouseManager\调拨状态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -59,7 +59,7 @@ namespace EIMS_Login
             string userstring = user.ToString();
             string sexstring = addgroup_registerText_sex.SelectedIndex.ToString();
             string username = register_account.Text;
-            string SearchSQL = "select * from ArmsUsers where Username='" + username + "'";
+            string SearchSQL = "select * from ArmsUsers where Usersname='" + username + "'";
             try
             {
                 SqlCommand searchcmd = new SqlCommand(SearchSQL,Temp.GetConn());
@@ -68,8 +68,9 @@ namespace EIMS_Login
                 {
                     throw new Exception();                    
                 }
+                sread.Close();
             }
-            catch
+            catch(Exception)
             {
                 MessageBox.Show("账号已注册！");
                 return;
@@ -82,9 +83,9 @@ namespace EIMS_Login
                 SqlCommand cmd = new SqlCommand(StrSQL, Temp.GetConn());
                 cmd.ExecuteNonQuery();
             }
-            catch
+            catch(Exception se)
             {
-                MessageBox.Show("提交失败！");
+                MessageBox.Show("提交失败！"+ se);
                 return;
             }
             

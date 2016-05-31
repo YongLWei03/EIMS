@@ -4,8 +4,40 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="559" d:DesignWidth="1250" BorderThickness="0,1,0,0" BorderBrush="Black">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Label Content="仓库编号：" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+        <Label Content="仓库总计：" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" FontSize="16"/>
+        <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Width="200" Height="25" FontSize="16"/>
+        <Label x:Name="totalwarehouse" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Content="0" VerticalAlignment="Center" FontSize="16"/>
+        <Button x:Name="search" Content="仅搜索" Grid.Column="1" Grid.Row="1" Width="100" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16"/>
+        <Label Content="仓库名称：" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+        <TextBox x:Name="warehousename" Grid.Column="3" Grid.Row="0" Width="200" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+        <Button x:Name="export" Grid.Row="1" Grid.Column="3" Width="140" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Content="导出为excel文档" FontSize="16"/>
+        <Label Content="额外说明：" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+        <Button Content="提交" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="100" Height="25"/>
+        <TextBox x:Name="extradetail" Grid.Column="5" Grid.Row="0" Grid.RowSpan="2" Width="530" Height="70"/>
+        <Separator Width="1250" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="6" Background="Black"/>
+        <Grid Grid.Row="3" Grid.ColumnSpan="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="870"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Image Width="370" Grid.Column="1" Grid.Row="0" Height="450" Source="/EIMS Login;component/Images/login/BGI.png" />
+        </Grid>
     </Grid>
 </UserControl>

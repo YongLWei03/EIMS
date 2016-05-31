@@ -12,10 +12,14 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="TextAlignment" Value="Center"/>
         </Style>
-        
     </UserControl.Resources>
     <Grid>
         <DataGrid x:Name="dataGrid" Height="300" VerticalAlignment="Center" Width="400" LoadingRow="dataGrid_LoadingRow">
+            <DataGrid.ContextMenu>
+                <ContextMenu x:Name="dgMenu" StaysOpen="true">
+                    
+                </ContextMenu>
+            </DataGrid.ContextMenu>
             <!--改变鼠标移入某行样式 -->
             <DataGrid.RowStyle>
                 <Style TargetType="DataGridRow">

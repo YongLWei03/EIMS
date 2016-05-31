@@ -72,6 +72,7 @@
                 </ComboBox>
                 <ComboBox x:Name="maritalstatus" Text="已婚" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="25" Width="60" FontSize="16" SelectedIndex="0">
                     <ComboBoxItem Content="已婚" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Width="60"></ComboBoxItem>
+                    <ComboBoxItem Content="单身" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Width="60"></ComboBoxItem>
                     <ComboBoxItem Content="未婚" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Width="60"></ComboBoxItem>
                 </ComboBox>
             </TextBlock>
