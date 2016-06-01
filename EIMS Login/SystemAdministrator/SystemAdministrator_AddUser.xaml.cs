@@ -28,12 +28,12 @@ namespace EIMS_Login
 
         public enum userIdentity
         {
-            Ordinary_users,
-            System_administrator,
-            Maintenance_man,
-            Warehouse_manager,
-            Confidential_clerk,
-            Finance_department
+            普通用户,
+            系统管理员,
+            维修管理员,
+            仓库管理员,
+            保密员,
+            财务管理员
 
         }
 
@@ -76,8 +76,8 @@ namespace EIMS_Login
                 return;
             }
             string RyIdExist = "select * from ArmsPerson where RyId='" + addgroup_registerText_rennum.Text + "'";
-            string RyIdInsert = "insert into ArmsPerson(RyId,RyName,Sex,Dep_Id) values('" + addgroup_registerText_rennum.Text + "','" + register_AffiliationPeople.Text + "','" + sexstring
-                + "','" + addgroup_registerText_departnum.Text + "')";
+            string RyIdInsert = "insert into ArmsPerson(RyId,RyName,Sex,Dep_Id,Marital_Condition) values('" + addgroup_registerText_rennum.Text + "','" + register_AffiliationPeople.Text + "','" + sexstring
+                + "','" + addgroup_registerText_departnum.Text + "','0')";
             try
             {
                 SqlCommand RyId = new SqlCommand(RyIdExist, Temp.GetConn());
@@ -106,6 +106,7 @@ namespace EIMS_Login
                 MessageBox.Show("提交失败！"+ se);
                 return;
             }
+            MessageBox.Show("提交成功！");
             
         }
         private bool Status()
@@ -143,6 +144,7 @@ namespace EIMS_Login
                 MessageBox.Show("提交失败！");
                 return;
             }
+            MessageBox.Show("提交成功！");
         }
 
         private bool OrResetStatus()
@@ -165,13 +167,13 @@ namespace EIMS_Login
                 MessageBox.Show("提交页面信息错误！");
                 return;
             }
-            string DetectOrdSQL = "select RyId from ArmsUsers where Usersname ='" + Ordinaryuser_id.Text + "'";
+            string DetectOrdSQL = "select User_type from ArmsUsers where Usersname ='" + Ordinaryuser_id.Text + "'";
             string OrdRsetSQL = "update ArmsUsers set Userspwd = '" + Ordinaryuser_intputpwd.Text + "' where Usersname = '" + Ordinaryuser_id.Text + "'";
             try
             {
-                SqlCommand SamenameCmd = new SqlCommand(DetectOrdSQL, Temp.GetConn());
-                string backstring = SamenameCmd.ExecuteScalar().ToString();              
-                if (backstring.Substring(0, 1) != "1")
+                SqlCommand SnameCmd = new SqlCommand(DetectOrdSQL, Temp.GetConn());
+                string backstring = SnameCmd.ExecuteScalar().ToString();              
+                if (backstring != "普通用户")
                 {
                     MessageBox.Show("提交用户不为普通用户！");
                     return;
@@ -187,7 +189,7 @@ namespace EIMS_Login
                 MessageBox.Show("提交失败！");
                 return;
             }
-           
+            MessageBox.Show("提交成功！");
            
         }
         private bool SpResetStatus()
@@ -211,13 +213,13 @@ namespace EIMS_Login
                 MessageBox.Show("提交页面信息错误！");
                 return;
             }
-            string DetectSpSQL = "select RyId from ArmsUsers where Usersname ='" + Specialuser_id.Text + "'";
+            string DetectSpSQL = "select User_type from ArmsUsers where Usersname ='" + Specialuser_id.Text + "'";
             string DetectdRsetSQL = "update ArmsUsers set Userspwd = '" + Specialuser_intputpwd.Text + "' where Usersname = '" + Specialuser_id.Text + "'";
             try
             {
-                SqlCommand SamenameCmd = new SqlCommand(DetectSpSQL, Temp.GetConn());
-                string backstring = SamenameCmd.ExecuteScalar().ToString();
-                if (backstring.Substring(0, 1) == "1")
+                SqlCommand SnameCmd = new SqlCommand(DetectSpSQL, Temp.GetConn());
+                string backstring = SnameCmd.ExecuteScalar().ToString();
+                if (backstring == "普通用户")
                 {
                     MessageBox.Show("提交用户不为特殊用户！");
                     return;
@@ -233,6 +235,7 @@ namespace EIMS_Login
                 MessageBox.Show("提交失败！");
                 return;
             }
+            MessageBox.Show("提交成功！");
         }
    
     }

@@ -107,7 +107,7 @@ namespace EIMS_Login
                 MessageBox.Show("提交失败！"+se);
                 return;
             }
-            
+            MessageBox.Show("修改成功！");
 
 
 
