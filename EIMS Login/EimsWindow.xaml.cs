@@ -85,7 +85,7 @@ namespace EIMS_Login
                     ImageBrush Image4 = new ImageBrush();
                     Image4.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/Ordinaryusers/装备信息.png", UriKind.RelativeOrAbsolute));
                     Image4.Stretch = Stretch.Fill;
-                    EquipmentInventory.Background = Image;
+                    EquipmentInventory.Background = Image4;
                     application.Children.Add(Databorrow);
                     application.Children.Add(EquipmentApplication);
                     application.Children.Add(MaintenanceApplication);

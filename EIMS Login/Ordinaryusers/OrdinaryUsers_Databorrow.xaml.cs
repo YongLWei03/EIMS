@@ -111,7 +111,7 @@ namespace EIMS_Login.Ordinary_users
                 {
                     if (Convert.ToInt32(Sdr_1[3].ToString()) < Convert.ToInt32(ApplicationDataCount.Text))
                     {
-                        MessageBox.Show("编号为" + ApplicationDataCount.Text + "的资料，暂不能满足申请数量！");
+                        MessageBox.Show("编号为 " + ApplicationDataNumber.Text + " 的资料，暂不能满足申请数量！");
                         return;
                     }
                     Sdr_1.Close();
@@ -132,7 +132,8 @@ namespace EIMS_Login.Ordinary_users
                     ApplicationHistoryCount.Content = TableToApply.Rows;//更新申请总计
                     if (admiw_OpenSign == 1)
                         admiw.updata(TableToApply.Getdt(), TableToApply.Rows);//更新查看详细信息窗口的总行数
-                }     
+                }
+                Sdr_1.Close();
             }
             else
             {
