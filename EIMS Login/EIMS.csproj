@@ -164,6 +164,9 @@
     <Compile Include="UserDefinedDataGrid\UserDefinedDataGrid.xaml.cs">
       <DependentUpon>UserDefinedDataGrid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WarehouseManager\warehousedatagrid\transferapplicationdatagrid.xaml.cs">
+      <DependentUpon>transferapplicationdatagrid.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WarehouseManager\WarehouseManager_TransferApplication.xaml.cs">
       <DependentUpon>WarehouseManager_TransferApplication.xaml</DependentUpon>
     </Compile>
@@ -326,6 +329,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WarehouseManager\warehousedatagrid\transferapplicationdatagrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WarehouseManager\WarehouseManager_TransferApplication.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -482,6 +489,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

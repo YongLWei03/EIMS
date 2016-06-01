@@ -70,9 +70,27 @@ namespace EIMS_Login
                 }
                 sread.Close();
             }
-            catch(Exception)
+            catch(Exception a)
             {
-                MessageBox.Show("账号已注册！");
+                MessageBox.Show("账号已注册！"+a);
+                return;
+            }
+            string RyIdExist = "select * from ArmsPerson where RyId='" + addgroup_registerText_rennum.Text + "'";
+            string RyIdInsert = "insert into ArmsPerson(RyId,RyName,Sex,Dep_Id) values('" + addgroup_registerText_rennum.Text + "','" + register_AffiliationPeople.Text + "','" + sexstring
+                + "','" + addgroup_registerText_departnum.Text + "')";
+            try
+            {
+                SqlCommand RyId = new SqlCommand(RyIdExist, Temp.GetConn());
+                if(RyId.ExecuteScalar() == null)
+                {
+                    SqlCommand RyInsert = new SqlCommand(RyIdInsert, Temp.GetConn());
+                    RyInsert.ExecuteNonQuery();
+                }
+               
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show("提交失败！"+a);
                 return;
             }
             //注意账号所属人姓名，编号，性别，部门编号需要与ArmsPerson一致

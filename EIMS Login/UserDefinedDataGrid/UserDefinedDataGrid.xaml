@@ -48,6 +48,5 @@
                 </Style>
             </DataGrid.ColumnHeaderStyle>
         </DataGrid>
-
     </Grid>
 </UserControl>

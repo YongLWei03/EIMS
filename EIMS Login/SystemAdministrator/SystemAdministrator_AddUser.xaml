@@ -12,7 +12,7 @@
             <RowDefinition Height = "259"></RowDefinition>
         </Grid.RowDefinitions>
         <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0">
-            <Grid Height="300" HorizontalAlignment="Left" Margin="-1,9,0,-11" Name="grid_top" VerticalAlignment="Top" Width="1226" Background="#FFF2F2F2">
+            <Grid Height="295" HorizontalAlignment="Left" Margin="13,4,0,-1" Name="grid_top" VerticalAlignment="Top" Width="1226" Background="#FFF2F2F2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50"></ColumnDefinition>
                     <ColumnDefinition Width="725"></ColumnDefinition>
