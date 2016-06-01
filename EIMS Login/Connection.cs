@@ -11,7 +11,7 @@ namespace EIMS_Login
     class Connection
     {
         static string ConnStr = "Data Source=.;Initial Catalog=EIMS;User ID=EIMS;Password=1";
-        static SqlConnection lo_conn = new SqlConnection(ConnStr);
+        public static SqlConnection lo_conn = new SqlConnection(ConnStr);
         public Connection()
         {
             
