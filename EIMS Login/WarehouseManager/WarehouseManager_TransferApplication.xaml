@@ -1,8 +1,9 @@
-﻿<UserControl x:Class="EIMS_Login.WarehouseManager_TransferApplication"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:warehousedatagrid="clr-namespace:EIMS_Login.WarehouseManager.warehousedatagrid" x:Class="EIMS_Login.WarehouseManager_TransferApplication" 
              mc:Ignorable="d" 
              d:DesignHeight="559" d:DesignWidth="1250" BorderBrush="Black" BorderThickness="0,1,0,0">
     <Grid x:Name="transferapplication">
@@ -25,9 +26,11 @@
             <ComboBoxItem Content="已批准"/>
             <ComboBoxItem Content="未批准"/>
         </ComboBox>
-        <Label x:Name="TotalApplicationTag" Content="申请总计：" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="0" ></Label>
-        <Label x:Name="TotalApplication" Content="0" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="4" Grid.Row="0"></Label>
-        <Button x:Name="export" Grid.Row="0" FontSize="16" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="25">导出为excel表格</Button>
-        <Button x:Name="ConfirmSubmission" FontSize="16" Grid.Row="0" Grid.Column="6" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25">确定提交</Button>
+        <Label x:Name="TotalApplicationTag" Content="申请总计：" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="0" />
+        <Label x:Name="TotalApplication" Content="0" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="4" Grid.Row="0"/>
+        <Button x:Name="export" Grid.Row="0" FontSize="16" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="25" Content="导出为excel表格"/>
+        <Button x:Name="ConfirmSubmission" FontSize="16" Grid.Row="0" Grid.Column="6" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Content="确定提交"/>
+        <warehousedatagrid:transferapplicationdatagrid HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Grid.Column="0" Grid.ColumnSpan="7">
+        </warehousedatagrid:transferapplicationdatagrid>
     </Grid>
 </UserControl>
