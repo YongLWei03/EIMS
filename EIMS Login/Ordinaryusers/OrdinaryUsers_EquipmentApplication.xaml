@@ -22,7 +22,7 @@
         <Label x:Name="label1_Copy2" Content="申请历史总计：" HorizontalAlignment="Left" Margin="899,20,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Button x:Name="ExportTable_AH" Content="导出为excel表格" HorizontalAlignment="Left" Height="25" Margin="1069,23,0,0" VerticalAlignment="Top" Width="159" FontSize="16" RenderTransformOrigin="5.15,-3.768" Click="ExportTable_AH_Click"/>
         <Label x:Name="label_Copy1" Content="派发历史：" HorizontalAlignment="Left" Margin="440,285,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
-        <Label x:Name="label1_Copy3" Content="借阅历史总计：" HorizontalAlignment="Left" Margin="899,295,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="label1_Copy3" Content="派发历史总计：" HorizontalAlignment="Left" Margin="899,295,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Button x:Name="ExportTable_PH" Content="导出为excel表格" HorizontalAlignment="Left" Height="25" Margin="1069,298,0,0" VerticalAlignment="Top" Width="159" FontSize="16" RenderTransformOrigin="5.15,-3.768" Click="ExportTable_BH_Click"/>
         <Label x:Name="label" Content="装备申请：" HorizontalAlignment="Left" Margin="54,53,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="559" Margin="420,0,0,0" VerticalAlignment="Top" Width="2"/>

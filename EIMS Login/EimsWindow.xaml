@@ -50,8 +50,16 @@
             <ColumnDefinition Width="30"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="12" MouseLeftButtonDown="DragWindow"/>
-        <Button x:Name="Close" Style="{StaticResource MyButton}"  Content="×" Grid.Row="0" Grid.Column="11" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Close_Click"/>
-        <Button x:Name="Min" Style="{StaticResource MyButton}" Content="－" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Min_Click"/>
+        <Button x:Name="Close" Style="{StaticResource MyButton}" Grid.Row="0" Grid.Column="11" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Close_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/Public/关闭.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Min" Style="{StaticResource MyButton}" Grid.Row="0" Grid.Column="10" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Min_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/Public/最小化.png"/>
+            </Button.Background>
+        </Button>
         <ComboBox Width="70" Height="28" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top"  Grid.Row="0" Grid.Column="9" SelectedIndex="0">
             <ComboBoxItem Content="蓝天" />
             <ComboBoxItem Content="魔幻" />
