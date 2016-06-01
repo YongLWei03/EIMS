@@ -87,6 +87,16 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Ordinaryusers\ApplyDataMoreInfoWindows.xaml.cs">
+      <DependentUpon>ApplyDataMoreInfoWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ordinaryusers\ApplyEquipMoreInfoWindows.xaml.cs">
+      <DependentUpon>ApplyEquipMoreInfoWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ordinaryusers\MaintainMoreInfoWindows.xaml.cs">
+      <DependentUpon>MaintainMoreInfoWindows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ordinaryusers\OrdinaryUserInfo.cs" />
     <Compile Include="Ordinaryusers\OrdinaryUsers_Databorrow.xaml.cs">
       <DependentUpon>OrdinaryUsers_Databorrow.xaml</DependentUpon>
     </Compile>
@@ -101,6 +111,9 @@
     </Compile>
     <Compile Include="Ordinaryusers\OrdinaryUsers_MaintenanceApplication.xaml.cs">
       <DependentUpon>OrdinaryUsers_MaintenanceApplication.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Ordinaryusers\ReminderLableRegion.xaml.cs">
+      <DependentUpon>ReminderLableRegion.xaml</DependentUpon>
     </Compile>
     <Compile Include="SystemAdministrator\SystemAdministrator_AddUser.xaml.cs">
       <DependentUpon>SystemAdministrator_AddUser.xaml</DependentUpon>
@@ -147,6 +160,7 @@
     <Compile Include="SystemAdministrator\SystemAdministrator_AllInformationView.xaml.cs">
       <DependentUpon>SystemAdministrator_AllInformationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UpDataSysLog.cs" />
     <Compile Include="UserDefinedDataGrid\UserDefinedDataGrid.xaml.cs">
       <DependentUpon>UserDefinedDataGrid.xaml</DependentUpon>
     </Compile>
@@ -215,6 +229,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Ordinaryusers\ApplyDataMoreInfoWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ordinaryusers\ApplyEquipMoreInfoWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ordinaryusers\MaintainMoreInfoWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ordinaryusers\OrdinaryUsers_Databorrow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -232,6 +258,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ordinaryusers\OrdinaryUsers_MaintenanceApplication.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ordinaryusers\ReminderLableRegion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

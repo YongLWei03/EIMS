@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
+using EIMS_Login.Ordinaryusers;
 
 namespace EIMS_Login.UserDefinedDataGrid
 {
@@ -23,13 +24,11 @@ namespace EIMS_Login.UserDefinedDataGrid
     public partial class UserDefinedDataGrid : UserControl
     {
         Connection Temp = new Connection();
-        bool UpDate = true;
-        bool Save = false;
+        public int Rows=0;
+        DataTable dt = new DataTable();//数据表后台存储
         public UserDefinedDataGrid()
         {
-            InitializeComponent();
-
-            
+            InitializeComponent();            
         }
         public void InitTableHeightWidth(int Height,int Width)
         {
@@ -37,6 +36,10 @@ namespace EIMS_Login.UserDefinedDataGrid
             dataGrid.Width = Width;
             dataGrid.FontSize = 16;
             
+        }
+        public DataTable Getdt()
+        {
+            return dt;
         }
         //增加列
         public void AddColumns(string Binding,string Header,int Width)
@@ -51,45 +54,64 @@ namespace EIMS_Login.UserDefinedDataGrid
             Temp.ElementStyle = Resources["MyDataGrid"] as Style;
             dataGrid.Columns.Add(Temp);
         }
-        //数据库数据绑定
-        public DataSet DataTableSelect(string SQL, string SaveSlecte)
+
+        //针对性的增加右键菜单，分别有：查看更多，
+        public MenuItem AddMenuItem(string Header)
+        {
+            MenuItem TempMenu = new MenuItem();
+            TempMenu.Header = Header;
+            return TempMenu;
+        }
+        /*
+         * 功能：更新数据
+         * 参数：SQL  更新数据SQL语句
+         *       SelectStr  功能选择
+         */
+        public DataSet DataTableSelect(string SQL ,string SelectStr)
         {
             DataTable Table0 = new DataTable();
             DataSet ds = new DataSet();
             try
             {
                 SqlDataAdapter sda = new SqlDataAdapter(SQL, Temp.GetConnStr());
-                
-                ds.Clear();
                 sda.Fill(Table0);
-                if (SaveSlecte == "更新")
+                dt = Table0;
+                Rows = Table0.Rows.Count;
+                if (SelectStr == "更新")
                     dataGrid.ItemsSource = Table0.DefaultView;
-                else if (SaveSlecte == "保存")
+                else if (SelectStr == "保存")
+                {
+                    ds.Clear();
                     ds.Tables.Add(Table0);
+                }
                 else
                 {
-                    MessageBox.Show("异常！");
-                }
+                    MessageBox.Show("出现异常，原因参数传递不正确！");
+                } 
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("出现异常！");
+                MessageBox.Show("出现异常！"+ex);
             }
             return ds;
-            
         }
         //增加行号及自动加1
         private void dataGrid_LoadingRow(object sender, DataGridRowEventArgs e)
         {
             e.Row.Header = e.Row.GetIndex() + 1;
         }
-
+        /*
+         * 导出一个Excel文档
+         * SQL 为数据库操作的SQL语句
+         * []StrCloumns 为保存的表格行表头名
+         * saveFileName 为保存文件的位置
+         */
         public string ExportExcel(string SQL,string []StrCloumns, string saveFileName)
         {
             try
             {
                 DataSet ds = DataTableSelect(SQL,"保存");
-                ChangeColumnName(ds, StrCloumns);
+                ChangeColumnName(ref ds, StrCloumns);
                 if (ds == null)
                     return "数据库为空";
 
@@ -129,6 +151,7 @@ namespace EIMS_Login.UserDefinedDataGrid
                     {
                         fileSaved = false;
                         MessageBox.Show("导出文件时出错,文件可能正被打开！\n" + ex.Message);
+                        return "";
                     }
                 }
                 else
@@ -138,6 +161,7 @@ namespace EIMS_Login.UserDefinedDataGrid
                 xlApp.Quit();
                 GC.Collect();//强行销毁
                 if (fileSaved && System.IO.File.Exists(saveFileName)) System.Diagnostics.Process.Start(saveFileName); //打开EXCEL
+                MessageBox.Show("导出成功，默认保存在：我的电脑/文档");
                 return "成功保存到Excel";
             }
             catch (Exception ex)
@@ -145,7 +169,11 @@ namespace EIMS_Login.UserDefinedDataGrid
                 return ex.ToString();
             }
         }
-        public void ChangeColumnName(DataSet ds,string []StrCloumns)
+        /*对导出的Excel文档表头进行更改
+         *参数1：dataset ds；为要进行修改的数据表
+         *参数2：string []StrCloumns；修改的目标表头，顺序为从左到右
+         */
+        public void ChangeColumnName(ref DataSet ds,string []StrCloumns)
         {
             for (int i = 0; i < ds.Tables[0].Columns.Count; i++)
             {
@@ -153,5 +181,6 @@ namespace EIMS_Login.UserDefinedDataGrid
             }
             
         }
+
     }
 }

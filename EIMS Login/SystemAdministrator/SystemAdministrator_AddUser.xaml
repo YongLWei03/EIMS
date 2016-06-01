@@ -12,7 +12,7 @@
             <RowDefinition Height = "259"></RowDefinition>
         </Grid.RowDefinitions>
         <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0">
-            <Grid Height="300" HorizontalAlignment="Left" Margin="12,0,0,0" Name="grid_top" VerticalAlignment="Top" Width="1226" Background="#FFF2F2F2">
+            <Grid Height="300" HorizontalAlignment="Left" Margin="-1,9,0,-11" Name="grid_top" VerticalAlignment="Top" Width="1226" Background="#FFF2F2F2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50"></ColumnDefinition>
                     <ColumnDefinition Width="725"></ColumnDefinition>
@@ -30,15 +30,12 @@
                         <Run>重复输入： </Run>
                     <LineBreak/>
                         <Run>账号所属人： </Run>
-                    <LineBreak/>
-                        <Run>身份证号： </Run>
                 </TextBlock>
                 <TextBlock Name="adduser_registerText" Grid.Row="0" Grid.Column="1" HorizontalAlignment="left" VerticalAlignment="Bottom" Height="184" Width="200" Margin="100,0,0,0" Padding="5,12" LineHeight="35" TextWrapping="Wrap"> 
-                    <TextBox x:Name="register_account" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                    <TextBox x:Name="register_account" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center" MaxLength="15"/>
                     <TextBox x:Name="register_pwd" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
-                    <TextBox x:Name="register_repwd" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
-                    <TextBox x:Name="register_AffiliationPeople" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
-                    <TextBox x:Name="register_IdNumber" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
+                    <TextBox x:Name="register_repwd" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center" LostFocus="register_repwd_LostFocus"></TextBox>
+                    <TextBox x:Name="register_AffiliationPeople" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>                    
                 </TextBlock>
                 <TextBlock Name="adduser_registerTip" Grid.Row="0" Grid.Column="1" HorizontalAlignment="left" VerticalAlignment="Bottom" Height="181" Width="100" Margin="300,0,0,34" Padding="5,5" LineHeight="40">
                      <LineBreak/>
@@ -46,6 +43,7 @@
                     <LineBreak/>
                         <Run>6~10位密码 </Run>
                 </TextBlock>
+                <Label x:Name="repwdText" Grid.Row="0" Grid.Column="1" HorizontalAlignment="left" VerticalAlignment="Bottom" Margin="310,0,0,84"></Label>
                 <TextBlock Name="addgroup_registerLabel" FontSize="16" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="171" Width="150" Margin="0,0,150,40" Padding="5,5" LineHeight="35">
                     <LineBreak/>
                         <Run>所属用户组：</Run>
@@ -64,6 +62,7 @@
                         <ComboBoxItem Content="系统管理员" Height="25"></ComboBoxItem>
                         <ComboBoxItem Content="维修管理员" Height="25"></ComboBoxItem>
                         <ComboBoxItem Content="仓库管理员" Height="25"></ComboBoxItem>
+                        <ComboBoxItem Content="保密员" Height="25"></ComboBoxItem>
                         <ComboBoxItem Content="财务部管理员" Height="25"></ComboBoxItem>
                     </ComboBox>
                     <TextBox x:Name="addgroup_registerText_rennum" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="150" FontSize="16" VerticalContentAlignment="Center"></TextBox>
@@ -72,7 +71,7 @@
                         <ComboBoxItem Content="女" Height="25"></ComboBoxItem>
                     </ComboBox>
                     <TextBox x:Name="addgroup_registerText_departnum" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="150" FontSize="16" VerticalContentAlignment="Center"></TextBox>
-                    <Button x:Name="submit_left" Content="提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="70,0,0,0"></Button>
+                    <Button x:Name="Users_submit" Content="提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="70,0,0,0" Click="Users_submit_Click"></Button>
                 </TextBlock>
                 <Rectangle Grid.Row="0" Grid.Column="2" Fill="Gray" Width="3"></Rectangle>
                 <TextBlock Name="AddDepartment" Text="添加新部门：" FontSize="32" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200" Margin="10,20"></TextBlock>
@@ -89,12 +88,8 @@
                     <TextBox x:Name="AddDepartment_registorText_newdepartnum" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="200" FontSize="16" VerticalContentAlignment="Center"></TextBox>
                     <TextBox x:Name="AddDepartment_registorText_newdepartid" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="200" FontSize="16" VerticalContentAlignment="Center"></TextBox>
                     <TextBox x:Name="AddDepartment_registorText_newdepartdesc" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="45" Width="200" FontSize="16" VerticalContentAlignment="Center" TextWrapping="Wrap"></TextBox>
-                    <ComboBox x:Name="AddDepartment_registorText_parentdepartnum" Text="2100154" HorizontalAlignment="Stretch" SelectedIndex="0" Height="25" Width="200" FontSize="16" VerticalContentAlignment="Center" Margin="0,10">
-                        <ComboBoxItem Content="2100154" Height="25"></ComboBoxItem>
-                        <ComboBoxItem Content="2100155" Height="25"></ComboBoxItem>
-                        <ComboBoxItem Content="2100156" Height="25"></ComboBoxItem>
-                    </ComboBox>
-                    <Button x:Name="submit_right" Content="提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="120,0,0,0"></Button>
+                    <TextBox x:Name="AddDepartment_registorText_parentdepartnum"  HorizontalAlignment="Stretch" Height="25" Width="200" FontSize="16" VerticalContentAlignment="Center" Margin="0,10"></TextBox>
+                    <Button x:Name="Departments_submit" Content="提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="120,0,0,0" Click="Departments_submit_Click"></Button>
                 </TextBlock>
             </Grid>
         </Border>
@@ -110,7 +105,7 @@
                 </Border>
                 <TextBlock  FontSize="16" Name="OrdinaryUsers_pwdreset" Grid.Column="0" Margin="78,57,209,37" LineHeight="36" TextWrapping="Wrap">
                     <LineBreak/>
-                        <Run>普通用户编号：</Run>
+                        <Run>普通用户账号：</Run>
                     <LineBreak/>
                         <Run>复位密码： </Run>
                     <LineBreak/>
@@ -120,27 +115,24 @@
                     <TextBox x:Name="Ordinaryuser_id" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
                     <TextBox x:Name="Ordinaryuser_intputpwd" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
                     <TextBox x:Name="Ordinaryuser_reintputpwd" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
-                     <Button x:Name="Ordinaryuser_submitleft" Content="提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="100,0,0,0"></Button>
+                     <Button x:Name="Ordinaryuser_submitleft" Content="提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="100,0,0,0" Click="Ordinaryuser_submitleft_Click"></Button>
                 </TextBlock>
                 <Border BorderBrush="Gray" BorderThickness="1" Margin="30,5,0,0" Grid.Column="2" HorizontalAlignment="Left" Width="374"></Border>
                 <TextBlock Name="SpecialUsers_reset" Text="特殊用户密码复位:"  FontSize="32" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="44" Width="304" Margin="78,9,0,0"></TextBlock>
                 <TextBlock Grid.Column="2" FontSize="16" Name="SpecialUsers_resetText" Margin="78,57,251,37" LineHeight="36" TextWrapping="Wrap">
                     <LineBreak/>
-                        <Run>特殊用户选择：</Run>
+                        <Run>特殊用户账号：</Run>
                     <LineBreak/>
                         <Run>复位密码输入： </Run>
                     <LineBreak/>
                         <Run>再次输入： </Run>
                 </TextBlock>
                 <TextBlock Name="Specialuser_ResetText" Grid.Column="2" HorizontalAlignment="left" VerticalAlignment="Bottom" Height="147" Width="200" Margin="190,0,0,28" Padding="5,12" LineHeight="35" TextWrapping="Wrap"> 
-                    <ComboBox x:Name="Specialuser_id" Text="仓库管理员" HorizontalAlignment="Stretch" SelectedIndex="0" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center">
-                        <ComboBoxItem Content="维修管理员" Height="25"></ComboBoxItem>
-                        <ComboBoxItem Content="仓库管理员" Height="25"></ComboBoxItem>
-                        <ComboBoxItem Content="财务部管理员" Height="25"></ComboBoxItem>
-                    </ComboBox>
+                    <TextBox x:Name="Specialuser_id"  HorizontalAlignment="Stretch"  VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center">
+                    </TextBox>
                     <TextBox x:Name="Specialuser_intputpwd" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
                     <TextBox x:Name="Specialuser_reintputpwd" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="180" FontSize="16" VerticalContentAlignment="Center"></TextBox>
-                     <Button x:Name="Specialuser_submitright" Content="提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="100,0,0,0"></Button>
+                     <Button x:Name="Specialuser_submitright" Content="提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="100,0,0,0" Click="Specialuser_submitright_Click"/>
                 </TextBlock>
             </Grid>
         </Border>

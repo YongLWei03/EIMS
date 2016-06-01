@@ -26,6 +26,8 @@ namespace EIMS_Login
         Connection Temp = new Connection();
         //    public static int userIdentity = 0;
         public static userIdentity user;
+        public static string CurrentUser;//当前用户
+        static int TempInt = 1;
         public enum userIdentity
         {
             Ordinary_users,
@@ -84,15 +86,53 @@ namespace EIMS_Login
 
         private void Login(object sender, RoutedEventArgs e)
         {
-            if (Temp.SqlConn()==1)
+            
+            if (Temp.SqlConn()==1 && TempInt == 1)
             {
                 MessageBox.Show("服务器连接失败！");
                 return;
             }
+            TempInt++;//使开启数据库连接只一次
             user = (userIdentity)Identity.SelectedIndex;
-            this.Hide();
-            EimsWindow win1 = new EimsWindow();
-            win1.Show();
+            if (user == userIdentity.Ordinary_users)//用户判断，输入账号登陆只对普通用户有效
+            {
+                try
+                {
+                    string StrSql_1 = "select * from ArmsUsers where Usersname='" + Account.Text + "'and Userspwd='" + PasswordBox.Password.ToString() + "'";
+                    SqlCommand CMD_1 = new SqlCommand(StrSql_1, Temp.GetConn());
+                    SqlDataReader Sdr_1 = CMD_1.ExecuteReader();
+                    if (Sdr_1.Read())
+                    {
+                        string TempStr = Sdr_1[2].ToString();
+                        Sdr_1.Close();
+                        if (TempStr == "普通用户" && user != userIdentity.Ordinary_users)//权限判断，属于普通用户不能选择了其他用户组
+                        {
+                            MessageBox.Show("当前用户权限不足，请核对权限选择下拉框！");
+                            return;
+                        }
+                        CurrentUser = Account.Text;//满足一切登陆条件后，保存当前账号名，以备各模块使用
+                        this.Hide();
+                        EimsWindow win1 = new EimsWindow();
+                        win1.Show();
+                    }
+                    else
+                    {
+                        Sdr_1.Close();
+                        MessageBox.Show("登陆失败，账号或密码错误！");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("服务器异常,登陆失败！");
+                    return;
+                }
+            }
+            else//当选择的不是普通用户，可以直接登陆
+            {
+                this.Hide();
+                EimsWindow win1 = new EimsWindow();
+                win1.Show();
+            }
         }
     }
 }
