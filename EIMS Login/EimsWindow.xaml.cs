@@ -25,7 +25,6 @@ namespace EIMS_Login
         {
             InitializeComponent();
         }
-
         private void DragWindow(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
@@ -43,6 +42,7 @@ namespace EIMS_Login
         private void MenuLoad()
         {
             int column = 0;
+            
             switch (MainWindow.user)
             {
                 case MainWindow.userIdentity.Ordinary_users://普通用户
@@ -54,18 +54,38 @@ namespace EIMS_Login
                     Databorrow.Width = 100;
                     Databorrow.Height = 100;
                     Databorrow.Style = Resources["MyButton"] as Style;
+                    ImageBrush Image = new ImageBrush();
+                    Image.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/Ordinaryusers/借阅申请.png", UriKind.RelativeOrAbsolute));
+                    Image.Stretch = Stretch.Fill;
+                    Databorrow.Background = Image;
                     EquipmentApplication.Width = 100;
                     EquipmentApplication.Height = 100;
                     EquipmentApplication.Style = Resources["MyButton"] as Style;
+                    ImageBrush Image1 = new ImageBrush();
+                    Image1.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/Ordinaryusers/装备申请.png", UriKind.RelativeOrAbsolute));
+                    Image1.Stretch = Stretch.Fill;
+                    EquipmentApplication.Background = Image1;
                     MaintenanceApplication.Width = 100;
                     MaintenanceApplication.Height = 100;
                     MaintenanceApplication.Style = Resources["MyButton"] as Style;
+                    ImageBrush Image2 = new ImageBrush();
+                    Image2.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/Ordinaryusers/维修申请.png", UriKind.RelativeOrAbsolute));
+                    Image2.Stretch = Stretch.Fill;
+                    MaintenanceApplication.Background = Image2;
                     DataSearch.Width = 100;
                     DataSearch.Height = 100;
                     DataSearch.Style = Resources["MyButton"] as Style;
+                    ImageBrush Image3 = new ImageBrush();
+                    Image3.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/Ordinaryusers/资料信息.png", UriKind.RelativeOrAbsolute));
+                    Image3.Stretch = Stretch.Fill;
+                    DataSearch.Background = Image3;
                     EquipmentInventory.Width = 100;
                     EquipmentInventory.Height = 100;
                     EquipmentInventory.Style = Resources["MyButton"] as Style;
+                    ImageBrush Image4 = new ImageBrush();
+                    Image4.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/Ordinaryusers/装备信息.png", UriKind.RelativeOrAbsolute));
+                    Image4.Stretch = Stretch.Fill;
+                    EquipmentInventory.Background = Image;
                     application.Children.Add(Databorrow);
                     application.Children.Add(EquipmentApplication);
                     application.Children.Add(MaintenanceApplication);
@@ -88,6 +108,13 @@ namespace EIMS_Login
                     MaintenanceApplication.Click += new RoutedEventHandler(MaintenanceApplicationClick);
                     DataSearch.Click += new RoutedEventHandler(DataSearchClick);
                     EquipmentInventory.Click += new RoutedEventHandler(EquipmentInventoryClick);
+
+
+                    application_children.Children.Clear();
+                    OrdinaryUsers_Databorrow OrdinaryUsers_Databorrow = new OrdinaryUsers_Databorrow();
+                    application_children.Children.Add(OrdinaryUsers_Databorrow);
+                    OrdinaryUsers_Databorrow.SetValue(Grid.RowProperty, 1);
+                    OrdinaryUsers_Databorrow.SetValue(Grid.ColumnSpanProperty, 12);
                     break;
                 case MainWindow.userIdentity.Warehouse_manager://仓库管理员
                     Button TransferApplication = new Button();
@@ -260,15 +287,31 @@ namespace EIMS_Login
             Button PersonalInformation = new Button();
             Button Renovate = new Button();
             Button Cancel = new Button();
+
             PersonalInformation.Width = 100;
             PersonalInformation.Height = 100;
             PersonalInformation.Style = Resources["MyButton"] as Style;
+            ImageBrush Image98 = new ImageBrush();
+            Image98.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/Public/个人信息.png", UriKind.RelativeOrAbsolute));
+            Image98.Stretch = Stretch.Fill;
+            PersonalInformation.Background = Image98;
+
             Renovate.Width = 100;
             Renovate.Height = 100;
             Renovate.Style = Resources["MyButton"] as Style;
+            ImageBrush Image99 = new ImageBrush();
+            Image99.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/Public/刷新.png", UriKind.RelativeOrAbsolute));
+            Image99.Stretch = Stretch.Fill;
+            Renovate.Background = Image99;
+
             Cancel.Width = 100;
             Cancel.Height = 100;
             Cancel.Style = Resources["MyButton"] as Style;
+            ImageBrush Image100 = new ImageBrush();
+            Image100.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/Public/注销登录.png", UriKind.RelativeOrAbsolute));
+            Image100.Stretch = Stretch.Fill;
+            Cancel.Background = Image100;
+
             application.Children.Add(PersonalInformation);
             application.Children.Add(Renovate);
             application.Children.Add(Cancel);
@@ -278,6 +321,18 @@ namespace EIMS_Login
             Renovate.SetValue(Grid.RowProperty, 0);
             Cancel.SetValue(Grid.ColumnProperty, column + 2);
             Cancel.SetValue(Grid.RowProperty, 0);
+
+            Cancel.Click += new RoutedEventHandler(CancelrClick);
+        }
+        private void CancelrClick(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult dr = MessageBox.Show("你确定要注销登陆吗？", "系统提示",MessageBoxButton.OKCancel,MessageBoxImage.Warning);
+            if (dr == MessageBoxResult.OK)
+            {
+                MainWindow TempWindow = new MainWindow();
+                TempWindow.Show();
+                this.Close();
+            }
         }
         private void AddUserClick(object sender, RoutedEventArgs e)
         {

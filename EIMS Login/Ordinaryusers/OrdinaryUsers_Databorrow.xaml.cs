@@ -53,13 +53,14 @@ namespace EIMS_Login.Ordinary_users
         private void InitTabelToApply()
         {
             TableToApply.InitTableHeightWidth(210, 810);
+            TableToApply.SetCanUserAddRows(false);
             TableToApply.AddColumns("Ryname", "姓名", 80);
             TableToApply.AddColumns("ApplyDataID", "资料编号", 100);
             TableToApply.AddColumns("ApplyCount", "数量", 40);
             TableToApply.AddColumns("ApplyDate", "申请日期", 170);
-            TableToApply.AddColumns("ApplyID", "申请编号", 190);
+            TableToApply.AddColumns("ApplyID", "申请编号", 80);
             TableToApply.AddColumns("Status", "同意状态", 80);
-            TableToApply.AddColumns("ApplyReason", "申请原因", 130);
+            TableToApply.AddColumns("ApplyReason", "申请原因",240);
         }
         public void Initttalbm()
         {
@@ -78,6 +79,7 @@ namespace EIMS_Login.Ordinary_users
         private void InitTableToHistory()
         {
             TableToHistory.InitTableHeightWidth(210, 810);
+            TableToHistory.SetCanUserAddRows(false);
             TableToHistory.AddColumns("Id", "借阅号", 80);
             TableToHistory.AddColumns("DataNo", "资料编号", 100);
             TableToHistory.AddColumns("LendDate", "借阅日期", 220);
@@ -98,26 +100,39 @@ namespace EIMS_Login.Ordinary_users
             if (UITemp.GetRyidStatus)
             {
                 string Date = DateTime.Now.ToString("yyyy-MM-dd") + " " + DateTime.Now.ToLongTimeString().ToString(); ;//获取当前时间
-                string StrSQL = "insert into ApplyData values('" + UITemp.UserInfoTemp.Ryid + "','" + UITemp.UserInfoTemp.RyName + "','" + UITemp.UserInfoTemp.Position +
+                string StrSQL1 = "insert into ApplyData values('" + UITemp.UserInfoTemp.Ryid + "','" + UITemp.UserInfoTemp.RyName + "','" + UITemp.UserInfoTemp.Position +
                      "','" + Date + "','" + ApplicationDataNumber.Text + "',"
                     + ApplicationDataCount.Text + ",'" + ApplicationReasons.Text + "','未操作')";
-                try
+                string StrSQL2 = "select * from ArmsData where DataNo ='" + ApplicationDataNumber.Text + "'";
+                SqlCommand CMD_1 = new SqlCommand(StrSQL2, Temp.GetConn());
+                SqlDataReader Sdr_1 = CMD_1.ExecuteReader();
+                if (!Sdr_1.Read()) MessageBox.Show("错误：暂无编号为 " + ApplicationDataNumber.Text + " 的资料！");
+                else
                 {
-                    SqlCommand cmd = new SqlCommand(StrSQL, Temp.GetConn());
-                    cmd.ExecuteNonQuery();
-                }
-                catch
-                {
-                    MessageBox.Show("申请失败！");
-                    return;
-                }
-                MessageBox.Show("申请成功，请耐心等待批准结果。。。");
-                TableToApply.DataTableSelect(ApplyTableSql, "更新");//申请成功更新：申请历史表格
-                UpDataLog();//更新操作日志
-                UpDateRLR(0);//更新左下部操作提示
-                ApplicationHistoryCount.Content = TableToApply.Rows;//更新申请总计
-                if (admiw_OpenSign == 1)
-                    admiw.updata(TableToApply.Getdt(), TableToApply.Rows);//更新查看详细信息窗口的总行数
+                    if (Convert.ToInt32(Sdr_1[3].ToString()) < Convert.ToInt32(ApplicationDataCount.Text))
+                    {
+                        MessageBox.Show("编号为" + ApplicationDataCount.Text + "的资料，暂不能满足申请数量！");
+                        return;
+                    }
+                    Sdr_1.Close();
+                    try
+                    {
+                        CMD_1.CommandText = StrSQL1;
+                        CMD_1.ExecuteNonQuery();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("申请失败！");
+                        return;
+                    }
+                    MessageBox.Show("申请成功，请耐心等待批准结果。。。");
+                    TableToApply.DataTableSelect(ApplyTableSql, "更新");//申请成功更新：申请历史表格
+                    UpDataLog();//更新操作日志
+                    UpDateRLR(0);//更新左下部操作提示
+                    ApplicationHistoryCount.Content = TableToApply.Rows;//更新申请总计
+                    if (admiw_OpenSign == 1)
+                        admiw.updata(TableToApply.Getdt(), TableToApply.Rows);//更新查看详细信息窗口的总行数
+                }     
             }
             else
             {
@@ -166,7 +181,7 @@ namespace EIMS_Login.Ordinary_users
 
         private void ExportTable_AH_Click(object sender, RoutedEventArgs e)
         {
-            string[] Str = { "ID", "申请人编号", "申请人名字", "工作岗位", "申请编号", "申请日期", "申请资料编号",
+            string[] Str = { "申请编号", "申请人编号", "申请人名字", "工作岗位",  "申请日期", "申请资料编号",
                 "申请数量", "申请原因", "操作状态" };
             TableToApply.ExportExcel(ApplyTableSql, Str, "借阅申请历史表格.xlsx");
         }

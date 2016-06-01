@@ -64,6 +64,7 @@ namespace EIMS_Login.Ordinaryusers
         private void InitTabelToApply()
         {
             TableToApply.InitTableHeightWidth(210, 810);
+            TableToApply.SetCanUserAddRows(false);
             TableToApply.AddColumns("Ryname", "姓名", 80);
             TableToApply.AddColumns("Zbid", "装备编号", 100);
             TableToApply.AddColumns("ApplyCount", "数量", 40);
@@ -99,7 +100,8 @@ namespace EIMS_Login.Ordinaryusers
         private void InitTableToHistory()
         {
             TableToHistory.InitTableHeightWidth(210, 810);
-            TableToHistory.AddColumns("RepId", "维修记录号", 80);
+            TableToHistory.SetCanUserAddRows(false);
+            TableToHistory.AddColumns("RepId", "维修记录号", 100);
             TableToHistory.AddColumns("ZbId", "装备编号", 80);
             TableToHistory.AddColumns("RepairDate", "维修日期", 100);
             TableToHistory.AddColumns("Unit", "维修单位", 140);
@@ -120,6 +122,7 @@ namespace EIMS_Login.Ordinaryusers
                 string StrSQL = "insert into ApplyMaintain values('" + UITemp.UserInfoTemp.Ryid + "','" + UITemp.UserInfoTemp.RyName + "','" + UITemp.UserInfoTemp.Position +
                     "','" + Date + "','" + ApplicationEquipmentNumber.Text + "',"
                     + ApplicationMaintenanceCount.Text + ",'" + ApplicationReasons.Text + "','未操作')";
+                
                 try
                 {
                     SqlCommand cmd = new SqlCommand(StrSQL, Temp.GetConn());
@@ -138,6 +141,7 @@ namespace EIMS_Login.Ordinaryusers
                 ApplicationHistoryCount.Content = TableToApply.Rows;//更新申请总计
                 if (mmiw_OpenSign == 1)
                     mmiw.updata(TableToApply.Getdt(), TableToApply.Rows);//更新查看详细信息窗口的总行数
+                
             }
             else
             {

@@ -28,6 +28,7 @@ namespace EIMS_Login
         public static userIdentity user;
         public static string CurrentUser;//当前用户
         static int TempInt = 1;
+
         public enum userIdentity
         {
             Ordinary_users,
@@ -36,7 +37,7 @@ namespace EIMS_Login
             Confidential_clerk,
             Maintenance_man,
             Finance_department
-
+            
         }
         public MainWindow()
         {
@@ -48,6 +49,7 @@ namespace EIMS_Login
             dak.RepeatBehavior = new RepeatBehavior(1);//动画1次
             //开始动画
             this.login.BeginAnimation(Border.WidthProperty, dak);
+            
 
         }
         //函数功能：鼠标左键按住窗口拖动
@@ -84,6 +86,10 @@ namespace EIMS_Login
             }
         }
 
+
+        /*
+         * 功能：登陆
+         */
         private void Login(object sender, RoutedEventArgs e)
         {
             
@@ -111,9 +117,10 @@ namespace EIMS_Login
                             return;
                         }
                         CurrentUser = Account.Text;//满足一切登陆条件后，保存当前账号名，以备各模块使用
-                        this.Hide();
+
                         EimsWindow win1 = new EimsWindow();
                         win1.Show();
+                        this.Close();
                     }
                     else
                     {
@@ -129,10 +136,12 @@ namespace EIMS_Login
             }
             else//当选择的不是普通用户，可以直接登陆
             {
-                this.Hide();
+                
                 EimsWindow win1 = new EimsWindow();
                 win1.Show();
+                this.Close();
             }
         }
+
     }
 }
