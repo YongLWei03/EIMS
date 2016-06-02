@@ -111,7 +111,7 @@ namespace EIMS_Login
                     {
                         string TempStr = Sdr_1[2].ToString();
                         Sdr_1.Close();
-                        if (TempStr == "普通用户" && user != userIdentity.Ordinary_users)//权限判断，属于普通用户不能选择了其他用户组
+                        if (TempStr != "普通用户" && user == userIdentity.Ordinary_users)//权限判断，属于普通用户不能选择了其他用户组
                         {
                             MessageBox.Show("当前用户权限不足，请核对权限选择下拉框！");
                             return;

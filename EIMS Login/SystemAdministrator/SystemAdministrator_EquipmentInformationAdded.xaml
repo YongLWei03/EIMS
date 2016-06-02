@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="EIMS_Login.SystemAdministrator_EquipmentInformationAdded"
+﻿<UserControl xmlns:UserDefinedDataGrid="clr-namespace:EIMS_Login.UserDefinedDataGrid"  x:Class="EIMS_Login.SystemAdministrator_EquipmentInformationAdded"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -20,11 +20,11 @@
             </Grid.ColumnDefinitions>
             <ComboBox x:Name="AddEquipment" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="200" FontSize="16" VerticalContentAlignment="Center" Margin="15,5" SelectedIndex="0">
                 <ComboBoxItem Content="增加新的装备信息" Height="25"></ComboBoxItem>
-                <ComboBoxItem Content="可修改搜索" Height="25"></ComboBoxItem>
                 <ComboBoxItem Content="不可修改搜索" Height="25"></ComboBoxItem>
+                <ComboBoxItem Content="可修改搜索" Height="25"></ComboBoxItem>
             </ComboBox>
             <TextBox x:Name="SearchText" Grid.Row="0" Grid.Column="1" Width="320"  Height="25"  Margin="10" HorizontalAlignment="Center" VerticalAlignment="Top" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="Gray"></TextBox>
-            <Button  x:Name="Search_button" Grid.Row="0" Grid.Column="2"  Content="搜索" FontSize="16" Width="100" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center"></Button>
+            <Button  x:Name="Search_button" Grid.Row="0" Grid.Column="2"  Content="搜索" FontSize="16" Width="100" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Search_button_Click"></Button>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -56,20 +56,21 @@
             <Label Grid.Row="0" Grid.Column="2" FontSize="16" Width="90" Height="30" Margin="10,30" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0">参考图片：</Label>
             <Image x:Name="ReferenceImage" Grid.Row="0" Grid.Column="2" Height="200" Width="200"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="100,20"></Image>
             <Button x:Name="Select_image" Grid.Column="2" Content="选择本地图片" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Top" Height="25" Width="129" Margin="26,35"></Button>
-            <Button x:Name="Submit_image" Grid.Column="2" Content="提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="45,45"></Button>
+            <Button x:Name="Submit_image" Grid.Column="2" Content="提交" FontSize="16"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="25" Width="80" Margin="45,45" Click="Submit_image_Click"></Button>
             <Rectangle Grid.Column="3" HorizontalAlignment="Center" Fill="Gray" Height="250" Width="3"></Rectangle>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="60"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="300"></ColumnDefinition>
                 <ColumnDefinition Width="950"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="已有装备信息表:"  FontSize="32" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="250" Margin="10,10"></TextBlock>
-            <Button x:Name="EquipmentExport_button" Grid.Row="0" Grid.Column="1" Content="导出为Excel表格" FontSize="16" Width="140" Height="25"  Margin="20,10" HorizontalAlignment="Right" VerticalAlignment="Bottom"></Button>
+            <TextBlock Text="已有装备信息表:"  FontSize="32" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="250" Margin="10,0"></TextBlock>
+            <Button x:Name="EquipmentExport_button" Grid.Row="0" Grid.Column="1" Content="导出为Excel表格" FontSize="16" Width="140" Height="25"  Margin="20,5" HorizontalAlignment="Right" VerticalAlignment="Top" Click="EquipmentExport_button_Click"></Button>
+            <UserDefinedDataGrid:UserDefinedDataGrid x:Name="EquipmentTable" Grid.Row="1" Grid.ColumnSpan="2"></UserDefinedDataGrid:UserDefinedDataGrid>
         </Grid>
 
     </Grid>

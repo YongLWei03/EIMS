@@ -23,6 +23,20 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
         public Maintenance()
         {
             InitializeComponent();
+            InitMaintenanceTable();
+        }
+        private void InitMaintenanceTable()
+        {
+            MaintenanceTable.InitTableHeightWidth(420, 880);
+            MaintenanceTable.SetCanUserAddRows(false);
+            MaintenanceTable.AddColumns("RepId", "维修编号", 80);
+            MaintenanceTable.AddColumns("RyId", "申请人员编号", 120);
+            MaintenanceTable.AddColumns("ZbId", "装备编号", 80);
+            MaintenanceTable.AddColumns("RepairDate", "维修日期", 80);
+            MaintenanceTable.AddColumns("Unit", "维修单位", 80);
+            MaintenanceTable.AddColumns("Result", "维修结果", 80);
+            MaintenanceTable.AddColumns("Reason", "故障原因", 280);
+            MaintenanceTable.AddColumns("Status", "维修状态", 80);
         }
     }
 }

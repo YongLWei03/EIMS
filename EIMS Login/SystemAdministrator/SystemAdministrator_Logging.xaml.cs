@@ -32,18 +32,17 @@ namespace EIMS_Login
             InitializeComponent();
             
             InitLoggingTable();
-            LoggingTable.DataTableSelect("select * from SysLog where UserName like 'A%'", "更新");
-            //LoggingTable.DataTableSelect(loggingRy(user.SelectedIndex), "更新");
+            LoggingTable.DataTableSelect("select * from SysLog where UserName in( select RyId from ArmsUsers where User_type = '普通用户') ", "更新");
             InitRightBm();
         }
         private string loggingRy(int SelectUser)
         {
-            string System_administrator = "select * from SysLog where UserName like 'B%'";
-            string Maintenance_man = "select * from SysLog where UserName like 'C%'";
-            string Warehouse_manager = "select * from SysLog where UserName like 'D%'";
-            string Finance_department = "select * from SysLog where UserName like 'E%'";
-            string Confidential_clerk = "select * from SysLog where UserName like 'F%'";
-            MessageBox.Show(user.SelectedIndex.ToString());
+            string Oridinaryusers = "select * from SysLog where UserName in( select RyId from ArmsUsers where User_type = '普通用户') ";
+            string System_administrator = "select * from SysLog where UserName in( select RyId from ArmsUsers where User_type = '系统管理员') ";
+            string Maintenance_man = "select * from SysLog where UserName in( select RyId from ArmsUsers where User_type = '维修管理员') ";
+            string Warehouse_manager = "select * from SysLog where UserName in( select RyId from ArmsUsers where User_type = '仓库管理员') ";
+            string Finance_department = "select * from SysLog where UserName in( select RyId from ArmsUsers where User_type = '财务管理员') ";
+            string Confidential_clerk = "select * from SysLog where UserName in( select RyId from ArmsUsers where User_type = '保密员') ";
             switch(SelectUser)
             {
                 case -1:
@@ -51,18 +50,20 @@ namespace EIMS_Login
                     return System_administrator;
                 case 0:
 
-                    return System_administrator;
+                    return Oridinaryusers;
                 case 1:
                     
-                    return Maintenance_man;
+                    return System_administrator;
                 case 2:
                     
-                    return Warehouse_manager;
+                    return Maintenance_man;
                 case 3:
                     
-                    return Finance_department;
+                    return Warehouse_manager;
                 case 4:
                     
+                    return Finance_department;
+                case 5:
                     return Confidential_clerk;
             }
             return null;
@@ -74,12 +75,13 @@ namespace EIMS_Login
         private void InitLoggingTable()
         {
             LoggingTable.InitTableHeightWidth(449, 1250);
+            LoggingTable.SetCanUserAddRows(false);
             LoggingTable.AddColumns("LogId", "日志编号", 80);
             LoggingTable.AddColumns("LogDate", "事件发生日期", 120);
             LoggingTable.AddColumns("LogTime", "事件发生时间", 120);
             LoggingTable.AddColumns("LogType", "事件类型", 120);
             LoggingTable.AddColumns("Title", "事件标题", 160);           
-            LoggingTable.AddColumns("UserName", "操作用户账号", 169);
+            LoggingTable.AddColumns("UserName", "操作用户编号", 169);
             LoggingTable.AddColumns("Body", "事件内容", 580);
 
         }
@@ -91,17 +93,17 @@ namespace EIMS_Login
 
         private void OrdinarySearch_button_Click(object sender, RoutedEventArgs e)
         {
-            string OriStrSql = "select * from SysLog where UserName ='" + OrdinarySearch.Text + "'";
+            string StrSql = "select * from SysLog where UserName ='" + Search.Text + "'";
             try
             {
-                SqlCommand Ori = new SqlCommand(OriStrSql, Temp.GetConn());
+                SqlCommand Ori = new SqlCommand(StrSql, Temp.GetConn());
                 if (Ori.ExecuteScalar() == null)
                 {
                     MessageBox.Show("无此人员！");
                 }
                 else
                 {
-                    LoggingTable.DataTableSelect(OriStrSql, "更新");
+                    LoggingTable.DataTableSelect(StrSql, "更新");
                 }
 
             }
@@ -115,7 +117,7 @@ namespace EIMS_Login
         private void OrdinaryExport_button_Click(object sender, RoutedEventArgs e)
         {
            
-            LoggingTable.ExportExcel(loggingRy(user.SelectedIndex), Str, "借阅历史表格.xlsx"); 
+            LoggingTable.ExportExcel(loggingRy(user.SelectedIndex), Str, "事件日志表格.xlsx"); 
         }
 
         public void InitRightBm()
