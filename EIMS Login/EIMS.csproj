@@ -64,11 +64,11 @@
     <Compile Include="ConfidentialMembers\ConfidentialMembers_Borrowinfo.xaml.cs">
       <DependentUpon>ConfidentialMembers_Borrowinfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ConfidentialMembers\ConfidentialMembers_NewEquipmentInformationAdded.xaml.cs">
-      <DependentUpon>ConfidentialMembers_NewEquipmentInformationAdded.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ConfidentialMembers\ConfidentialMembers_EquipmentFiling.xaml.cs">
       <DependentUpon>ConfidentialMembers_EquipmentFiling.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ConfidentialMembers\ConfidentialMembers_NewEquipmentlnformationAdded.xaml.cs">
+      <DependentUpon>ConfidentialMembers_NewEquipmentlnformationAdded.xaml</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="FinancialAdministrator\FinancialAdministrator_BookingAndHistory.xaml.cs">
@@ -194,11 +194,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ConfidentialMembers\ConfidentialMembers_NewEquipmentInformationAdded.xaml">
+    <Page Include="ConfidentialMembers\ConfidentialMembers_EquipmentFiling.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ConfidentialMembers\ConfidentialMembers_EquipmentFiling.xaml">
+    <Page Include="ConfidentialMembers\ConfidentialMembers_NewEquipmentlnformationAdded.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

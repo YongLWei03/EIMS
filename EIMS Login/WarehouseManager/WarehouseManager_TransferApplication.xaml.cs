@@ -24,5 +24,10 @@ namespace EIMS_Login
         {
             InitializeComponent();
         }
+
+        private void ConfirmSubmission_Click(object sender, RoutedEventArgs e)
+        {
+            Transferapplicationdatagrid.updata();
+        }
     }
 }

@@ -29,8 +29,8 @@
         <Label x:Name="TotalApplicationTag" Content="申请总计：" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="0" />
         <Label x:Name="TotalApplication" Content="0" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="4" Grid.Row="0"/>
         <Button x:Name="export" Grid.Row="0" FontSize="16" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="25" Content="导出为excel表格"/>
-        <Button x:Name="ConfirmSubmission" FontSize="16" Grid.Row="0" Grid.Column="6" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Content="确定提交"/>
-        <warehousedatagrid:transferapplicationdatagrid HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Grid.Column="0" Grid.ColumnSpan="7">
+        <Button x:Name="ConfirmSubmission" FontSize="16" Grid.Row="0" Grid.Column="6" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Content="确定提交" Click="ConfirmSubmission_Click"/>
+        <warehousedatagrid:transferapplicationdatagrid x:Name="Transferapplicationdatagrid" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Grid.Column="0" Grid.ColumnSpan="7">
         </warehousedatagrid:transferapplicationdatagrid>
     </Grid>
 </UserControl>

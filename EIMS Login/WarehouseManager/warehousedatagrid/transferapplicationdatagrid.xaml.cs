@@ -28,6 +28,7 @@ namespace EIMS_Login.WarehouseManager.warehousedatagrid
     /// </summary>
     public partial class transferapplicationdatagrid : UserControl
     {
+        Connection TempConn = new Connection();
         public statusEnum Mystatus
         {
             get;
@@ -40,11 +41,27 @@ namespace EIMS_Login.WarehouseManager.warehousedatagrid
         }
         public void connectatabase()
         {
-            string sqll = "Select * From ApplyData";
-            SqlDataAdapter sqldata = new SqlDataAdapter(sqll,Connection.lo_conn);
+            string sqll = "Select * From ApplyEquip";
+            SqlDataAdapter sqldata = new SqlDataAdapter(sqll, TempConn.GetConn());
             DataSet ds = new DataSet();
             sqldata.Fill(ds);
             Application.ItemsSource = ds.Tables[0].DefaultView;
+        }
+
+        private void Application_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = e.Row.GetIndex() + 1;
+        }
+        public void updata()
+        {
+            DataTable dt = (Application.ItemsSource as DataView).Table;
+            Application.CommitEdit();
+            string StrSelect = "select * from ApplyEquip";
+            SqlDataAdapter ShlyAdapter = new SqlDataAdapter();
+            ShlyAdapter.SelectCommand = new SqlCommand(StrSelect, TempConn.GetConn());
+            SqlCommandBuilder cb = new SqlCommandBuilder(ShlyAdapter);
+            //cb.RefreshSchema();
+            ShlyAdapter.Update(dt);
         }
     }
 }

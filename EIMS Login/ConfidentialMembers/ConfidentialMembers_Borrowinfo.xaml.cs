@@ -23,6 +23,20 @@ namespace EIMS_Login
         public ConfidentialMembers_Borrowinfo()
         {
             InitializeComponent();
+            InitTable();
+        }
+        public void InitTable()
+        {
+            TableToBorrow.InitTableHeightWidth(480, 880);
+            TableToBorrow.AddColumns("Id", "借阅号", 120);
+            TableToBorrow.AddColumns("DateNo", "资料编号", 120);
+            TableToBorrow.AddColumns("LendDate", "借阅日期", 120);
+            TableToBorrow.AddColumns("Ryid", "借阅人编号", 120);
+            TableToBorrow.AddColumns("LendCount", "借阅数量",120 );
+            TableToBorrow.AddColumns("Ryname", "审批人",120 );
+            TableToBorrow.AddColumns("Detail", "借阅状态",120 );
+           
+
         }
     }
 }
