@@ -23,11 +23,11 @@
         <Label x:Name="label_Copy" Content="申请历史：" HorizontalAlignment="Left" Margin="440,10,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
         <Label x:Name="label1_Copy2" Content="申请历史总计：" HorizontalAlignment="Left" Margin="899,20,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label x:Name="ApplicationHistoryCount" Content="2" HorizontalAlignment="Left" Margin="1012,21,0,0" VerticalAlignment="Top" FontSize="16" Width="43"/>
-        <Button x:Name="ExportTable_AH" Content="导出为excel表格" HorizontalAlignment="Left" Height="25" Margin="1069,23,0,0" VerticalAlignment="Top" Width="159" FontSize="16" RenderTransformOrigin="5.15,-3.768"/>
+        <Button x:Name="ExportTable_AH" Content="导出为excel表格" HorizontalAlignment="Left" Height="25" Margin="1069,23,0,0" VerticalAlignment="Top" Width="159" FontSize="16" RenderTransformOrigin="5.15,-3.768" Click="ExportTable_AH_Click"/>
         <Label x:Name="label_Copy1" Content="维修历史：" HorizontalAlignment="Left" Margin="440,285,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
-        <Label x:Name="label1_Copy3" Content="借阅历史总计：" HorizontalAlignment="Left" Margin="899,295,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label x:Name="label1_Copy3" Content="维修历史总计：" HorizontalAlignment="Left" Margin="899,295,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label x:Name="MaintenanceHistoryCount" Content="2" HorizontalAlignment="Left" Margin="1012,296,0,0" VerticalAlignment="Top" FontSize="16" Width="43"/>
-        <Button x:Name="ExportTable_MH" Content="导出为excel表格" HorizontalAlignment="Left" Height="25" Margin="1069,298,0,0" VerticalAlignment="Top" Width="159" FontSize="16" RenderTransformOrigin="5.15,-3.768"/>
+        <Button x:Name="ExportTable_MH" Content="导出为excel表格" HorizontalAlignment="Left" Height="25" Margin="1069,298,0,0" VerticalAlignment="Top" Width="159" FontSize="16" RenderTransformOrigin="5.15,-3.768" Click="ExportTable_BH_Click"/>
 
         <UserDefinedDataGrid:UserDefinedDataGrid x:Name="TableToApply" HorizontalAlignment="Left" Margin="436,62,0,0" VerticalAlignment="Top" Height="210" Width="810"/>
         <UserDefinedDataGrid:UserDefinedDataGrid x:Name="TableToHistory" HorizontalAlignment="Left" Margin="436,348,0,0" VerticalAlignment="Top" Width="810" Height="210"/>

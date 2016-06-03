@@ -23,6 +23,26 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
         public WarehouseStocks()
         {
             InitializeComponent();
+            InitStocksTable();
+            InitWarehouseTable();
+        }
+        private void InitStocksTable()
+        {
+            StocksTable.InitTableHeightWidth(420, 440);
+            StocksTable.SetCanUserAddRows(false);
+            StocksTable.AddColumns("SpId", "库存编号", 110);
+            StocksTable.AddColumns("ZbId", "装备编号", 110);
+            StocksTable.AddColumns("Zbnum", "装备数量", 110);
+            StocksTable.AddColumns("Sid", "仓库编号", 110);
+        }
+        private void InitWarehouseTable()
+        {
+            WarehouseTable.InitTableHeightWidth(420, 440);
+            WarehouseTable.SetCanUserAddRows(false);
+            WarehouseTable.AddColumns("Sid", "仓库编号", 110);
+            WarehouseTable.AddColumns("Sname", "名称", 110);
+            WarehouseTable.AddColumns("Memo", "说明", 220);
+
         }
     }
 }

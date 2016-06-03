@@ -57,13 +57,14 @@ namespace EIMS_Login.Ordinaryusers
         private void InitTabelToApply()
         {
             TableToApply.InitTableHeightWidth(210, 810);
+            TableToApply.SetCanUserAddRows(false);
             TableToApply.AddColumns("Ryname", "姓名", 80);
             TableToApply.AddColumns("Zbid", "装备编号", 100);
             TableToApply.AddColumns("ApplyCount", "数量", 40);
             TableToApply.AddColumns("ApplyDate", "申请日期", 170);
-            TableToApply.AddColumns("ApplyID", "申请编号", 190);
+            TableToApply.AddColumns("ApplyID", "申请编号", 80);
             TableToApply.AddColumns("Status", "同意状态", 80);
-            TableToApply.AddColumns("ApplyReason", "申请原因", 130);
+            TableToApply.AddColumns("ApplyReason", "申请原因", 240);
         }
         public void Initttalbm()
         {
@@ -87,13 +88,14 @@ namespace EIMS_Login.Ordinaryusers
         private void InitTableToHistory()
         {
             TableToHistory.InitTableHeightWidth(210, 810);
+            TableToHistory.SetCanUserAddRows(false);
             TableToHistory.AddColumns("Zbid", "装备编号", 80);
             TableToHistory.AddColumns("ANum", "数量", 100);
-            TableToHistory.AddColumns("Zbprice", "单价", 220);
+            TableToHistory.AddColumns("Zbprice", "单价", 80);
             TableToHistory.AddColumns("InDep", "调入单位", 120);
             TableToHistory.AddColumns("Atype", "类型", 80);
             TableToHistory.AddColumns("Person", "提货人", 110);
-            TableToHistory.AddColumns("ADate", "日期", 80);
+            TableToHistory.AddColumns("ADate", "日期", 220);
         }
 
         private void ApplicationSubmit_Click(object sender, RoutedEventArgs e)//待修改
@@ -108,24 +110,39 @@ namespace EIMS_Login.Ordinaryusers
                     AType = "调拨";
                 string StrSQL = "insert into ApplyEquip values('" + UITemp.UserInfoTemp.Ryid + "','" + UITemp.UserInfoTemp.RyName + "','" + UITemp.UserInfoTemp.Position + "','" + Date + "','" + ApplicationEquipmentNumber.Text + "',"
                     + ApplicationEquipmentCount.Text + ",'" + AType + "','" + TransferredUnit.Text + "','" + ApplicationReasons.Text + "','未操作')";
-                try
+                string StrSQL2 = "select * from ArmsSurplus where ZbId ='" + ApplicationEquipmentNumber.Text + "'";
+                SqlCommand CMD_1 = new SqlCommand(StrSQL2, Temp.GetConn());
+                SqlDataReader Sdr_1 = CMD_1.ExecuteReader();
+                if (!Sdr_1.Read()) MessageBox.Show("错误：仓库暂无编号为 " + ApplicationEquipmentNumber.Text + " 的装备！");
+                else
                 {
-                    SqlCommand cmd = new SqlCommand(StrSQL, Temp.GetConn());
-                    cmd.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("申请失败！" + ex);
-                    return;
-                }
-                MessageBox.Show("申请成功，请耐心等待批准结果。。。");
 
-                TableToApply.DataTableSelect(ApplyTableSql, "更新");//申请成功更新：申请历史表格
-                UpDataLog();//更新操作日志
-                UpDateRLR(0);//更新左下部操作提示
-                ApplicationHistoryCount.Content = TableToApply.Rows;//更新申请总计
-                if (aemiw_OpenSign == 1)
-                    aemiw.updata(TableToApply.Getdt(), TableToApply.Rows);//更新查看详细信息窗口的总行数
+                    if (Convert.ToInt32(Sdr_1[3].ToString()) < Convert.ToInt32(ApplicationEquipmentCount.Text))
+                    {
+                        MessageBox.Show("编号为 " + ApplicationEquipmentNumber.Text + " 的装备，库存不能满足申请数量！");
+                        return;
+                    }
+                    Sdr_1.Close();
+                    try
+                    {
+                        CMD_1.CommandText = StrSQL;
+                        CMD_1.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("申请失败！" + ex);
+                        return;
+                    }
+                    MessageBox.Show("申请成功，请耐心等待批准结果。。。");
+
+                    TableToApply.DataTableSelect(ApplyTableSql, "更新");//申请成功更新：申请历史表格
+                    UpDataLog();//更新操作日志
+                    UpDateRLR(0);//更新左下部操作提示
+                    ApplicationHistoryCount.Content = TableToApply.Rows;//更新申请总计
+                    if (aemiw_OpenSign == 1)
+                        aemiw.updata(TableToApply.Getdt(), TableToApply.Rows);//更新查看详细信息窗口的总行数
+                }
+                Sdr_1.Close();
             }
             else
             {
@@ -157,9 +174,9 @@ namespace EIMS_Login.Ordinaryusers
          */
         private void ExportTable_AH_Click(object sender, RoutedEventArgs e)
         {
-            string[] Str = { "ID", "申请人编号", "申请人名字", "工作岗位", "申请编号", "申请日期", "申请装备编号",
+            string[] Str = { "申请编号", "申请人编号", "申请人名字", "工作岗位",  "申请日期", "申请装备编号",
                 "申请数量","调拨类型","调入单位", "申请原因", "操作状态" };
-            TableToApply.ExportExcel(ApplyTableSql, Str, "装别申请历史表格.xlsx");
+            TableToApply.ExportExcel(ApplyTableSql, Str, "装备申请历史表格.xlsx");
         }
         /*
          * 功能：导出借阅历史表格按钮事件
@@ -168,7 +185,7 @@ namespace EIMS_Login.Ordinaryusers
         {
             string[] Str = { "调拨单号","单号对应申请人编号", "装备编号", "数量", "单价", "调出单位", "调入单位", "调拨类型","提货人",
                 "有效时间", "批准人", "承办人", "日期", "备注" };
-            TableToApply.ExportExcel(HistoryTableSql, Str, "装别调拨历史表格.xlsx");
+            TableToApply.ExportExcel(HistoryTableSql, Str, "装备调拨历史表格.xlsx");
         }
 
         private void ApplicationEquipmentCount_KeyDown(object sender, KeyEventArgs e)

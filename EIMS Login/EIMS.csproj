@@ -87,6 +87,9 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MoreInf.xaml.cs">
+      <DependentUpon>MoreInf.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ordinaryusers\ApplyDataMoreInfoWindows.xaml.cs">
       <DependentUpon>ApplyDataMoreInfoWindows.xaml</DependentUpon>
     </Compile>
@@ -226,6 +229,10 @@
       <DependentUpon>EimsWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MoreInf.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

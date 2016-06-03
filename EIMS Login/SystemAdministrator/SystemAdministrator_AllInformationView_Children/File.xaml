@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_Children.File"
+﻿<UserControl xmlns:UserDefinedDataGrid="clr-namespace:EIMS_Login.UserDefinedDataGrid"  x:Class="EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_Children.File"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -18,6 +18,7 @@
         <Button x:Name="delsubmit_right"  Grid.Row="0" Grid.Column="0" Content="删除提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="10,10"></Button>
         <Label x:Name="File_right"  Grid.Row="0" Grid.Column="1" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="80" Margin="80,10">88</Label>
         <Label x:Name="FileR_Text" Grid.Row="0" Grid.Column="0"  FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="160,10">归档共计:</Label>
-        <Button x:Name="EquipmentExport_right"  Grid.Row="1" Grid.Column="1" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0"></Button>         
+        <Button x:Name="EquipmentExport_right"  Grid.Row="1" Grid.Column="1" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0"></Button>
+        <UserDefinedDataGrid:UserDefinedDataGrid x:Name="FileTable"  Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10"/>
     </Grid>
 </UserControl>

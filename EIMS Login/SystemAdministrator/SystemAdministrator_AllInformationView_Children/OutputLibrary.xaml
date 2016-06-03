@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_Children.OutputLibrary"
+﻿<UserControl xmlns:UserDefinedDataGrid="clr-namespace:EIMS_Login.UserDefinedDataGrid"  x:Class="EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_Children.OutputLibrary"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,6 +17,7 @@
         <TextBlock Text="出库信息表:"  FontSize="32" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200" Margin="10,20"></TextBlock>       
         <Label x:Name="OutputLibraryNum_right"  Grid.Row="0" Grid.Column="1" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="80" Margin="180,10">715</Label>
         <Label x:Name="OutputLibraryNum_Text" Grid.Row="0" Grid.Column="1"  FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="130,10">出库总计:</Label>
-        <Button x:Name="EquipmentExport_right"  Grid.Row="0" Grid.Column="1" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,10"></Button>       
+        <Button x:Name="EquipmentExport_right"  Grid.Row="0" Grid.Column="1" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,10"></Button>
+        <UserDefinedDataGrid:UserDefinedDataGrid x:Name="OutputLibraryTable"  Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10"/>
     </Grid>
 </UserControl>

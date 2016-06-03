@@ -54,7 +54,28 @@ namespace EIMS_Login.UserDefinedDataGrid
             Temp.ElementStyle = Resources["MyDataGrid"] as Style;
             dataGrid.Columns.Add(Temp);
         }
-
+        public void SetReadyOnly(bool Status)
+        {
+            if (Status)
+            { 
+                dataGrid.IsReadOnly = true;
+            }
+            else
+            {
+                dataGrid.IsReadOnly = false;
+            }
+        }
+        public void SetCanUserAddRows(bool Status)
+        {
+            if (Status)
+            {
+                dataGrid.CanUserAddRows = true;
+            }
+            else
+            {
+                dataGrid.CanUserAddRows = false;
+            }
+        }
         //针对性的增加右键菜单，分别有：查看更多，
         public MenuItem AddMenuItem(string Header)
         {

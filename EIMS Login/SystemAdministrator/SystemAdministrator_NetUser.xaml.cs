@@ -84,10 +84,10 @@ namespace EIMS_Login
                 SqlCommandBuilder sqlcb = new SqlCommandBuilder(ado);
                 Mydataset.Tables["person"].Rows[0]["RyId"] = number.Text;
                 Mydataset.Tables["person"].Rows[0]["RyName"] = name.Text;
-                Mydataset.Tables["person"].Rows[0]["Sex"] = sex.SelectedValue.ToString();
+                Mydataset.Tables["person"].Rows[0]["Sex"] = sex.SelectedIndex.ToString();
                 Mydataset.Tables["person"].Rows[0]["Title"] = post.Text;
                 Mydataset.Tables["person"].Rows[0]["Nationalty"] = nation.Text;
-                Mydataset.Tables["person"].Rows[0]["Marital_Condition"] = maritalstatus.SelectedValue.ToString();
+                Mydataset.Tables["person"].Rows[0]["Marital_Condition"] = maritalstatus.SelectedIndex.ToString();
                 Mydataset.Tables["person"].Rows[0]["Birth"] = birthday.Text;
                 Mydataset.Tables["person"].Rows[0]["Rank"] = rank.Text;
                 Mydataset.Tables["person"].Rows[0]["Culture_Level"] = Education_level.Text;
@@ -107,7 +107,7 @@ namespace EIMS_Login
                 MessageBox.Show("提交失败！"+se);
                 return;
             }
-            
+            MessageBox.Show("修改成功！");
 
 
 
