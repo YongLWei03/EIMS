@@ -51,63 +51,63 @@ namespace EIMS_Login
         {
             if (1 <= Countziduan)
             {
-                label1.Content = ziduan[0];
+                label1.Content = ziduan[0] + ":";
             }
             if (2 <= Countziduan)
             {
-                label2.Content = ziduan[1];
+                label2.Content = ziduan[1] + ":";
             }
             if (3 <= Countziduan)
             {
-                label3.Content = ziduan[2];
+                label3.Content = ziduan[2] + ":";
             }
             if (4 <= Countziduan)
             {
-                label4.Content = ziduan[3];
+                label4.Content = ziduan[3] + ":";
             }
             if (5 <= Countziduan)
             {
-                label5.Content = ziduan[4];
+                label5.Content = ziduan[4] + ":";
             }
             if (6 <= Countziduan)
             {
-                label6.Content = ziduan[5];
+                label6.Content = ziduan[5] + ":";
             }
             if (7 <= Countziduan)
             {
-                label7.Content = ziduan[6];
+                label7.Content = ziduan[6] + ":";
             }
             if (8 <= Countziduan)
             {
-                label8.Content = ziduan[7];
+                label8.Content = ziduan[7] + ":";
             }
             if (9 <= Countziduan)
             {
-                label9.Content = ziduan[8];
+                label9.Content = ziduan[8] + ":";
             }
             if (10 <= Countziduan)
             {
-                label10.Content = ziduan[9];
+                label10.Content = ziduan[9] + ":";
             }
             if (11 <= Countziduan)
             {
-                label11.Content = ziduan[10];
+                label11.Content = ziduan[10] + ":";
             }
             if (12 <= Countziduan)
             {
-                label12.Content = ziduan[11];
+                label12.Content = ziduan[11] + ":";
             }
             if (13 <= Countziduan)
             {
-                label13.Content = ziduan[12];
+                label13.Content = ziduan[12] + ":";
             }
             if (14 <= Countziduan)
             {
-                label14.Content = ziduan[13];
+                label14.Content = ziduan[13] + ":";
             }
             if (15 <= Countziduan)
             {
-                label15.Content = ziduan[14];
+                label15.Content = ziduan[14] + ":";
             }
 
         }

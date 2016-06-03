@@ -45,9 +45,6 @@ namespace EIMS_Login
             string Confidential_clerk = "select * from SysLog where UserName in( select RyId from ArmsUsers where User_type = '保密员') ";
             switch(SelectUser)
             {
-                case -1:
-                    
-                    return System_administrator;
                 case 0:
 
                     return Oridinaryusers;
@@ -68,10 +65,7 @@ namespace EIMS_Login
             }
             return null;
         }
-        private void loggingscan()
-        {
-            
-        }
+
         private void InitLoggingTable()
         {
             LoggingTable.InitTableHeightWidth(449, 1250);

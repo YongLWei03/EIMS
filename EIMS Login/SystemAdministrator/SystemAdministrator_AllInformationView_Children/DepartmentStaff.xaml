@@ -16,15 +16,15 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock Text="部门:"  FontSize="32" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200" Margin="10,20"></TextBlock>
-        <Button x:Name="delsubmit_left"  Grid.Row="0" Grid.Column="0" Content="删除提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="10,10"></Button>
+        <Label x:Name="DepartmentsNum"  Grid.Row="0" Grid.Column="0"  FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="80" Margin="0,0,10,10"></Label>
         <Label x:Name="delsubmitL_Text" Grid.Row="0" Grid.Column="0"  FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="100,10">部门共计:</Label>
-        <Button x:Name="EquipmentExport_left"  Grid.Row="1" Grid.Column="0" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0"></Button>
+        <Button x:Name="DepartmentExport"  Grid.Row="1" Grid.Column="0" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0" Click="DepartmentExport_Click"/>
         <UserDefinedDataGrid:UserDefinedDataGrid x:Name="DepartmentTable" Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="auto"  Margin="10,10" />
-        
+
         <TextBlock Text="人员:"  FontSize="32" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200" Margin="10,20"></TextBlock>
-        <Button x:Name="delsubmit_right"  Grid.Row="0" Grid.Column="1" Content="删除提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="10,10"></Button>
+        <Label x:Name="RyNum"  Grid.Row="0" Grid.Column="1" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="80" Margin="0,0,10,10"></Label>
         <Label x:Name="delsubmitR_Text" Grid.Row="0" Grid.Column="1"  FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="100,10">人员共计:</Label>
-        <Button x:Name="EquipmentExport_right"  Grid.Row="1" Grid.Column="1" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0"></Button>
+        <Button x:Name="RyExport"  Grid.Row="1" Grid.Column="1" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0" Click="RyExport_Click"></Button>
         <UserDefinedDataGrid:UserDefinedDataGrid  x:Name="StaffTable" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="auto"  Margin="10,10" />
     </Grid>
 </UserControl>
