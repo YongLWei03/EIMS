@@ -19,33 +19,49 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="TextAlignment" Value="Center"/>
         </Style>
-        <Style TargetType="ComboBox">
-            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-            <Setter Property="Background"  Value="White"/>
-        </Style>
         <Style TargetType="ComboBoxItem">
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="Background"  Value="White"/>
         </Style>
     </UserControl.Resources>
     <Grid>
-        <DataGrid x:Name="Application" AutoGenerateColumns="False" Background="White" FontSize="16" MinColumnWidth="100" LoadingRow="Application_LoadingRow">
+        <DataGrid x:Name="Application" AutoGenerateColumns="False" Background="White" FontSize="16" MinColumnWidth="100" LoadingRow="Application_LoadingRow" CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Pink"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <!--改变选中某行样式 -->
+            <DataGrid.CellStyle >
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers >
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#FFF1FAFF"/>
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
             <DataGrid.ContextMenu>
                 <ContextMenu x:Name="dgMenu" StaysOpen="true">
-                    <MenuItem Header="删除"/>
                     <MenuItem Header="查看详细信息"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="ryid" ElementStyle="{StaticResource MyDataGrid}" Header="人员编号" Binding="{Binding Ryid}" Width="*"/>
-                <DataGridTextColumn x:Name="ryname" ElementStyle="{StaticResource MyDataGrid}" Header="人员姓名" Binding="{Binding Ryname}" Width="*"/>
-                <DataGridTextColumn x:Name="position" ElementStyle="{StaticResource MyDataGrid}" Header="工作岗位" Binding="{Binding Position}" Width="*"/>
-                <DataGridTextColumn x:Name="applydate" ElementStyle="{StaticResource MyDataGrid}" Header="申请日期" Binding="{Binding ApplyDate}" Width="*"/>
-                <DataGridTextColumn x:Name="applydataid" ElementStyle="{StaticResource MyDataGrid}" Header="装备编号" Binding="{Binding Zbid}" Width="*"/>
-                <DataGridTextColumn x:Name="applycount" ElementStyle="{StaticResource MyDataGrid}" Header="申请数量" Binding="{Binding ApplyCount}" Width="*"/>
-                <DataGridTextColumn x:Name="atype" ElementStyle="{StaticResource MyDataGrid}" Header="调拨方式" Binding="{Binding AType}" Width="*"/>
-                <DataGridTextColumn x:Name="indep" ElementStyle="{StaticResource MyDataGrid}" Header="调入单位" Binding="{Binding InDep}" Width="*"/>
-                <DataGridComboBoxColumn x:Name="status" Header="操作状态" Width="*" SelectedItemBinding="{Binding Status}" TextBinding="{Binding Status}" ItemsSource="{Binding Source={StaticResource StatusEnum}}"/>
+                <DataGridTextColumn x:Name="ryid" ElementStyle="{StaticResource MyDataGrid}" Header="人员编号" Binding="{Binding Ryid}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="ryname" ElementStyle="{StaticResource MyDataGrid}" Header="人员姓名" Binding="{Binding Ryname}" Width="*"  IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="position" ElementStyle="{StaticResource MyDataGrid}" Header="工作岗位" Binding="{Binding Position}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="applydate" ElementStyle="{StaticResource MyDataGrid}" Header="申请日期" Binding="{Binding ApplyDate}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="applydataid" ElementStyle="{StaticResource MyDataGrid}" Header="装备编号" Binding="{Binding Zbid}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="applycount" ElementStyle="{StaticResource MyDataGrid}" Header="申请数量" Binding="{Binding ApplyCount}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="atype" ElementStyle="{StaticResource MyDataGrid}" Header="调拨方式" Binding="{Binding AType}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="indep" ElementStyle="{StaticResource MyDataGrid}" Header="调入单位" Binding="{Binding InDep}" Width="*" IsReadOnly="True"/>
+                <DataGridComboBoxColumn x:Name="status" Header="操作状态" Width="*" TextBinding="{Binding Status}" ItemsSource="{Binding Source={StaticResource StatusEnum}}">
+                </DataGridComboBoxColumn>
             </DataGrid.Columns>
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">

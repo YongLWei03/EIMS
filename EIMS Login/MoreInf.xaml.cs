@@ -33,7 +33,7 @@ namespace EIMS_Login
         public void SetValues(DataTable dt,int Rows,int tr,string[] ziduan,string[] str,int Countziduan)
         {
             TotalRows = tr;
-            AimRow = Rows;
+             AimRow = Rows;
             this.ziduan = ziduan;
             this.Countziduan = Countziduan;
             if(dt == null)
