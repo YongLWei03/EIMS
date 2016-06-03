@@ -40,11 +40,16 @@ namespace EIMS_Login.WarehouseManager.warehousedatagrid
         }
         public void connectatabase()
         {
-            string sqll = "Select * From ApplyData";
+            string sqll = "Select * From ApplyEquip";
             SqlDataAdapter sqldata = new SqlDataAdapter(sqll,Connection.lo_conn);
             DataSet ds = new DataSet();
             sqldata.Fill(ds);
             Application.ItemsSource = ds.Tables[0].DefaultView;
+        }
+
+        private void Application_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = e.Row.GetIndex() + 1;
         }
     }
 }
