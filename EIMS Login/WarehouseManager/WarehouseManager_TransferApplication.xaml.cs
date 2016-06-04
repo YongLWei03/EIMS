@@ -38,9 +38,25 @@ namespace EIMS_Login
         private void export_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("即将导出表格，请你稍等。。。");
-            string[] Str = { "申请编号", "申请人编号", "申请人名字", "工作岗位",  "申请日期", "申请资料编号",
-                "申请数量", "申请原因", "操作状态" };
+            string[] Str = { "人员编号", "人员姓名", "工作岗位",  "申请日期", "申请装备编号",
+                "申请数量", "调拨方式", "调入单位", "申请原因", "操作状态" };
             ExportExcel(ApplyTableSql, Str, "装备申请表格.xlsx");
+        }
+        private void Transferapplicationdatagrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            Transferapplicationdatagrid.connectatabase(stateType.SelectedIndex);
+            TotalApplication.Content = Transferapplicationdatagrid.Application.Items.Count;
+        }
+
+        private void stateType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(selecttime != 0)
+            {
+                Transferapplicationdatagrid.connectatabase(stateType.SelectedIndex);
+                TotalApplication.Content = stateType.SelectedIndex;
+                TotalApplication.Content = Transferapplicationdatagrid.Application.Items.Count;
+            }
+            selecttime++;
         }
         public string ExportExcel(string SQL, string[] StrCloumns, string saveFileName)
         {
@@ -120,19 +136,6 @@ namespace EIMS_Login
                 ds.Tables[0].Columns[i].ColumnName = StrCloumns[i];
             }
 
-        }
-        private void Transferapplicationdatagrid_Loaded(object sender, RoutedEventArgs e)
-        {
-            Transferapplicationdatagrid.connectatabase(stateType.SelectedIndex);
-        }
-
-        private void stateType_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if(selecttime != 0)
-            {
-                Transferapplicationdatagrid.connectatabase(stateType.SelectedIndex);
-            }
-            selecttime++;
         }
     }
 }
