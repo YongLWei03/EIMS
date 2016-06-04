@@ -23,6 +23,7 @@ namespace EIMS_Login
     public partial class SystemAdministrator_EquipmentInformationAdded : UserControl
     {
         Connection Temp = new Connection();
+        MoreInf moinf;
         SqlCommand ZbSearch = new SqlCommand();
         SqlDataAdapter ado = new SqlDataAdapter();       
         DataSet Mydataset = new DataSet();
@@ -32,6 +33,7 @@ namespace EIMS_Login
             InitializeComponent();
             InitEquipmentTable();
             EquipmentTable.DataTableSelect("select * from ArmsInfo", "更新");
+            InitRightBm();
         }
 
         private void Search_button_Click(object sender, RoutedEventArgs e)
@@ -113,6 +115,24 @@ namespace EIMS_Login
         private void EquipmentExport_button_Click(object sender, RoutedEventArgs e)
         {
             EquipmentTable.ExportExcel("select * from ArmsInfo", Str, "装备信息表.xlsx"); 
+        }
+        public void InitRightBm()
+        {
+            MenuItem EquipmentMenu = EquipmentTable.AddMenuItem("更多信息");
+            EquipmentMenu.Click += EventContent;
+            EquipmentTable.dgMenu.Items.Add(EquipmentMenu);
+        }
+
+        public void EventContent(object sender, RoutedEventArgs e)
+        {
+            moinf = new MoreInf();
+            string[] Table_Str = { "ZbId", "Zbname", "Zbspec", "Zbkind", "Zbunit" };
+            if (EquipmentTable.dataGrid.SelectedIndex != -1)
+            {
+                moinf.SetValues(EquipmentTable.Getdt(), EquipmentTable.dataGrid.SelectedIndex, EquipmentTable.Rows, Table_Str, Str, 5);
+                moinf.Show();
+            }
+            else MessageBox.Show("当前未选中任何行！");
         }
     }
 }

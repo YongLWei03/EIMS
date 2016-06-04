@@ -52,10 +52,22 @@ namespace EIMS_Login
                 }
                 number.Text = Mydataset.Tables["person"].Rows[0]["RyId"].ToString();
                 name.Text = Mydataset.Tables["person"].Rows[0]["RyName"].ToString();
-                sex.SelectedIndex = Convert.ToInt32(Mydataset.Tables["person"].Rows[0]["Sex"].ToString());
+                if (Mydataset.Tables["person"].Rows[0]["Sex"].ToString() == "男")
+                {
+                    sex.SelectedIndex = 0;
+                }
+                else sex.SelectedIndex = 1;               
                 post.Text = Mydataset.Tables["person"].Rows[0]["Title"].ToString();
                 nation.Text = Mydataset.Tables["person"].Rows[0]["Nationalty"].ToString();
-                maritalstatus.SelectedIndex = Convert.ToInt32(Mydataset.Tables["person"].Rows[0]["Marital_Condition"].ToString());
+                if(Mydataset.Tables["person"].Rows[0]["Marital_Condition"].ToString() == "已婚")
+                {
+                    maritalstatus.SelectedIndex = 0;
+                }
+                else if (Mydataset.Tables["person"].Rows[0]["Marital_Condition"].ToString() == "未婚")
+                {
+                    maritalstatus.SelectedIndex = 1;
+                }               
+                else maritalstatus.SelectedIndex = 2;
                 birthday.Text = Mydataset.Tables["person"].Rows[0]["Birth"].ToString();
                 rank.Text = Mydataset.Tables["person"].Rows[0]["Rank"].ToString();
                 Education_level.Text = Mydataset.Tables["person"].Rows[0]["Culture_Level"].ToString();
@@ -84,10 +96,10 @@ namespace EIMS_Login
                 SqlCommandBuilder sqlcb = new SqlCommandBuilder(ado);
                 Mydataset.Tables["person"].Rows[0]["RyId"] = number.Text;
                 Mydataset.Tables["person"].Rows[0]["RyName"] = name.Text;
-                Mydataset.Tables["person"].Rows[0]["Sex"] = sex.SelectedIndex.ToString();
+                Mydataset.Tables["person"].Rows[0]["Sex"] = sex.SelectionBoxItem.ToString();
                 Mydataset.Tables["person"].Rows[0]["Title"] = post.Text;
                 Mydataset.Tables["person"].Rows[0]["Nationalty"] = nation.Text;
-                Mydataset.Tables["person"].Rows[0]["Marital_Condition"] = maritalstatus.SelectedIndex.ToString();
+                Mydataset.Tables["person"].Rows[0]["Marital_Condition"] = maritalstatus.SelectionBoxItem.ToString();
                 Mydataset.Tables["person"].Rows[0]["Birth"] = birthday.Text;
                 Mydataset.Tables["person"].Rows[0]["Rank"] = rank.Text;
                 Mydataset.Tables["person"].Rows[0]["Culture_Level"] = Education_level.Text;

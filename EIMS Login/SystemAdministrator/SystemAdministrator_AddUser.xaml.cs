@@ -24,6 +24,7 @@ namespace EIMS_Login
     public partial class SystemAdministrator_AddUser : UserControl
     {
         Connection Temp = new Connection();
+        MD5Str md5 = new MD5Str();
         public static userIdentity user;
 
         public enum userIdentity
@@ -94,7 +95,7 @@ namespace EIMS_Login
                 return;
             }
             //注意账号所属人姓名，编号，性别，部门编号需要与ArmsPerson一致
-            string StrSQL = "insert into ArmsUsers values('" + username + "','" + register_pwd.Text + "','" + userstring + "','" + addgroup_registerText_rennum.Text + "','" + register_AffiliationPeople.Text + "','" + sexstring + "','" + addgroup_registerText_departnum.Text + "')";
+            string StrSQL = "insert into ArmsUsers values('" + username + "','" + md5.MD5Encoding(register_pwd.Text) + "','" + userstring + "','" + addgroup_registerText_rennum.Text + "','" + register_AffiliationPeople.Text + "','" + sexstring + "','" + addgroup_registerText_departnum.Text + "')";
             
             try
             {
@@ -168,7 +169,7 @@ namespace EIMS_Login
                 return;
             }
             string DetectOrdSQL = "select User_type from ArmsUsers where Usersname ='" + Ordinaryuser_id.Text + "'";
-            string OrdRsetSQL = "update ArmsUsers set Userspwd = '" + Ordinaryuser_intputpwd.Text + "' where Usersname = '" + Ordinaryuser_id.Text + "'";
+            string OrdRsetSQL = "update ArmsUsers set Userspwd = '" + md5.MD5Encoding(Ordinaryuser_intputpwd.Text) + "' where Usersname = '" + Ordinaryuser_id.Text + "'";
             try
             {
                 SqlCommand SnameCmd = new SqlCommand(DetectOrdSQL, Temp.GetConn());
@@ -214,7 +215,7 @@ namespace EIMS_Login
                 return;
             }
             string DetectSpSQL = "select User_type from ArmsUsers where Usersname ='" + Specialuser_id.Text + "'";
-            string DetectdRsetSQL = "update ArmsUsers set Userspwd = '" + Specialuser_intputpwd.Text + "' where Usersname = '" + Specialuser_id.Text + "'";
+            string DetectdRsetSQL = "update ArmsUsers set Userspwd = '" + md5.MD5Encoding(Specialuser_intputpwd.Text) + "' where Usersname = '" + Specialuser_id.Text + "'";
             try
             {
                 SqlCommand SnameCmd = new SqlCommand(DetectSpSQL, Temp.GetConn());

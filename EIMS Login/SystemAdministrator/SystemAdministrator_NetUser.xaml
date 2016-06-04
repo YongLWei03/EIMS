@@ -9,7 +9,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="71"></RowDefinition>
             <RowDefinition Height="330"></RowDefinition>
-            <RowDefinition Height="183"></RowDefinition>
+            <RowDefinition Height="158"></RowDefinition>
         </Grid.RowDefinitions>
         <Border BorderBrush="Gray" BorderThickness="1" Grid.Row="0">
             <Grid Grid.Row="0">
@@ -122,6 +122,17 @@
         </Grid>
         <Button x:Name="Clear_photo" Grid.Row="1" Content="清除照片" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="100" Margin="0,0,96,62"></Button>
         <Button x:Name="Submit" Grid.Row="1" Content="提交修改" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="86" Margin="0,0,146,22" Click="Submit_Click"></Button>
-        <Button x:Name="DeletAccout" Grid.Row="1" Content="删除该账号" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="100" Margin="0,0,26,22"></Button>
+        <Button x:Name="DeletAccount" Grid.Row="1" Content="删除该账号" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="100" Margin="0,0,26,22"></Button>
+        <Grid x:Name="Delet" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="LotSizeDeletAccount"  Grid.Column="0" Height="auto" Width="auto" Content="批量删除编号" FontSize="20" Margin="20,10"></Label>
+            
+        </Grid>
+        
     </Grid>
 </UserControl>

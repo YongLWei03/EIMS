@@ -88,6 +88,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MD5Str.cs" />
     <Compile Include="MoreInf.xaml.cs">
       <DependentUpon>MoreInf.xaml</DependentUpon>
     </Compile>
