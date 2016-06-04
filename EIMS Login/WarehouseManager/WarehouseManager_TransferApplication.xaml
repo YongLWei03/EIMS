@@ -21,16 +21,16 @@
             <ColumnDefinition Width="120" />
         </Grid.ColumnDefinitions>
         <Label x:Name="viewStatus" Content="查看状态：" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16"/>
-        <ComboBox x:Name="stateType" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Height="25" Grid.Row="0" Grid.Column="1" SelectedIndex="0">
+        <ComboBox x:Name="stateType" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Height="25" Grid.Row="0" Grid.Column="1" SelectedIndex="0" Width="100" SelectionChanged="stateType_SelectionChanged">
             <ComboBoxItem Content="未操作"/>
-            <ComboBoxItem Content="已批准"/>
-            <ComboBoxItem Content="未批准"/>
+            <ComboBoxItem Content="同意"/>
+            <ComboBoxItem Content="不同意"/>
         </ComboBox>
         <Label x:Name="TotalApplicationTag" Content="申请总计：" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="0" />
         <Label x:Name="TotalApplication" Content="0" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="4" Grid.Row="0"/>
-        <Button x:Name="export" Grid.Row="0" FontSize="16" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="25" Content="导出为excel表格"/>
+        <Button x:Name="export" Grid.Row="0" FontSize="16" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="25" Content="导出为excel表格" Click="export_Click"/>
         <Button x:Name="ConfirmSubmission" FontSize="16" Grid.Row="0" Grid.Column="6" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Content="确定提交" Click="ConfirmSubmission_Click"/>
-        <warehousedatagrid:transferapplicationdatagrid x:Name="Transferapplicationdatagrid" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Grid.Column="0" Grid.ColumnSpan="7">
+        <warehousedatagrid:transferapplicationdatagrid x:Name="Transferapplicationdatagrid" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Grid.Column="0" Grid.ColumnSpan="7" Loaded="Transferapplicationdatagrid_Loaded">
         </warehousedatagrid:transferapplicationdatagrid>
     </Grid>
 </UserControl>
