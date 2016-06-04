@@ -20,8 +20,8 @@ namespace EIMS_Login.WarehouseManager.warehousedatagrid
     public enum statusEnum
     {
         未操作,
-        不同意,
-        同意
+        同意,
+        不同意 
     }
     /// <summary>
     /// transferapplicationdatagrid.xaml 的交互逻辑
@@ -29,6 +29,7 @@ namespace EIMS_Login.WarehouseManager.warehousedatagrid
     public partial class transferapplicationdatagrid : UserControl
     {
         Connection TempConn = new Connection();
+        
         public statusEnum Mystatus
         {
             get;
@@ -37,11 +38,12 @@ namespace EIMS_Login.WarehouseManager.warehousedatagrid
         public transferapplicationdatagrid()
         {
             InitializeComponent();
-            connectatabase();
         }
-        public void connectatabase()
+        public void connectatabase(int myselect)
         {
-            string sqll = "Select * From ApplyEquip";
+            statusEnum newstatus = new statusEnum();
+            newstatus = (statusEnum)myselect;
+            string sqll = "Select * From ApplyEquip where Status = '"+newstatus+"'";
             SqlDataAdapter sqldata = new SqlDataAdapter(sqll, TempConn.GetConn());
             DataSet ds = new DataSet();
             sqldata.Fill(ds);
@@ -52,6 +54,7 @@ namespace EIMS_Login.WarehouseManager.warehousedatagrid
         {
             e.Row.Header = e.Row.GetIndex() + 1;
         }
+        /*函数功能：更新数据库*/
         public void updata()
         {
             DataTable dt = (Application.ItemsSource as DataView).Table;
