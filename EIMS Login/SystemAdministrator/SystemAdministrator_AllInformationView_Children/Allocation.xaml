@@ -22,9 +22,9 @@
             <ComboBoxItem Content="未完成" Height="25"></ComboBoxItem>
             <ComboBoxItem Content="已完成" Height="25"></ComboBoxItem>
         </ComboBox>
-        <Label x:Name="AllocationNum_right"  Grid.Row="0" Grid.Column="2" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="80" Margin="10,10">715</Label>
-        <Label x:Name="AllocationNum_Text" Grid.Row="0" Grid.Column="2"  FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="100,10">维修信息共计:</Label>
-        <Button x:Name="EquipmentExport_right"  Grid.Row="1" Grid.Column="2" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0"></Button>
+        <Label x:Name="AllocationNum"  Grid.Row="0" Grid.Column="2" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="80" Margin="10,10"></Label>
+        <Label x:Name="AllocationNum_Text" Grid.Row="0" Grid.Column="2"  FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="100,10">调拨信息共计:</Label>
+        <Button x:Name="AllocationExport"  Grid.Row="1" Grid.Column="2" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0" Click="AllocationExport_Click"/>
         <UserDefinedDataGrid:UserDefinedDataGrid x:Name="AllocationTable"  Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10"/>
 
     </Grid>

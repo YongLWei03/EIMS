@@ -16,9 +16,9 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="归档信息:"  FontSize="32" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200" Margin="10,20"></TextBlock>
         <Button x:Name="delsubmit_right"  Grid.Row="0" Grid.Column="0" Content="删除提交" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="10,10"></Button>
-        <Label x:Name="File_right"  Grid.Row="0" Grid.Column="1" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="80" Margin="80,10">88</Label>
+        <Label x:Name="FileNum"  Grid.Row="0" Grid.Column="1" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="auto" Width="80" Margin="80,10"></Label>
         <Label x:Name="FileR_Text" Grid.Row="0" Grid.Column="0"  FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="160,10">归档共计:</Label>
-        <Button x:Name="EquipmentExport_right"  Grid.Row="1" Grid.Column="1" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0"></Button>
+        <Button x:Name="FileTableExport"  Grid.Row="1" Grid.Column="1" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0" Click="FileTableExport_Click"></Button>
         <UserDefinedDataGrid:UserDefinedDataGrid x:Name="FileTable"  Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10"/>
     </Grid>
 </UserControl>

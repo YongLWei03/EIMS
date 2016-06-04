@@ -77,6 +77,7 @@
     <Compile Include="FinancialAdministrator\FinancialAdministrator_FinancialUse.xaml.cs">
       <DependentUpon>FinancialAdministrator_FinancialUse.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InfTotal.cs" />
     <Compile Include="MaintenanceAdministrator\MaintenanceAdministrator_ViewMaintenanceApplication.xaml.cs">
       <DependentUpon>MaintenanceAdministrator_ViewMaintenanceApplication.xaml</DependentUpon>
     </Compile>

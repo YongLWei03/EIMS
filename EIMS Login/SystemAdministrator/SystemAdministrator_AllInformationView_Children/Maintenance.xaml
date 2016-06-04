@@ -18,13 +18,13 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="维修信息:"  FontSize="32" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="200" Margin="10,20"></TextBlock>
         <Label x:Name="Status_Text" Grid.Row="0" Grid.Column="1"  FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="100,10">查看状态:</Label>
-        <ComboBox x:Name="Status" Grid.Row="0" Grid.Column="1" Text="未完成" HorizontalAlignment="Right" VerticalAlignment="Bottom"  SelectedIndex="0" Margin="0,10" Height="25" Width="100" FontSize="16" VerticalContentAlignment="Center">
-            <ComboBoxItem Content="未完成" Height="25"></ComboBoxItem>
-            <ComboBoxItem Content="已完成" Height="25"></ComboBoxItem>
+        <ComboBox x:Name="Status" Grid.Row="0" Grid.Column="1" Text="未完成" HorizontalAlignment="Right" VerticalAlignment="Bottom"  SelectedIndex="0" Margin="0,10" Height="25" Width="100" FontSize="16" VerticalContentAlignment="Center" DropDownClosed="Status_DropDownClosed">
+            <ComboBoxItem Content="已送修" Height="25"></ComboBoxItem>
+            <ComboBoxItem Content="维修完毕" Height="25"></ComboBoxItem>
         </ComboBox>
-        <Label x:Name="MaintenanceNum_right"  Grid.Row="0" Grid.Column="2" Content="" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="10,10"></Label>
+        <Label x:Name="MaintenanceNum_right"  Grid.Row="0" Grid.Column="2" Content="" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="80" Margin="10,15"></Label>
         <Label x:Name="MaintenanceNum_Text" Grid.Row="0" Grid.Column="2"  FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="100,10">维修信息共计:</Label>
-        <Button x:Name="EquipmentExport_right"  Grid.Row="1" Grid.Column="2" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0"></Button>
+        <Button x:Name="EquipmentExport_right"  Grid.Row="1" Grid.Column="2" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0" Click="EquipmentExport_right_Click"></Button>
         <UserDefinedDataGrid:UserDefinedDataGrid x:Name="MaintenanceTable"  Grid.Row="2" Grid.ColumnSpan="3" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10"/>
     </Grid>
 </UserControl>
