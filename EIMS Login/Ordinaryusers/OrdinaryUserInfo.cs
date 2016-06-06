@@ -20,7 +20,7 @@ namespace EIMS_Login.Ordinaryusers
             public string Ryid;
             public string RyName;
             public BitmapImage Photo;
-            public int Sex;
+            public string Sex;
             public string Nationalty;
             public string Birth;
             public string Title;
@@ -73,8 +73,23 @@ namespace EIMS_Login.Ordinaryusers
                 {
                     UserInfoTemp.Ryid = Ryid;
                     UserInfoTemp.RyName = Sdr_1[1].ToString();
+                    UserInfoTemp.Sex =  Sdr_1[3].ToString();
+                    UserInfoTemp.Nationalty = Sdr_1[4].ToString();
+                    UserInfoTemp.Birth = Sdr_1[5].ToString();
+                    UserInfoTemp.Title = Sdr_1[6].ToString();
+                    UserInfoTemp.Rank = Sdr_1[7].ToString();
+                    UserInfoTemp.Political_Party = Sdr_1[8].ToString();
+                    UserInfoTemp.Culture_Level = Sdr_1[9].ToString();
+                    UserInfoTemp.Marital_Condition = Convert.ToInt32(Sdr_1[10]);
+                    UserInfoTemp.Family_Place = Sdr_1[11].ToString();
+                    UserInfoTemp.Id_Card = Sdr_1[12].ToString();
+                    UserInfoTemp.Dep_Id = Convert.ToInt32(Sdr_1[13].ToString());
+                    UserInfoTemp.Position = Sdr_1[14].ToString();
+                    UserInfoTemp.UpperId = Sdr_1[15].ToString();
+
+                    //有错！
                     byte[] image_bytes = (byte[])Sdr_1[2];
-                    if(image_bytes != null)
+                    if (image_bytes != null)
                     {
                         MemoryStream ms = new MemoryStream(image_bytes);
                         Bitmap bmp = new Bitmap(ms);
@@ -89,19 +104,6 @@ namespace EIMS_Login.Ordinaryusers
                     {
                         UserInfoTemp.Photo = null;
                     }
-                    UserInfoTemp.Sex = Convert.ToInt32( Sdr_1[3]);
-                    UserInfoTemp.Nationalty = Sdr_1[4].ToString();
-                    UserInfoTemp.Birth = Sdr_1[5].ToString();
-                    UserInfoTemp.Title = Sdr_1[6].ToString();
-                    UserInfoTemp.Rank = Sdr_1[7].ToString();
-                    UserInfoTemp.Political_Party = Sdr_1[8].ToString();
-                    UserInfoTemp.Culture_Level = Sdr_1[9].ToString();
-                    UserInfoTemp.Marital_Condition = Convert.ToInt32(Sdr_1[10]);
-                    UserInfoTemp.Family_Place = Sdr_1[11].ToString();
-                    UserInfoTemp.Id_Card = Sdr_1[12].ToString();
-                    UserInfoTemp.Dep_Id = Convert.ToInt32(Sdr_1[13].ToString());
-                    UserInfoTemp.Position = Sdr_1[14].ToString();
-                    UserInfoTemp.UpperId = Sdr_1[15].ToString();
                     Sdr_1.Close();
                 }
                 
