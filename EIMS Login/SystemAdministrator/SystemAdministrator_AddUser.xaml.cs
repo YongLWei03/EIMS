@@ -96,7 +96,7 @@ namespace EIMS_Login
                 return;
             }
             //注意账号所属人姓名，编号，性别，部门编号需要与ArmsPerson一致
-            string StrSQL = "insert into ArmsUsers values('" + username + "','" + md5.MD5Encoding(register_pwd.Text) + "','" + userstring + "','" + addgroup_registerText_rennum.Text + "','" + register_AffiliationPeople.Text + "','" + sexstring + "','" + addgroup_registerText_departnum.Text + "')";
+            string StrSQL = "insert into ArmsUsers values('" + username + "','" + md5.MD5Encoding(register_pwd.Text) + "','" + userstring + "','" + addgroup_registerText_rennum.Text + "')";
             
             try
             {
