@@ -58,7 +58,8 @@ namespace EIMS_Login
 
             user = (userIdentity)addgroup_registerText_cb.SelectedIndex;
             string userstring = user.ToString();
-            string sexstring = addgroup_registerText_sex.SelectedIndex.ToString();
+            string sexstring = addgroup_registerText_sex.SelectionBoxItem.ToString();
+            MessageBox.Show(addgroup_registerText_sex.SelectedItem.ToString());
             string username = register_account.Text;
             string SearchSQL = "select * from ArmsUsers where Usersname='" + username + "'";
             try
