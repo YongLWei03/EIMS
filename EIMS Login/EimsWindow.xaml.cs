@@ -304,17 +304,17 @@ namespace EIMS_Login
                     FinancialUse.Click += new RoutedEventHandler(FinancialUseClick);
                     break;
             }
-            Button PersonalInformation = new Button();
+            Button Personalinformation = new Button();
             Button Renovate = new Button();
             Button Cancel = new Button();
 
-            PersonalInformation.Width = 100;
-            PersonalInformation.Height = 100;
-            PersonalInformation.Style = Resources["MyButton"] as Style;
+            Personalinformation.Width = 100;
+            Personalinformation.Height = 100;
+            Personalinformation.Style = Resources["MyButton"] as Style;
             ImageBrush Image98 = new ImageBrush();
             Image98.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/Public/个人信息.png", UriKind.RelativeOrAbsolute));
             Image98.Stretch = Stretch.Fill;
-            PersonalInformation.Background = Image98;
+            Personalinformation.Background = Image98;
 
             Renovate.Width = 100;
             Renovate.Height = 100;
@@ -332,16 +332,17 @@ namespace EIMS_Login
             Image100.Stretch = Stretch.Fill;
             Cancel.Background = Image100;
 
-            application.Children.Add(PersonalInformation);
+            application.Children.Add(Personalinformation);
             application.Children.Add(Renovate);
             application.Children.Add(Cancel);
-            PersonalInformation.SetValue(Grid.ColumnProperty, column);
-            PersonalInformation.SetValue(Grid.RowProperty, 0);
+            Personalinformation.SetValue(Grid.ColumnProperty, column);
+            Personalinformation.SetValue(Grid.RowProperty, 0);
             Renovate.SetValue(Grid.ColumnProperty, column + 1);
             Renovate.SetValue(Grid.RowProperty, 0);
             Cancel.SetValue(Grid.ColumnProperty, column + 2);
             Cancel.SetValue(Grid.RowProperty, 0);
 
+            Personalinformation.Click += new RoutedEventHandler(PersonalinformationClick);
             Cancel.Click += new RoutedEventHandler(CancelrClick);
         }
         private void CancelrClick(object sender, RoutedEventArgs e)
@@ -539,6 +540,15 @@ namespace EIMS_Login
             application_children.Children.Add(OrdinaryUsers_DataSearch);
             OrdinaryUsers_DataSearch.SetValue(Grid.RowProperty, 1);
             OrdinaryUsers_DataSearch.SetValue(Grid.ColumnSpanProperty, 12);
+        }
+
+        private void PersonalinformationClick(object sender, RoutedEventArgs e)
+        {
+            application_children.Children.Clear();
+            PersonalInformation MyPersonalInformation = new PersonalInformation();
+            application_children.Children.Add(MyPersonalInformation);
+            MyPersonalInformation.SetValue(Grid.RowProperty, 1);
+            MyPersonalInformation.SetValue(Grid.ColumnSpanProperty, 12);
         }
 
         private void Min_Click(object sender, RoutedEventArgs e)

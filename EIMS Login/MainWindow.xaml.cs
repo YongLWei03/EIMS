@@ -105,14 +105,14 @@ namespace EIMS_Login
             {
                 try
                 {
-                    string StrSql_1 = "select * from ArmsUsers where Usersname='" + Account.Text + "'and Userspwd='" + md5.MD5Encoding(PasswordBox.Password.ToString()) + "'";
+                    string StrSql_1 = "select * from ArmsUsers where Usersname='" + Account.Text + "'and Userspwd='" +  md5.MD5Encoding(PasswordBox.Password.ToString()) + "'";
                     SqlCommand CMD_1 = new SqlCommand(StrSql_1, Temp.GetConn());
                     SqlDataReader Sdr_1 = CMD_1.ExecuteReader();
                     if (Sdr_1.Read())
                     {
                         string TempStr = Sdr_1[2].ToString();
                         Sdr_1.Close();
-                        if (TempStr != "普通用户" && user == userIdentity.Ordinary_users)//权限判断，属于普通用户不能选择了其他用户组
+                        if (TempStr != "普通用户")//权限判断，属于普通用户不能选择了其他用户组
                         {
                             MessageBox.Show("当前用户权限不足，请核对权限选择下拉框！");
                             return;

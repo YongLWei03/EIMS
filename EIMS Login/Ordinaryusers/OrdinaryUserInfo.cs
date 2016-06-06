@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Drawing;
+using System.IO;
+using System.Windows.Media.Imaging;
 
 namespace EIMS_Login.Ordinaryusers
 {
@@ -16,7 +19,7 @@ namespace EIMS_Login.Ordinaryusers
         {
             public string Ryid;
             public string RyName;
-            //照片未加
+            public BitmapImage Photo;
             public int Sex;
             public string Nationalty;
             public string Birth;
@@ -70,6 +73,22 @@ namespace EIMS_Login.Ordinaryusers
                 {
                     UserInfoTemp.Ryid = Ryid;
                     UserInfoTemp.RyName = Sdr_1[1].ToString();
+                    byte[] image_bytes = (byte[])Sdr_1[2];
+                    if(image_bytes != null)
+                    {
+                        MemoryStream ms = new MemoryStream(image_bytes);
+                        Bitmap bmp = new Bitmap(ms);
+                        bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                        byte[] bytes = ms.GetBuffer();
+                        UserInfoTemp.Photo = new BitmapImage();
+                        UserInfoTemp.Photo.BeginInit();
+                        UserInfoTemp.Photo.StreamSource = new MemoryStream(bytes);
+                        UserInfoTemp.Photo.EndInit();
+                    }
+                    else
+                    {
+                        UserInfoTemp.Photo = null;
+                    }
                     UserInfoTemp.Sex = Convert.ToInt32( Sdr_1[3]);
                     UserInfoTemp.Nationalty = Sdr_1[4].ToString();
                     UserInfoTemp.Birth = Sdr_1[5].ToString();

@@ -38,7 +38,7 @@ namespace EIMS_Login
         private void export_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("即将导出表格，请你稍等。。。");
-            string[] Str = { "人员编号", "人员姓名", "工作岗位",  "申请日期", "申请装备编号",
+            string[] Str = { "申请编号", "人员编号", "人员姓名", "工作岗位",  "申请日期", "申请装备编号",
                 "申请数量", "调拨方式", "调入单位", "申请原因", "操作状态" };
             ExportExcel(ApplyTableSql, Str, "装备申请表格.xlsx");
         }
