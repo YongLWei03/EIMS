@@ -22,7 +22,6 @@ namespace EIMS_Login
             string builder = null;
             for (int i = 0; i < byteString.Length; i++)
                 builder += byteString[i].ToString("x").PadLeft(2, '0');
-            MessageBox.Show(builder);
             return builder;
         }
     }

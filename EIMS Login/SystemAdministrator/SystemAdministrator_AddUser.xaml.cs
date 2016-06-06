@@ -59,7 +59,6 @@ namespace EIMS_Login
             user = (userIdentity)addgroup_registerText_cb.SelectedIndex;
             string userstring = user.ToString();
             string sexstring = addgroup_registerText_sex.SelectionBoxItem.ToString();
-            MessageBox.Show(addgroup_registerText_sex.SelectedItem.ToString());
             string username = register_account.Text;
             string SearchSQL = "select * from ArmsUsers where Usersname='" + username + "'";
             try
@@ -96,7 +95,7 @@ namespace EIMS_Login
                 return;
             }
             //注意账号所属人姓名，编号，性别，部门编号需要与ArmsPerson一致
-            string StrSQL = "insert into ArmsUsers values('" + username + "','" + md5.MD5Encoding(register_pwd.Text) + "','" + userstring + "','" + addgroup_registerText_rennum.Text + "','" + register_AffiliationPeople.Text + "','" + sexstring + "','" + addgroup_registerText_departnum.Text + "')";
+            string StrSQL = "insert into ArmsUsers values('" + username + "','" + md5.MD5Encoding(register_pwd.Text) + "','" + userstring + "','" + addgroup_registerText_rennum.Text + "')";
             
             try
             {
