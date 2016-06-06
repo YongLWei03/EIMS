@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EIMS_Login"
              mc:Ignorable="d" 
-             d:DesignHeight="560" d:DesignWidth="1250" BorderThickness="0,1,0,0" BorderBrush="Black">
+             d:DesignHeight="560" d:DesignWidth="1250" BorderThickness="0,1,0,0" BorderBrush="Black" Loaded="UserControl_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -47,10 +47,10 @@
         <Label Grid.Row="13" Grid.Column="0" Content="婚姻状况：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
         <Label Grid.Row="14" Grid.Column="0" Content="籍贯：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
         <Label Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="2" Content="注意：三天时间之内未补全信息，该账号将被系统删除！" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red"/>
-        <TextBox x:Name="Account" Grid.Column="1" Grid.Row="1" FontSize="16" Height="25"/>
-        <TextBox x:Name="Name" Grid.Column="1" Grid.Row="2" FontSize="16" Height="25"/>
-        <TextBox x:Name="Serialnumber" Grid.Column="1" Grid.Row="3" FontSize="16" Height="25"/>
-        <TextBox x:Name="Gender" Grid.Column="1" Grid.Row="4" FontSize="16" Height="25"/>
+        <TextBox x:Name="Account" Grid.Column="1" Grid.Row="1" FontSize="16" Height="25" IsReadOnly="True"/>
+        <TextBox x:Name="Name" Grid.Column="1" Grid.Row="2" FontSize="16" Height="25" IsReadOnly="True"/>
+        <TextBox x:Name="Serialnumber" Grid.Column="1" Grid.Row="3" FontSize="16" Height="25" IsReadOnly="True"/>
+        <TextBox x:Name="Gender" Grid.Column="1" Grid.Row="4" FontSize="16" Height="25" IsReadOnly="True"/>
         <TextBox x:Name="Departmentnumber" Grid.Column="1" Grid.Row="5" FontSize="16" Height="25"/>
         <TextBox x:Name="IDcard" Grid.Column="1" Grid.Row="6" FontSize="16" Height="25"/>
         <TextBox x:Name="National" Grid.Column="1" Grid.Row="7" FontSize="16" Height="25"/>
@@ -65,9 +65,9 @@
         <Image x:Name="MyImage" Grid.Column="3" Grid.Row="1" Grid.RowSpan="9" Width="300" Height="300"/>
         <Button x:Name="SelectImage" Grid.Column="3" Grid.Row="10" Width="170" Height="25" Content="上传图片" FontSize="16" Click="SelectImage_Click"/>
         <Label Grid.Column="2" Grid.Row="11" Content="工作岗位：" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
-        <Label Grid.Column="2" Grid.Row="12" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Content="部门领导："/>
-        <TextBox Grid.Row="11" Grid.Column="3" Height="25" FontSize="16"/>
-        <TextBox Grid.Row="12" Grid.Column="3" Height="25" FontSize="16"/>
+        <Label Grid.Column="2" Grid.Row="12" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Content="部门领导编号："/>
+        <TextBox  x:Name="Post" Grid.Row="11" Grid.Column="3" Height="25" FontSize="16"/>
+        <TextBox  x:Name="LeaderNumber" Grid.Row="12" Grid.Column="3" Height="25" FontSize="16"/>
         <Button Grid.Column="3" Grid.Row="13" Width="100" HorizontalAlignment="Left" Height="25" Content="修改密码" FontSize="16"/>
         <Button Grid.Column="3" Grid.Row="13" Width="100" HorizontalAlignment="Right" Height="25" Content="提交修改" FontSize="16"/>
         <Button Grid.Column="3" Grid.Row="14" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Content="查看个人日志" FontSize="16"/>
