@@ -32,5 +32,6 @@
         <UserDefinedDataGrid:UserDefinedDataGrid x:Name="TableToApply" HorizontalAlignment="Left" Margin="436,62,0,0" VerticalAlignment="Top" Height="210" Width="810"/>
         <UserDefinedDataGrid:UserDefinedDataGrid x:Name="TableToHistory" HorizontalAlignment="Left" Margin="436,348,0,-1.2" VerticalAlignment="Top" Width="810" Height="210"/>
         <Ordinaryusers:ReminderLableRegion x:Name="ApplyRLR" HorizontalAlignment="Left" Margin="32,393,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="原因在100字以内" HorizontalAlignment="Left" Margin="170,340,0,0" VerticalAlignment="Top" RenderTransformOrigin="-4.945,1.625" Foreground="Red"/>
     </Grid>
 </UserControl>

@@ -115,7 +115,19 @@ namespace EIMS_Login.Ordinaryusers
         //申请提交按钮功能
         private void ApplicationSubmit_Click(object sender, RoutedEventArgs e)
         {
-            if (UITemp.GetRyidStatus)
+            if (ApplicationMaintenanceCount.Text.Length == 0 || ApplicationEquipmentNumber.Text.Length == 0)
+            {
+                MessageBox.Show("错误：装备编号或申请数量为空！");
+            }
+            else if (Convert.ToInt32(ApplicationMaintenanceCount.Text) < 0)
+            {
+                MessageBox.Show("错误：申请数量不能负数！");
+            }
+            else if (ApplicationReasons.Text.Length > 100)
+            {
+                MessageBox.Show("错误：申请原因字数不能超过100！");
+            }
+            else if (UITemp.GetRyidStatus)
             {
 
                 string Date = DateTime.Now.ToString("yyyy-MM-dd") + " " + DateTime.Now.ToLongTimeString().ToString(); ;//获取当前时间

@@ -100,7 +100,19 @@ namespace EIMS_Login.Ordinaryusers
 
         private void ApplicationSubmit_Click(object sender, RoutedEventArgs e)//待修改
         {
-            if (UITemp.GetRyidStatus)
+            if (ApplicationEquipmentCount.Text.Length == 0 || ApplicationEquipmentNumber.Text.Length == 0 || TransferredUnit.Text.Length == 0)
+            {
+                MessageBox.Show("错误：装备编号或申请数量或调入单位为空！");
+            }
+            else if (Convert.ToInt32(ApplicationEquipmentCount.Text) < 0)
+            {
+                MessageBox.Show("错误：申请数量不能负数！");
+            }
+            else if (ApplicationReasons.Text.Length > 100)
+            {
+                MessageBox.Show("错误：申请原因字数不能超过100！");
+            }
+            else if (UITemp.GetRyidStatus)
             {
                 string Date = DateTime.Now.ToString("yyyy-MM-dd") + " " + DateTime.Now.ToLongTimeString().ToString(); ;//获取当前时间
 
