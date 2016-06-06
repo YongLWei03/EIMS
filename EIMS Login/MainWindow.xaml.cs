@@ -24,6 +24,7 @@ namespace EIMS_Login
     public partial class MainWindow : Window
     {
         Connection Temp = new Connection();
+        MD5Str md5 = new MD5Str(); 
         //    public static int userIdentity = 0;
         public static userIdentity user;
         public static string CurrentUser;//当前用户
@@ -104,7 +105,7 @@ namespace EIMS_Login
             {
                 try
                 {
-                    string StrSql_1 = "select * from ArmsUsers where Usersname='" + Account.Text + "'and Userspwd='" + PasswordBox.Password.ToString() + "'";
+                    string StrSql_1 = "select * from ArmsUsers where Usersname='" + Account.Text + "'and Userspwd='" + md5.MD5Encoding(PasswordBox.Password.ToString()) + "'";
                     SqlCommand CMD_1 = new SqlCommand(StrSql_1, Temp.GetConn());
                     SqlDataReader Sdr_1 = CMD_1.ExecuteReader();
                     if (Sdr_1.Read())

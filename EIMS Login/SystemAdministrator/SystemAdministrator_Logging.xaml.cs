@@ -125,8 +125,12 @@ namespace EIMS_Login
         {
             moinf = new MoreInf();
             string[] Table_Str = { "LogId", "LogDate", "LogTime", "LogType", "Title", "UserName", "Body" };
-            moinf.SetValues(LoggingTable.Getdt(), LoggingTable.dataGrid.SelectedIndex, LoggingTable.Rows, Table_Str, Str, 7);
-            moinf.Show();
+            if (LoggingTable.dataGrid.SelectedIndex != -1)
+            {
+                moinf.SetValues(LoggingTable.Getdt(), LoggingTable.dataGrid.SelectedIndex, LoggingTable.Rows, Table_Str, Str, 7);
+                moinf.Show();
+            }
+            else MessageBox.Show("当前未选中任何行！");
         }
     }
 }
