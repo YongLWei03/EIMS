@@ -76,6 +76,17 @@ namespace EIMS_Login.UserDefinedDataGrid
                 dataGrid.CanUserAddRows = false;
             }
         }
+        public void SetCanUserDeletRows(bool Status)
+        {
+            if (Status)
+            {
+                dataGrid.CanUserDeleteRows = true;
+            }
+            else
+            {
+                dataGrid.CanUserDeleteRows = false;
+            }
+        }
         //针对性的增加右键菜单，分别有：查看更多，
         public MenuItem AddMenuItem(string Header)
         {
