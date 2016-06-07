@@ -4,8 +4,30 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="559" d:DesignWidth="1250" BorderBrush="Black" BorderThickness="1">
     <Grid>
-            
+        <Label x:Name="label" Content="新使用添加：" HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top" FontSize="32" FontWeight="Bold"/>
+        <Label x:Name="label1" Content="使用编号：" HorizontalAlignment="Left" Margin="30,91,0,0" VerticalAlignment="Top" FontSize="16" Foreground="Red" Height="30" Width="90"/>
+        <TextBox x:Name="Id" HorizontalAlignment="Left" Height="23" Margin="116,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="16" IsReadOnly="True"/>
+        <Label x:Name="label1_Copy" Content="使用日期：" HorizontalAlignment="Left" Margin="30,126,0,0" VerticalAlignment="Top" FontSize="16" Foreground="Red" Height="30" Width="90"/>
+        <TextBox x:Name="CDate" HorizontalAlignment="Left" Height="23" Margin="116,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="16" IsReadOnly="True"/>
+        <TextBox x:Name="Itemld" HorizontalAlignment="Left" Height="23" Margin="116,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="16"/>
+        <Label x:Name="label1_Copy1" Content="项目编号：" HorizontalAlignment="Left" Margin="30,162,0,0" VerticalAlignment="Top" FontSize="16" Foreground="Black" Height="30" Width="90"/>
+        <TextBox x:Name="CSum" HorizontalAlignment="Left" Height="23" Margin="116,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="16" />
+        <Label x:Name="label1_Copy2" Content="使用金额：" HorizontalAlignment="Left" Margin="30,235,0,0" VerticalAlignment="Top" FontSize="16" Foreground="Black" Height="30" Width="90" RenderTransformOrigin="0.596,0.447"/>
+        <TextBox x:Name="Ryname" HorizontalAlignment="Left" Height="23" Margin="116,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="16"/>
+        <Label x:Name="label1_Copy3" Content="经办人：" HorizontalAlignment="Left" Margin="40,270,0,0" VerticalAlignment="Top" FontSize="16" Foreground="Black" Height="30" Width="70"/>
+        <TextBox x:Name="Ryname1" HorizontalAlignment="Left" Height="23" Margin="116,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="16" />
+        <Label x:Name="label1_Copy4" Content="批准人：" HorizontalAlignment="Left" Margin="40,306,0,0" VerticalAlignment="Top" FontSize="16" Foreground="Black" Height="30" Width="70"/>
+        <TextBox x:Name="CDescribe" HorizontalAlignment="Left" Height="23" Margin="116,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="16" />
+        <Label x:Name="label1_Copy5" Content="费用摘要：" HorizontalAlignment="Left" Margin="30,340,0,0" VerticalAlignment="Top" FontSize="16" Foreground="Black" Height="30" Width="90" RenderTransformOrigin="0.649,-0.2"/>
+        <TextBox x:Name="Memo" HorizontalAlignment="Left" Height="115" Margin="116,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="16"/>
+        <Label x:Name="label1_Copy6" Content="备注：" HorizontalAlignment="Left" Margin="44,372,0,0" VerticalAlignment="Top" FontSize="16" Foreground="Black" Height="30" Width="51"/>
+        <Label x:Name="label1_Copy7" Content="不大于100字：" HorizontalAlignment="Left" Margin="116,495,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Black" Height="30" Width="90"/>
+        <Button x:Name="button" Content="提交添加" HorizontalAlignment="Left" FontSize="16" Margin="260,496,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label x:Name="label1_Copy8" Content="红色标注不可填写" HorizontalAlignment="Left" Margin="30,530,0,0" VerticalAlignment="Top" FontSize="12" Foreground="Red" Height="27" Width="138" RenderTransformOrigin="0.649,0.447"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="559" Margin="370,0,0,-3" Stroke="Black" VerticalAlignment="Top" Width="1"/>
+        <Label x:Name="label1_Copy9" Content="项目名称：" HorizontalAlignment="Left" Margin="31,201,0,0" VerticalAlignment="Top" FontSize="16" Foreground="Black" Height="30" Width="90"/>
+        <TextBox x:Name="TypeName" HorizontalAlignment="Left" Height="23" Margin="116,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="16"/>
     </Grid>
 </UserControl>

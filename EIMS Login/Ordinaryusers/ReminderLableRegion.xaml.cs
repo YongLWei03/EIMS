@@ -24,7 +24,7 @@ namespace EIMS_Login.Ordinaryusers
     {
         DataTable Applydt = new DataTable();
         Connection TempConn = new Connection();
-        string UserID, ApplyType, TempStr;
+        string UserID, ApplyType, TempStr,TempId;
         int TotalRows;
         public ReminderLableRegion()
         {
@@ -36,9 +36,9 @@ namespace EIMS_Login.Ordinaryusers
             ApplyType = Str;
             switch (ApplyType)
             {
-                case "jy_sq": TempStr = "借阅申请"; break;
-                case "zb_sq": TempStr = "装备申请"; break;
-                case "wx_sq": TempStr = "维修申请"; break;
+                case "jy_sq": TempStr = "借阅"; TempId = "ApplyDataID"; break;
+                case "zb_sq": TempStr = "装备"; TempId = "Zbid"; break;
+                case "wx_sq": TempStr = "维修"; TempId = "Zbid"; break;
                 default: MessageBox.Show("日志类型设置错误！"); ApplyType = null; break;
             }
 
@@ -66,19 +66,19 @@ namespace EIMS_Login.Ordinaryusers
             if (TotalRows < 0) return;
             else if (Applydt.Rows[TotalRows]["Status"].ToString() == "未操作")
             {
-                Temp.Content = "你在  " + Applydt.Rows[TotalRows]["ApplyDate"].ToString()+ "  提交新的" + TempStr + ",并且暂未被审核！";
+                Temp.Content = "你在  " + Applydt.Rows[TotalRows]["ApplyDate"].ToString()+ "  提交新的" + TempStr + "申请,并且暂未被审核！";
                 Temp.Foreground = new SolidColorBrush(Color.FromRgb(0,176,240));
             }
             else if (Applydt.Rows[TotalRows]["Status"].ToString() == "不同意")
             {
-                Temp.Content = "你在" + Applydt.Rows[TotalRows]["ApplyDate"].ToString()
-                    + "申请的资料-(" + Applydt.Rows[TotalRows]["ApplyDataID"].ToString() + "),管理员不同意！";
+                Temp.Content = "你在  " + Applydt.Rows[TotalRows]["ApplyDate"].ToString()
+                    + "  申请的"+ TempStr + "-(" + Applydt.Rows[TotalRows][TempId].ToString() + "),管理员不同意！";
                 Temp.Foreground = Brushes.Red;
             }
             /*else if (Applydt.Rows[TotalRows]["Status"].ToString() == "同意")
             {
-                Temp.Content = "你在" + Applydt.Rows[TotalRows]["ApplyDate"].ToString()
-                    + "申请的资料-(" + Applydt.Rows[TotalRows]["ApplyDataID"].ToString() + "),管理员已同意！";
+                Temp.Content = "你在  " + Applydt.Rows[TotalRows]["ApplyDate"].ToString()
+                    + "  申请的" + TempStr + "-(" + Applydt.Rows[TotalRows][TempId].ToString() + "),管理员已同意！";
                 Temp.Foreground = Brushes.Green;
             }*/
         }
