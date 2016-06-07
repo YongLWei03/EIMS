@@ -77,10 +77,17 @@ namespace EIMS_Login
                 return;
             }
             string RyIdExist = "select * from ArmsPerson where RyId='" + addgroup_registerText_rennum.Text + "'";
+            string DepartMent = "select * from Departments where DepId ='" + addgroup_registerText_departnum.Text + "'";
             string RyIdInsert = "insert into ArmsPerson(RyId,RyName,Sex,Dep_Id,Marital_Condition) values('" + addgroup_registerText_rennum.Text + "','" + register_AffiliationPeople.Text + "','" + sexstring
                 + "','" + addgroup_registerText_departnum.Text + "','0')";
             try
             {
+                SqlCommand DepId = new SqlCommand(DepartMent, Temp.GetConn());
+                if (DepId.ExecuteScalar() == null)
+                {
+                    MessageBox.Show("无此部门!");
+                    return;
+                }
                 SqlCommand RyId = new SqlCommand(RyIdExist, Temp.GetConn());
                 if(RyId.ExecuteScalar() == null)
                 {
