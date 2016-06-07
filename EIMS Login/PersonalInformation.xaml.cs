@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.IO;
 using Microsoft.Win32;
 using System.Data.SqlClient;
+using System.Windows.Interop;
 
 namespace EIMS_Login
 {
@@ -25,6 +26,7 @@ namespace EIMS_Login
     {
         private byte[] _imageBinary;
         private string _imgLocalPath;
+        public EIMS_Login.Ordinaryusers.OrdinaryUserInfo NowUser = new Ordinaryusers.OrdinaryUserInfo();
 
         public PersonalInformation()
         {
@@ -69,7 +71,6 @@ namespace EIMS_Login
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             Connection Temp = new Connection();
-            EIMS_Login.Ordinaryusers.OrdinaryUserInfo NowUser = new Ordinaryusers.OrdinaryUserInfo();
             this.Account.Text = MainWindow.CurrentUser;
             this.Name.Text = NowUser.UserInfoTemp.RyName;
             this.Serialnumber.Text = NowUser.UserInfoTemp.Ryid;
@@ -104,7 +105,7 @@ namespace EIMS_Login
             }
             else
             {
-                this.MyImage.Source = NowUser.UserInfoTemp.Photo;
+                this.MyImage.Source = Imaging.CreateBitmapSourceFromHBitmap(NowUser.UserInfoTemp.Photo.GetHbitmap(),IntPtr.Zero,Int32Rect.Empty,BitmapSizeOptions.FromEmptyOptions());
             }
             
         }

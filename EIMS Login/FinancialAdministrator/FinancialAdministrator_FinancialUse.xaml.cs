@@ -24,5 +24,18 @@ namespace EIMS_Login
         {
             InitializeComponent();
         }
+        //private void InitTabelToApply()
+        //{
+        //    TableToOutLayIn.InitTableHeightWidth(210, 810);
+        //    TableToOutLayIn.SetCanUserAddRows(false);
+        //    TableToOutLayIn.AddColumns("Ryname", "姓名", 80);
+        //    TableToOutLayIn.AddColumns("ApplyDataID", "资料编号", 100);
+        //    TableToApply.AddColumns("ApplyCount", "数量", 40);
+        //    TableToApply.AddColumns("ApplyDate", "申请日期", 170);
+        //    TableToApply.AddColumns("ApplyID", "申请编号", 80);
+        //    TableToApply.AddColumns("Status", "同意状态", 80);
+        //    TableToApply.AddColumns("ApplyReason", "申请原因", 240);
+        //}
+
     }
 }

@@ -111,6 +111,7 @@ namespace EIMS_Login.Ordinary_users
             }
             else if (UITemp.GetRyidStatus)
             {
+                if (UITemp.UserInfoTemp.Position == "") UITemp.UserInfoTemp.Position="信息暂无";
                 string Date = DateTime.Now.ToString("yyyy-MM-dd") + " " + DateTime.Now.ToLongTimeString().ToString(); ;//获取当前时间
                 string StrSQL1 = "insert into ApplyData values('" + UITemp.UserInfoTemp.Ryid + "','" + UITemp.UserInfoTemp.RyName + "','" + UITemp.UserInfoTemp.Position +
                      "','" + Date + "','" + ApplicationDataNumber.Text + "',"
