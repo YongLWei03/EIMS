@@ -73,6 +73,7 @@ namespace EIMS_Login.Ordinaryusers
                 {
                     UserInfoTemp.Ryid = Ryid;
                     UserInfoTemp.RyName = Sdr_1[1].ToString();
+                    UserInfoTemp.Photo = new BitmapImage();
                     byte[] image_bytes = (byte[])Sdr_1[2];
                     if(image_bytes != null)
                     {
@@ -80,7 +81,6 @@ namespace EIMS_Login.Ordinaryusers
                         Bitmap bmp = new Bitmap(ms);
                         bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
                         byte[] bytes = ms.GetBuffer();
-                        UserInfoTemp.Photo = new BitmapImage();
                         UserInfoTemp.Photo.BeginInit();
                         UserInfoTemp.Photo.StreamSource = new MemoryStream(bytes);
                         UserInfoTemp.Photo.EndInit();
