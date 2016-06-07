@@ -20,7 +20,7 @@ namespace EIMS_Login.Ordinaryusers
             public string Ryid;
             public string RyName;
             public BitmapImage Photo;
-            public int Sex;
+            public string Sex;
             public string Nationalty;
             public string Birth;
             public string Title;
@@ -73,23 +73,7 @@ namespace EIMS_Login.Ordinaryusers
                 {
                     UserInfoTemp.Ryid = Ryid;
                     UserInfoTemp.RyName = Sdr_1[1].ToString();
-                    UserInfoTemp.Photo = new BitmapImage();
-                    byte[] image_bytes = (byte[])Sdr_1[2];
-                    if(image_bytes != null)
-                    {
-                        MemoryStream ms = new MemoryStream(image_bytes);
-                        Bitmap bmp = new Bitmap(ms);
-                        bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-                        byte[] bytes = ms.GetBuffer();
-                        UserInfoTemp.Photo.BeginInit();
-                        UserInfoTemp.Photo.StreamSource = new MemoryStream(bytes);
-                        UserInfoTemp.Photo.EndInit();
-                    }
-                    else
-                    {
-                        UserInfoTemp.Photo = null;
-                    }
-                    UserInfoTemp.Sex = Convert.ToInt32( Sdr_1[3]);
+                    UserInfoTemp.Sex =  Sdr_1[3].ToString();
                     UserInfoTemp.Nationalty = Sdr_1[4].ToString();
                     UserInfoTemp.Birth = Sdr_1[5].ToString();
                     UserInfoTemp.Title = Sdr_1[6].ToString();
@@ -102,6 +86,24 @@ namespace EIMS_Login.Ordinaryusers
                     UserInfoTemp.Dep_Id = Convert.ToInt32(Sdr_1[13].ToString());
                     UserInfoTemp.Position = Sdr_1[14].ToString();
                     UserInfoTemp.UpperId = Sdr_1[15].ToString();
+
+                    //有错！
+                    byte[] image_bytes = (byte[])Sdr_1[2];
+                    if (image_bytes != null)
+                    {
+                        MemoryStream ms = new MemoryStream(image_bytes);
+                        Bitmap bmp = new Bitmap(ms);
+                        bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+                        byte[] bytes = ms.GetBuffer();
+                        UserInfoTemp.Photo = new BitmapImage();
+                        UserInfoTemp.Photo.BeginInit();
+                        UserInfoTemp.Photo.StreamSource = new MemoryStream(bytes);
+                        UserInfoTemp.Photo.EndInit();
+                    }
+                    else
+                    {
+                        UserInfoTemp.Photo = null;
+                    }
                     Sdr_1.Close();
                 }
                 

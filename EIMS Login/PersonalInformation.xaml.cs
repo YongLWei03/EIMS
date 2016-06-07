@@ -70,28 +70,14 @@ namespace EIMS_Login
         {
             Connection Temp = new Connection();
             EIMS_Login.Ordinaryusers.OrdinaryUserInfo NowUser = new Ordinaryusers.OrdinaryUserInfo();
-            try
-            {
-                string UserStrSql = "select * from ArmsUser where Ryid='" + NowUser.UserInfoTemp.Ryid + "'";
-                SqlCommand CMD_1 = new SqlCommand(UserStrSql, Temp.GetConn());
-                SqlDataReader Sdr_1 = CMD_1.ExecuteReader();
-                if (Sdr_1.Read())
-                {
-                    this.Account.Text = Sdr_1[0].ToString();
-                    Sdr_1.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("拉取个人信息失败！" + ex);
-            }
+            this.Account.Text = MainWindow.CurrentUser;
             this.Name.Text = NowUser.UserInfoTemp.RyName;
             this.Serialnumber.Text = NowUser.UserInfoTemp.Ryid;
-            if(NowUser.UserInfoTemp.Sex == 0)
+            if(NowUser.UserInfoTemp.Sex == "男")
             {
                 this.Gender.Text = "男";
             }
-            else if(NowUser.UserInfoTemp.Sex == 1)
+            else if(NowUser.UserInfoTemp.Sex == "女")
             {
                 this.Gender.Text = "女";
             }
@@ -99,6 +85,7 @@ namespace EIMS_Login
             {
                 this.Gender.Text = "未知";
             }
+
             this.Departmentnumber.Text = NowUser.UserInfoTemp.Dep_Id.ToString();
             this.IDcard.Text = NowUser.UserInfoTemp.Id_Card;
             this.National.Text = NowUser.UserInfoTemp.Nationalty;
@@ -113,12 +100,13 @@ namespace EIMS_Login
             this.LeaderNumber.Text = NowUser.UserInfoTemp.UpperId;
             if(NowUser.UserInfoTemp.Photo == null)
             {
-                MessageBox.Show("没有图片");
+                //MessageBox.Show("没有图片");
             }
             else
             {
                 this.MyImage.Source = NowUser.UserInfoTemp.Photo;
             }
+            
         }
     }
 }

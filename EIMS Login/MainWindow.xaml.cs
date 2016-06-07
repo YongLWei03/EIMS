@@ -105,7 +105,7 @@ namespace EIMS_Login
             {
                 try
                 {
-                    string StrSql_1 = "select * from ArmsUsers where Usersname='" + Account.Text + "'and Userspwd='" +  md5.MD5Encoding(PasswordBox.Password.ToString()) + "'";
+                    string StrSql_1 = "select * from ArmsUsers where Usersname='" + Account.Text + "'and Userspwd='" + md5.MD5Encoding(PasswordBox.Password.ToString()) + "'";
                     SqlCommand CMD_1 = new SqlCommand(StrSql_1, Temp.GetConn());
                     SqlDataReader Sdr_1 = CMD_1.ExecuteReader();
                     if (Sdr_1.Read())

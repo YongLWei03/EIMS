@@ -12,7 +12,7 @@ namespace EIMS_Login
     class Connection
     {
         static string ConnStr = "Data Source=.;Initial Catalog=EIMS;User ID=EIMS;Password=1";
-        SqlConnection lo_conn = new SqlConnection(ConnStr);
+        static SqlConnection lo_conn = new SqlConnection(ConnStr);
         public Connection()
         {
             
@@ -29,7 +29,6 @@ namespace EIMS_Login
             }
             catch
             {
-                lo_conn.Close();
                 return 1;
             }
             return 0;
