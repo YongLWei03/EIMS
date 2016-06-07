@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="559" d:DesignWidth="1250" BorderBrush="Black" BorderThickness="1">
     <Grid>
-        <Label x:Name="label" Content="新装备资料添加 :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,33,0,0" Width="257" Height="48" FontSize="32"/>
+        <Label x:Name="label" Content="新资料添加 :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,33,0,0" Width="257" Height="48" FontSize="32"/>
         <Label x:Name="label1" Content="资料编号 :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="49,100,0,0" Width="81" Height="30" FontSize="16"/>
         <Label x:Name="label2" Content="资料名称 :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="49,134,0,0" Width="81" Height="30" FontSize="16"/>
         <Label x:Name="label3" Content="分类编号 :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,170,0,0" Width="81" Height="30" FontSize="16"/>

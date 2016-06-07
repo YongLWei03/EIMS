@@ -70,7 +70,9 @@ namespace EIMS_Login
         {
             Connection Temp = new Connection();
             EIMS_Login.Ordinaryusers.OrdinaryUserInfo NowUser = new Ordinaryusers.OrdinaryUserInfo();
+
             this.Account.Text = MainWindow.CurrentUser;
+
             this.Name.Text = NowUser.UserInfoTemp.RyName;
             this.Serialnumber.Text = NowUser.UserInfoTemp.Ryid;
             if(NowUser.UserInfoTemp.Sex == "男")

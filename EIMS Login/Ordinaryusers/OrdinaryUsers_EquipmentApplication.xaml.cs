@@ -120,6 +120,7 @@ namespace EIMS_Login.Ordinaryusers
                     AType = "价拨";
                 else
                     AType = "调拨";
+                if (UITemp.UserInfoTemp.Position == "") UITemp.UserInfoTemp.Position = "信息暂无";
                 string StrSQL = "insert into ApplyEquip values('" + UITemp.UserInfoTemp.Ryid + "','" + UITemp.UserInfoTemp.RyName + "','" + UITemp.UserInfoTemp.Position + "','" + Date + "','" + ApplicationEquipmentNumber.Text + "',"
                     + ApplicationEquipmentCount.Text + ",'" + AType + "','" + TransferredUnit.Text + "','" + ApplicationReasons.Text + "','未操作')";
                 string StrSQL2 = "select * from ArmsSurplus where ZbId ='" + ApplicationEquipmentNumber.Text + "'";
