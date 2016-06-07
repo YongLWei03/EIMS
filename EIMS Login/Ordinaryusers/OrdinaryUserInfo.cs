@@ -12,14 +12,14 @@ using System.Windows.Media.Imaging;
 
 namespace EIMS_Login.Ordinaryusers
 {
-    class OrdinaryUserInfo
+    public class OrdinaryUserInfo
     {
          Connection Temp = new Connection();
          public struct UserInfo
         {
             public string Ryid;
             public string RyName;
-            public BitmapImage Photo;
+            public Bitmap Photo;
             public string Sex;
             public string Nationalty;
             public string Birth;
@@ -53,13 +53,13 @@ namespace EIMS_Login.Ordinaryusers
                 Ryid = Sdr_1[3].ToString();
                 Sdr_1.Close();
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show("获取用户编号失败，将导致无法获取个人信息!"+ex);
-                GetRyidStatus = false;
-                return false;
+            catch (Exception ex)
+            { 
+                 MessageBox.Show("获取用户编号失败，将导致无法获取个人信息!"+ex);
+                 GetRyidStatus = false;
+                 return false;
             }
-            return true;
+                 return true;
 
         }
         private void DataReader()
@@ -88,17 +88,12 @@ namespace EIMS_Login.Ordinaryusers
                     UserInfoTemp.UpperId = Sdr_1[15].ToString();
 
                     //有错！
-                    byte[] image_bytes = (byte[])Sdr_1[2];
-                    if (image_bytes != null)
+                    
+                    if (Sdr_1[2] != DBNull.Value)
                     {
+                        byte[] image_bytes = (byte[])Sdr_1[2];
                         MemoryStream ms = new MemoryStream(image_bytes);
-                        Bitmap bmp = new Bitmap(ms);
-                        bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-                        byte[] bytes = ms.GetBuffer();
-                        UserInfoTemp.Photo = new BitmapImage();
-                        UserInfoTemp.Photo.BeginInit();
-                        UserInfoTemp.Photo.StreamSource = new MemoryStream(bytes);
-                        UserInfoTemp.Photo.EndInit();
+                        UserInfoTemp.Photo = new Bitmap(ms);
                     }
                     else
                     {
