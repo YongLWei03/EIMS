@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
 using EIMS_Login.Ordinaryusers;
+using EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_Children;
 
 namespace EIMS_Login.UserDefinedDataGrid
 {
@@ -212,6 +213,27 @@ namespace EIMS_Login.UserDefinedDataGrid
                 ds.Tables[0].Columns[i].ColumnName = StrCloumns[i];
             }
             
+        }
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {      
+            string save;
+            try
+            {
+                if (this.Name == "DepartmentTable")
+                {
+                    save = ((DataRowView)this.dataGrid.SelectedItem).Row["DepId"].ToString();
+                    DepartmentStaff select = new DepartmentStaff();
+                    select.StaffTable.DataTableSelect("select * from ArmsPerson where Dep_Id ='" + save + "'", "更新");
+                }
+            }
+            catch (Exception se)
+            {
+                MessageBox.Show(se.ToString());
+            }
+            
+            
+                
         }
 
     }

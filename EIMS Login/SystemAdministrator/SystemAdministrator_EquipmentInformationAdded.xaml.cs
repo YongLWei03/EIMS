@@ -119,8 +119,11 @@ namespace EIMS_Login
         public void InitRightBm()
         {
             MenuItem EquipmentMenu = EquipmentTable.AddMenuItem("更多信息");
+            MenuItem DeletRowMenu1 = EquipmentTable.AddMenuItem("删除选中的行");
             EquipmentMenu.Click += EventContent;
+            DeletRowMenu1.Click += DeletRows1;
             EquipmentTable.dgMenu.Items.Add(EquipmentMenu);
+            EquipmentTable.dgMenu.Items.Add(DeletRowMenu1);
         }
 
         public void EventContent(object sender, RoutedEventArgs e)
@@ -133,6 +136,28 @@ namespace EIMS_Login
                 moinf.Show();
             }
             else MessageBox.Show("当前未选中任何行！");
+        }
+        public void DeletRows1(object sender, RoutedEventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = Temp.GetConn();
+            if (MessageBox.Show("您确定要删除吗？", "系统提示：", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            {
+                try
+                {
+                    for (int i = EquipmentTable.dataGrid.SelectedItems.Count - 1; i >= 0; i--)
+                    {
+                        cmd.CommandText = "delete from ArmsInfo where ZbId= '" + ((DataRowView)EquipmentTable.dataGrid.SelectedItems[i]).Row["ZbId"].ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        ((DataRowView)EquipmentTable.dataGrid.SelectedItems[i]).Delete();
+                    }
+                }
+                catch (Exception ae)
+                {
+                    MessageBox.Show("删除失败！");
+                }
+            }
+
         }
     }
 }

@@ -38,6 +38,7 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
             StaffTable.DataTableSelect("select * from ArmsPerson", "更新");
             RyNum.Content = infnum.InfTotalSet("ArmsPerson");
             InitRightBm();
+
         }
         private void InitDepartmentTable()
         {
@@ -150,8 +151,7 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
                     MessageBox.Show("删除失败！");
                 }
             }
-           
-                        
+                                   
         }
     }
 }

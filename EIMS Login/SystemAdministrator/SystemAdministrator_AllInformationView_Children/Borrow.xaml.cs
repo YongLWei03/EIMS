@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_Children
 {
@@ -22,6 +24,7 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
     {
         MoreInf Bormoinf;
         InfTotal infnum = new InfTotal();
+        Connection temp = new Connection();
         string[] Str = { "借阅号", "资料编号", "借阅日期", "借阅人编号", "借阅数量", "批准人", "标记" };
         public Borrow()
         {
@@ -51,8 +54,11 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
         public void InitRightBm()
         {
             MenuItem BorrowMenu = BorrowTable.AddMenuItem("更多信息");
+            MenuItem DeletRowMenu1 = BorrowTable.AddMenuItem("删除选中的行");
             BorrowMenu.Click += BorrowEventContent;
+            DeletRowMenu1.Click += DeletRows1;
             BorrowTable.dgMenu.Items.Add(BorrowMenu);
+            BorrowTable.dgMenu.Items.Add(DeletRowMenu1);
         }
         public void BorrowEventContent(object sender, RoutedEventArgs e)
         {
@@ -64,6 +70,28 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
                 Bormoinf.Show();
             }
             else MessageBox.Show("当前未选中任何行！");
+        }
+        public void DeletRows1(object sender, RoutedEventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = temp.GetConn();
+            if (MessageBox.Show("您确定要删除吗？", "系统提示：", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            {
+                try
+                {
+                    for (int i = BorrowTable.dataGrid.SelectedItems.Count - 1; i >= 0; i--)
+                    {
+                        cmd.CommandText = "delete from DataLend where Id= '" + ((DataRowView)BorrowTable.dataGrid.SelectedItems[i]).Row["Id"].ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        ((DataRowView)BorrowTable.dataGrid.SelectedItems[i]).Delete();
+                    }
+                }
+                catch (Exception ae)
+                {
+                    MessageBox.Show("删除失败！");
+                }
+            }
+
         }
     }
 }

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_Children
 {
@@ -22,6 +24,7 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
     {
         MoreInf Flmoinf;
         InfTotal infnum = new InfTotal();
+        Connection temp = new Connection();
         string[] Str = { "归档号", "归档日期", "资料编号", "归档数量", "经办人", "审批人", "说明","审核标记" };
         public File()
         {
@@ -52,8 +55,11 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
         public void InitRightBm()
         {
             MenuItem FileMenu = FileTable.AddMenuItem("更多信息");
+            MenuItem DeletRowMenu1 = FileTable.AddMenuItem("删除选中的行");
             FileMenu.Click += FileEventContent;
+            DeletRowMenu1.Click += DeletRows1;
             FileTable.dgMenu.Items.Add(FileMenu);
+            FileTable.dgMenu.Items.Add(DeletRowMenu1);
         }
         public void FileEventContent(object sender, RoutedEventArgs e)
         {
@@ -65,6 +71,28 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
                 Flmoinf.Show();
             }
             else MessageBox.Show("当前未选中任何行！");
+        }
+        public void DeletRows1(object sender, RoutedEventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = temp.GetConn();
+            if (MessageBox.Show("您确定要删除吗？", "系统提示：", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            {
+                try
+                {
+                    for (int i = FileTable.dataGrid.SelectedItems.Count - 1; i >= 0; i--)
+                    {
+                        cmd.CommandText = "delete from DataIn where Id= '" + ((DataRowView)FileTable.dataGrid.SelectedItems[i]).Row["Id"].ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        ((DataRowView)FileTable.dataGrid.SelectedItems[i]).Delete();
+                    }
+                }
+                catch (Exception ae)
+                {
+                    MessageBox.Show("删除失败！");
+                }
+            }
+
         }
     }
 }
