@@ -14,6 +14,50 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-            
+        <DataGrid x:Name="Allocation" AutoGenerateColumns="False" Background="White" FontSize="16" MinColumnWidth="100" CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Pink"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <!--改变选中某行样式 -->
+            <DataGrid.CellStyle >
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers >
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#FFF1FAFF"/>
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.ContextMenu>
+                <ContextMenu x:Name="dgMenu" StaysOpen="true">
+                    <MenuItem Header="查看详细信息"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="id" ElementStyle="{StaticResource MyDataGrid}" Header="调拨单号" Binding="{Binding Id}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="person" ElementStyle="{StaticResource MyDataGrid}" Header="提货人" Binding="{Binding Person}" Width="*"/>
+                <DataGridTextColumn x:Name="ryname1" ElementStyle="{StaticResource MyDataGrid}" Header="批准人" Binding="{Binding Ryname1}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="ryname" ElementStyle="{StaticResource MyDataGrid}" Header="承办人" Binding="{Binding Ryname}" Width="*"/>
+                <DataGridTextColumn x:Name="outdep" ElementStyle="{StaticResource MyDataGrid}" Header="调出单位" Binding="{Binding OutDep}" Width="*"/>
+                <DataGridTextColumn x:Name="indep" ElementStyle="{StaticResource MyDataGrid}" Header="调入单位" Binding="{Binding InDep}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="adate" ElementStyle="{StaticResource MyDataGrid}" Header="批准日期" Binding="{Binding ADate}" Width="*"/>
+                <DataGridTextColumn x:Name="zbid" ElementStyle="{StaticResource MyDataGrid}" Header="调入单位" Binding="{Binding InDep}" Width="*" IsReadOnly="True"/>
+                <!--<DataGridComboBoxColumn x:Name="status" Header="操作状态" Width="*" TextBinding="{Binding Status}" ItemsSource="{Binding Source={StaticResource StatusEnum}}">
+                </DataGridComboBoxColumn>-->
+            </DataGrid.Columns>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
     </Grid>
 </UserControl>

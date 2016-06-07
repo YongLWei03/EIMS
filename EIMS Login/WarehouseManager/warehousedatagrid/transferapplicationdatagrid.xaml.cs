@@ -85,7 +85,7 @@ namespace EIMS_Login.WarehouseManager.warehousedatagrid
                     ZBPrice.Read();
                     MessageBox.Show(ZBPrice[0].ToString());
                     string insertsql = "insert into ArmsAllo values('" + Changedata[i][1] + "' , '" + Changedata[i][5] + "','" + Changedata[i][6] + "','" + ZBPrice[0] + "','','"
-                        + Changedata[i][8] + "','" + Changedata[i][7] + "' , '','1','" + TempUser.UserInfoTemp.RyName + "','','" + DateTime.Now.ToString() + "','','未完成')";
+                        + Changedata[i][8] + "','" + Changedata[i][7] + "' , '','1','" + TempUser.UserInfoTemp.RyName + "','','" + DateTime.Now.ToString("yyyy-MM-dd") + "','','未完成')";
                     Allocation.CommandText = insertsql;
                     ZBPrice.Close();
                     Allocation.ExecuteNonQuery();
