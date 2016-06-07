@@ -172,6 +172,9 @@
     <Compile Include="UserDefinedDataGrid\UserDefinedDataGrid.xaml.cs">
       <DependentUpon>UserDefinedDataGrid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WarehouseManager\warehousedatagrid\AllocationStatusDataGrid.xaml.cs">
+      <DependentUpon>AllocationStatusDataGrid.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WarehouseManager\warehousedatagrid\transferapplicationdatagrid.xaml.cs">
       <DependentUpon>transferapplicationdatagrid.xaml</DependentUpon>
     </Compile>
@@ -342,6 +345,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserDefinedDataGrid\UserDefinedDataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarehouseManager\warehousedatagrid\AllocationStatusDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

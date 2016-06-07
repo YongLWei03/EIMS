@@ -16,11 +16,13 @@ using System.Windows.Shapes;
 
 namespace EIMS_Login
 {
+
     /// <summary>
     /// EimsWindow.xaml 的交互逻辑
     /// </summary>
     public partial class EimsWindow : Window
     {
+
         public EimsWindow()
         {
             InitializeComponent();
@@ -190,18 +192,38 @@ namespace EIMS_Login
                     AddUser.Width = 100;
                     AddUser.Height = 100;
                     AddUser.Style = Resources["MyButton"] as Style;
+                    ImageBrush AddUserImage = new ImageBrush();
+                    AddUserImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/SystemAdministrator/用户添加.png", UriKind.RelativeOrAbsolute));
+                    AddUserImage.Stretch = Stretch.Fill;
+                    AddUser.Background = AddUserImage;
                     NetUser.Width = 100;
                     NetUser.Height = 100;
                     NetUser.Style = Resources["MyButton"] as Style;
+                    ImageBrush NetUserImage = new ImageBrush();
+                    NetUserImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/SystemAdministrator/用户信息.png", UriKind.RelativeOrAbsolute));
+                    NetUserImage.Stretch = Stretch.Fill;
+                    NetUser.Background = NetUserImage;
                     Logging.Width = 100;
                     Logging.Height = 100;
                     Logging.Style = Resources["MyButton"] as Style;
+                    ImageBrush LoggingImage = new ImageBrush();
+                    LoggingImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/SystemAdministrator/日志管理.png", UriKind.RelativeOrAbsolute));
+                    LoggingImage.Stretch = Stretch.Fill;
+                    Logging.Background = LoggingImage;
                     EquipmentInformationAdded.Width = 100;
                     EquipmentInformationAdded.Height = 100;
                     EquipmentInformationAdded.Style = Resources["MyButton"] as Style;
+                    ImageBrush EquipmentInformationAddedImage = new ImageBrush();
+                    EquipmentInformationAddedImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/SystemAdministrator/装备信息管理.png", UriKind.RelativeOrAbsolute));
+                    EquipmentInformationAddedImage.Stretch = Stretch.Fill;
+                    EquipmentInformationAdded.Background = EquipmentInformationAddedImage;
                     AllInformationView.Width = 100;
                     AllInformationView.Height = 100;
                     AllInformationView.Style = Resources["MyButton"] as Style;
+                    ImageBrush AllInformationViewImage = new ImageBrush();
+                    AllInformationViewImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Images/SystemAdministrator/所有信息.png", UriKind.RelativeOrAbsolute));
+                    AllInformationViewImage.Stretch = Stretch.Fill;
+                    AllInformationView.Background = AllInformationViewImage;
                     application.Children.Add(AddUser);
                     application.Children.Add(NetUser);
                     application.Children.Add(Logging);

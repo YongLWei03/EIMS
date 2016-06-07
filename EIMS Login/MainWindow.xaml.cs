@@ -101,7 +101,7 @@ namespace EIMS_Login
             }
             TempInt++;//使开启数据库连接只一次
             user = (userIdentity)Identity.SelectedIndex;
-            if (user == userIdentity.Ordinary_users)//用户判断，输入账号登陆只对普通用户有效
+            if (user == userIdentity.Ordinary_users || user == userIdentity.Warehouse_manager || user == userIdentity.System_administrator)//用户判断，输入账号登陆只对普通用户有效
             {
                 try
                 {
@@ -112,11 +112,11 @@ namespace EIMS_Login
                     {
                         string TempStr = Sdr_1[2].ToString();
                         Sdr_1.Close();
-                        if (TempStr != "普通用户")//权限判断，属于普通用户不能选择了其他用户组
+                        /*if (TempStr != "普通用户")//权限判断，属于普通用户不能选择了其他用户组
                         {
                             MessageBox.Show("当前用户权限不足，请核对权限选择下拉框！");
                             return;
-                        }
+                        }*/
                         CurrentUser = Account.Text;//满足一切登陆条件后，保存当前账号名，以备各模块使用
 
                         EimsWindow win1 = new EimsWindow();

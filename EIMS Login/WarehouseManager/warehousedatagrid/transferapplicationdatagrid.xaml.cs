@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
-
+using EIMS_Login.Ordinaryusers;
 namespace EIMS_Login.WarehouseManager.warehousedatagrid
 {
     public enum statusEnum
@@ -29,7 +29,7 @@ namespace EIMS_Login.WarehouseManager.warehousedatagrid
     public partial class transferapplicationdatagrid : UserControl
     {
         Connection TempConn = new Connection();
-        
+        OrdinaryUserInfo TempUser = new OrdinaryUserInfo();
         public statusEnum Mystatus
         {
             get;
@@ -58,6 +58,7 @@ namespace EIMS_Login.WarehouseManager.warehousedatagrid
         public void updata()
         {
             DataTable dt = (Application.ItemsSource as DataView).Table;
+            DataRow[] Changedata = dt.Select("Status Like '同意'");
             Application.CommitEdit();
             string StrSelect = "select * from ApplyEquip";
             SqlDataAdapter ShlyAdapter = new SqlDataAdapter();
@@ -65,6 +66,36 @@ namespace EIMS_Login.WarehouseManager.warehousedatagrid
             SqlCommandBuilder cb = new SqlCommandBuilder(ShlyAdapter);
             //cb.RefreshSchema();
             ShlyAdapter.Update(dt);
+
+            string ZBStrSql;
+            SqlCommand ZB;
+            SqlDataReader ZBPrice;
+
+            SqlCommand Allocation = new SqlCommand();
+            Allocation.Connection = TempConn.GetConn();
+            
+            int i = 0;
+            while(Changedata.Length >i)
+            {
+                try
+                {
+                    ZBStrSql = "Select Zbprice From ArmsSurplus Where Zbid='" + Changedata[i][5] + "'";
+                    ZB = new SqlCommand(ZBStrSql, TempConn.GetConn());
+                    ZBPrice = ZB.ExecuteReader();
+                    ZBPrice.Read();
+                    MessageBox.Show(ZBPrice[0].ToString());
+                    string insertsql = "insert into ArmsAllo values('" + Changedata[i][1] + "' , '" + Changedata[i][5] + "','" + Changedata[i][6] + "','" + ZBPrice[0] + "','','"
+                        + Changedata[i][8] + "','" + Changedata[i][7] + "' , '','1','" + TempUser.UserInfoTemp.RyName + "','','" + DateTime.Now.ToString() + "','','未完成')";
+                    Allocation.CommandText = insertsql;
+                    ZBPrice.Close();
+                    Allocation.ExecuteNonQuery();
+                    i++;
+                }
+                catch(Exception Error)
+                {
+                    MessageBox.Show(Error.ToString());
+                }
+            }
         }
     }
 }
