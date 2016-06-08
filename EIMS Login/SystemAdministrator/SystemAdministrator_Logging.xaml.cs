@@ -117,8 +117,11 @@ namespace EIMS_Login
         public void InitRightBm()
         {
             MenuItem TempMenu = LoggingTable.AddMenuItem("事件内容");
+            MenuItem DeletRowMenu1 = LoggingTable.AddMenuItem("删除选中的行");
             TempMenu.Click += EventContent;
+            DeletRowMenu1.Click += DeletRows1;
             LoggingTable.dgMenu.Items.Add(TempMenu);
+            LoggingTable.dgMenu.Items.Add(DeletRowMenu1);
         }
 
         public void EventContent(object sender,RoutedEventArgs e)
@@ -131,6 +134,28 @@ namespace EIMS_Login
                 moinf.Show();
             }
             else MessageBox.Show("当前未选中任何行！");
+        }
+        public void DeletRows1(object sender, RoutedEventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = Temp.GetConn();
+            if (MessageBox.Show("您确定要删除吗？", "系统提示：", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            {
+                try
+                {
+                    for (int i = LoggingTable.dataGrid.SelectedItems.Count - 1; i >= 0; i--)
+                    {
+                        cmd.CommandText = "delete from SysLog where LogId= '" + ((DataRowView)LoggingTable.dataGrid.SelectedItems[i]).Row["LogId"].ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        ((DataRowView)LoggingTable.dataGrid.SelectedItems[i]).Delete();
+                    }
+                }
+                catch (Exception ae)
+                {
+                    MessageBox.Show("删除失败！");
+                }
+            }
+
         }
     }
 }

@@ -14,7 +14,7 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <DataGrid x:Name="dataGrid" Height="300" VerticalAlignment="Center" Width="400" LoadingRow="dataGrid_LoadingRow">
+        <DataGrid x:Name="dataGrid" Height="300" VerticalAlignment="Center" Width="400" LoadingRow="dataGrid_LoadingRow" SelectionChanged="dataGrid_SelectionChanged">
             <DataGrid.ContextMenu>
                 <ContextMenu x:Name="dgMenu" StaysOpen="true">
                     

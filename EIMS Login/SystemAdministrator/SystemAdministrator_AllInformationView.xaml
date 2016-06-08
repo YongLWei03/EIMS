@@ -26,7 +26,7 @@
         </Style>
     </UserControl.Resources>
     <Border BorderThickness="1" BorderBrush="Gray">
-        <Grid Background="#FFF2F2F2">
+        <Grid Background="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="111.8"></RowDefinition>
                 <RowDefinition Height="111.8"></RowDefinition>

@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_Children
 {
@@ -23,6 +25,7 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
         MoreInf DaTymoinf;
         MoreInf DaInmoinf;
         InfTotal infnum = new InfTotal();
+        Connection temp = new Connection();
         string[] DataTypeStr = { "类型编号", "类型名称", "标记"};
         string[] DataInfStr = { "资料编号", "资料名称","资料分类编号","数量","价格","备注","创建日期"};
         public Data()
@@ -69,11 +72,17 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
         {
             MenuItem DataTypeMenu = DataTypeTable.AddMenuItem("更多信息");
             MenuItem DataInfMenu = DataInfTable.AddMenuItem("更多信息");
+            MenuItem DeletRowMenu1 = DataTypeTable.AddMenuItem("删除选中的行");
+            MenuItem DeletRowMenu2 = DataInfTable.AddMenuItem("删除选中的行");
 
             DataTypeMenu.Click += DataTypeEventContent;
             DataInfMenu.Click += DataInfEventContent;
+            DeletRowMenu1.Click += DeletRows1;
+            DeletRowMenu2.Click += DeletRows2;
             DataTypeTable.dgMenu.Items.Add(DataTypeMenu);
+            DataTypeTable.dgMenu.Items.Add(DeletRowMenu1);
             DataInfTable.dgMenu.Items.Add(DataInfMenu);
+            DataInfTable.dgMenu.Items.Add(DeletRowMenu2);
         }
 
         public void DataTypeEventContent(object sender, RoutedEventArgs e)
@@ -97,6 +106,50 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
                 DaInmoinf.Show();
             }
             else MessageBox.Show("当前未选中任何行！");
+        }
+        public void DeletRows1(object sender, RoutedEventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = temp.GetConn();
+            if (MessageBox.Show("您确定要删除吗？", "系统提示：", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            {
+                try
+                {
+                    for (int i = DataTypeTable.dataGrid.SelectedItems.Count - 1; i >= 0; i--)
+                    {
+                        cmd.CommandText = "delete from Types where TypeId= '" + ((DataRowView)DataTypeTable.dataGrid.SelectedItems[i]).Row["TypeId"].ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        ((DataRowView)DataTypeTable.dataGrid.SelectedItems[i]).Delete();
+                    }
+                }
+                catch (Exception ae)
+                {
+                    MessageBox.Show("删除失败！");
+                }
+            }
+
+        }
+        public void DeletRows2(object sender, RoutedEventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = temp.GetConn();
+            if (MessageBox.Show("您确定要删除吗？", "系统提示：", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            {
+                try
+                {
+                    for (int i = DataInfTable.dataGrid.SelectedItems.Count - 1; i >= 0; i--)
+                    {
+                        cmd.CommandText = "delete from ArmsData where DataNo= '" + ((DataRowView)DataInfTable.dataGrid.SelectedItems[i]).Row["DataNo"].ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        ((DataRowView)DataInfTable.dataGrid.SelectedItems[i]).Delete();
+                    }
+                }
+                catch (Exception ae)
+                {
+                    MessageBox.Show("删除失败！");
+                }
+            }
+
         }
     }
 }
