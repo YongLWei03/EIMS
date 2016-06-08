@@ -74,6 +74,7 @@ namespace EIMS_Login.Ordinaryusers
         }
         public void LookMore(object sender, RoutedEventArgs e)//待修改
         {
+            if (TableToApply.dataGrid.SelectedIndex == -1) return;
             aemiw = new ApplyEquipMoreInfoWindows();
             aemiw.SetValues(TableToApply.Getdt(), TableToApply.dataGrid.SelectedIndex, TableToApply.Rows);
             aemiw.Show();

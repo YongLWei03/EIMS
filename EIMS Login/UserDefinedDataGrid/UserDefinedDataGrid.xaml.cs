@@ -25,7 +25,7 @@ namespace EIMS_Login.UserDefinedDataGrid
     {
         Connection Temp = new Connection();
         public int Rows=0;
-        DataTable dt = new DataTable();//数据表后台存储
+        public DataTable dt = new DataTable();//数据表后台存储
         public UserDefinedDataGrid()
         {
             InitializeComponent();            
@@ -110,7 +110,7 @@ namespace EIMS_Login.UserDefinedDataGrid
                 dt = Table0;
                 Rows = Table0.Rows.Count;
                 if (SelectStr == "更新")
-                    dataGrid.ItemsSource = Table0.DefaultView;
+                    dataGrid.ItemsSource = dt.DefaultView;
                 else if (SelectStr == "保存")
                 {
                     ds.Clear();

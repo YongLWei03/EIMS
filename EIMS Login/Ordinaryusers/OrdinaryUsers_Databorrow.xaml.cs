@@ -70,6 +70,7 @@ namespace EIMS_Login.Ordinary_users
         }
         public void LookMore(object sender, RoutedEventArgs e)
         {
+            if (TableToApply.dataGrid.SelectedIndex == -1) return;
             admiw = new ApplyDataMoreInfoWindows();
             admiw.SetValues(TableToApply.Getdt(), TableToApply.dataGrid.SelectedIndex, TableToApply.Rows);
             admiw.Show();
