@@ -6,8 +6,35 @@
         xmlns:local="clr-namespace:EIMS_Login.Ordinaryusers"
         mc:Ignorable="d"
         Height="600" Width="500" BorderThickness="1" BorderBrush="Black" WindowStyle="None" ResizeMode="NoResize" FontFamily="Microsoft YaHei" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Window.Resources>
+        <!-- 为按钮指定样式触发器 -->
+        <Style TargetType="{x:Type Button}" x:Key="MyButton">
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="NewButton" CornerRadius="4" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Button x:Name="button" Content="X" Margin="470,0,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="30" Click="button_Click"/>
+        <Image x:Name="MyImage" Width="500" Height="600" Source="/EIMS Login;component/Images/详细背景.png" />
+        <Button x:Name="button"  Style="{StaticResource MyButton}" Content="" Margin="468,0,-0.4,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="30" Click="button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/EIMS Login;component/Images/Public/关闭.png"/>
+            </Button.Background>
+        </Button>
         <Label x:Name="label" Content="申请人编号：" HorizontalAlignment="Left" Margin="20,30,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label x:Name="label_Copy" Content="申请人姓名：" HorizontalAlignment="Left" Margin="20,60,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label x:Name="label_Copy1" Content="工作岗位：" HorizontalAlignment="Left" Margin="30,90,0,0" VerticalAlignment="Top" FontSize="16"/>

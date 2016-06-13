@@ -62,7 +62,8 @@
         <TextBox x:Name="Marital_Condition" Grid.Column="1" Grid.Row="13" FontSize="16" Height="25" TextChanged="Marital_Condition_TextChanged"/>
         <TextBox x:Name="Family_Place" Grid.Column="1" Grid.Row="14" FontSize="16" Height="25" TextChanged="Family_Place_TextChanged"/>
         <Label Content="照片：" Grid.Column="2" Grid.Row="1" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Image x:Name="MyImage" Grid.Column="3" Grid.Row="1" Grid.RowSpan="9" Width="300" Height="300"/>
+        <Image x:Name="BackGroud" Grid.Column="1" Grid.RowSpan="16" Width="862" Height="559" Grid.ColumnSpan="4" Margin="248,0,-0.4,0.2" Source="Images/Public/个人信息装饰_1.png" />
+        <Image x:Name="MyImage" Grid.Column="3" Grid.Row="1" Grid.RowSpan="9" Width="300" Height="300" Source="Images/Public/照片未知.png"/>
         <Button x:Name="SelectImage" Grid.Column="3" Grid.Row="10" Width="170" Height="25" Content="上传图片" FontSize="16" Click="SelectImage_Click"/>
         <Label x:Name="label_12" Grid.Column="2" Grid.Row="11" Content="工作岗位：" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
         <Label x:Name="label_13" Grid.Column="2" Grid.Row="12" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Content="部门领导编号："/>
@@ -70,6 +71,6 @@
         <TextBox  x:Name="UpperId" Grid.Row="12" Grid.Column="3" Height="25" FontSize="16" TextChanged="UpperId_TextChanged"/>
         <Button Grid.Column="3" Grid.Row="13" Width="100" HorizontalAlignment="Left" Height="25" Content="修改密码" FontSize="16" Click="Button_Click_1"/>
         <Button Grid.Column="3" Grid.Row="13" Width="100" HorizontalAlignment="Right" Height="25" Content="提交修改" FontSize="16" Click="Button_Click"/>
-        <Button Grid.Column="3" Grid.Row="14" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Content="查看个人日志" FontSize="16"/>
+        <Button Grid.Column="3" Grid.Row="14" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Content="查看个人日志" FontSize="16" Click="Button_Click_2"/>
     </Grid>
 </UserControl>
