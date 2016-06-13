@@ -176,6 +176,12 @@ namespace EIMS_Login
                     Addwarehouse.SetValue(Grid.RowProperty, 0);
                     column = 5;
 
+                    application_children.Children.Clear();
+                    WarehouseManager_TransferApplication WarehouseManager_TransferApplication = new WarehouseManager_TransferApplication();
+                    application_children.Children.Add(WarehouseManager_TransferApplication);
+                    WarehouseManager_TransferApplication.SetValue(Grid.RowProperty, 1);
+                    WarehouseManager_TransferApplication.SetValue(Grid.ColumnSpanProperty, 12);
+
                     TransferApplication.Click += new RoutedEventHandler(TransferApplicationClick);
                     AllocationStatus.Click += new RoutedEventHandler(AllocationStatusClick);
                     OutOfStorage.Click += new RoutedEventHandler(OutOfStorageClick);
@@ -241,6 +247,12 @@ namespace EIMS_Login
                     AllInformationView.SetValue(Grid.RowProperty, 0);
                     column = 5;
 
+                    application_children.Children.Clear();
+                    SystemAdministrator_AddUser SystemAdministrator_1 = new SystemAdministrator_AddUser();
+                    application_children.Children.Add(SystemAdministrator_1);
+                    SystemAdministrator_1.SetValue(Grid.RowProperty, 1);
+                    SystemAdministrator_1.SetValue(Grid.ColumnSpanProperty, 12);
+
                     AddUser.Click += new RoutedEventHandler(AddUserClick);
                     NetUser.Click += new RoutedEventHandler(NetUserClick);
                     Logging.Click += new RoutedEventHandler(LoggingClick);
@@ -278,6 +290,12 @@ namespace EIMS_Login
                     EquipmentFiling.SetValue(Grid.RowProperty, 0);
                     column = 4;
 
+                    application_children.Children.Clear();
+                    ConfidentialMembers_LoanApplication ConfidentialMembers_LoanApplication = new ConfidentialMembers_LoanApplication();
+                    application_children.Children.Add(ConfidentialMembers_LoanApplication);
+                    ConfidentialMembers_LoanApplication.SetValue(Grid.RowProperty, 1);
+                    ConfidentialMembers_LoanApplication.SetValue(Grid.ColumnSpanProperty, 12);
+
                     LoanApplication.Click += new RoutedEventHandler(LoanApplicationClick);
                     Borrowinfo.Click += new RoutedEventHandler(BorrowinfoClick);
                     NewEquipmentInformationAdded.Click += new RoutedEventHandler(NewEquipmentInformationAddedClick);
@@ -301,6 +319,12 @@ namespace EIMS_Login
                     MaintenanceStatus.SetValue(Grid.RowProperty, 0);
                     column = 2;
 
+                    application_children.Children.Clear();
+                    MaintenanceAdministrator_ViewMaintenanceApplication MaintenanceAdministrator_ViewMaintenanceApplication = new MaintenanceAdministrator_ViewMaintenanceApplication();
+                    application_children.Children.Add(MaintenanceAdministrator_ViewMaintenanceApplication);
+                    MaintenanceAdministrator_ViewMaintenanceApplication.SetValue(Grid.RowProperty, 1);
+                    MaintenanceAdministrator_ViewMaintenanceApplication.SetValue(Grid.ColumnSpanProperty, 12);
+
                     ViewMaintenanceApplication.Click += new RoutedEventHandler(ViewMaintenanceApplicationClick);
                     MaintenanceStatus.Click += new RoutedEventHandler(MaintenanceStatusClick);
 
@@ -321,6 +345,12 @@ namespace EIMS_Login
                     FinancialUse.SetValue(Grid.ColumnProperty, 1);
                     FinancialUse.SetValue(Grid.RowProperty, 0);
                     column = 2;
+
+                    application_children.Children.Clear();
+                    FinancialAdministrator_BookingAndHistory FinancialAdministrator_BookingAndHistory = new FinancialAdministrator_BookingAndHistory();
+                    application_children.Children.Add(FinancialAdministrator_BookingAndHistory);
+                    FinancialAdministrator_BookingAndHistory.SetValue(Grid.RowProperty, 1);
+                    FinancialAdministrator_BookingAndHistory.SetValue(Grid.ColumnSpanProperty, 12);
 
                     BookingAndHistory.Click += new RoutedEventHandler(BookingAndHistoryClick);
                     FinancialUse.Click += new RoutedEventHandler(FinancialUseClick);

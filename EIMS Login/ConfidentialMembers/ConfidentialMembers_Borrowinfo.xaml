@@ -9,31 +9,34 @@
     <Grid>
         <Label x:Name="label" Content="借阅信息编辑：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="34,34,0,0" Width="225" RenderTransformOrigin="0.03,0.063" FontSize="32" ScrollViewer.CanContentScroll="True"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="559" Margin="365,0,0,-12.2" VerticalAlignment="Top" Width="1"/>
-        <Label x:Name="label1" Content="借阅人编号:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="34,100,0,0" FontSize="16"/>
+        <Label x:Name="label1" Content="借阅人编号:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="34,97,0,0" FontSize="16"/>
         <Label x:Name="label2" Content="借阅人姓名:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="34,135,0,0" FontSize="16"/>
         <Label x:Name="label3" Content="借阅号:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,170,0,0" FontSize="16"/>
         <Label x:Name="label4" Content="资料编号:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,205,0,0" FontSize="16"/>
         <Label x:Name="label5" Content="借阅数量:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,240,0,0" FontSize="16"/>
         <Label x:Name="label6" Content="借阅日期:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,275,0,0" FontSize="16"/>
-        <Label x:Name="label7" Content="归还日期:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,310,0,0" FontSize="16"/>
-        <Label x:Name="label8" Content="借阅状态:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,345,0,0" FontSize="16"/>
-        <TextBox x:Name="BorrowerNumber" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="135,100,0,0"/>
-        <TextBox x:Name="BorrowerName" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="135,135,0,0"/>
-        <TextBox x:Name="Borrowing" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="135,170,0,0"/>
-        <TextBox x:Name="Materialnumber" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="135,205,0,0"/>
-        <TextBox x:Name="BorrowingAmount" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="135,240,0,0"/>
-        <TextBox x:Name="BorrowDate" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="135,275,0,0"/>
-        <TextBox x:Name="ReturnDate" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="135,310,0,0"/>
-        <TextBox x:Name="BorrowStatus" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="135,345,0,0"/>
-        <Label x:Name="label9" Content="提示: 选中右侧表格某行后，可在左侧编辑归还日期和&#xA;借阅状态。" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.315,2.77" Margin="36,400,0,0" Width="308" Height="40"/>
-        <Button x:Name="CommitChanges" Content="提交修改" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="2.237,8.255" Margin="231,440,0,0" Height="25"/>
-        <Button x:Name="SearchTwo" Content="搜素" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="680,20,0,0" FontSize="16"/>
-        <Button x:Name="ExportTwo" Content="导出为excel表格" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="1100,20,0,0" FontSize="16"/>
+        <Label x:Name="label8" Content="借阅状态:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="42,311,0,0" FontSize="16"/>
+        <TextBox x:Name="RyId" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="135,100,0,0" IsReadOnly="True" FontSize="16"/>
+        <TextBox x:Name="Ryname" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="135,135,0,0" IsReadOnly="True" FontSize="16"/>
+        <TextBox x:Name="Id" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="135,170,0,0" IsReadOnly="True" FontSize="16"/>
+        <TextBox x:Name="DataNo" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="135,205,0,0" IsReadOnly="True" FontSize="16"/>
+        <TextBox x:Name="LendCount" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="135,240,0,0" IsReadOnly="True" FontSize="16"/>
+        <TextBox x:Name="LendDate" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" Margin="135,275,0,0" IsReadOnly="True" FontSize="16"/>
+        <Label x:Name="label9" Content="提示: 选中右侧表格某行后，可在左侧编辑借阅状态。" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="1.315,2.77" Margin="45,376,0,0" Width="308" Height="28"/>
+        <Button x:Name="CommitChanges" Content="提交修改" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" RenderTransformOrigin="2.237,8.255" Margin="231,440,0,0" Height="25" Click="CommitChanges_Click" FontSize="16"/>
+        <Button x:Name="SearchTwo" Content="搜素" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="680,24,0,0" FontSize="16" Click="SearchTwo_Click"/>
+        <Button x:Name="ExportTwo" Content="导出为excel表格" HorizontalAlignment="Left" VerticalAlignment="Top" Width="140" Margin="1100,20,0,0" FontSize="16" Click="ExportTwo_Click"/>
         <Label x:Name="label10" Content="借阅人编号 :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,20,0,0" FontSize="16"/>
         <Label x:Name="label11" Content="借阅总计 :" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="388,45,0,0" FontSize="16"/>
         <Label x:Name="BorrowTotal" Content="12" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="465,45,0,0" FontSize="16"/>
 
-        <UserDefinedDataGrid:UserDefinedDataGrid x:Name="TableToBorrow" HorizontalAlignment="Left" Margin="368,77,0,-0.2" VerticalAlignment="Top" Height="480" Width="880"/>
-
+        <UserDefinedDataGrid:UserDefinedDataGrid x:Name="TableToBorrow" HorizontalAlignment="Left" Margin="365,77,0,-0.2" VerticalAlignment="Top" Height="480" Width="880"/>
+        <ComboBox x:Name="Flag" HorizontalAlignment="Left" Margin="135,314,0,0" VerticalAlignment="Top" Width="200" FontSize="16" SelectedIndex="0">
+            <ComboBoxItem Content="借阅" />
+            <ComboBoxItem Content="借阅确认" />
+            <ComboBoxItem Content="归还" />
+            <ComboBoxItem Content="归还确认" />
+        </ComboBox>
+        <TextBox x:Name="SearchText" HorizontalAlignment="Left" Height="23" Margin="488,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187" FontSize="16"/>
     </Grid>
 </UserControl>
