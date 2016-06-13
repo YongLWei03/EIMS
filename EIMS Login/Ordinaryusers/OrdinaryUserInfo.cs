@@ -27,7 +27,7 @@ namespace EIMS_Login.Ordinaryusers
             public string Rank;
             public string Political_Party;
             public string Culture_Level;
-            public int Marital_Condition;
+            public string Marital_Condition;
             public string Family_Place;
             public string Id_Card;
             public int Dep_Id;
@@ -80,7 +80,7 @@ namespace EIMS_Login.Ordinaryusers
                     UserInfoTemp.Rank = Sdr_1[7].ToString();
                     UserInfoTemp.Political_Party = Sdr_1[8].ToString();
                     UserInfoTemp.Culture_Level = Sdr_1[9].ToString();
-                    UserInfoTemp.Marital_Condition = Convert.ToInt32(Sdr_1[10]);
+                    UserInfoTemp.Marital_Condition = Sdr_1[10].ToString();
                     UserInfoTemp.Family_Place = Sdr_1[11].ToString();
                     UserInfoTemp.Id_Card = Sdr_1[12].ToString();
                     UserInfoTemp.Dep_Id = Convert.ToInt32(Sdr_1[13].ToString());

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EIMS_Login"
         mc:Ignorable="d"
-        Title="装备信息管理系统" Height="530" Width="660" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="DragWindow" FontFamily="Microsoft YaHei" ResizeMode="NoResize">
+        Title="装备信息管理系统" Height="530" Width="660" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" MouseLeftButtonDown="DragWindow" FontFamily="Microsoft YaHei" ResizeMode="NoResize" KeyDown="login_KeyDown">
     <Window.Background>
         <ImageBrush ImageSource="Images/login/BGI.png" Stretch="UniformToFill"/>
     </Window.Background>
@@ -53,8 +53,8 @@
             <ComboBoxItem>仓库管理员</ComboBoxItem>
             <ComboBoxItem>系统管理员</ComboBoxItem>
             <ComboBoxItem>保密员</ComboBoxItem>
-            <ComboBoxItem>维修员</ComboBoxItem>
-            <ComboBoxItem>财务部</ComboBoxItem>
+            <ComboBoxItem>维修管理员</ComboBoxItem>
+            <ComboBoxItem>财务部管理员</ComboBoxItem>
         </ComboBox>
         <TextBox x:Name="Account" HorizontalAlignment="Left" Height="30" Margin="372,384,0,0" Text="请输入您的账号" VerticalAlignment="Top" Width="240" FontSize="15" VerticalContentAlignment="Center" Foreground="Gray"  GotFocus="Account_GotFocus" LostFocus="Account_LostFocus"/>
         <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="372,435,0,0" VerticalAlignment="Top" Width="240" Height="30" VerticalContentAlignment="Center" PasswordChar="●" FontSize="15" BorderThickness="0" />
