@@ -4,9 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EIMS_Login.MaintenanceAdministrator"
+             xmlns:core="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
-             d:DesignHeight="516" d:DesignWidth="1250" Loaded="UserControl_Loaded">
+             d:DesignHeight="516" d:DesignWidth="1250">
     <UserControl.Resources>
+        <ObjectDataProvider x:Key="StatusEnum" MethodName="GetValues" ObjectType="{x:Type core:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="local:MyStatusEnum"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
         <Style x:Key="MyDataGrid" TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -14,7 +20,7 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <DataGrid x:Name="Allocation" AutoGenerateColumns="False" Background="White" FontSize="16" MinColumnWidth="100" CanUserAddRows="False" CanUserDeleteRows="False">
+        <DataGrid x:Name="Allocation" AutoGenerateColumns="False" Background="White" FontSize="16" MinColumnWidth="100" CanUserAddRows="False" CanUserDeleteRows="False" LoadingRow="Allocation_LoadingRow">
             <DataGrid.RowStyle>
                 <Style TargetType="DataGridRow">
                     <Style.Triggers>
@@ -46,14 +52,12 @@
                 <DataGridTextColumn x:Name="RepairDate" ElementStyle="{StaticResource MyDataGrid}" Header="维修日期" Binding="{Binding RepairDate}" Width="*"/>
                 <DataGridTextColumn x:Name="Unit" ElementStyle="{StaticResource MyDataGrid}" Header="维修单位" Binding="{Binding Unit}" Width="*"/>
                 <DataGridTextColumn x:Name="Reason" ElementStyle="{StaticResource MyDataGrid}" Header="故障原因" Binding="{Binding Reason}" Width="*"/>
-                <DataGridTextColumn x:Name="Status" ElementStyle="{StaticResource MyDataGrid}" Header="维修状态" Binding="{Binding Status}" Width="*"/>
+                <DataGridComboBoxColumn x:Name="Status" Header="维修状态" TextBinding="{Binding Status}" ItemsSource="{Binding Source={StaticResource StatusEnum}}" Width="*"/>
                 <DataGridTextColumn x:Name="Cost" ElementStyle="{StaticResource MyDataGrid}" Header="维修费用" Binding="{Binding Cost}" Width="*"/>
                 <DataGridTextColumn x:Name="Result" ElementStyle="{StaticResource MyDataGrid}" Header="维修结果" Binding="{Binding Result}" Width="*"/>
                 <DataGridTextColumn x:Name="Ryname" ElementStyle="{StaticResource MyDataGrid}" Header="维修负责人" Binding="{Binding Ryname}" Width="*"/>
                 <DataGridTextColumn x:Name="Rynamel" ElementStyle="{StaticResource MyDataGrid}" Header="送修验收人" Binding="{Binding Ryname1}" Width="*"/>
                 <DataGridTextColumn x:Name="PostDate" ElementStyle="{StaticResource MyDataGrid}" Header="提交日期" Binding="{Binding PostDate}" Width="*" IsReadOnly="True"/>
-               
-     
             </DataGrid.Columns>
             <DataGrid.ColumnHeaderStyle>
                 <Style TargetType="DataGridColumnHeader">

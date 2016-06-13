@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="EIMS_Login.WarehouseManager.warehousedatagrid.AddWarehouseDataGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EIMS_Login.WarehouseManager.warehousedatagrid"
+             mc:Ignorable="d" 
+             d:DesignHeight="470" d:DesignWidth="870">
+    <UserControl.Resources>
+        <Style x:Key="MyDataGrid" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <DataGrid x:Name="AddWareHouse" Height="454" AutoGenerateColumns="False" Background="White" FontSize="16" MinColumnWidth="100" CanUserAddRows="False" CanUserDeleteRows="False" LoadingRow="AddWareHouse_LoadingRow" HorizontalGridLinesBrush="#FF688CAA" VerticalGridLinesBrush="#FF688CAA">
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Pink"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <!--改变选中某行样式 -->
+            <DataGrid.CellStyle >
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers >
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#FFF1FAFF"/>
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.ContextMenu>
+                <ContextMenu x:Name="dgMenu" StaysOpen="true">
+                    <MenuItem Header="查看详细信息"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="sid" ElementStyle="{StaticResource MyDataGrid}" Header="仓库编号" Binding="{Binding Sid}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="sname" ElementStyle="{StaticResource MyDataGrid}" Header="仓库名称" Binding="{Binding Sname}" Width="*" IsReadOnly="True"/>
+                <DataGridTextColumn x:Name="memo" ElementStyle="{StaticResource MyDataGrid}" Header="仓库说明" Binding="{Binding Memo}" Width="*" IsReadOnly="True"/>
+            </DataGrid.Columns>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+        </DataGrid>
+    </Grid>
+</UserControl>

@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="EIMS_Login.WarehouseManager_Addwarehouse"
+﻿<UserControl xmlns:warehousedatagrid="clr-namespace:EIMS_Login.WarehouseManager.warehousedatagrid"  x:Class="EIMS_Login.WarehouseManager_Addwarehouse"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,7 +10,7 @@
             <RowDefinition Height="35"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="10"/>
-            <RowDefinition />
+            <RowDefinition Height="474"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
@@ -22,15 +22,15 @@
         </Grid.ColumnDefinitions>
         <Label Content="仓库编号：" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
         <Label Content="仓库总计：" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="1" FontSize="16"/>
-        <TextBox HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Width="200" Height="25" FontSize="16"/>
+        <TextBox x:Name="sid" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0" Width="200" Height="25" FontSize="16" TextChanged="sid_TextChanged"/>
         <Label x:Name="totalwarehouse" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Content="0" VerticalAlignment="Center" FontSize="16"/>
-        <Button x:Name="search" Content="仅搜索" Grid.Column="1" Grid.Row="1" Width="100" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16"/>
+        <Button x:Name="search" Content="仅搜索" Grid.Column="1" Grid.Row="1" Width="100" Height="25" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" Click="search_Click"/>
         <Label Content="仓库名称：" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
         <TextBox x:Name="warehousename" Grid.Column="3" Grid.Row="0" Width="200" Height="25" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
-        <Button x:Name="export" Grid.Row="1" Grid.Column="3" Width="140" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Content="导出为excel文档" FontSize="16"/>
+        <Button x:Name="export" Grid.Row="1" Grid.Column="3" Width="140" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Content="导出为excel文档" FontSize="16" Click="export_Click"/>
         <Label Content="额外说明：" Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
-        <Button Content="提交" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="100" Height="25"/>
-        <TextBox x:Name="extradetail" Grid.Column="5" Grid.Row="0" Grid.RowSpan="2" Width="530" Height="70"/>
+        <Button x:Name="submit" Content="提交" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Width="100" Height="25" Click="Submit_Click"/>
+        <TextBox x:Name="extradetail" Grid.Column="5" Grid.Row="0" Grid.RowSpan="2" Width="530" Height="70" FontSize="16" TextWrapping="Wrap"/>
         <Separator Width="1250" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="6" Background="Black"/>
         <Grid Grid.Row="3" Grid.ColumnSpan="6">
             <Grid.ColumnDefinitions>
@@ -38,6 +38,7 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Image Width="370" Grid.Column="1" Grid.Row="0" Height="450" Source="/EIMS Login;component/Images/login/BGI.png" />
+            <warehousedatagrid:AddWarehouseDataGrid x:Name="warehouse" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Loaded="warehouse_Loaded"/>
         </Grid>
     </Grid>
 </UserControl>

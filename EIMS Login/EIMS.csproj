@@ -91,6 +91,9 @@
     <Compile Include="MaintenanceAdministrator\MaintenanceAdministrator_MaintenanceStatus.xaml.cs">
       <DependentUpon>MaintenanceAdministrator_MaintenanceStatus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MaintenanceAdministrator\MaintenanceApplication.xaml.cs">
+      <DependentUpon>MaintenanceApplication.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MaintenanceAdministrator\TabelToStatus.xaml.cs">
       <DependentUpon>TabelToStatus.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,7 @@
     <Compile Include="PersonalInformation.xaml.cs">
       <DependentUpon>PersonalInformation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="renovate.cs" />
     <Compile Include="SystemAdministrator\SystemAdministrator_AddUser.xaml.cs">
       <DependentUpon>SystemAdministrator_AddUser.xaml</DependentUpon>
     </Compile>
@@ -182,11 +186,17 @@
     <Compile Include="UserDefinedDataGrid\UserDefinedDataGrid.xaml.cs">
       <DependentUpon>UserDefinedDataGrid.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserLogWin.xaml.cs">
-      <DependentUpon>UserLogWin.xaml</DependentUpon>
+    <Compile Include="WarehouseManager\warehousedatagrid\AddWarehouseDataGrid.xaml.cs">
+      <DependentUpon>AddWarehouseDataGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="WarehouseManager\warehousedatagrid\AllocationStatusDataGrid.xaml.cs">
       <DependentUpon>AllocationStatusDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseManager\warehousedatagrid\InventoryDataGrid.xaml.cs">
+      <DependentUpon>InventoryDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseManager\warehousedatagrid\TakeOutDataGrid.xaml.cs">
+      <DependentUpon>TakeOutDataGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="WarehouseManager\warehousedatagrid\transferapplicationdatagrid.xaml.cs">
       <DependentUpon>transferapplicationdatagrid.xaml</DependentUpon>
@@ -257,6 +267,10 @@
     <Compile Include="EimsWindow.xaml.cs">
       <DependentUpon>EimsWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="MaintenanceAdministrator\MaintenanceApplication.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MaintenanceAdministrator\TabelToStatus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -373,11 +387,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserLogWin.xaml">
+    <Page Include="WarehouseManager\warehousedatagrid\AddWarehouseDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WarehouseManager\warehousedatagrid\AllocationStatusDataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarehouseManager\warehousedatagrid\InventoryDataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarehouseManager\warehousedatagrid\TakeOutDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -541,12 +563,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Public\照片未知.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\详细背景.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

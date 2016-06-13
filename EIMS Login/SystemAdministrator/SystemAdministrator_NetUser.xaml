@@ -64,8 +64,10 @@
                 <Run>性别：</Run>             
                 <LineBreak/>
                 <Run>婚姻状况：</Run>
+                <LineBreak/>
+                <Run>账号：</Run>
             </TextBlock>
-            <TextBlock FontSize="16" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="110" Width="100" Margin="120,0" Padding="5,0" LineHeight="36" TextWrapping="Wrap">
+            <TextBlock FontSize="16" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="110" Width="130" Margin="100,0" Padding="5,0" LineHeight="36" TextWrapping="Wrap">
                 <ComboBox x:Name="sex" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="59" FontSize="16" VerticalContentAlignment="Center" SelectedIndex="0">
                      <ComboBoxItem Content="男" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50"></ComboBoxItem>
                      <ComboBoxItem Content="女" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50"></ComboBoxItem>
@@ -75,6 +77,7 @@
                     <ComboBoxItem Content="单身" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Width="60"></ComboBoxItem>
                     <ComboBoxItem Content="未婚" Height="25" HorizontalAlignment="Left" VerticalAlignment="Center" Width="60"></ComboBoxItem>
                 </ComboBox>
+                <ComboBox x:Name="Accounts" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="25" Width="120" FontSize="16" SelectedIndex="0" DropDownClosed="Accounts_DropDownClosed"/>
             </TextBlock>
         </Grid>
         <Grid Grid.Row="1" Height="200" Width="1020" VerticalAlignment="Bottom" HorizontalAlignment="Left">
@@ -109,11 +112,13 @@
                 <Run>所属领导编号：</Run>
             </TextBlock>
             <TextBlock FontSize="16" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="150" Width="300" Margin="70,20" Padding="5,5" LineHeight="36" TextWrapping="Wrap">
-                <ComboBox x:Name="Competence" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="140" FontSize="16" VerticalContentAlignment="Center"  SelectedIndex="0">
+                <ComboBox x:Name="Competence" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="140" FontSize="16" VerticalContentAlignment="Center" >
                      <ComboBoxItem Content="普通用户" Height="25"></ComboBoxItem>
+                     <ComboBoxItem Content="系统管理员" Height="25"></ComboBoxItem>
                      <ComboBoxItem Content="维修管理员" Height="25"></ComboBoxItem>
                      <ComboBoxItem Content="仓库管理员" Height="25"></ComboBoxItem>
-                     <ComboBoxItem Content="财务部管理员" Height="25"></ComboBoxItem>
+                     <ComboBoxItem Content="财务管理员" Height="25"></ComboBoxItem>
+                     <ComboBoxItem Content="保密员" Height="25"></ComboBoxItem>
                 </ComboBox>
                 <TextBox x:Name="Politicalstatus" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="275" FontSize="16" VerticalContentAlignment="Center"></TextBox>
                 <TextBox x:Name="DepartmentNum" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="25" Width="275" FontSize="16" VerticalContentAlignment="Center"></TextBox>
@@ -122,7 +127,7 @@
         </Grid>
         <Button x:Name="Clear_photo" Grid.Row="1" Content="清除照片" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="100" Margin="0,0,96,62"></Button>
         <Button x:Name="Submit" Grid.Row="1" Content="提交修改" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="86" Margin="0,0,146,22" Click="Submit_Click"></Button>
-        <Button x:Name="DeletAccount" Grid.Row="1" Content="删除该账号" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="100" Margin="0,0,26,22"></Button>
+        <Button x:Name="DeletAccount" Grid.Row="1" Content="删除该账号" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="100" Margin="0,0,26,22" Click="DeletAccount_Click"></Button>
         <Grid x:Name="Delet" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -130,7 +135,7 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label x:Name="LotSizeDeletAccount"  Grid.Column="0" Height="auto" Width="auto" Content="批量删除编号" FontSize="20" Margin="20,10"></Label>
+            <Label x:Name="LotSizeDeletAccount"  Grid.Column="0" Height="auto" Width="auto" Content="" FontSize="20" Margin="20,10"></Label>
             
         </Grid>
         

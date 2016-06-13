@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="EIMS_Login.WarehouseManager_Inventory"
+﻿<UserControl xmlns:warehousedatagrid="clr-namespace:EIMS_Login.WarehouseManager.warehousedatagrid"  x:Class="EIMS_Login.WarehouseManager_Inventory"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,7 +8,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="35"/>
-            <RowDefinition/>
+            <RowDefinition Height="524"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
@@ -18,6 +18,7 @@
         </Grid.ColumnDefinitions>
         <Label Content="库存总计：" FontSize="16" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         <Label x:Name="totalinventory" FontSize="16" Content="0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0"/>
-        <Button x:Name="Export" Grid.Row="0" FontSize="16" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="25">导出为excel表格</Button>
+        <Button x:Name="Export" Grid.Row="0" FontSize="16" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="25" Click="Export_Click">导出为excel表格</Button>
+        <warehousedatagrid:InventoryDataGrid x:Name="inventorydatagrid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Left" VerticalAlignment="Top" Loaded="InventoryDataGrid_Loaded"/>
     </Grid>
 </UserControl>

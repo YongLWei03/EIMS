@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="EIMS_Login.WarehouseManager_AllocationStatus"
+﻿<UserControl xmlns:warehousedatagrid="clr-namespace:EIMS_Login.WarehouseManager.warehousedatagrid"  x:Class="EIMS_Login.WarehouseManager_AllocationStatus"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -8,7 +8,7 @@
     <Grid x:Name="allocationstatus">
         <Grid.RowDefinitions>
             <RowDefinition Height="43"/>
-            <RowDefinition />
+            <RowDefinition Height="516"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100" />
@@ -20,14 +20,14 @@
             <ColumnDefinition Width="120" />
         </Grid.ColumnDefinitions>
         <Label x:Name="viewstatus" Content="查看状态：" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="16"/>
-        <ComboBox x:Name="statetype" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Height="25" Grid.Row="0" Grid.Column="1" SelectedIndex="0">
+        <ComboBox x:Name="statetype" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Height="25" Grid.Row="0" Grid.Column="1" SelectedIndex="0" SelectionChanged="statetype_SelectionChanged">
             <ComboBoxItem Content="未完成"/>
             <ComboBoxItem Content="已完成"/>
         </ComboBox>
         <Label x:Name="totalApplicationTag" Content="总计：" FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="3" Grid.Row="0" ></Label>
         <Label x:Name="totalApplication" Content="0" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="4" Grid.Row="0"></Label>
-        <Button x:Name="Export" Grid.Row="0" FontSize="16" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="25">导出为excel表格</Button>
-        <Button x:Name="confirmSubmission" FontSize="16" Grid.Row="0" Grid.Column="6" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25">确定提交</Button>
-        
+        <Button x:Name="Export" Grid.Row="0" FontSize="16" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="140" Height="25" Click="Export_Click">导出为excel表格</Button>
+        <Button x:Name="confirmSubmission" FontSize="16" Grid.Row="0" Grid.Column="6" Width="100" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Click="confirmSubmission_Click">确定提交</Button>
+        <warehousedatagrid:AllocationStatusDataGrid x:Name="allocationstatusdatagrid" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="7" HorizontalAlignment="Left" VerticalAlignment="Top" Loaded="allocationstatusdatagrid_Loaded"/>
     </Grid>
 </UserControl>
