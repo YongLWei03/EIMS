@@ -75,12 +75,12 @@ namespace EIMS_Login.Ordinaryusers
                     + "  申请的"+ TempStr + "-(" + Applydt.Rows[TotalRows][TempId].ToString() + "),管理员不同意！";
                 Temp.Foreground = Brushes.Red;
             }
-            /*else if (Applydt.Rows[TotalRows]["Status"].ToString() == "同意")
+            else if (Applydt.Rows[TotalRows]["Status"].ToString() == "同意")
             {
                 Temp.Content = "你在  " + Applydt.Rows[TotalRows]["ApplyDate"].ToString()
                     + "  申请的" + TempStr + "-(" + Applydt.Rows[TotalRows][TempId].ToString() + "),管理员已同意！";
                 Temp.Foreground = Brushes.Green;
-            }*/
+            }
         }
        
     }

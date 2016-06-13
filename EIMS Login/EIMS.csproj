@@ -84,6 +84,9 @@
     <Compile Include="MaintenanceAdministrator\MaintenanceAdministrator_MaintenanceStatus.xaml.cs">
       <DependentUpon>MaintenanceAdministrator_MaintenanceStatus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MaintenanceAdministrator\TabelToStatus.xaml.cs">
+      <DependentUpon>TabelToStatus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -236,6 +239,10 @@
     <Compile Include="EimsWindow.xaml.cs">
       <DependentUpon>EimsWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="MaintenanceAdministrator\TabelToStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

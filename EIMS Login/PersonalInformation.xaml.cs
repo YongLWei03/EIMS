@@ -27,10 +27,46 @@ namespace EIMS_Login
         private byte[] _imageBinary;
         private string _imgLocalPath;
         public EIMS_Login.Ordinaryusers.OrdinaryUserInfo NowUser = new Ordinaryusers.OrdinaryUserInfo();
+        Connection TempConn = new Connection();
+
+        struct TextStatus
+        {
+            public bool sId_Card;
+            public bool sNationalty;
+            public bool sBirth;
+            public bool sPosition;
+            public bool sRank;
+            public bool sPolitical_Party;
+            public bool sCulture_Level;
+            public bool sMarital_Condition;
+            public bool sFamily_Place;
+            public bool sTitle;
+            public bool sUpperId;
+            public TextStatus(bool Status)
+            {
+                sId_Card = Status;
+                sNationalty = Status;
+                sBirth = Status;
+                sPosition = Status;
+                sRank = Status;
+                sPolitical_Party = Status;
+                sCulture_Level = Status;
+                sMarital_Condition = Status;
+                sFamily_Place = Status;
+                sTitle = Status;
+                sUpperId = Status;
+            }
+        };
+
+        TextStatus TempStatus = new TextStatus(false);
+        TextStatus TS = new TextStatus(false);
+
 
         public PersonalInformation()
         {
+            
             InitializeComponent();
+            ReSet();
         }
 
         private void SelectImage_Click(object sender, RoutedEventArgs e)
@@ -70,6 +106,7 @@ namespace EIMS_Login
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
+            
             Connection Temp = new Connection();
             this.Account.Text = MainWindow.CurrentUser;
             this.Name.Text = NowUser.UserInfoTemp.RyName;
@@ -108,6 +145,50 @@ namespace EIMS_Login
                 this.MyImage.Source = Imaging.CreateBitmapSourceFromHBitmap(NowUser.UserInfoTemp.Photo.GetHbitmap(),IntPtr.Zero,Int32Rect.Empty,BitmapSizeOptions.FromEmptyOptions());
             }
             
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            bool UpdateCon = false ;
+            if (TempStatus.sId_Card)
+            {
+                UpdateCon = UpdateId_Card();
+            }
+
+
+            if (UpdateCon) MessageBox.Show("提示：修改成功！");
+            ReSet();
+        }
+        private bool UpdateId_Card()
+        {
+            string SQL = "update ArmsPerson set Id_Card = '" + IDcard.Text + "' where Ryid = '" + NowUser.UserInfoTemp.Ryid + "'";
+            try
+            {
+                SqlCommand CMD_1 = new SqlCommand(SQL, TempConn.GetConn());
+                CMD_1.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("错误：\n\n"+ex);
+                return false;
+            }
+            return true;
+        }
+
+        private void IDcard_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TS.sId_Card)
+            {
+                TempStatus.sId_Card = true;
+                label_1.Foreground = Brushes.Red;
+            }
+            TS.sId_Card = true;
+        }
+        public void ReSet()
+        {
+            TempStatus = new TextStatus(false);
+            TS = new TextStatus(false);
+            label_1.Foreground = Brushes.Black;
         }
     }
 }
