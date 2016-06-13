@@ -62,6 +62,9 @@
     <Compile Include="ChangePWD.xaml.cs">
       <DependentUpon>ChangePWD.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConfidentialMembers\ApplyDataGrid.xaml.cs">
+      <DependentUpon>ApplyDataGrid.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ConfidentialMembers\ConfidentialMembers_LoanApplication.xaml.cs">
       <DependentUpon>ConfidentialMembers_LoanApplication.xaml</DependentUpon>
     </Compile>
@@ -214,6 +217,10 @@
       <DependentUpon>WarehouseManager_Addwarehouse.xaml</DependentUpon>
     </Compile>
     <Page Include="ChangePWD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfidentialMembers\ApplyDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

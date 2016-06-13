@@ -53,8 +53,8 @@
             <ComboBoxItem>仓库管理员</ComboBoxItem>
             <ComboBoxItem>系统管理员</ComboBoxItem>
             <ComboBoxItem>保密员</ComboBoxItem>
-            <ComboBoxItem>维修员</ComboBoxItem>
-            <ComboBoxItem>财务部</ComboBoxItem>
+            <ComboBoxItem>维修管理员</ComboBoxItem>
+            <ComboBoxItem>财务部管理员</ComboBoxItem>
         </ComboBox>
         <TextBox x:Name="Account" HorizontalAlignment="Left" Height="30" Margin="372,384,0,0" Text="请输入您的账号" VerticalAlignment="Top" Width="240" FontSize="15" VerticalContentAlignment="Center" Foreground="Gray"  GotFocus="Account_GotFocus" LostFocus="Account_LostFocus"/>
         <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="372,435,0,0" VerticalAlignment="Top" Width="240" Height="30" VerticalContentAlignment="Center" PasswordChar="●" FontSize="15" BorderThickness="0" />

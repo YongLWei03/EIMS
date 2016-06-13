@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Height="260" Width="360" BorderBrush="Black" WindowStartupLocation="CenterScreen" BorderThickness="1" WindowStyle="None" AllowsTransparency="True" FontFamily="Microsoft YaHei" ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Grid>
-        <Button x:Name="CloseButton" Content="" HorizontalAlignment="Left" Margin="328,0,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="CloseButton_Click"/>
+        <Button x:Name="CloseButton" Content="" HorizontalAlignment="Left" Margin="328,0,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="CloseButton_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/Public/关闭.png"/>
+            </Button.Background>
+        </Button>
         <Label x:Name="label" Content="原密码：" HorizontalAlignment="Left" Margin="20,40,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label x:Name="label_Copy" Content="新密码：" HorizontalAlignment="Left" Margin="20,100,0,0" VerticalAlignment="Top" FontSize="16"/>
         <Label x:Name="label_Copy1" Content="再次输入：" HorizontalAlignment="Left" Margin="7,160,0,0" VerticalAlignment="Top" FontSize="16"/>
