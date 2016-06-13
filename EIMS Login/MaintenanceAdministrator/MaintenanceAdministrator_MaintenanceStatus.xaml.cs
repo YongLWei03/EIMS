@@ -23,24 +23,24 @@ namespace EIMS_Login
         public MaintenanceAdministrator_MaintenanceStatus()
         {
             InitializeComponent();
-            InitTabelToMaintenance();
+            //InitTabelToMaintenance();
         }
-        private void InitTabelToMaintenance()
-        {
-            TableToMaintenance.InitTableHeightWidth(500, 1250);
-            TableToMaintenance.SetCanUserAddRows(false);
+        //private void InitTabelToMaintenance()
+        //{
+        //    TableToMaintenance.InitTableHeightWidth(500, 1250);
+        //    TableToMaintenance.SetCanUserAddRows(false);
 
-            TableToMaintenance.AddColumns("MaintenanceNumber", "维修编号", 125);
-            TableToMaintenance.AddColumns("EquipmentNumber", "装备编号", 125);
-            TableToMaintenance.AddColumns("MaintenanceDate", "维修日期", 80);
-            TableToMaintenance.AddColumns("MaintenanceUnit", "维修单位", 120);
-            TableToMaintenance.AddColumns("MaintenanceCost", "维修费用", 100);
-            TableToMaintenance.AddColumns("MaintenanceResult", "维修结果", 100);
-            TableToMaintenance.AddColumns("MaintenancePerson", "维修负责人", 120);
-            TableToMaintenance.AddColumns("TroubleReason", "故障原因", 300);
-            TableToMaintenance.AddColumns("MaintenanceStatus", "维修状态", 90);
-            TableToMaintenance.AddColumns("FilingDate", "提交日期", 90);
-        }
+        //    TableToMaintenance.AddColumns("MaintenanceNumber", "维修编号", 125);
+        //    TableToMaintenance.AddColumns("EquipmentNumber", "装备编号", 125);
+        //    TableToMaintenance.AddColumns("MaintenanceDate", "维修日期", 80);
+        //    TableToMaintenance.AddColumns("MaintenanceUnit", "维修单位", 120);
+        //    TableToMaintenance.AddColumns("MaintenanceCost", "维修费用", 100);
+        //    TableToMaintenance.AddColumns("MaintenanceResult", "维修结果", 100);
+        //    TableToMaintenance.AddColumns("MaintenancePerson", "维修负责人", 120);
+        //    TableToMaintenance.AddColumns("TroubleReason", "故障原因", 300);
+        //    TableToMaintenance.AddColumns("MaintenanceStatus", "维修状态", 90);
+        //    TableToMaintenance.AddColumns("FilingDate", "提交日期", 90);
+        //}
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

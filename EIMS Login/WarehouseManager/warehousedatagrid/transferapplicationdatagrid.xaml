@@ -25,7 +25,7 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <DataGrid x:Name="Application" AutoGenerateColumns="False" Background="White" FontSize="16" MinColumnWidth="100" LoadingRow="Application_LoadingRow" CanUserAddRows="False" CanUserDeleteRows="False">
+        <DataGrid x:Name="Application" Height="500" AutoGenerateColumns="False" Background="White" FontSize="16" MinColumnWidth="100" LoadingRow="Application_LoadingRow" CanUserDeleteRows="False" CanUserAddRows="False"  HorizontalGridLinesBrush="#FF688CAA" VerticalGridLinesBrush="#FF688CAA">
             <DataGrid.RowStyle>
                 <Style TargetType="DataGridRow">
                     <Style.Triggers>
@@ -48,7 +48,7 @@
             </DataGrid.CellStyle>
             <DataGrid.ContextMenu>
                 <ContextMenu x:Name="dgMenu" StaysOpen="true">
-                    <MenuItem Header="查看详细信息"/>
+                    <MenuItem Header="查看详细信息" Click="MenuItem_Click" />
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.Columns>

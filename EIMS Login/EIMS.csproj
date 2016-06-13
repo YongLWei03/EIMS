@@ -172,8 +172,17 @@
     <Compile Include="UserDefinedDataGrid\UserDefinedDataGrid.xaml.cs">
       <DependentUpon>UserDefinedDataGrid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WarehouseManager\warehousedatagrid\AddWarehouseDataGrid.xaml.cs">
+      <DependentUpon>AddWarehouseDataGrid.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WarehouseManager\warehousedatagrid\AllocationStatusDataGrid.xaml.cs">
       <DependentUpon>AllocationStatusDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseManager\warehousedatagrid\InventoryDataGrid.xaml.cs">
+      <DependentUpon>InventoryDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseManager\warehousedatagrid\TakeOutDataGrid.xaml.cs">
+      <DependentUpon>TakeOutDataGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="WarehouseManager\warehousedatagrid\transferapplicationdatagrid.xaml.cs">
       <DependentUpon>transferapplicationdatagrid.xaml</DependentUpon>
@@ -348,7 +357,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WarehouseManager\warehousedatagrid\AddWarehouseDataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WarehouseManager\warehousedatagrid\AllocationStatusDataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarehouseManager\warehousedatagrid\InventoryDataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WarehouseManager\warehousedatagrid\TakeOutDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

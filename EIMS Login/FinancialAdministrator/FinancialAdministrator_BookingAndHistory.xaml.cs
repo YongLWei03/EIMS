@@ -66,15 +66,15 @@ namespace EIMS_Login
             InDate.Text = dt.Rows[row]["InDate"].ToString();
             Memo.Text = dt.Rows[row]["Memo"].ToString();
 
-            
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             string Date = DateTime.Now.ToString("yyyy-MM-dd") + " " + DateTime.Now.ToLongTimeString().ToString(); ;//获取当前时间
-            string SQL1 = "insert into OutlayIn values ('"+ Source.Text + "','"+ Itemld.Text + "','"+ InSum.Text + "','"+ Ryname.Text + "','"+
-                Date + "','"+ Memo.Text + "')";
-            string SQL2 = "insert into Types values('"+ Itemld.Text + "','"+ TypeName.Text + "',2)";
+            string SQL1 = "insert into OutlayIn values ('" + Source.Text + "','" + Itemld.Text + "','" + InSum.Text + "','" + Ryname.Text + "','" +
+                Date + "','" + Memo.Text + "')";
+            string SQL2 = "insert into Types values('" + Itemld.Text + "','" + TypeName.Text + "',2)";
             try
             {
                 SqlCommand CMD_1 = new SqlCommand(SQL2, Temp.GetConn());

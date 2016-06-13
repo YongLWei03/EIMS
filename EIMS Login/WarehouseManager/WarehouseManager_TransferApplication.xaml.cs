@@ -32,7 +32,16 @@ namespace EIMS_Login
 
         private void ConfirmSubmission_Click(object sender, RoutedEventArgs e)
         {
-            Transferapplicationdatagrid.updata();
+            if (MessageBox.Show("    确认要提交？", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Warning, MessageBoxResult.OK) != MessageBoxResult.OK)
+            {
+                return;
+            }
+            if (Transferapplicationdatagrid.updata())
+            {
+                MessageBox.Show("提交成功");
+            }
+            Transferapplicationdatagrid.connectatabase(stateType.SelectedIndex);
+            TotalApplication.Content = Transferapplicationdatagrid.Application.Items.Count;
         }
 
         private void export_Click(object sender, RoutedEventArgs e)
@@ -53,7 +62,10 @@ namespace EIMS_Login
             if(selecttime != 0)
             {
                 Transferapplicationdatagrid.connectatabase(stateType.SelectedIndex);
-                TotalApplication.Content = stateType.SelectedIndex;
+                if (stateType.SelectedIndex != 0)
+                {
+                    Transferapplicationdatagrid.Cannotedit();
+                }
                 TotalApplication.Content = Transferapplicationdatagrid.Application.Items.Count;
             }
             selecttime++;
