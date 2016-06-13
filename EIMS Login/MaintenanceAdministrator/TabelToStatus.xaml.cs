@@ -17,6 +17,11 @@ using System.Data.SqlClient;
 
 namespace EIMS_Login.MaintenanceAdministrator
 {
+    public enum MyStatusEnum
+    {
+        已送修,
+        维修完毕
+    }
     /// <summary>
     /// TabelToStatus.xaml 的交互逻辑
     /// </summary>
@@ -24,33 +29,50 @@ namespace EIMS_Login.MaintenanceAdministrator
     {
         string SQL = "select * from ArmsRepair";
         Connection TempConn = new Connection();
-        public int Rows;
+        DataTable dt = new DataTable();
         public TabelToStatus()
         {
             InitializeComponent();
         }
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            Update();
-        }
-        public void Update()
-        {
-            DataTable dt = new DataTable();
-            DataSet ds = new DataSet();
+        public void connectataBase(int myselect)
+        { 
             try
             {
-                SqlDataAdapter sda = new SqlDataAdapter(SQL, TempConn.GetConnStr());
-                sda.Fill(dt);
-                Rows = dt.Rows.Count;
-                Allocation.ItemsSource = dt.DefaultView;
-                ds.Clear();
-                ds.Tables.Add(dt);
+                MyStatusEnum newstatus = new MyStatusEnum();
+                newstatus = (MyStatusEnum)myselect;
+                string sqll = "Select * From ArmsRepair where Status = '" + newstatus + "'";
+                SqlDataAdapter sqldata = new SqlDataAdapter(sqll, TempConn.GetConn());
+                DataSet ds = new DataSet();
+                sqldata.Fill(ds);
+                Allocation.ItemsSource = ds.Tables[0].DefaultView;
+                dt = ds.Tables[0];
             }
             catch(Exception ex)
             {
                 MessageBox.Show("错误："+ex);
             }
+        }
+        public bool updata()
+        {
+            try
+            {
+                DataTable dt = (Allocation.ItemsSource as DataView).Table;
+                SqlDataAdapter Adapter = new SqlDataAdapter();
+                Adapter.SelectCommand = new SqlCommand("select * from ArmsRepair", TempConn.GetConn());
+                SqlCommandBuilder builder = new SqlCommandBuilder(Adapter);
+                Adapter.Update(dt);
+                return true;
+            }
+            catch
+            {
+                MessageBox.Show("错误！");
+                return false;
+            }
+        }
+
+        private void Allocation_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            e.Row.Header = e.Row.GetIndex() + 1;
         }
     }
 }

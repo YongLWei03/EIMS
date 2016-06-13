@@ -36,6 +36,11 @@ namespace EIMS_Login
             {
                 return;
             }
+            if (stateType.SelectedIndex != 0)
+            {
+                MessageBox.Show("该选项下的表格无法提交");
+                return;
+            }
             if (Transferapplicationdatagrid.updata())
             {
                 MessageBox.Show("提交成功");
@@ -62,10 +67,6 @@ namespace EIMS_Login
             if(selecttime != 0)
             {
                 Transferapplicationdatagrid.connectatabase(stateType.SelectedIndex);
-                if (stateType.SelectedIndex != 0)
-                {
-                    Transferapplicationdatagrid.Cannotedit();
-                }
                 TotalApplication.Content = Transferapplicationdatagrid.Application.Items.Count;
             }
             selecttime++;

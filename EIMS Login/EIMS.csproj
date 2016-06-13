@@ -88,6 +88,9 @@
     <Compile Include="MaintenanceAdministrator\MaintenanceAdministrator_MaintenanceStatus.xaml.cs">
       <DependentUpon>MaintenanceAdministrator_MaintenanceStatus.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MaintenanceAdministrator\MaintenanceApplication.xaml.cs">
+      <DependentUpon>MaintenanceApplication.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MaintenanceAdministrator\TabelToStatus.xaml.cs">
       <DependentUpon>TabelToStatus.xaml</DependentUpon>
     </Compile>
@@ -130,6 +133,7 @@
     <Compile Include="PersonalInformation.xaml.cs">
       <DependentUpon>PersonalInformation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="renovate.cs" />
     <Compile Include="SystemAdministrator\SystemAdministrator_AddUser.xaml.cs">
       <DependentUpon>SystemAdministrator_AddUser.xaml</DependentUpon>
     </Compile>
@@ -256,6 +260,10 @@
     <Compile Include="EimsWindow.xaml.cs">
       <DependentUpon>EimsWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="MaintenanceAdministrator\MaintenanceApplication.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MaintenanceAdministrator\TabelToStatus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

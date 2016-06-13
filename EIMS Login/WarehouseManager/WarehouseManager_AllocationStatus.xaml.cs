@@ -42,6 +42,11 @@ namespace EIMS_Login
             {
                 return;
             }
+            if (statetype.SelectedIndex != 0)
+            {
+                MessageBox.Show("该选项下的表格无法提交");
+                return;
+            }
             if (allocationstatusdatagrid.Updata())
             {
                 MessageBox.Show("提交成功");
@@ -63,10 +68,6 @@ namespace EIMS_Login
             if (selecttime != 0)
             {
                 allocationstatusdatagrid.connectataBase(statetype.SelectedIndex);
-                if (statetype.SelectedIndex != 0)
-                {
-                    allocationstatusdatagrid.Cannotedit();
-                }
                 totalApplication.Content = allocationstatusdatagrid.Allocation.Items.Count;
             }
             selecttime++;

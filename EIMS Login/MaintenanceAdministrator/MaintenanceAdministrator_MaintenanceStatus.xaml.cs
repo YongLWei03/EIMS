@@ -20,6 +20,7 @@ namespace EIMS_Login
     /// </summary>
     public partial class MaintenanceAdministrator_MaintenanceStatus : UserControl
     {
+        public int selecttime = 0;
         public MaintenanceAdministrator_MaintenanceStatus()
         {
             InitializeComponent();
@@ -29,6 +30,41 @@ namespace EIMS_Login
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (selecttime != 0)
+            {
+                maintain.connectataBase(comboBox.SelectedIndex);
+                label2.Content = maintain.Allocation.Items.Count;
+            }
+            selecttime++;
+        }
+
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("    确认要提交？", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Warning, MessageBoxResult.OK) != MessageBoxResult.OK)
+            {
+                return;
+            }
+            if (comboBox.SelectedIndex != 0)
+            {
+                MessageBox.Show("该选项下的表格无法提交");
+                return;
+            }
+            if (maintain.updata())
+            {
+                MessageBox.Show("提交成功");
+            }
+            maintain.connectataBase(comboBox.SelectedIndex);
+            label2.Content = maintain.Allocation.Items.Count;
+        }
+
+        private void maintain_Loaded(object sender, RoutedEventArgs e)
+        {
+            maintain.connectataBase(comboBox.SelectedIndex);
+            label2.Content = maintain.Allocation.Items.Count;
         }
     }
 }

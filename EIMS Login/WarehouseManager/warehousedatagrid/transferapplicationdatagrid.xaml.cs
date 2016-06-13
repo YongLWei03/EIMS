@@ -104,11 +104,6 @@ namespace EIMS_Login.WarehouseManager.warehousedatagrid
             }
             return true;
         }
-        public void Cannotedit()
-        {
-            Application.IsReadOnly = true;
-        }
-
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             MoreInf moinf = new MoreInf();

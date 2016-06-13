@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EIMS_Login.MaintenanceAdministrator;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace EIMS_Login
     /// </summary>
     public partial class MaintenanceAdministrator_ViewMaintenanceApplication : UserControl
     {
+        public int selecttime = 0;
         public MaintenanceAdministrator_ViewMaintenanceApplication()
         {
             InitializeComponent();
@@ -34,6 +36,40 @@ namespace EIMS_Login
         {
 
         }
-        
+
+        private void button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("    确认要提交？", "提示", MessageBoxButton.OKCancel, MessageBoxImage.Warning, MessageBoxResult.OK) != MessageBoxResult.OK)
+            {
+                return;
+            }
+            if(comboBox.SelectedIndex != 0)
+            {
+                MessageBox.Show("该选项下的表格无法提交");
+                return;
+            }
+            if (maintaindatagrid.updata())
+            {
+                MessageBox.Show("提交成功");
+            }
+            maintaindatagrid.connectataBase(comboBox.SelectedIndex);
+            labe2.Content = maintaindatagrid.maintenance.Items.Count;
+        }
+
+        private void maintaindatagrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            maintaindatagrid.connectataBase(comboBox.SelectedIndex);
+            labe2.Content = maintaindatagrid.maintenance.Items.Count;
+        }
+
+        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (selecttime != 0)
+            {
+                maintaindatagrid.connectataBase(comboBox.SelectedIndex);
+                labe2.Content = maintaindatagrid.maintenance.Items.Count;
+            }
+            selecttime++;
+        }
     }
 }

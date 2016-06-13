@@ -99,11 +99,6 @@ namespace EIMS_Login.WarehouseManager.warehousedatagrid
             }
             else MessageBox.Show("当前未选中任何行！");
         }
-
-        public void Cannotedit()
-        {
-            Allocation.IsReadOnly = true;
-        }
     }
 
 }
