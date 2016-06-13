@@ -80,6 +80,7 @@ namespace EIMS_Login.Ordinaryusers
         //查看更多信息事件函数
         public void LookMore(object sender, RoutedEventArgs e)
         {
+            if (TableToApply.dataGrid.SelectedIndex == -1) return;
             mmiw = new MaintainMoreInfoWindows();
             mmiw.SetValues(TableToApply.Getdt(), TableToApply.dataGrid.SelectedIndex, TableToApply.Rows);
             mmiw.Show();

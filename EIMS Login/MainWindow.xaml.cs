@@ -1,20 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Media.Animation;
-using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
+
 
 namespace EIMS_Login
 {
@@ -50,7 +42,7 @@ namespace EIMS_Login
             dak.RepeatBehavior = new RepeatBehavior(1);//动画1次
             //开始动画
             this.login.BeginAnimation(Border.WidthProperty, dak);
-            
+            GetConfig();
 
         }
         //函数功能：鼠标左键按住窗口拖动
@@ -87,13 +79,65 @@ namespace EIMS_Login
             }
         }
 
+        private void SaveConfig()
+        {
+            //Create the object
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
+            //make changes
+            config.AppSettings.Settings["Username"].Value = Account.Text;
+            config.AppSettings.Settings["Password"].Value = PasswordBox.Password.ToString();
+            config.AppSettings.Settings["PwdChecked"].Value = "1";
+
+            //save to apply changes
+            config.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("appSettings");
+        }
+        private void ClearSaveConfig()
+        {
+            //Create the object
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+            //make changes
+            config.AppSettings.Settings["Username"].Value = Account.Text;
+            config.AppSettings.Settings["Password"].Value = "";
+            config.AppSettings.Settings["PwdChecked"].Value = "0";
+
+            //save to apply changes
+            config.Save(ConfigurationSaveMode.Modified);
+            ConfigurationManager.RefreshSection("appSettings");
+        }
+        private void GetConfig()
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+            Account.Text = config.AppSettings.Settings["Username"].Value.ToString();
+            PasswordBox.Password = config.AppSettings.Settings["Password"].Value.ToString();
+            string TempStr;
+            TempStr = config.AppSettings.Settings["PwdChecked"].Value.ToString();
+            if (TempStr == "1")
+            {
+                RememberPassword.IsChecked = true;
+            }
+            else
+            {
+                RememberPassword.IsChecked = false;
+            }
+        }
         /*
          * 功能：登陆
          */
         private void Login(object sender, RoutedEventArgs e)
         {
-            
+
+            if (RememberPassword.IsChecked == true)
+            {
+                SaveConfig();
+            }
+            else
+            {
+                ClearSaveConfig();
+            }
             if (Temp.SqlConn()==1 && TempInt == 1)
             {
                 MessageBox.Show("服务器连接失败！");
@@ -144,5 +188,12 @@ namespace EIMS_Login
             }
         }
 
+        private void login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Login(null, null);
+            }
+        }
     }
 }

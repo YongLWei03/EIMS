@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_Children
 {
@@ -23,6 +25,7 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
         MoreInf Stkinf;
         MoreInf Wareinf;
         InfTotal infnum = new InfTotal();
+        Connection temp = new Connection();
         string []Sur = { "库存编号", "装备编号", "装备单价", "装备数量", "生产日期", "仓库编号", "备注" };
         string []HouseStr = {"仓库编号","仓库名称","仓库说明" };
         public WarehouseStocks()
@@ -68,11 +71,17 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
         {
             MenuItem StocksMenu = StocksTable.AddMenuItem("更多信息");
             MenuItem WarehouseMenu = WarehouseTable.AddMenuItem("更多信息");
+            MenuItem DeletRowMenu1 = StocksTable.AddMenuItem("删除选中的行");
+            MenuItem DeletRowMenu2 = WarehouseTable.AddMenuItem("删除选中的行");
 
             StocksMenu.Click += StocksEventContent;
             WarehouseMenu.Click += WarehouseEventContent;
+            DeletRowMenu1.Click += DeletRows1;
+            DeletRowMenu2.Click += DeletRows2;
             StocksTable.dgMenu.Items.Add(StocksMenu);
+            StocksTable.dgMenu.Items.Add(DeletRowMenu1);
             WarehouseTable.dgMenu.Items.Add(WarehouseMenu);
+            WarehouseTable.dgMenu.Items.Add(DeletRowMenu2);
         }
 
         public void StocksEventContent(object sender, RoutedEventArgs e)
@@ -96,6 +105,50 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
                 Wareinf.Show();
             }
             else MessageBox.Show("当前未选中任何行！"); 
+        }
+        public void DeletRows1(object sender, RoutedEventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = temp.GetConn();
+            if (MessageBox.Show("您确定要删除吗？", "系统提示：", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            {
+                try
+                {
+                    for (int i = StocksTable.dataGrid.SelectedItems.Count - 1; i >= 0; i--)
+                    {
+                        cmd.CommandText = "delete from ArmsSurplus where SpId= '" + ((DataRowView)StocksTable.dataGrid.SelectedItems[i]).Row["SpId"].ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        ((DataRowView)StocksTable.dataGrid.SelectedItems[i]).Delete();
+                    }
+                }
+                catch (Exception ae)
+                {
+                    MessageBox.Show("删除失败！");
+                }
+            }
+
+        }
+        public void DeletRows2(object sender, RoutedEventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = temp.GetConn();
+            if (MessageBox.Show("您确定要删除吗？", "系统提示：", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            {
+                try
+                {
+                    for (int i = WarehouseTable.dataGrid.SelectedItems.Count - 1; i >= 0; i--)
+                    {
+                        cmd.CommandText = "delete from Storehouse where Sid= '" + ((DataRowView)WarehouseTable.dataGrid.SelectedItems[i]).Row["Sid"].ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        ((DataRowView)WarehouseTable.dataGrid.SelectedItems[i]).Delete();
+                    }
+                }
+                catch (Exception ae)
+                {
+                    MessageBox.Show("删除失败！");
+                }
+            }
+
         }
     }
 }

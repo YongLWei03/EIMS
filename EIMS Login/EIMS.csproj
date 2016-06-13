@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -58,6 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChangePWD.xaml.cs">
+      <DependentUpon>ChangePWD.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ConfidentialMembers\ConfidentialMembers_LoanApplication.xaml.cs">
       <DependentUpon>ConfidentialMembers_LoanApplication.xaml</DependentUpon>
     </Compile>
@@ -83,6 +87,9 @@
     </Compile>
     <Compile Include="MaintenanceAdministrator\MaintenanceAdministrator_MaintenanceStatus.xaml.cs">
       <DependentUpon>MaintenanceAdministrator_MaintenanceStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenanceAdministrator\TabelToStatus.xaml.cs">
+      <DependentUpon>TabelToStatus.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -202,6 +209,10 @@
     <Compile Include="WarehouseManager\WarehouseManager_Addwarehouse.xaml.cs">
       <DependentUpon>WarehouseManager_Addwarehouse.xaml</DependentUpon>
     </Compile>
+    <Page Include="ChangePWD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ConfidentialMembers\ConfidentialMembers_LoanApplication.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -245,6 +256,10 @@
     <Compile Include="EimsWindow.xaml.cs">
       <DependentUpon>EimsWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="MaintenanceAdministrator\TabelToStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

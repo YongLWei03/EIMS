@@ -28,7 +28,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140"/>
             <ColumnDefinition Width="260"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="140"/>
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
@@ -37,39 +37,39 @@
         <Label Grid.Row="3" Grid.Column="0" Content="编号：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
         <Label Grid.Row="4" Grid.Column="0" Content="性别：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
         <Label Grid.Row="5" Grid.Column="0" Content="所在部门编号：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
-        <Label Grid.Row="6" Grid.Column="0" Content="身份证号：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
-        <Label Grid.Row="7" Grid.Column="0" Content="民族：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
-        <Label Grid.Row="8" Grid.Column="0" Content="生日：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
-        <Label Grid.Row="9" Grid.Column="0" Content="职务：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
-        <Label Grid.Row="10" Grid.Column="0" Content="军衔：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
-        <Label Grid.Row="11" Grid.Column="0" Content="政治面貌：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
-        <Label Grid.Row="12" Grid.Column="0" Content="文化程度：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
-        <Label Grid.Row="13" Grid.Column="0" Content="婚姻状况：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
-        <Label Grid.Row="14" Grid.Column="0" Content="籍贯：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
+        <Label x:Name="label_1" Grid.Row="6" Grid.Column="0" Content="身份证号：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
+        <Label x:Name="label_2" Grid.Row="7" Grid.Column="0" Content="民族：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
+        <Label x:Name="label_3" Grid.Row="8" Grid.Column="0" Content="生日：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
+        <Label x:Name="label_4" Grid.Row="9" Grid.Column="0" Content="职务：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
+        <Label x:Name="label_5" Grid.Row="10" Grid.Column="0" Content="军衔：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
+        <Label x:Name="label_6" Grid.Row="11" Grid.Column="0" Content="政治面貌：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
+        <Label x:Name="label_7" Grid.Row="12" Grid.Column="0" Content="文化程度：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
+        <Label x:Name="label_10" Grid.Row="13" Grid.Column="0" Content="婚姻状况：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
+        <Label x:Name="label_11" Grid.Row="14" Grid.Column="0" Content="籍贯：" Width="120" HorizontalContentAlignment="Center" Margin="20,1,0,4" FontSize="16" Height="30"/>
         <Label Grid.Row="15" Grid.Column="0" Grid.ColumnSpan="2" Content="注意：三天时间之内未补全信息，该账号将被系统删除！" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Red"/>
         <TextBox x:Name="Account" Grid.Column="1" Grid.Row="1" FontSize="16" Height="25" IsReadOnly="True"/>
         <TextBox x:Name="Name" Grid.Column="1" Grid.Row="2" FontSize="16" Height="25" IsReadOnly="True"/>
         <TextBox x:Name="Serialnumber" Grid.Column="1" Grid.Row="3" FontSize="16" Height="25" IsReadOnly="True"/>
         <TextBox x:Name="Gender" Grid.Column="1" Grid.Row="4" FontSize="16" Height="25" IsReadOnly="True"/>
-        <TextBox x:Name="Departmentnumber" Grid.Column="1" Grid.Row="5" FontSize="16" Height="25"/>
-        <TextBox x:Name="IDcard" Grid.Column="1" Grid.Row="6" FontSize="16" Height="25"/>
-        <TextBox x:Name="National" Grid.Column="1" Grid.Row="7" FontSize="16" Height="25"/>
-        <TextBox x:Name="Birthday" Grid.Column="1" Grid.Row="8" FontSize="16" Height="25"/>
-        <TextBox x:Name="Position" Grid.Column="1" Grid.Row="9" FontSize="16" Height="25"/>
-        <TextBox x:Name="Rank" Grid.Column="1" Grid.Row="10" FontSize="16" Height="25"/>
-        <TextBox x:Name="Politicallandscape" Grid.Column="1" Grid.Row="11" FontSize="16" Height="25"/>
-        <TextBox x:Name="Leveleducation" Grid.Column="1" Grid.Row="12" FontSize="16" Height="25"/>
-        <TextBox x:Name="Maritalstatus" Grid.Column="1" Grid.Row="13" FontSize="16" Height="25"/>
-        <TextBox x:Name="Nativeplace" Grid.Column="1" Grid.Row="14" FontSize="16" Height="25"/>
+        <TextBox x:Name="Departmentnumber" Grid.Column="1" Grid.Row="5" FontSize="16" Height="25" IsReadOnly="True"/>
+        <TextBox x:Name="IDcard" Grid.Column="1" Grid.Row="6" FontSize="16" Height="25" TextChanged="IDcard_TextChanged"/>
+        <TextBox x:Name="National" Grid.Column="1" Grid.Row="7" FontSize="16" Height="25" TextChanged="sNationalty_TextChanged"/>
+        <TextBox x:Name="Birthday" Grid.Column="1" Grid.Row="8" FontSize="16" Height="25" TextChanged="sBirth_TextChanged"/>
+        <TextBox x:Name="Position" Grid.Column="1" Grid.Row="9" FontSize="16" Height="25" TextChanged="Position_TextChanged"/>
+        <TextBox x:Name="Rank" Grid.Column="1" Grid.Row="10" FontSize="16" Height="25" TextChanged="Rank_TextChanged"/>
+        <TextBox x:Name="Political_Party" Grid.Column="1" Grid.Row="11" FontSize="16" Height="25" TextChanged="Political_Party_TextChanged"/>
+        <TextBox x:Name="Culture_Level" Grid.Column="1" Grid.Row="12" FontSize="16" Height="25" TextChanged="Culture_Level_TextChanged"/>
+        <TextBox x:Name="Marital_Condition" Grid.Column="1" Grid.Row="13" FontSize="16" Height="25" TextChanged="Marital_Condition_TextChanged"/>
+        <TextBox x:Name="Family_Place" Grid.Column="1" Grid.Row="14" FontSize="16" Height="25" TextChanged="Family_Place_TextChanged"/>
         <Label Content="照片：" Grid.Column="2" Grid.Row="1" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Image x:Name="MyImage" Grid.Column="3" Grid.Row="1" Grid.RowSpan="9" Width="300" Height="300"/>
         <Button x:Name="SelectImage" Grid.Column="3" Grid.Row="10" Width="170" Height="25" Content="上传图片" FontSize="16" Click="SelectImage_Click"/>
-        <Label Grid.Column="2" Grid.Row="11" Content="工作岗位：" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
-        <Label Grid.Column="2" Grid.Row="12" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Content="部门领导编号："/>
-        <TextBox  x:Name="Post" Grid.Row="11" Grid.Column="3" Height="25" FontSize="16"/>
-        <TextBox  x:Name="LeaderNumber" Grid.Row="12" Grid.Column="3" Height="25" FontSize="16"/>
-        <Button Grid.Column="3" Grid.Row="13" Width="100" HorizontalAlignment="Left" Height="25" Content="修改密码" FontSize="16"/>
-        <Button Grid.Column="3" Grid.Row="13" Width="100" HorizontalAlignment="Right" Height="25" Content="提交修改" FontSize="16"/>
+        <Label x:Name="label_12" Grid.Column="2" Grid.Row="11" Content="工作岗位：" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+        <Label x:Name="label_13" Grid.Column="2" Grid.Row="12" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" Content="部门领导编号："/>
+        <TextBox  x:Name="Post" Grid.Row="11" Grid.Column="3" Height="25" FontSize="16" TextChanged="Post_TextChanged"/>
+        <TextBox  x:Name="UpperId" Grid.Row="12" Grid.Column="3" Height="25" FontSize="16" TextChanged="UpperId_TextChanged"/>
+        <Button Grid.Column="3" Grid.Row="13" Width="100" HorizontalAlignment="Left" Height="25" Content="修改密码" FontSize="16" Click="Button_Click_1"/>
+        <Button Grid.Column="3" Grid.Row="13" Width="100" HorizontalAlignment="Right" Height="25" Content="提交修改" FontSize="16" Click="Button_Click"/>
         <Button Grid.Column="3" Grid.Row="14" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Content="查看个人日志" FontSize="16"/>
     </Grid>
 </UserControl>

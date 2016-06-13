@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
 using EIMS_Login.Ordinaryusers;
+using EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_Children;
 
 namespace EIMS_Login.UserDefinedDataGrid
 {
@@ -25,7 +26,7 @@ namespace EIMS_Login.UserDefinedDataGrid
     {
         Connection Temp = new Connection();
         public int Rows=0;
-        DataTable dt = new DataTable();//数据表后台存储
+        public DataTable dt = new DataTable();//数据表后台存储
         public UserDefinedDataGrid()
         {
             InitializeComponent();            
@@ -110,7 +111,7 @@ namespace EIMS_Login.UserDefinedDataGrid
                 dt = Table0;
                 Rows = Table0.Rows.Count;
                 if (SelectStr == "更新")
-                    dataGrid.ItemsSource = Table0.DefaultView;
+                    dataGrid.ItemsSource = dt.DefaultView;
                 else if (SelectStr == "保存")
                 {
                     ds.Clear();
@@ -212,6 +213,27 @@ namespace EIMS_Login.UserDefinedDataGrid
                 ds.Tables[0].Columns[i].ColumnName = StrCloumns[i];
             }
             
+        }
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {      
+            string save;
+            try
+            {
+                if (this.Name == "DepartmentTable")
+                {
+                    save = ((DataRowView)this.dataGrid.SelectedItem).Row["DepId"].ToString();
+                    DepartmentStaff select = new DepartmentStaff();
+                    select.StaffTable.DataTableSelect("select * from ArmsPerson where Dep_Id ='" + save + "'", "更新");
+                }
+            }
+            catch (Exception se)
+            {
+                MessageBox.Show(se.ToString());
+            }
+            
+            
+                
         }
 
     }

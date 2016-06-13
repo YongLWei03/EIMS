@@ -100,5 +100,6 @@ namespace EIMS_Login.Ordinaryusers
                 MessageBox.Show("错误："+ ex);
             }
         }
+
     }
 }

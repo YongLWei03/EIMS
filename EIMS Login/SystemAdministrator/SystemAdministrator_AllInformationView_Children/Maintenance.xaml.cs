@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Data;
+using System.Data.SqlClient;
 
 namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_Children
 {
@@ -23,6 +24,7 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
     {
         MoreInf Mamoinf;
         InfTotal infnum = new InfTotal();
+        Connection temp = new Connection();
         string[] Str = { "记录编号", "申请人员编号", "送修人编号", "装备编号", "维修日期", "维修单位", "故障原因", "维修状态", "维修费用", "维修结果", "维修负责人", "提交日期"};
         public Maintenance()
         {
@@ -75,8 +77,11 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
         public void InitRightBm()
         {
             MenuItem MaintenanceMenu = MaintenanceTable.AddMenuItem("更多信息");
+            MenuItem DeletRowMenu1 = MaintenanceTable.AddMenuItem("删除选中的行");
             MaintenanceMenu.Click += MaintenanceEventContent;
+            DeletRowMenu1.Click += DeletRows1;
             MaintenanceTable.dgMenu.Items.Add(MaintenanceMenu);
+            MaintenanceTable.dgMenu.Items.Add(DeletRowMenu1);
         }
         public void MaintenanceEventContent(object sender, RoutedEventArgs e)
         {
@@ -88,6 +93,28 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
                 Mamoinf.Show();
             }
             else MessageBox.Show("当前未选中任何行！");           
+        }
+        public void DeletRows1(object sender, RoutedEventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = temp.GetConn();
+            if (MessageBox.Show("您确定要删除吗？", "系统提示：", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            {
+                try
+                {
+                    for (int i = MaintenanceTable.dataGrid.SelectedItems.Count - 1; i >= 0; i--)
+                    {
+                        cmd.CommandText = "delete from ArmsRepair where RepId= '" + ((DataRowView)MaintenanceTable.dataGrid.SelectedItems[i]).Row["RepId"].ToString() + "'";
+                        cmd.ExecuteNonQuery();
+                        ((DataRowView)MaintenanceTable.dataGrid.SelectedItems[i]).Delete();
+                    }
+                }
+                catch (Exception ae)
+                {
+                    MessageBox.Show("删除失败！");
+                }
+            }
+
         }
     }
 }
