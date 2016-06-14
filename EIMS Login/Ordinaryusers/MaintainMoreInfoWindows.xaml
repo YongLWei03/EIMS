@@ -29,8 +29,10 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Image x:Name="MyImage" Width="500" Height="600" Source="/EIMS Login;component/Images/详细背景.png" />
-        <Button x:Name="button" Style="{StaticResource MyButton}" Content="" Margin="470,0,-2.4,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="30" Click="button_Click">
+        <Grid.Background>
+            <ImageBrush ImageSource="/EIMS Login;component/Images/Public/详细背景.png"/>
+        </Grid.Background>
+        <Button x:Name="button" Style="{StaticResource MyButton}" Content="" Margin="467,0,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="30" Click="button_Click">
             <Button.Background>
                 <ImageBrush ImageSource="/EIMS Login;component/Images/Public/关闭.png"/>
             </Button.Background>

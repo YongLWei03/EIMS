@@ -60,11 +60,6 @@
                 <ImageBrush ImageSource="Images/Public/最小化.png"/>
             </Button.Background>
         </Button>
-        <ComboBox Width="70" Height="28" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top"  Grid.Row="0" Grid.Column="9" SelectedIndex="0">
-            <ComboBoxItem Content="蓝天" />
-            <ComboBoxItem Content="魔幻" />
-            <ComboBoxItem Content="未来" />
-        </ComboBox>
         <Grid Grid.Row="1" Grid.ColumnSpan="12" Name="application_children">
         </Grid>
     </Grid>
