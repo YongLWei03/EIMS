@@ -350,5 +350,11 @@ namespace EIMS_Login
             ChangePWD TempWindow = new ChangePWD();
             TempWindow.Show();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            UserLogWin TempUserLogwin = new UserLogWin(NowUser.UserInfoTemp.Ryid);
+            TempUserLogwin.Show();
+        }
     }
 }

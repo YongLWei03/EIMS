@@ -186,6 +186,9 @@
     <Compile Include="UserDefinedDataGrid\UserDefinedDataGrid.xaml.cs">
       <DependentUpon>UserDefinedDataGrid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserLogWin.xaml.cs">
+      <DependentUpon>UserLogWin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WarehouseManager\warehousedatagrid\AddWarehouseDataGrid.xaml.cs">
       <DependentUpon>AddWarehouseDataGrid.xaml</DependentUpon>
     </Compile>
@@ -386,6 +389,10 @@
     <Page Include="UserDefinedDataGrid\UserDefinedDataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserLogWin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="WarehouseManager\warehousedatagrid\AddWarehouseDataGrid.xaml">
       <SubType>Designer</SubType>
