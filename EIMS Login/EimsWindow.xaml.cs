@@ -176,18 +176,16 @@ namespace EIMS_Login
                     Addwarehouse.SetValue(Grid.RowProperty, 0);
                     column = 5;
 
-                    application_children.Children.Clear();
-                    WarehouseManager_TransferApplication WarehouseManager_TransferApplication = new WarehouseManager_TransferApplication();
-                    application_children.Children.Add(WarehouseManager_TransferApplication);
-                    WarehouseManager_TransferApplication.SetValue(Grid.RowProperty, 1);
-                    WarehouseManager_TransferApplication.SetValue(Grid.ColumnSpanProperty, 12);
-
                     TransferApplication.Click += new RoutedEventHandler(TransferApplicationClick);
                     AllocationStatus.Click += new RoutedEventHandler(AllocationStatusClick);
                     OutOfStorage.Click += new RoutedEventHandler(OutOfStorageClick);
                     Inventory.Click += new RoutedEventHandler(InventoryClick);
                     Addwarehouse.Click += new RoutedEventHandler(AddwarehouseClick);
 
+                    WarehouseManager_TransferApplication WarehouseManager_TransferApplication = new WarehouseManager_TransferApplication();
+                    application_children.Children.Add(WarehouseManager_TransferApplication);
+                    WarehouseManager_TransferApplication.SetValue(Grid.RowProperty, 1);
+                    WarehouseManager_TransferApplication.SetValue(Grid.ColumnSpanProperty, 12);
                     break;
                 case MainWindow.userIdentity.System_administrator://系统管理员
                     Button AddUser = new Button();
@@ -606,6 +604,22 @@ namespace EIMS_Login
         private void Min_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(selectimage.SelectedIndex == 0)
+            {
+                backimage.Source = new BitmapImage(new Uri("pack://application:,,,/Images/Public/蓝天白云.png", UriKind.RelativeOrAbsolute));
+            }
+            else if(selectimage.SelectedIndex == 1)
+            {
+                backimage.Source = new BitmapImage(new Uri("pack://application:,,,/Images/Public/魔幻.png", UriKind.RelativeOrAbsolute));
+            }
+            else
+            {
+                backimage.Source = new BitmapImage(new Uri("pack://application:,,,/Images/Public/魔幻2.png", UriKind.RelativeOrAbsolute));
+            }
         }
     }
 }
