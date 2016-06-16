@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
+using EIMS_Login;
 
 namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_Children
 {
@@ -38,7 +39,6 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
             StaffTable.DataTableSelect("select * from ArmsPerson", "更新");
             RyNum.Content = infnum.InfTotalSet("ArmsPerson");
             InitRightBm();
-
         }
         private void InitDepartmentTable()
         {
@@ -153,5 +153,15 @@ namespace EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_
             }
                                    
         }
+
+        private void StaffTable_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            SystemAdministrator_NetUser NetUser = new SystemAdministrator_NetUser();
+            NetUser.SetValue(Grid.RowProperty, 0);
+            NetUser.SetValue(Grid.ColumnSpanProperty, 12);
+            NetUser.SearchText.Text = ((DataRowView)StaffTable.dataGrid.SelectedItem).Row["RyId"].ToString();
+            NetUser.Search_button.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+        }
+
     }
 }

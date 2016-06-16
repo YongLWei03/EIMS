@@ -127,7 +127,12 @@
         </Grid>
         <Button x:Name="Clear_photo" Grid.Row="1" Content="清除照片" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="100" Margin="0,0,96,62"></Button>
         <Button x:Name="Submit" Grid.Row="1" Content="提交修改" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="86" Margin="0,0,146,22" Click="Submit_Click"></Button>
-        <Button x:Name="DeletAccount" Grid.Row="1" Content="删除该账号" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="100" Margin="0,0,26,22" Click="DeletAccount_Click"></Button>
+        <Button x:Name="DeletAccount" Grid.Row="1" Content="删除该账号" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="100" Margin="0,0,26,22" Click="DeletAccount_Click">
+            <Button.Triggers >
+                <EventTrigger RoutedEvent="Button.Click">                    
+                </EventTrigger>               
+            </Button.Triggers>
+        </Button>
         <Grid x:Name="Delet" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>

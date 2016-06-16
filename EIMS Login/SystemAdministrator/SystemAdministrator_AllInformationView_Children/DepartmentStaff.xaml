@@ -25,6 +25,8 @@
         <Label x:Name="RyNum"  Grid.Row="0" Grid.Column="1" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="30" Width="80" Margin="0,0,10,10"></Label>
         <Label x:Name="delsubmitR_Text" Grid.Row="0" Grid.Column="1"  FontSize="16" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="100,10">人员共计:</Label>
         <Button x:Name="RyExport"  Grid.Row="1" Grid.Column="1" Content="导出为Excel表格" FontSize="16"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="25" Width="140" Margin="10,0" Click="RyExport_Click"></Button>
-        <UserDefinedDataGrid:UserDefinedDataGrid  x:Name="StaffTable" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="auto"  Margin="10,10" />
+        <UserDefinedDataGrid:UserDefinedDataGrid  x:Name="StaffTable" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="auto"  Margin="10,10" MouseDoubleClick="StaffTable_MouseDoubleClick" />
+
+
     </Grid>
 </UserControl>

@@ -28,29 +28,35 @@ namespace EIMS_Login
         SqlDataAdapter ado = new SqlDataAdapter();
         SqlDataAdapter bdo = new SqlDataAdapter();
         DataSet Mydataset = new DataSet();
-        DataSet UserSet = new DataSet();
+        DataSet AccountSet = new DataSet();
+        DataTable account = new DataTable();
+        string TempSearch = null;
         public SystemAdministrator_NetUser()
         {
             InitializeComponent();
+            AccountSet.Tables.Add(account);
         }
 
         private void Search_button_Click(object sender, RoutedEventArgs e)
         {
+            TempSearch = SearchText.Text;
             string usersearchPerson = "select * from ArmsPerson where RyId ='" + SearchText.Text + "'";
             string usersearchAccount = "select * from ArmsUsers where RyId ='" + SearchText.Text + "'";
             try
             {
                 UserSearch.Connection = Temp.GetConn();
                 AccountSearch.Connection = Temp.GetConn();
+                AccountSearch.CommandText = usersearchAccount;
+                bdo.SelectCommand = AccountSearch;
+                account.Clear();
+                bdo.Fill(AccountSet, "Table1");
+                Accounts.DisplayMemberPath = "Usersname";
+                Accounts.ItemsSource = AccountSet.Tables[0].DefaultView;
+                Accounts.SelectedIndex = 0;
                 UserSearch.CommandText = usersearchPerson;           
                 ado.SelectCommand = UserSearch;               
                 ado.Fill(Mydataset,"person");
-                AccountSearch.CommandText = usersearchAccount;
-                bdo.SelectCommand = AccountSearch;
-                bdo.Fill(UserSet, "account");
-                Accounts.DisplayMemberPath = "Usersname";
-                Accounts.ItemsSource = UserSet.Tables["account"].DefaultView;
-                Accounts.SelectedIndex = 0;
+               
                 MessageBox.Show(Mydataset.Tables["person"].Rows[0]["RyId"].ToString());
                 foreach(DataRow row in Mydataset.Tables["person"].Rows)
                 {
@@ -103,7 +109,7 @@ namespace EIMS_Login
             try
             {
                 SqlCommandBuilder sqlcb = new SqlCommandBuilder(ado);
-                SqlCommandBuilder sqlcb2 = new SqlCommandBuilder(bdo);
+                SqlCommandBuilder sqlcb1 = new SqlCommandBuilder(bdo);
                 Mydataset.Tables["person"].Rows[0]["RyId"] = number.Text;
                 Mydataset.Tables["person"].Rows[0]["RyName"] = name.Text;
                 Mydataset.Tables["person"].Rows[0]["Sex"] = sex.SelectionBoxItem.ToString();
@@ -120,9 +126,9 @@ namespace EIMS_Login
                 Mydataset.Tables["person"].Rows[0]["Position"] = jobs.Text;
                 Mydataset.Tables["person"].Rows[0]["UpperId"] = LeadershipNum.Text;
 
-                UserSet.Tables["account"].Rows[Accounts.SelectedIndex]["User_type"] = Competence.SelectionBoxItem.ToString();
-                bdo.Update(UserSet, "account");
-                UserSet.Tables["account"].AcceptChanges();
+                AccountSet.Tables[0].Rows[Accounts.SelectedIndex]["User_type"] = Competence.SelectionBoxItem.ToString();
+                bdo.Update(AccountSet, "Table1");
+                AccountSet.Tables["Table1"].AcceptChanges();
                 ado.Update(Mydataset,"person");
                 Mydataset.Tables["person"].AcceptChanges();
 
@@ -133,6 +139,7 @@ namespace EIMS_Login
                 return;
             }
             MessageBox.Show("修改成功！");
+            Search_button.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
 
 
 
@@ -146,7 +153,7 @@ namespace EIMS_Login
         private void Accounts_DropDownClosed(object sender, EventArgs e)
         {
             if (Accounts.SelectedIndex == -1) return;
-            string type = UserSet.Tables["account"].Rows[Accounts.SelectedIndex]["User_type"].ToString();
+            string type = AccountSet.Tables[0].Rows[Accounts.SelectedIndex]["User_type"].ToString();
             if (type == "普通用户") Competence.SelectedIndex = 0;
             if (type == "系统管理员") Competence.SelectedIndex = 1;
             if (type == "维修管理员") Competence.SelectedIndex = 2;
@@ -172,6 +179,10 @@ namespace EIMS_Login
                     MessageBox.Show("删除失败！");
                 }
             }
+            SearchText.Text = TempSearch;
+            Accounts.ItemsSource = null;
+            Search_button.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            
         }
     }
 }

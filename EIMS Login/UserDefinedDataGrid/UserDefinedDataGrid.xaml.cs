@@ -17,6 +17,7 @@ using System.Data.SqlClient;
 using EIMS_Login.Ordinaryusers;
 using EIMS_Login.SystemAdministrator.SystemAdministrator_AllInformationView_Children;
 
+
 namespace EIMS_Login.UserDefinedDataGrid
 {
     /// <summary>
@@ -172,13 +173,20 @@ namespace EIMS_Login.UserDefinedDataGrid
                     System.Windows.Forms.Application.DoEvents();
                 }
                 worksheet.Columns.EntireColumn.AutoFit();//列宽自适应。
+                System.Windows.Forms.FolderBrowserDialog fbd = new System.Windows.Forms.FolderBrowserDialog();
+                fbd.ShowDialog();   
                 if (saveFileName != "")
-                {
+                {                                  
                     try
                     {
-                        workbook.Saved = true;
-                        workbook.SaveCopyAs(saveFileName);
-                        fileSaved = true;
+                        if (fbd.SelectedPath != string.Empty)
+                        {
+                            workbook.Saved = true;
+                            workbook.SaveAs(fbd.SelectedPath + "\\" + saveFileName);
+                            fileSaved = true;
+                        }
+                        else return "";
+                      
                     }
                     catch (Exception ex)
                     {
@@ -193,8 +201,8 @@ namespace EIMS_Login.UserDefinedDataGrid
                 }
                 xlApp.Quit();
                 GC.Collect();//强行销毁
-                if (fileSaved && System.IO.File.Exists(saveFileName)) System.Diagnostics.Process.Start(saveFileName); //打开EXCEL
-                MessageBox.Show("导出成功，默认保存在：我的电脑/文档");
+                if (fileSaved && System.IO.File.Exists(fbd.SelectedPath + "\\" + saveFileName)) System.Diagnostics.Process.Start(fbd.SelectedPath + "\\" + saveFileName); //打开EXCEL
+                MessageBox.Show("导出成功!");
                 return "成功保存到Excel";
             }
             catch (Exception ex)
