@@ -25,9 +25,11 @@ namespace EIMS_Login
         Connection Temp = new Connection();
         OrdinaryUserInfo TempUser = new OrdinaryUserInfo();
         bool TempBool = true;
+        string RyIdStr;
         public ChangePWD()
         {
             InitializeComponent();
+            RyIdStr = TempUser.UserInfoTemp.Ryid;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -46,8 +48,10 @@ namespace EIMS_Login
         }
         private bool PwdJudge(string str)
         {
+            
             try
             {
+
                 string SQL = "select * from ArmsUsers where Usersname='" + MainWindow.CurrentUser + "' and Userspwd = '"+ str + "'";
                 SqlCommand CMD_1 = new SqlCommand(SQL, Temp.GetConn());
                 SqlDataReader Sdr_1 = CMD_1.ExecuteReader();
@@ -119,7 +123,7 @@ namespace EIMS_Login
                 {
                     SqlCommand CMD_1 = new SqlCommand(SQL, Temp.GetConn());
                     CMD_1.ExecuteNonQuery();
-                    
+
                 }
                 catch (Exception ex)
                 {
@@ -127,9 +131,17 @@ namespace EIMS_Login
                     return;
                 }
                 MessageBox.Show("密码修改成功，下次登陆请使用新密码！");
+                UpDataLog();
                 this.Close();
             }
-
+        }
+            private void UpDataLog()
+        {
+            UpDataSysLog TempLog = new UpDataSysLog();
+            string Str = MainWindow.CurrentUser + "于" + DateTime.Now.ToString("yyyy年MM月dd日") + " " + DateTime.Now.ToLongTimeString().ToString()
+                + "修改密码，所属人编号为：" + RyIdStr;
+            TempLog.SetLogValues("pwd_xg", "账号：" +MainWindow.CurrentUser+"修改密码",
+                Str, RyIdStr);
         }
     }
 }

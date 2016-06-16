@@ -138,7 +138,7 @@ namespace EIMS_Login
             this.UpperId.Text = NowUser.UserInfoTemp.UpperId;
             if(NowUser.UserInfoTemp.Photo == null)
             {
-                //MessageBox.Show("没有图片");
+                //
             }
             else
             {
