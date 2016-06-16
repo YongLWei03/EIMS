@@ -50,6 +50,8 @@
             <ColumnDefinition Width="30"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="12" MouseLeftButtonDown="DragWindow"/>
+        <Image x:Name="backimage" Grid.Row="0" Grid.Column="6" Grid.ColumnSpan="6">
+        </Image>
         <Button x:Name="Close" Style="{StaticResource MyButton}" Grid.Row="0" Grid.Column="11" HorizontalAlignment="Right" VerticalAlignment="Top" Width="28" Height="28" Click="Close_Click">
             <Button.Background>
                 <ImageBrush ImageSource="Images/Public/关闭.png"/>
@@ -60,6 +62,11 @@
                 <ImageBrush ImageSource="Images/Public/最小化.png"/>
             </Button.Background>
         </Button>
+        <ComboBox x:Name="selectimage" Width="70" Height="28" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top"  Grid.Row="0" Grid.Column="9" SelectedIndex="0" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem Content="蓝天" />
+            <ComboBoxItem Content="魔幻" />
+            <ComboBoxItem Content="未来" />
+        </ComboBox>
         <Grid Grid.Row="1" Grid.ColumnSpan="12" Name="application_children">
         </Grid>
     </Grid>

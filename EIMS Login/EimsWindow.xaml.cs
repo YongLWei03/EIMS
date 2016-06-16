@@ -606,6 +606,7 @@ namespace EIMS_Login
             this.WindowState = WindowState.Minimized;
         }
 
+
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(selectimage.SelectedIndex == 0)
